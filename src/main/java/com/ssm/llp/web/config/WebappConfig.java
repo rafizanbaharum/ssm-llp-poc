@@ -11,14 +11,9 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.encoding.PasswordEncoder;
-import org.springframework.security.authentication.encoding.ShaPasswordEncoder;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 import javax.sql.DataSource;
 import java.util.Properties;
@@ -31,7 +26,7 @@ import java.util.Properties;
 @ComponentScan({"com.ssm.llp.integration", "com.ssm.llp.core", "com.ssm.llp.biz", "com.ssm.llp.web"})
 @PropertySource("classpath:app.properties")
 @EnableTransactionManagement
-public class WebappConfig extends AbstractAnnotationConfigDispatcherServletInitializer {
+public class WebappConfig {
 
     @Autowired
     private Environment environment;
@@ -86,40 +81,5 @@ public class WebappConfig extends AbstractAnnotationConfigDispatcherServletIniti
         dataSource.setMaxActive(5);
         dataSource.setMaxWait(5000);
         return dataSource;
-    }
-
-    @Bean
-    public UserDetailsService userDetailService() {
-        return new SsmUserDetailService();
-    }
-
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new ShaPasswordEncoder();
-    }
-
-    @Bean
-    public AuthenticationManager authenticationManager() throws Exception {
-        return new AuthenticationManagerBuilder()
-                .userDetailsService(userDetailService())
-                .passwordEncoder(new ShaPasswordEncoder())
-                .and().build();
-    }
-
-    @Override
-    protected Class<?>[] getRootConfigClasses() {
-        return new Class[]{WebMvcConfig.class, WebSecurityConfig.class};
-    }
-
-    @Override
-    protected Class<?>[] getServletConfigClasses() {
-        return new Class<?>[0];  // TODO:
-
-    }
-
-    @Override
-    protected String[] getServletMappings() {
-        return new String[0];  // TODO:
-
     }
 }

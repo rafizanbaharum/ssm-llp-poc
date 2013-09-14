@@ -157,7 +157,7 @@
                         Dashboard</a>
                     <ul>
                         <li class="current">
-                            <a href="dashboard.html">Dashboard</a>
+                            <a href="dashboard.jsp">Dashboard</a>
                         </li>
                         <li>
                             <a href="404.html">404</a>
@@ -374,7 +374,7 @@
                 <h3>Create a Blogpost</h3>
                 <span></span>
             </div>
-            <form action="dashboard.html" class="validate">
+            <form action="dashboard.jsp" class="validate">
                 <div class="content no-padding">
                     <div class="section _100">
                         <label for="blogpost-title">
@@ -556,7 +556,7 @@
         <div id="button_bar">
             <ul>
                 <li>
-                    <span><a href="dashboard.html">Dashboard</a></span>
+                    <span><a href="dashboard.jsp">Dashboard</a></span>
                 </li>
                 <li>
                     <span><a href="#">Settings</a></span>

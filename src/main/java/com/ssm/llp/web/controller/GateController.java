@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.*;
  * @since 9/14/13
  */
 @Controller
-@RequestMapping("/register")
-public class LoginController {
+@RequestMapping("/gate")
+public class GateController {
 
-    @RequestMapping(value = "/validate", method = {RequestMethod.GET})
-    public String validateName(ModelMap model) {
-        return "index";
+    @RequestMapping(method = {RequestMethod.GET})
+    public String go(ModelMap model) {
+        return "gate";
     }
 
 }

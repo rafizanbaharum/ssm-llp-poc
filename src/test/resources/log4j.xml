@@ -26,6 +26,13 @@
         <level value="ERROR"/>
     </logger>
 
+    <logger name="org.springframework.security">
+        <level value="DEBUG"/>
+    </logger>
+    <logger name="org.springframework.web">
+        <level value="DEBUG"/>
+    </logger>
+
     <root>
         <priority value="ERROR"/>
         <appender-ref ref="STDOUT"/>

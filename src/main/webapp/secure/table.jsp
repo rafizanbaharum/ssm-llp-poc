@@ -9,24 +9,24 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="resources/css/960gs/fluid.css">
-    <link rel="stylesheet" href="resources/css/h5bp/normalize.css">
-    <link rel="stylesheet" href="resources/css/h5bp/non-semantic.helper.classes.css">
-    <link rel="stylesheet" href="resources/css/h5bp/print.styles.css">
-    <link rel="stylesheet" href="resources/css/sprites.css">
-    <link rel="stylesheet" href="resources/css/header.css">
-    <link rel="stylesheet" href="resources/css/navigation.css">
-    <link rel="stylesheet" href="resources/css/sidebar.css">
-    <link rel="stylesheet" href="resources/css/content.css">
-    <link rel="stylesheet" href="resources/css/footer.css">
-    <link rel="stylesheet" href="resources/css/typographics.css">
-    <link rel="stylesheet" href="resources/css/ie.fixes.css">
-    <link rel="stylesheet" href="resources/css/sprite.forms.css">
-    <link rel="stylesheet" href="resources/css/sprite.tables.css">
-    <link rel="stylesheet" href="resources/css/sprite.lists.css">
-    <link rel="stylesheet" href="resources/css/icons.css">
-    <link rel="stylesheet" href="resources/css/external/jquery-ui-1.8.16.custom.css">
-    <link rel="stylesheet" href="resources/css/sidebar.css">
+    <link rel="stylesheet" href="../resources/css/960gs/fluid.css">
+    <link rel="stylesheet" href="../resources/css/h5bp/normalize.css">
+    <link rel="stylesheet" href="../resources/css/h5bp/non-semantic.helper.classes.css">
+    <link rel="stylesheet" href="../resources/css/h5bp/print.styles.css">
+    <link rel="stylesheet" href="../resources/css/sprites.css">
+    <link rel="stylesheet" href="../resources/css/header.css">
+    <link rel="stylesheet" href="../resources/css/navigation.css">
+    <link rel="stylesheet" href="../resources/css/sidebar.css">
+    <link rel="stylesheet" href="../resources/css/content.css">
+    <link rel="stylesheet" href="../resources/css/footer.css">
+    <link rel="stylesheet" href="../resources/css/typographics.css">
+    <link rel="stylesheet" href="../resources/css/ie.fixes.css">
+    <link rel="stylesheet" href="../resources/css/sprite.forms.css">
+    <link rel="stylesheet" href="../resources/css/sprite.tables.css">
+    <link rel="stylesheet" href="../resources/css/sprite.lists.css">
+    <link rel="stylesheet" href="../resources/css/icons.css">
+    <link rel="stylesheet" href="../resources/css/external/jquery-ui-1.8.16.custom.css">
+    <link rel="stylesheet" href="../resources/css/sidebar.css">
 </head>
 
 <body>
@@ -53,12 +53,12 @@
             <div class="container_12">
                 <ul id="nav_main">
                     <li class="current">
-                        <a href="#"> <img src="resources/img/icons/25x25/dark/computer-imac.png" width=25 height=25
+                        <a href="#"> <img src="../resources/img/icons/25x25/dark/computer-imac.png" width=25 height=25
                                           alt="">
                             Home</a>
                         <ul>
                             <li class="current">
-                                <a href="dashboard.html">Name Search</a>
+                                <a href="dashboard.jsp">Name Search</a>
                             </li>
                             <li>
                                 <a href="login">Login</a>
@@ -67,7 +67,7 @@
                     </li>
                     <li>
                         <a href="#">
-                            <img src="resources/img/icons/25x25/dark/book-large.png" width=25 height=25 alt=""> Register</a>
+                            <img src="../resources/img/icons/25x25/dark/book-large.png" width=25 height=25 alt=""> Register</a>
                         <ul>
                             <li>
                                 <a href="register">Register</a>
@@ -105,7 +105,7 @@
             <div class="grid_12">
                 <div class="box">
                     <div class="header">
-                        <img src="resources/img/icons/packs/fugue/16x16/shadeless/table.png" width="16" height="16">
+                        <img src="../resources/img/icons/packs/fugue/16x16/shadeless/table.png" width="16" height="16">
 
                         <h3>Offensive Name</h3><span></span>
                     </div>
@@ -184,7 +184,7 @@
         <div id="button_bar">
             <ul>
                 <li>
-                    <span><a href="dashboard.html">Dashboard</a></span>
+                    <span><a href="dashboard.jsp">Dashboard</a></span>
                 </li>
                 <li>
                     <span><a href="#">Settings</a></span>
@@ -198,22 +198,22 @@
 <!-- JavaScript at the bottom for fast page loading -->
 <!-- Grab Google CDN's jQuery + jQueryUI, with a protocol relative URL; fall back to local -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"></script>
-<script>window.jQuery || document.write('<script src="resources/js/libs/jquery-1.7.1.js"><\/script>')</script>
+<script>window.jQuery || document.write('<script src="../resources/js/libs/jquery-1.7.1.js"><\/script>')</script>
 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
-<script>window.jQuery.ui || document.write('<script src="resources/js/libs/jquery-ui-1.8.16.min.js"><\/script>')</script>
+<script>window.jQuery.ui || document.write('<script src="../resources/js/libs/jquery-ui-1.8.16.min.js"><\/script>')</script>
 
 <!-- scripts concatenated and minified via build script -->
-<script defer src="resources/js/plugins.js"></script>
+<script defer src="../resources/js/plugins.js"></script>
 <!-- REQUIRED: Different own jQuery plugnis -->
-<script defer src="resources/js/mylibs/jquery.ba-resize.js"></script>
+<script defer src="../resources/js/mylibs/jquery.ba-resize.js"></script>
 <!-- RECOMMENDED when using sidebar: page resizing -->
-<script defer src="resources/js/mylibs/jquery.easing.1.3.js"></script>
+<script defer src="../resources/js/mylibs/jquery.easing.1.3.js"></script>
 <!-- RECOMMENDED: box animations -->
-<script defer src="resources/js/mylibs/jquery.ui.touch-punch.js"></script>
+<script defer src="../resources/js/mylibs/jquery.ui.touch-punch.js"></script>
 <!-- RECOMMENDED: touch compatibility -->
-<script defer src="resources/js/mylibs/jquery.chosen.js"></script>
-<script defer src="resources/js/mylibs/jquery.validate.js"></script>
-<script defer src="resources/js/script.js"></script>
+<script defer src="../resources/js/mylibs/jquery.chosen.js"></script>
+<script defer src="../resources/js/mylibs/jquery.validate.js"></script>
+<script defer src="../resources/js/script.js"></script>
 <!-- REQUIRED: Generic scripts -->
 <!-- end scripts -->
 <script>

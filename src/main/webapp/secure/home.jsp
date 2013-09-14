@@ -57,7 +57,7 @@
                             Home</a>
                         <ul>
                             <li class="current">
-                                <a href="../dashboard.html">Name Search</a>
+                                <a href="dashboard.jsp">Name Search</a>
                             </li>
                             <li>
                                 <a href="login">Login</a>
@@ -155,7 +155,7 @@
         <div id="button_bar">
             <ul>
                 <li>
-                    <span><a href="../dashboard.html">Dashboard</a></span>
+                    <span><a href="dashboard.jsp">Dashboard</a></span>
                 </li>
                 <li>
                     <span><a href="#">Settings</a></span>

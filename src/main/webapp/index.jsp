@@ -57,10 +57,10 @@
                             Home</a>
                         <ul>
                             <li class="current">
-                                <a href="dashboard.html">Name Search</a>
+                                <a href="secure/dashboard.jsp">Name Search</a>
                             </li>
                             <li>
-                                <a href="login">Login</a>
+                                <a href="gate">Login</a>
                             </li>
                         </ul>
                     </li>
@@ -155,7 +155,7 @@
         <div id="button_bar">
             <ul>
                 <li>
-                    <span><a href="dashboard.html">Dashboard</a></span>
+                    <span><a href="secure/dashboard.jsp">Dashboard</a></span>
                 </li>
                 <li>
                     <span><a href="#">Settings</a></span>
