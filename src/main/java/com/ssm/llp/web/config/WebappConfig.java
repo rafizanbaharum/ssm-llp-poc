@@ -18,8 +18,7 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 import javax.sql.DataSource;
 import java.util.Properties;
@@ -32,8 +31,7 @@ import java.util.Properties;
 @ComponentScan({"com.ssm.llp.integration", "com.ssm.llp.core", "com.ssm.llp.biz", "com.ssm.llp.web"})
 @PropertySource("classpath:app.properties")
 @EnableTransactionManagement
-@EnableWebMvc
-public class WebappConfig extends WebMvcConfigurerAdapter {
+public class WebappConfig extends AbstractAnnotationConfigDispatcherServletInitializer {
 
     @Autowired
     private Environment environment;
@@ -106,5 +104,22 @@ public class WebappConfig extends WebMvcConfigurerAdapter {
                 .userDetailsService(userDetailService())
                 .passwordEncoder(new ShaPasswordEncoder())
                 .and().build();
+    }
+
+    @Override
+    protected Class<?>[] getRootConfigClasses() {
+        return new Class[]{WebMvcConfig.class, WebSecurityConfig.class};
+    }
+
+    @Override
+    protected Class<?>[] getServletConfigClasses() {
+        return new Class<?>[0];  // TODO:
+
+    }
+
+    @Override
+    protected String[] getServletMappings() {
+        return new String[0];  // TODO:
+
     }
 }
