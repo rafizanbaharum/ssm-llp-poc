@@ -1,0 +1,2 @@
+log.debug("ExistingSearchFilter");
+return  nameDao.findRegisteredNames(name);

@@ -1,0 +1,8 @@
+log.debug("StatePoisonFilter");
+
+String[] words = name.split(" ");
+for(int i=0; i < words.length; i++){
+      log.debug("words: " + words[i]);
+      if(nameDao.hasName(words[i], NameType.STATE)) return false;
+}
+return true;

@@ -1,0 +1,37 @@
+package com.ssm.llp.core.dao;
+
+import com.ssm.llp.core.model.SsmCompany;
+import com.ssm.llp.core.model.SsmName;
+import com.ssm.llp.core.model.SsmNameType;
+import com.ssm.llp.core.model.SsmUser;
+
+import java.util.List;
+
+/**
+ * @author rafizan.baharum
+ * @since 9/10/13
+ */
+public interface SsmNameDao {
+
+    // finders
+
+    SsmName findById(Long id);
+
+    List<SsmCompany> findRegisteredNames(String filter);
+
+    // helpers
+    boolean hasName(String name);
+
+    boolean hasName(String name, SsmNameType typeSsm);
+
+    // cruds
+
+    void save(SsmName name, SsmUser user);
+
+    void update(SsmName name, SsmUser user);
+
+    void deactivate(SsmName name, SsmUser user);
+
+    void remove(SsmName name, SsmUser user);
+
+}

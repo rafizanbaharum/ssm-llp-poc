@@ -1,0 +1,93 @@
+package com.ssm.llp.core.model.impl;
+
+import com.ssm.llp.core.model.SsmCompany;
+import com.ssm.llp.core.model.SsmCompanyStatus;
+import com.ssm.llp.core.model.SsmMetadata;
+import com.ssm.llp.core.model.SsmCompanyType;
+import org.hibernate.search.annotations.*;
+import org.hibernate.search.bridge.builtin.EnumBridge;
+
+import javax.persistence.*;
+import java.io.Serializable;
+
+/**
+ * @author rafizan.baharum
+ * @since 9/6/13
+ */
+@Indexed
+@Table(name = "SSM_COMPANY")
+@Entity(name = "SsmCompany")
+public class SsmCompanyImpl implements SsmCompany, Serializable {
+
+    @Id
+    @DocumentId
+    @Column(name = "ID", nullable = false)
+    @GeneratedValue(generator = "SEQ_SSM_COMPANY")
+    @SequenceGenerator(name = "SEQ_SSM_COMPANY", sequenceName = "SEQ_SSM_COMPANY", allocationSize = 1)
+    private Long id;
+
+    @Field(index = Index.YES, analyze = Analyze.YES, store = Store.YES)
+    @Column(name = "NAME")
+    private String name;
+
+    @Field(index = Index.YES, analyze = Analyze.NO, store = Store.YES)
+    @FieldBridge(impl = EnumBridge.class)
+    @Enumerated(EnumType.ORDINAL)
+    @Column(name = "COMPANY_STATUS")
+    private SsmCompanyStatus status;
+
+    @Column(name = "COMPANY_TYPE")
+    private SsmCompanyType companyType;
+
+    @Embedded
+    private SsmMetadata metadata = new SsmMetadata();
+
+
+    @Override
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public SsmCompanyStatus getStatus() {
+        return status;
+    }
+
+    @Override
+    public void setStatus(SsmCompanyStatus status) {
+        this.status = status;
+    }
+
+    @Override
+    public SsmCompanyType getCompanyType() {
+        return companyType;
+    }
+
+    @Override
+    public void setCompanyType(SsmCompanyType companyType) {
+        this.companyType = companyType;
+    }
+
+    public SsmMetadata getMetadata() {
+        return metadata;
+    }
+
+    public void setMetadata(SsmMetadata metadata) {
+        this.metadata = metadata;
+    }
+}
+

@@ -1,0 +1,9 @@
+log.debug("PluralSearchFilter");
+
+String[] words = name.split(" ");
+StringBuffer buff = new StringBuffer();
+for(int i=0; i < words.length; i++){
+    // TODO: endWith y
+    buff.append(words[i]+"s");
+}
+return nameDao.findRegisteredNames(buff.toString());

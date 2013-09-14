@@ -1,0 +1,161 @@
+package com.ssm.llp.core;
+
+import com.ssm.llp.CoreConfig;
+import com.ssm.llp.core.dao.SsmCompanyDao;
+import com.ssm.llp.core.dao.SsmNameDao;
+import com.ssm.llp.core.dao.SsmUserDao;
+import com.ssm.llp.core.model.SsmCompanyStatus;
+import com.ssm.llp.core.model.SsmOffensiveName;
+import com.ssm.llp.core.model.SsmUser;
+import com.ssm.llp.core.model.impl.SsmCompanyImpl;
+import com.ssm.llp.core.model.impl.SsmCountryNameImpl;
+import com.ssm.llp.core.model.impl.SsmSymbolNameImpl;
+import org.hibernate.SessionFactory;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.annotation.Rollback;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.LineNumberReader;
+
+/**
+ * @author rafizan.baharum
+ * @since 9/6/13
+ */
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(classes = {CoreConfig.class})
+public class SsmNameDaoTest extends AbstractTransactionalJUnit4SpringContextTests {
+
+    private Logger log = LoggerFactory.getLogger(SsmNameDaoTest.class);
+
+    @Autowired
+    private SsmNameDao ssmNameDao;
+
+    @Autowired
+    private SsmCompanyDao ssmCompanyDao;
+
+    @Autowired
+    private SsmUserDao userDao;
+
+    @Autowired
+    private SessionFactory sessionFactory;
+
+    private SsmUser root;
+
+    @Before
+    public void setUp() {
+        root = userDao.findByUsername("root");
+    }
+
+    @Test
+    @Rollback(value = false)
+    public void createCountry() {
+        SsmCountryNameImpl countryName = new SsmCountryNameImpl();
+        countryName.setName("MALAYSIA");
+        ssmNameDao.save(countryName, root);
+
+        countryName = new SsmCountryNameImpl();
+        countryName.setName("SINGAPORE");
+        ssmNameDao.save(countryName, root);
+
+        countryName = new SsmCountryNameImpl();
+        countryName.setName("SINGAPURA");
+        ssmNameDao.save(countryName, root);
+
+        countryName = new SsmCountryNameImpl();
+        countryName.setName("THAILAND");
+        ssmNameDao.save(countryName, root);
+
+        countryName = new SsmCountryNameImpl();
+        countryName.setName("FILIPINA");
+        ssmNameDao.save(countryName, root);
+
+        countryName = new SsmCountryNameImpl();
+        countryName.setName("PHILLIPINE");
+        ssmNameDao.save(countryName, root);
+
+        sessionFactory.getCurrentSession().flush();
+    }
+
+    @Test
+    @Rollback(value = false)
+    public void createOffensive() {
+
+        try {
+            FileReader reader = new FileReader("C:/Projects/GitHub/ssm-llp-poc/src/test/resources/ControlledWords.txt");
+            LineNumberReader lreader = new LineNumberReader(reader);
+            String buff;
+            while (null != (buff = lreader.readLine())) {
+                SsmOffensiveName offensiveName = new SsmOffensiveName();
+                offensiveName.setName(buff.split("\t")[1]);
+                ssmNameDao.save(offensiveName, root);
+            }
+            sessionFactory.getCurrentSession().flush();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    @Rollback(value = false)
+    public void createCompanies() {
+        SsmCompanyImpl name1 = new SsmCompanyImpl();
+        name1.setName("MAJU JAYA ENTEPRISE");
+        name1.setStatus(SsmCompanyStatus.ACTIVE);
+        ssmCompanyDao.save(name1, root);
+
+        SsmCompanyImpl name2 = new SsmCompanyImpl();
+        name2.setName("JAYA & MAJU RESTORAN");
+        name2.setStatus(SsmCompanyStatus.ACTIVE);
+        ssmCompanyDao.save(name2, root);
+        sessionFactory.getCurrentSession().flush();
+
+        SsmCompanyImpl name3 = new SsmCompanyImpl();
+        name3.setName("MALAYSIA RAYAS PLT");
+        name3.setStatus(SsmCompanyStatus.ACTIVE);
+        ssmCompanyDao.save(name3, root);
+        sessionFactory.getCurrentSession().flush();
+    }
+
+    @Test
+    @Rollback(value = false)
+    public void insertOffensive() {
+        SsmOffensiveName name1 = new SsmOffensiveName();
+        name1.setName("SYARIKAT");
+        ssmNameDao.save(name1, root);
+
+        SsmOffensiveName name2 = new SsmOffensiveName();
+        name2.setName("CORPORATION");
+        ssmNameDao.save(name2, root);
+        sessionFactory.getCurrentSession().flush();
+
+        SsmOffensiveName name3 = new SsmOffensiveName();
+        name3.setName("COMPANY");
+        ssmNameDao.save(name3, root);
+        sessionFactory.getCurrentSession().flush();
+    }
+
+    @Test
+    @Rollback(value = false)
+    public void insertSymbols() {
+        String[] symbols = {"\\", "|", "/", "*", "%", "\"", ":", ";"};
+        for (String symbol : symbols) {
+            SsmSymbolNameImpl name1 = new SsmSymbolNameImpl();
+            name1.setName(symbol);
+            ssmNameDao.save(name1, root);
+            sessionFactory.getCurrentSession().flush();
+        }
+    }
+}
+
