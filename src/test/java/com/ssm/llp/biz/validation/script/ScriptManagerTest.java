@@ -4,8 +4,8 @@ import com.ssm.llp.CoreConfig;
 import com.ssm.llp.core.SsmNameDaoTest;
 import com.ssm.llp.core.dao.SsmFilterDao;
 import com.ssm.llp.core.model.SsmCompany;
+import com.ssm.llp.core.model.SsmFilter;
 import com.ssm.llp.core.model.SsmFilterType;
-import com.ssm.llp.core.model.impl.SsmFilterImpl;
 import org.hibernate.SessionFactory;
 import org.junit.Before;
 import org.junit.Test;
@@ -47,8 +47,8 @@ public class ScriptManagerTest extends AbstractTransactionalJUnit4SpringContextT
     @Test
     @Rollback(value = false)
     public void testSearchScript() {
-        List<SsmFilterImpl> filters = filterDao.findFilters(SsmFilterType.SEARCH);
-        for (SsmFilterImpl filter : filters) {
+        List<SsmFilter> filters = filterDao.find(SsmFilterType.SEARCH);
+        for (SsmFilter filter : filters) {
             HashMap<String, Object> map = new HashMap<String, Object>();
             map.put("name", "MALAYSIA RAYA PLT");
             List<SsmCompany> list = scriptManager.executeSearchFilter(filter.getScript(), map);
@@ -61,8 +61,8 @@ public class ScriptManagerTest extends AbstractTransactionalJUnit4SpringContextT
     @Test
     @Rollback(value = false)
     public void testPoisonScript() {
-        List<SsmFilterImpl> filters = filterDao.findFilters(SsmFilterType.POISON);
-        for (SsmFilterImpl filter : filters) {
+        List<SsmFilter> filters = filterDao.find(SsmFilterType.POISON);
+        for (SsmFilter filter : filters) {
             HashMap<String, Object> map = new HashMap<String, Object>();
             map.put("name", "MALAYSIA MEMBODOH PLT");
             boolean result = scriptManager.executePoisonFilter(filter.getScript(), map);

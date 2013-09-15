@@ -1,17 +1,11 @@
 package com.ssm.llp.core.dao.impl;
 
 import com.ssm.llp.core.dao.SsmNameDao;
-import com.ssm.llp.core.model.SsmCompany;
 import com.ssm.llp.core.model.SsmName;
 import com.ssm.llp.core.model.SsmNameType;
-import com.ssm.llp.core.model.impl.SsmCompanyImpl;
 import com.ssm.llp.core.model.impl.SsmNameImpl;
 import org.hibernate.Query;
 import org.hibernate.Session;
-import org.hibernate.search.FullTextQuery;
-import org.hibernate.search.FullTextSession;
-import org.hibernate.search.Search;
-import org.hibernate.search.query.dsl.QueryBuilder;
 import org.springframework.stereotype.Repository;
 
 import java.io.Serializable;
@@ -51,19 +45,19 @@ public class SsmNameDaoImpl extends DaoSupport<Long, SsmName, SsmNameImpl> imple
         return 0 < ((Long) query.uniqueResult()).intValue();
     }
 
+    @Override
+    public List<SsmName> find(String filter) {
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery("select n from SsmName n where n.name like :filter");
+        query.setString("filter", "%" + filter + "%");
+        return (List<SsmName>) query.list();
+    }
 
     @Override
-    public List<SsmCompany> findRegisteredNames(String filter) {
+    public List<SsmName> find(SsmNameType type) {
         Session session = sessionFactory.getCurrentSession();
-        FullTextSession fullTextSession = Search.getFullTextSession(sessionFactory.getCurrentSession());
-        QueryBuilder builder = fullTextSession
-                .getSearchFactory()
-                .buildQueryBuilder().forEntity(SsmCompanyImpl.class).get();
-        org.apache.lucene.search.Query termQuery = builder.keyword()
-                .onField("name")
-                .matching(filter)
-                .createQuery();
-        FullTextQuery fullTextQuery = fullTextSession.createFullTextQuery(termQuery, SsmCompanyImpl.class);
-        return (List<SsmCompany>) fullTextQuery.list();
+        Query query = session.createQuery("select n from SsmName n where n.nameType like :nameType");
+        query.setInteger("nameType", type.ordinal());
+        return (List<SsmName>) query.list();
     }
 }

@@ -3,7 +3,6 @@ package com.ssm.llp.core.dao;
 import com.ssm.llp.core.model.SsmFilter;
 import com.ssm.llp.core.model.SsmFilterType;
 import com.ssm.llp.core.model.SsmUser;
-import com.ssm.llp.core.model.impl.SsmFilterImpl;
 
 import java.util.List;
 
@@ -14,13 +13,13 @@ import java.util.List;
 public interface SsmFilterDao {
 
     // finders
-    SsmFilterImpl findById(Long id);
+    SsmFilter findById(Long id);
 
-    SsmFilterImpl findByName(String name);
+    SsmFilter findByName(String name);
 
-    List<SsmFilterImpl> findFilters();
+    List<SsmFilter> find();
 
-    List<SsmFilterImpl> findFilters(SsmFilterType type);
+    List<SsmFilter> find(SsmFilterType type);
 
     // cruds
 

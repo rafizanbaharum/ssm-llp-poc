@@ -1,6 +1,5 @@
 package com.ssm.llp.core.dao;
 
-import com.ssm.llp.core.model.SsmCompany;
 import com.ssm.llp.core.model.SsmName;
 import com.ssm.llp.core.model.SsmNameType;
 import com.ssm.llp.core.model.SsmUser;
@@ -17,7 +16,10 @@ public interface SsmNameDao {
 
     SsmName findById(Long id);
 
-    List<SsmCompany> findRegisteredNames(String filter);
+    List<SsmName> find(String filter);
+
+    List<SsmName> find(SsmNameType type);
+
 
     // helpers
     boolean hasName(String name);

@@ -1,6 +1,5 @@
 package com.ssm.llp.web.config;
 
-import com.ssm.llp.integration.springsecurity.SsmUserDetailService;
 import org.apache.commons.dbcp.BasicDataSource;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +10,6 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
@@ -49,7 +47,7 @@ public class WebappConfig {
     public Properties hibernateProperties() {
         Properties properties = new Properties();
         properties.put("hibernate.dialect", "org.hibernate.dialect.Oracle10gDialect");
-        properties.put("hibernate.show_sql", "false");
+        properties.put("hibernate.show_sql", "true");
         properties.put("hibernate.hbm2ddl.auto", "update");
         properties.put("hibernate.format_sql", "true");
         properties.put("javax.persistence.validation.mode", "none");

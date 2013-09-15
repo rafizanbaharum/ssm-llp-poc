@@ -19,7 +19,7 @@ import java.util.List;
 public class SsmFilterDaoImpl extends DaoSupport<Long, SsmFilter, SsmFilterImpl> implements SsmFilterDao, Serializable {
 
     @Override
-    public SsmFilterImpl findById(Long id) {
+    public SsmFilter findById(Long id) {
         Session session = sessionFactory.getCurrentSession();
         Query query = session.createQuery("select f from SsmFilter f where n.id = :id");
         query.setLong("id", id);
@@ -27,7 +27,7 @@ public class SsmFilterDaoImpl extends DaoSupport<Long, SsmFilter, SsmFilterImpl>
     }
 
     @Override
-    public SsmFilterImpl findByName(String name) {
+    public SsmFilter findByName(String name) {
         Session session = sessionFactory.getCurrentSession();
         Query query = session.createQuery("select f from SsmFilter f where n.name = :name");
         query.setString("name", name);
@@ -35,17 +35,17 @@ public class SsmFilterDaoImpl extends DaoSupport<Long, SsmFilter, SsmFilterImpl>
     }
 
     @Override
-    public List<SsmFilterImpl> findFilters() {
+    public List<SsmFilter> find() {
         Session session = sessionFactory.getCurrentSession();
         Query query = session.createQuery("select f from SsmFilter f");
-        return (List<SsmFilterImpl>) query.list();
+        return (List<SsmFilter>) query.list();
     }
 
     @Override
-    public List<SsmFilterImpl> findFilters(SsmFilterType type) {
+    public List<SsmFilter> find(SsmFilterType type) {
         Session session = sessionFactory.getCurrentSession();
         Query query = session.createQuery("select f from SsmFilter f where f.type = :type");
         query.setInteger("type", type.ordinal());
-        return (List<SsmFilterImpl>) query.list();
+        return (List<SsmFilter>) query.list();
     }
 }

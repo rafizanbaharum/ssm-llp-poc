@@ -6,10 +6,10 @@ package com.ssm.llp.integration.springsecurity;
  */
 
 import com.ssm.llp.core.dao.SsmPrincipalDao;
+import com.ssm.llp.core.exception.RecursiveGroupException;
 import com.ssm.llp.core.model.SsmMetaState;
 import com.ssm.llp.core.model.SsmPrincipalRole;
 import com.ssm.llp.core.model.SsmUser;
-import com.ssm.llp.core.exception.RecursiveGroupException;
 import org.apache.log4j.Logger;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -43,11 +43,14 @@ public class SsmUserDetailService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException, DataAccessException {
+        log.debug("loading username: " + s);
+        SsmUser user = null;
         Session session = sessionFactory.getCurrentSession();
-        Query query = session.createQuery("select u from SsmUser u where u.name = :username and u.metadata.state = :state");
+        Query query = session.createQuery("select u from SsmUser u where u.name = :username " +
+                "and u.metadata.state = :state");
         query.setString("username", s);
         query.setInteger("state", SsmMetaState.ACTIVE.ordinal());
-        SsmUser user = (SsmUser) query.uniqueResult();
+        user = (SsmUser) query.uniqueResult();
         if (user == null)
             throw new UsernameNotFoundException("No such user");
         return new SsmUserDetails(user, loadGrantedAuthoritiesFor(user));

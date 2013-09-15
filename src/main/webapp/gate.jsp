@@ -43,7 +43,7 @@
                         </label>
 
                         <div>
-                            <input name="name" class="required">
+                            <input name="username" class="required">
                         </div>
                     </div>
                     <div class="section _100">
