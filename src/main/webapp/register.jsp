@@ -92,7 +92,7 @@
             <div class="grid_12">
                 <div class="box">
                     <div class="header">
-                        <img src="/resources/img/icons/packs/fugue/16x16/task-select-first.png" alt="" width="16"
+                        <img src="resources/img/icons/packs/fugue/16x16/task-select-first.png" alt="" width="16"
                              height="16">
 
                         <h3>Registration Form</h3>
@@ -262,7 +262,5 @@
 <script defer src="resources/js/script.js"></script>
 <!-- REQUIRED: Generic scripts -->
 <!-- end scripts -->
-</script>
-<
-/body>
-< /html>
+</body>
+</html>
