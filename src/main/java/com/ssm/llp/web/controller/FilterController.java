@@ -28,6 +28,6 @@ public class FilterController {
     @RequestMapping(value = "/edit/{id}", method = {RequestMethod.GET})
     public String edit(@PathVariable Long id, ModelMap model) {
         model.put("filter", filterDao.findById(id));
-        return "secure/editFilter";
+        return "secure/filter_edit";
     }
 }
