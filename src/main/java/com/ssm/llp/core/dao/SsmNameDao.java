@@ -28,6 +28,8 @@ public interface SsmNameDao {
 
     boolean hasName(String name, SsmNameType typeSsm);
 
+    boolean hasName(String name, int type);
+
     // cruds
 
     void save(SsmName name, SsmUser user);

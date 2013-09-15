@@ -44,8 +44,8 @@ public class SsmFilterDaoImpl extends DaoSupport<Long, SsmFilter, SsmFilterImpl>
     @Override
     public List<SsmFilter> find(SsmFilterType type) {
         Session session = sessionFactory.getCurrentSession();
-        Query query = session.createQuery("select f from SsmFilter f where f.type = :type");
-        query.setInteger("type", type.ordinal());
+        Query query = session.createQuery("select f from SsmFilter f where f.filterType = :filterType");
+        query.setInteger("filterType", type.ordinal());
         return (List<SsmFilter>) query.list();
     }
 }

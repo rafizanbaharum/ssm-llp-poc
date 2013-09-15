@@ -155,47 +155,6 @@
 
 <!-- Start of the content -->
 <div role="main" class="container_12" id="content-wrapper">
-    <!-- Start of the sidebar -->
-    <aside>
-        <div id="sidebar_content">
-            <h2>Menu</h2>
-
-            <p>
-                Use actions below:
-            </p>
-
-            <div class="divider"></div>
-            <nav>
-                <ul class="menu collapsible">
-                    <li class="first-child current">
-                        <a href="#">State: current</a>
-                    </li>
-                    <li>
-                        <a href="#">State: normal</a>
-                        <ul class="sub">
-                            <li>
-                                <a href="#">State: normal</a>
-                            </li>
-                            <li>
-                                <a href="#">State: normal</a>
-                            </li>
-                            <li>
-                                <a href="#">State: normal</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#">State: normal</a>
-                    </li>
-                    <li class="last-child">
-                        <a href="#">State: normal</a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </aside>
-    <!-- End of the sidebar-->
-
     <!-- Start of the main content -->
     <div id="main_content">
         <h2 class="grid_12">LLP Name Rules</h2>
@@ -207,7 +166,7 @@
                 <div class="header">
                     <img src="/resources/img/icons/packs/fugue/16x16/shadeless/table.png" width="16" height="16">
 
-                    <h3>Offensive Name</h3><span></span>
+                    <h3>Reserved Name</h3><span></span>
                 </div>
                 <div class="content no-padding">
                     <table class="table">
@@ -216,6 +175,7 @@
                             <col class="wwe-table-col-width">
                             <col class="wwe-table-col-width">
                             <col class="wwe-table-col-width">
+                            <col class="wwe-align-center">
                         </colgroup>
                         <thead>
                         <tr>
@@ -223,6 +183,7 @@
                             <th class="wwe-align-left wwe-lang-club" scope="col">Name</th>
                             <th class="wwe-lang-matches" scope="col">Start</th>
                             <th class="wwe-lang-matches" scope="col">End</th>
+                            <th class="wwe-lang-matches" scope="col">Action</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -232,6 +193,7 @@
                                 <td class="wwe-align-left">${reserve.name}</td>
                                 <td>${reserve.startDate}</td>
                                 <td>${reserve.endDate}</td>
+                                <td><a href="/secure/register">Register</a></td>
                             </tr>
                         </c:forEach>
                         </tbody>

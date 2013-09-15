@@ -30,7 +30,7 @@ public class SsmNameDaoImpl extends DaoSupport<Long, SsmName, SsmNameImpl> imple
     @Override
     public boolean hasName(String name) {
         Session session = sessionFactory.getCurrentSession();
-        Query query = session.createQuery("select count(n) from Name n where " +
+        Query query = session.createQuery("select count(n) from SsmName n where " +
                 "n.name = :name ");
         query.setString("name", name);
         return 0 < ((Long) query.uniqueResult()).intValue();
@@ -39,10 +39,20 @@ public class SsmNameDaoImpl extends DaoSupport<Long, SsmName, SsmNameImpl> imple
     @Override
     public boolean hasName(String name, SsmNameType typeSsm) {
         Session session = sessionFactory.getCurrentSession();
-        Query query = session.createQuery("select count(n) from Name n where " +
-                "n.name = :name and n.type = :type");
+        Query query = session.createQuery("select count(n) from SsmName n where " +
+                "n.name = :name and n.nameType = :nameType");
         query.setString("name", name);
-        query.setInteger("type", typeSsm.ordinal());
+        query.setInteger("nameType", typeSsm.ordinal());
+        return 0 < ((Long) query.uniqueResult()).intValue();
+    }
+
+    @Override
+    public boolean hasName(String name, int type) {
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery("select count(n) from SsmName n where " +
+                "n.name = :name and n.nameType = :nameType");
+        query.setString("name", name);
+        query.setInteger("nameType", type);
         return 0 < ((Long) query.uniqueResult()).intValue();
     }
 
@@ -65,7 +75,8 @@ public class SsmNameDaoImpl extends DaoSupport<Long, SsmName, SsmNameImpl> imple
     @Override
     public List<SsmName> findByOwner(SsmNameType nameType, SsmUser owner) {
         Session session = sessionFactory.getCurrentSession();
-        Query query = session.createQuery("select n from SsmName n where n.metadata.creator = :creatorId and n.nameType=:nameType");
+        Query query = session.createQuery("select n from SsmName n where n.metadata.creator = :creatorId " +
+                "and n.nameType=:nameType");
         query.setInteger("nameType", nameType.ordinal());
         query.setLong("creatorId", owner.getId());
         return (List<SsmName>) query.list();
