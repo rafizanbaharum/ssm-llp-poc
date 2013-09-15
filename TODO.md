@@ -8,6 +8,8 @@ TODO ssm-llp-poc
 - port to POSTGRES on amazon cloud
 - class diagram for presentation
 
+ username/password:ssm.llp.poc@gmail.com/senanggila
+
 
 KEY POINTS
 ============

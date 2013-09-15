@@ -1,8 +1,10 @@
 package com.ssm.llp.web.controller;
 
+import com.ssm.llp.biz.event.EmailEvent;
 import com.ssm.llp.biz.manager.RegistrationManager;
 import com.ssm.llp.core.dao.SsmNameDao;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +18,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 @RequestMapping("/register")
 public class RegisterController {
+
+    @Autowired
+    private ApplicationContext applicationContext;
 
     @Autowired
     private RegistrationManager registrationManager;
@@ -47,7 +52,7 @@ public class RegisterController {
                 name, nricNo, email, phone, fax,
                 address1, address2, address3);
 
-
+        applicationContext.publishEvent(new EmailEvent(email, "ssm.llp.poc@gmail.com", "Portal Registration", "Thank you."));
         return "registered";
     }
 }
