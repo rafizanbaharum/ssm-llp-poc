@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <html>
 <head>
     <meta charset="utf-8">
@@ -123,19 +124,21 @@
                     </li>
                 </ul>
             </li>
+            <sec:authorize ifAllGranted="ROLE_ADMINISTRATOR">
             <li class="current">
                 <a href="#">
                     <img src="/resources/img/icons/25x25/dark/archive.png" width=25 height=25 alt="">
                     Rules</a>
                 <ul>
                     <li>
-                        <a href="filter">Filters</a>
+                        <a href="/secure/filter/all">Filters</a>
                     </li>
                     <li class="current">
                         <a href="name">Names</a>
                     </li>
                 </ul>
             </li>
+            </sec:authorize>
         </ul>
         <!-- End of the main navigation -->
     </div>

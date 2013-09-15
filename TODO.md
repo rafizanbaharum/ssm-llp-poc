@@ -8,7 +8,8 @@ TODO ssm-llp-poc
 - logout
 - port to POSTGRES on amazon cloud
 - class diagram for presentation NAME, COMPANY
-
+- sitemesh for templating
+- add current username "User X" to page header
 
 
 KEY POINTS

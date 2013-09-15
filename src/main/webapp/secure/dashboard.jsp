@@ -137,19 +137,21 @@
                             </li>
                         </ul>
                     </li>
-                    <li>
-                        <a href="#">
-                            <img src="/resources/img/icons/25x25/dark/archive.png" width=25 height=25 alt="">
-                            Rules</a>
-                        <ul>
-                            <li>
-                                <a href="filter">Filters</a>
-                            </li>
-                            <li>
-                                <a href="name">Names</a>
-                            </li>
-                        </ul>
-                    </li>
+                    <sec:authorize ifAllGranted="ROLE_ADMINISTRATOR">
+                        <li>
+                            <a href="#">
+                                <img src="/resources/img/icons/25x25/dark/archive.png" width=25 height=25 alt="">
+                                Rules</a>
+                            <ul>
+                                <li>
+                                    <a href="/secure/filter/all">Filters</a>
+                                </li>
+                                <li>
+                                    <a href="/secure/name">Names</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </sec:authorize>
                 </ul>
                 <!-- End of the main navigation -->
             </div>

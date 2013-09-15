@@ -21,7 +21,7 @@ public class SsmFilterDaoImpl extends DaoSupport<Long, SsmFilter, SsmFilterImpl>
     @Override
     public SsmFilter findById(Long id) {
         Session session = sessionFactory.getCurrentSession();
-        Query query = session.createQuery("select f from SsmFilter f where n.id = :id");
+        Query query = session.createQuery("select f from SsmFilter f where f.id = :id");
         query.setLong("id", id);
         return (SsmFilterImpl) query.uniqueResult();
     }
@@ -29,7 +29,7 @@ public class SsmFilterDaoImpl extends DaoSupport<Long, SsmFilter, SsmFilterImpl>
     @Override
     public SsmFilter findByName(String name) {
         Session session = sessionFactory.getCurrentSession();
-        Query query = session.createQuery("select f from SsmFilter f where n.name = :name");
+        Query query = session.createQuery("select f from SsmFilter f where f.name = :name");
         query.setString("name", name);
         return (SsmFilterImpl) query.uniqueResult();
     }
