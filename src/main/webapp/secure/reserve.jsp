@@ -59,7 +59,7 @@
                             </div>
                             <div class="toolmenu">
                                 <div class="toolcaption">
-                                    <span>Administrator</span>
+                                    <span>User X</span>
                                 </div>
                                 <!-- Start of menu -->
                                 <div class="dropdown">
@@ -157,7 +157,7 @@
     <div role="main" class="container_12" id="content-wrapper">
         <!-- Start of the main content -->
         <div id="main_content">
-            <h2 class="grid_12">Reserved LLP Names</h2>
+            <h2 class="grid_12">Reserved Companies Names</h2>
 
             <div class="clean"></div>
 
@@ -175,6 +175,7 @@
                                 <col class="wwe-table-col-width">
                                 <col class="wwe-table-col-width">
                                 <col class="wwe-table-col-width">
+                                <col class="wwe-table-col-width">
                                 <col class="wwe-align-center">
                             </colgroup>
                             <thead>
@@ -183,6 +184,7 @@
                                 <th class="wwe-align-left wwe-lang-club" scope="col">Name</th>
                                 <th class="wwe-lang-matches" scope="col">Start</th>
                                 <th class="wwe-lang-matches" scope="col">End</th>
+                                <th class="wwe-lang-matches" scope="col">Type</th>
                                 <th class="wwe-lang-matches" scope="col">Action</th>
                             </tr>
                             </thead>
@@ -193,6 +195,7 @@
                                     <td class="wwe-align-left">${reserve.name}</td>
                                     <td>${reserve.startDate}</td>
                                     <td>${reserve.endDate}</td>
+                                    <td>${reserve.companyType}</td>
                                     <td><a href="/secure/register">Register</a></td>
                                 </tr>
                             </c:forEach>
@@ -224,7 +227,7 @@
                     <span><a href="/secure/dashboard">Dashboard</a></span>
                 </li>
                 <li>
-                    <span><a href="/secure/logout">Logout</a></span>
+                    <span><a href="/logout">Logout</a></span>
                 </li>
             </ul>
         </div>

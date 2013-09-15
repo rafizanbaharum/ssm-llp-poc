@@ -147,13 +147,15 @@ public class SsmNameDaoTest extends AbstractTransactionalJUnit4SpringContextTest
     @Rollback(value = false)
     public void insertReserved() {
         SsmReservedName name1 = new SsmReservedNameImpl();
-        name1.setName("ALI MAJU ENTERPRISE");
+        name1.setName("ALI MAJU");
+        name1.setCompanyType(SsmCompanyType.ROC);
         name1.setStartDate(new Date());
         name1.setEndDate(new Date());
         ssmNameDao.save(name1, root);
 
         SsmReservedName name2 = new SsmReservedNameImpl();
-        name2.setName("ALI JAYA ENTERPRISE");
+        name2.setName("ALI JAYA");
+        name2.setCompanyType(SsmCompanyType.ROC);
         name2.setStartDate(new Date());
         name2.setEndDate(new Date());
         ssmNameDao.save(name2, root);

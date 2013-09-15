@@ -166,7 +166,7 @@
                     <div class="header">
                         <img src="/resources/img/icons/packs/fugue/16x16/shadeless/table.png" width="16" height="16">
 
-                        <h3>Registered LLPs</h3><span></span>
+                        <h3>Registered ROCs</h3><span></span>
                     </div>
                     <div class="content no-padding">
                         <table class="table">
@@ -187,12 +187,12 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <c:forEach var="llp" items="${llps}">
+                            <c:forEach var="rob" items="${robs}">
                                 <tr>
-                                    <td class="wwe-1rank"><span>${llp.id}</span></td>
-                                    <td class="wwe-align-left">${llp.name}</td>
-                                    <td>${llp.companyStatus}</td>
-                                    <td>${llp.companyType}</td>
+                                    <td class="wwe-1rank"><span>${rob.id}</span></td>
+                                    <td class="wwe-align-left">${rob.name}</td>
+                                    <td>${rob.companyStatus}</td>
+                                    <td>${rob.companyType}</td>
                                     <td><a href="/secure/edit">Edit</a></td>
                                 </tr>
                             </c:forEach>

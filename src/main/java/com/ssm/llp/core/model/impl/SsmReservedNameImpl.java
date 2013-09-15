@@ -1,5 +1,6 @@
 package com.ssm.llp.core.model.impl;
 
+import com.ssm.llp.core.model.SsmCompanyType;
 import com.ssm.llp.core.model.SsmNameType;
 import com.ssm.llp.core.model.SsmReservedName;
 
@@ -23,6 +24,9 @@ public class SsmReservedNameImpl extends SsmNameImpl implements SsmReservedName,
     @Column(name = "END_DATE")
     private Date endDate;
 
+    @Column(name = "COMPANY_TYPE")
+    private SsmCompanyType companyType;
+
     public SsmReservedNameImpl() {
         setNameType(SsmNameType.RESERVED);
     }
@@ -41,5 +45,13 @@ public class SsmReservedNameImpl extends SsmNameImpl implements SsmReservedName,
 
     public void setEndDate(Date endDate) {
         this.endDate = endDate;
+    }
+
+    public SsmCompanyType getCompanyType() {
+        return companyType;
+    }
+
+    public void setCompanyType(SsmCompanyType companyType) {
+        this.companyType = companyType;
     }
 }

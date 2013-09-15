@@ -25,7 +25,7 @@
     <div class="shadow"></div>
 </div>
 <div class="content">
-    <h1>SSM:MyLLP | Login</h1>
+    <h1>SSM | MyLLP</h1>
 
     <div class="background"></div>
     <div class="wrapper">

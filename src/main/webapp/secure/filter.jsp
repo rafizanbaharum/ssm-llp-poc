@@ -59,7 +59,7 @@
                         </div>
                         <div class="toolmenu">
                             <div class="toolcaption">
-                                <span>Administrator</span>
+                                <span>User X</span>
                             </div>
                             <!-- Start of menu -->
                             <div class="dropdown">

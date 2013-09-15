@@ -59,7 +59,7 @@
                             </div>
                             <div class="toolmenu">
                                 <div class="toolcaption">
-                                    <span>Administrator</span>
+                                    <span>User X</span>
                                 </div>
                             </div>
                             <!-- End of menu -->
@@ -253,7 +253,7 @@
                     <span><a href="/secure/dashboard">Dashboard</a></span>
                 </li>
                 <li>
-                    <span><a href="/secure/logout">Logout</a></span>
+                    <span><a href="/logout">Logout</a></span>
                 </li>
             </ul>
         </div>

@@ -19,16 +19,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * @since 9/14/13
  */
 @Controller
-@RequestMapping("/secure/llp")
-public class LlpController {
+@RequestMapping("/secure/rob")
+public class RobController {
 
     @Autowired
     private SsmCompanyDao companyDao;
 
     @RequestMapping(method = {RequestMethod.GET})
     public String go(ModelMap model) {
-        model.put("llps", companyDao.findByOwner(SsmCompanyType.LLP, getCurrentUser()));
-        return "secure/llp";
+        model.put("robs", companyDao.findByOwner(SsmCompanyType.ROB, getCurrentUser()));
+        return "secure/rob";
     }
 
     public SsmUser getCurrentUser() {

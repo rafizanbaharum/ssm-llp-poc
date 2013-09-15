@@ -16,4 +16,9 @@ public interface SsmReservedName extends SsmName {
 
     void setEndDate(Date endDate);
 
+    SsmCompanyType getCompanyType();
+
+    void setCompanyType(SsmCompanyType companyType);
+
 }
+

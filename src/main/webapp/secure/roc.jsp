@@ -34,222 +34,184 @@
 
 <!-- Begin of #height-wrapper -->
 <div id="height-wrapper">
-<!-- Begin of header -->
-<header>
-    <!-- Begin of the header toolbar -->
-    <div id="header_toolbar">
-        <div class="container_12">
-            <h1 class="grid_8">SSM | MyLLP</h1>
-            <!-- Start of right part -->
-            <div class="grid_4">
-                <!-- A small toolbar button -->
-                <div class="toolbar_small">
-                    <div class="toolbutton">
-                        <span>3</span>
-                        <img src="/resources/img/icons/16x16/mail.png" width="16" height="16" alt="mail">
+    <!-- Begin of header -->
+    <header>
+        <!-- Begin of the header toolbar -->
+        <div id="header_toolbar">
+            <div class="container_12">
+                <h1 class="grid_8">SSM | MyLLP</h1>
+                <!-- Start of right part -->
+                <div class="grid_4">
+                    <!-- A small toolbar button -->
+                    <div class="toolbar_small">
+                        <div class="toolbutton">
+                            <span>3</span>
+                            <img src="/resources/img/icons/16x16/mail.png" width="16" height="16" alt="mail">
+                        </div>
                     </div>
-                </div>
-                <!-- End of small toolbar button -->
+                    <!-- End of small toolbar button -->
 
-                <!-- A large toolbar button -->
-                <div class="toolbar_large">
-                    <div class="toolbutton">
-                        <div class="toolicon">
-                            <img src="/resources/img/icons/16x16/user.png" width="16" height="16" alt="user">
-                        </div>
-                        <div class="toolmenu">
-                            <div class="toolcaption">
-                                <span>Administrator</span>
+                    <!-- A large toolbar button -->
+                    <div class="toolbar_large">
+                        <div class="toolbutton">
+                            <div class="toolicon">
+                                <img src="/resources/img/icons/16x16/user.png" width="16" height="16" alt="user">
                             </div>
-                            <!-- Start of menu -->
-                            <div class="dropdown">
-                                <ul>
-                                    <li>
-                                        <a href="#">Settings</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Logout</a>
-                                    </li>
-                                </ul>
+                            <div class="toolmenu">
+                                <div class="toolcaption">
+                                    <span>User X</span>
+                                </div>
+                                <!-- Start of menu -->
+                                <div class="dropdown">
+                                    <ul>
+                                        <li>
+                                            <a href="#">Settings</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Logout</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- End of menu -->
                             </div>
-                            <!-- End of menu -->
                         </div>
                     </div>
+                    <!-- End of large toolbar button -->
                 </div>
-                <!-- End of large toolbar button -->
+                <!-- End of right part -->
             </div>
-            <!-- End of right part -->
         </div>
-    </div>
-    <!-- End of the header toolbar -->
+        <!-- End of the header toolbar -->
 
-    <!-- Start of the main header bar -->
-    <nav id="header_main">
-        <div class="container_12">
-            <!-- Start of the main navigation -->
-            <ul id="nav_main">
-                <li>
-                    <a href="#">
-                        <img src="/resources/img/icons/25x25/dark/computer-imac.png" width=25 height=25 alt="">
-                        Dashboard</a>
-                    <ul>
-                        <li>
-                            <a href="/secure/dashboard">Dashboard</a>
-                        </li>
-                        <li>
-                            <a href="/secure/search">Name Search</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="current">
-                    <a href="#">
-                        <img src="/resources/img/icons/25x25/dark/documents.png" width=25 height=25 alt="">
-                        My Companies</a>
-                    <ul>
-                        <li class="current">
-                            <a href="/secure/reserve">Reservations</a>
-                        </li>
-                        <li>
-                            <a href="/secure/llp">LLP</a>
-                        </li>
-                        <li>
-                            <a href="/secure/roc">ROC</a>
-                        </li>
-                        <li class="last-child">
-                            <a href="/secure/rob">ROB</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">
-                        <img src="/resources/img/icons/25x25/dark/address-book.png" width=25 height=25 alt="">
-                        Literatures</a>
-                    <ul>
-                        <li>
-                            <a href="/secure/legal">Legal</a>
-                        </li>
-                        <li>
-                            <a href="/secure/about">About</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">
-                        <img src="/resources/img/icons/25x25/dark/archive.png" width=25 height=25 alt="">
-                        Rules</a>
-                    <ul>
-                        <li>
-                            <a href="/secure/filter">Filters</a>
-                        </li>
-                        <li>
-                            <a href="/secure/name">Names</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-            <!-- End of the main navigation -->
-        </div>
-    </nav>
-    <div id="nav_sub"></div>
-</header>
-
-<!-- Start of the content -->
-<div role="main" class="container_12" id="content-wrapper">
-    <!-- Start of the sidebar -->
-    <aside>
-        <div id="sidebar_content">
-            <h2>Menu</h2>
-
-            <p>
-                Use actions below:
-            </p>
-
-            <div class="divider"></div>
-            <nav>
-                <ul class="menu collapsible">
-                    <li class="first-child current">
-                        <a href="#">State: current</a>
-                    </li>
+        <!-- Start of the main header bar -->
+        <nav id="header_main">
+            <div class="container_12">
+                <!-- Start of the main navigation -->
+                <ul id="nav_main">
                     <li>
-                        <a href="#">State: normal</a>
-                        <ul class="sub">
+                        <a href="#">
+                            <img src="/resources/img/icons/25x25/dark/computer-imac.png" width=25 height=25 alt="">
+                            Dashboard</a>
+                        <ul>
                             <li>
-                                <a href="#">State: normal</a>
+                                <a href="/secure/dashboard">Dashboard</a>
                             </li>
                             <li>
-                                <a href="#">State: normal</a>
+                                <a href="/secure/search">Name Search</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="current">
+                        <a href="#">
+                            <img src="/resources/img/icons/25x25/dark/documents.png" width=25 height=25 alt="">
+                            My Companies</a>
+                        <ul>
+                            <li>
+                                <a href="/secure/reserve">Reservations</a>
+                            </li>
+                            <li class="current">
+                                <a href="/secure/llp">LLP</a>
                             </li>
                             <li>
-                                <a href="#">State: normal</a>
+                                <a href="/secure/roc">ROC</a>
+                            </li>
+                            <li class="last-child">
+                                <a href="/secure/rob">ROB</a>
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <a href="#">State: normal</a>
+                        <a href="#">
+                            <img src="/resources/img/icons/25x25/dark/address-book.png" width=25 height=25 alt="">
+                            Literatures</a>
+                        <ul>
+                            <li>
+                                <a href="/secure/legal">Legal</a>
+                            </li>
+                            <li>
+                                <a href="/secure/about">About</a>
+                            </li>
+                        </ul>
                     </li>
-                    <li class="last-child">
-                        <a href="#">State: normal</a>
+                    <li>
+                        <a href="#">
+                            <img src="/resources/img/icons/25x25/dark/archive.png" width=25 height=25 alt="">
+                            Rules</a>
+                        <ul>
+                            <li>
+                                <a href="/secure/filter">Filters</a>
+                            </li>
+                            <li>
+                                <a href="/secure/name">Names</a>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
-            </nav>
-        </div>
-    </aside>
-    <!-- End of the sidebar-->
-
-    <!-- Start of the main content -->
-    <div id="main_content">
-        <h2 class="grid_12">LLP Name Rules</h2>
-
-        <div class="clean"></div>
-
-        <div class="grid_12">
-            <div class="box">
-                <div class="header">
-                    <img src="/resources/img/icons/packs/fugue/16x16/shadeless/table.png" width="16" height="16">
-
-                    <h3>Offensive Name</h3><span></span>
-                </div>
-                <div class="content no-padding">
-                    <table class="table">
-                        <colgroup>
-                            <col class="wwe-first-col">
-                            <col class="wwe-table-col-width">
-                            <col class="wwe-table-col-width">
-                            <col class="wwe-table-col-width">
-                        </colgroup>
-                        <thead>
-                        <tr>
-                            <th class="wwe-lang-rank" scope="col">ID</th>
-                            <th class="wwe-align-left wwe-lang-club" scope="col">Name</th>
-                            <th class="wwe-lang-matches" scope="col">Start</th>
-                            <th class="wwe-lang-matches" scope="col">End</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <c:forEach var="reserve" items="${reserves}">
-                            <tr>
-                                <td class="wwe-1rank"><span>${reserve.id}</span></td>
-                                <td class="wwe-align-left">${reserve.name}</td>
-                                <td>${reserve.startDate}</td>
-                                <td>${reserve.endDate}</td>
-                            </tr>
-                        </c:forEach>
-                        </tbody>
-                    </table>
-                </div>
-                <!-- End of .content -->
-                <div class="clear"></div>
+                <!-- End of the main navigation -->
             </div>
-            <!-- End of .box -->
-        </div>
-    </div>
-    <!-- End of #main_content -->
-    <div class="push clear"></div>
+        </nav>
+        <div id="nav_sub"></div>
+    </header>
 
-</div>
-<!-- End of #content-wrapper -->
-<div class="clear"></div>
-<div class="push"></div>
+    <!-- Start of the content -->
+    <div role="main" class="container_12" id="content-wrapper">
+        <!-- Start of the main content -->
+        <div id="main_content">
+            <h2 class="grid_12">Registered LLP Companies</h2>
+
+            <div class="clean"></div>
+
+            <div class="grid_12">
+                <div class="box">
+                    <div class="header">
+                        <img src="/resources/img/icons/packs/fugue/16x16/shadeless/table.png" width="16" height="16">
+
+                        <h3>Registered ROCs</h3><span></span>
+                    </div>
+                    <div class="content no-padding">
+                        <table class="table">
+                            <colgroup>
+                                <col class="wwe-first-col">
+                                <col class="wwe-table-col-width">
+                                <col class="wwe-table-col-width">
+                                <col class="wwe-table-col-width">
+                                <col class="wwe-align-center">
+                            </colgroup>
+                            <thead>
+                            <tr>
+                                <th class="wwe-lang-rank" scope="col">ID</th>
+                                <th class="wwe-align-left wwe-lang-club" scope="col">Name</th>
+                                <th class="wwe-lang-matches" scope="col">Status</th>
+                                <th class="wwe-lang-matches" scope="col">Type</th>
+                                <th class="wwe-lang-matches" scope="col">Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <c:forEach var="roc" items="${rocs}">
+                                <tr>
+                                    <td class="wwe-1rank"><span>${roc.id}</span></td>
+                                    <td class="wwe-align-left">${roc.name}</td>
+                                    <td>${roc.companyStatus}</td>
+                                    <td>${roc.companyType}</td>
+                                    <td><a href="/secure/edit">Edit</a></td>
+                                </tr>
+                            </c:forEach>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- End of .content -->
+                    <div class="clear"></div>
+                </div>
+                <!-- End of .box -->
+            </div>
+        </div>
+        <!-- End of #main_content -->
+        <div class="push clear"></div>
+
+    </div>
+    <!-- End of #content-wrapper -->
+    <div class="clear"></div>
+    <div class="push"></div>
 </div>
 
 <!-- Start of footer-->
@@ -262,7 +224,7 @@
                     <span><a href="/secure/dashboard">Dashboard</a></span>
                 </li>
                 <li>
-                    <span><a href="/secure/logout">Logout</a></span>
+                    <span><a href="/logout">Logout</a></span>
                 </li>
             </ul>
         </div>
