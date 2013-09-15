@@ -33,7 +33,7 @@ html, body {
 #height-wrapper {
 	height: auto !important;
 	height: 100%;
-	margin: 0 auto -38px;
+	margin: 0 auto 90px;
 	min-height: 100%;
 }
 
