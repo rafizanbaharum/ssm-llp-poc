@@ -140,10 +140,10 @@
                             <img src="/resources/img/icons/25x25/dark/archive.png" width=25 height=25 alt="">
                             Rules</a>
                         <ul>
-                            <li class="current">
+                            <li>
                                 <a href="/secure/filter/all">Filters</a>
                             </li>
-                            <li>
+                            <li class="current">
                                 <a href="/secure/name/all">Names</a>
                             </li>
                         </ul>
@@ -214,33 +214,23 @@
                     <h3>Update Filter Form</h3>
                     <span></span>
                 </div>
-                <form method="post" action="/secure/filter/update" class="validate">
+                <form method="post" action="/secure/name/update" class="validate">
                     <div class="content">
                         <fieldset>
                             <legend>
-                                Filter Details
+                                Name Details
                             </legend>
                             <div class="_100">
                                 <p>
                                     <label for="textfield1">
                                         Name
                                     </label>
-                                    <input type="text" value="${filter.name}" class="required" name="name" class="text">
-                                </p>
-                            </div>
-                            <div class="_100">
-                                <p>
-                                    <label for="textfield1">
-                                        Script
-                                    </label>
-                                    <textarea value="${filter.script}" class="required" name="script"
-                                              class="text" rows="20">${filter.script}</textarea>
+                                    <input type="text" value="${name.name}" class="required" name="name" class="text">
                                 </p>
                             </div>
                         </fieldset>
                     </div>
                     <div class="actions">
-                        <input type="hidden" name="id" value="${filter.id}"/>
                         <div class="actions-right">
                             <input type="submit">
                         </div>

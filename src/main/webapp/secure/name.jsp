@@ -134,7 +134,7 @@
                         <a href="/secure/filter/all">Filters</a>
                     </li>
                     <li class="current">
-                        <a href="name">Names</a>
+                        <a  href="/secure/name/all">Names</a>
                     </li>
                 </ul>
             </li>
