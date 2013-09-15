@@ -1,3 +1,7 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+
 <html>
 <head>
     <meta charset="utf-8">
@@ -56,16 +60,19 @@
                             </div>
                             <div class="toolmenu">
                                 <div class="toolcaption">
+
                                     <span>User X</span>
                                 </div>
                                 <!-- Start of menu -->
                                 <div class="dropdown">
                                     <ul>
+                                        <sec:authorize ifAllGranted="ROLE_ADMINISTRATOR">
+                                            <li>
+                                                <a href="/secure/settings">Settings</a>
+                                            </li>
+                                        </sec:authorize>
                                         <li>
-                                            <a href="#">Settings</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Logout</a>
+                                            <a href="/logout">Logout</a>
                                         </li>
                                     </ul>
                                 </div>

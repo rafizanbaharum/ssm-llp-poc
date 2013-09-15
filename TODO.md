@@ -1,14 +1,14 @@
 TODO ssm-llp-poc
 ===========
-
+- DONE login as admin use spring-sec taglibs  <sec:authorize ifAllGranted="ROLE_ADMINISTRATOR">
+- DONE login as regular user
+- DONE email username/password:ssm.llp.poc@gmail.com/senanggila
 - registration     register > registered
-- email utiltiy    bukak gmail ssm-llp-poc@gmai.com
 - reserve name
-- login as admin    use spring-sec taglibs
+- logout
 - port to POSTGRES on amazon cloud
-- class diagram for presentation
+- class diagram for presentation NAME, COMPANY
 
- username/password:ssm.llp.poc@gmail.com/senanggila
 
 
 KEY POINTS
