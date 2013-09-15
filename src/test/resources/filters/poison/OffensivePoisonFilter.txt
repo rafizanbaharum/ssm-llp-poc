@@ -3,6 +3,6 @@ log.debug("OffensivePoisonFilter");
 String[] words = name.split(" ");
 for(int i=0; i < words.length; i++){
     log.debug("words: " + words[i]);
-    if(nameDao.hasName(words[i], NameType.OFFENSIVE)) return false;
+    if(nameDao.hasName(words[i], 0)) return false;
 }
 return true;

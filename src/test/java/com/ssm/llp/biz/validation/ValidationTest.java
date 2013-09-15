@@ -7,7 +7,6 @@ package com.ssm.llp.biz.validation;
 
 import com.ssm.llp.CoreConfig;
 import com.ssm.llp.core.SsmNameDaoTest;
-import com.ssm.llp.core.model.SsmCompany;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,8 +17,6 @@ import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-
-import java.util.List;
 
 /**
  * @author rafizan.baharum
@@ -44,11 +41,8 @@ public class ValidationTest extends AbstractTransactionalJUnit4SpringContextTest
     @Test
     @Rollback(value = true)
     public void testSearch() {
-        List<SsmCompany> validate = searchValidator.validate("MALAYSIA RAYA PLT");
-        log.debug("size: " + validate.size());
-        for (SsmCompany company : validate) {
-            log.debug("found: " + company.getName());
-        }
+        boolean validate = searchValidator.validate("MALAYSIA RAYA PLT");
+        log.debug("valid?: " + validate);
     }
 
     @Test

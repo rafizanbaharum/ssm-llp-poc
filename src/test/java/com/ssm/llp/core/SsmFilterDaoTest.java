@@ -61,7 +61,7 @@ public class SsmFilterDaoTest extends AbstractTransactionalJUnit4SpringContextTe
     @Rollback(value = false)
     public void createFilter() {
         try {
-            File poisonFolder = new File("C:/Projects/GitHub/ssm-llp-poc/src/test/resources/filter/poison");
+            File poisonFolder = new File("C:/Projects/GitHub/ssm-llp-poc/src/test/resources/filters/poison");
             File[] files = poisonFolder.listFiles();
             for (int i = 0; i < files.length; i++) {
                 File file = files[i];
@@ -72,7 +72,7 @@ public class SsmFilterDaoTest extends AbstractTransactionalJUnit4SpringContextTe
             }
             sessionFactory.getCurrentSession().flush();
 
-            File searchFolder = new File("C:/Projects/GitHub/ssm-llp-poc/src/test/resources/filter/search");
+            File searchFolder = new File("C:/Projects/GitHub/ssm-llp-poc/src/test/resources/filters/search");
             File[] searchFiles = searchFolder.listFiles();
             for (int i = 0; i < searchFiles.length; i++) {
                 File file = searchFiles[i];

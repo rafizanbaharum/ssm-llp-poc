@@ -1,2 +1,2 @@
 log.debug("ExistingSearchFilter");
-return  nameDao.findRegisteredNames(name);
+return nameDao.find(name).isEmpty();

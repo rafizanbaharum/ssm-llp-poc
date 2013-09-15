@@ -20,6 +20,8 @@ public interface SsmNameDao {
 
     List<SsmName> find(SsmNameType type);
 
+    List<SsmName> findByOwner(SsmNameType type, SsmUser owner);
+
 
     // helpers
     boolean hasName(String name);

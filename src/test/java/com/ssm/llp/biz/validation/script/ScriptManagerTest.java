@@ -3,7 +3,6 @@ package com.ssm.llp.biz.validation.script;
 import com.ssm.llp.CoreConfig;
 import com.ssm.llp.core.SsmNameDaoTest;
 import com.ssm.llp.core.dao.SsmFilterDao;
-import com.ssm.llp.core.model.SsmCompany;
 import com.ssm.llp.core.model.SsmFilter;
 import com.ssm.llp.core.model.SsmFilterType;
 import org.hibernate.SessionFactory;
@@ -51,10 +50,8 @@ public class ScriptManagerTest extends AbstractTransactionalJUnit4SpringContextT
         for (SsmFilter filter : filters) {
             HashMap<String, Object> map = new HashMap<String, Object>();
             map.put("name", "MALAYSIA RAYA PLT");
-            List<SsmCompany> list = scriptManager.executeSearchFilter(filter.getScript(), map);
-            for (SsmCompany name : list) {
-                log.debug("Name: " + name.getName());
-            }
+            boolean valid = scriptManager.executeSearchFilter(filter.getScript(), map);
+            log.debug("valid?: " + valid);
         }
     }
 
@@ -65,8 +62,8 @@ public class ScriptManagerTest extends AbstractTransactionalJUnit4SpringContextT
         for (SsmFilter filter : filters) {
             HashMap<String, Object> map = new HashMap<String, Object>();
             map.put("name", "MALAYSIA MEMBODOH PLT");
-            boolean result = scriptManager.executePoisonFilter(filter.getScript(), map);
-            log.debug("Result : " + filter.getName() + " " + result);
+            boolean valid = scriptManager.executePoisonFilter(filter.getScript(), map);
+            log.debug("Result : " + filter.getName() + " " + valid);
         }
     }
 }

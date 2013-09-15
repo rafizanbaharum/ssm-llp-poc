@@ -3,6 +3,7 @@ package com.ssm.llp.core.dao.impl;
 import com.ssm.llp.core.dao.SsmNameDao;
 import com.ssm.llp.core.model.SsmName;
 import com.ssm.llp.core.model.SsmNameType;
+import com.ssm.llp.core.model.SsmUser;
 import com.ssm.llp.core.model.impl.SsmNameImpl;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -56,8 +57,17 @@ public class SsmNameDaoImpl extends DaoSupport<Long, SsmName, SsmNameImpl> imple
     @Override
     public List<SsmName> find(SsmNameType type) {
         Session session = sessionFactory.getCurrentSession();
-        Query query = session.createQuery("select n from SsmName n where n.nameType like :nameType");
+        Query query = session.createQuery("select n from SsmName n where n.nameType = :nameType");
         query.setInteger("nameType", type.ordinal());
+        return (List<SsmName>) query.list();
+    }
+
+    @Override
+    public List<SsmName> findByOwner(SsmNameType nameType, SsmUser owner) {
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery("select n from SsmName n where n.metadata.creator = :creatorId and n.nameType=:nameType");
+        query.setInteger("nameType", nameType.ordinal());
+        query.setLong("creatorId", owner.getId());
         return (List<SsmName>) query.list();
     }
 }

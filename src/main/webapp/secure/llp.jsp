@@ -101,12 +101,12 @@
                         </li>
                     </ul>
                 </li>
-                <li>
+                <li class="current">
                     <a href="#">
                         <img src="/resources/img/icons/25x25/dark/documents.png" width=25 height=25 alt="">
                         My Companies</a>
                     <ul>
-                        <li>
+                        <li class="current">
                             <a href="/secure/reserve">Reservations</a>
                         </li>
                         <li>
@@ -133,16 +133,16 @@
                         </li>
                     </ul>
                 </li>
-                <li class="current">
+                <li>
                     <a href="#">
                         <img src="/resources/img/icons/25x25/dark/archive.png" width=25 height=25 alt="">
                         Rules</a>
                     <ul>
-                        <li class="current">
-                            <a href="filter">Filters</a>
+                        <li>
+                            <a href="/secure/filter">Filters</a>
                         </li>
                         <li>
-                            <a href="name">Names</a>
+                            <a href="/secure/name">Names</a>
                         </li>
                     </ul>
                 </li>
@@ -214,7 +214,6 @@
                         <colgroup>
                             <col class="wwe-first-col">
                             <col class="wwe-table-col-width">
-                            <col class="wwe-align-left">
                             <col class="wwe-table-col-width">
                             <col class="wwe-table-col-width">
                         </colgroup>
@@ -222,17 +221,17 @@
                         <tr>
                             <th class="wwe-lang-rank" scope="col">ID</th>
                             <th class="wwe-align-left wwe-lang-club" scope="col">Name</th>
-                            <th class="wwe-lang-matches" scope="col">Script</th>
-                            <th class="wwe-lang-matches" scope="col">Type</th>
+                            <th class="wwe-lang-matches" scope="col">Start</th>
+                            <th class="wwe-lang-matches" scope="col">End</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <c:forEach var="filter" items="${filters}">
+                        <c:forEach var="reserve" items="${reserves}">
                             <tr>
-                                <td class="wwe-1rank"><span>${filter.id}</span></td>
-                                <td class="wwe-align-left">${filter.name}</td>
-                                <td>${filter.script}</td>
-                                <td>${filter.filterType}</td>
+                                <td class="wwe-1rank"><span>${reserve.id}</span></td>
+                                <td class="wwe-align-left">${reserve.name}</td>
+                                <td>${reserve.startDate}</td>
+                                <td>${reserve.endDate}</td>
                             </tr>
                         </c:forEach>
                         </tbody>
@@ -243,9 +242,6 @@
             </div>
             <!-- End of .box -->
         </div>
-        <!-- End of .grid_12 -->
-        <!-- End of .grid_12 -->
-
     </div>
     <!-- End of #main_content -->
     <div class="push clear"></div>

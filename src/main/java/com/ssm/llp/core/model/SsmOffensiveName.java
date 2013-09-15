@@ -1,19 +1,8 @@
 package com.ssm.llp.core.model;
 
-import com.ssm.llp.core.model.impl.SsmNameImpl;
-
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import java.io.Serializable;
-
 /**
  * @author rafizan.baharum
- * @since 9/6/13
+ * @since 9/10/13
  */
-@Table(name = "SSM_OFFENSIVE_NAME")
-@Entity(name = "SsmOffensiveName")
-public class SsmOffensiveName extends SsmNameImpl implements Serializable{
-    public SsmOffensiveName() {
-        setNameType(SsmNameType.OFFENSIVE);
-    }
+public interface SsmOffensiveName extends SsmName {
 }

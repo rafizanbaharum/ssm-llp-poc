@@ -1,6 +1,7 @@
 package com.ssm.llp.core.model.impl;
 
 import com.ssm.llp.core.model.SsmNameType;
+import com.ssm.llp.core.model.SsmReservedName;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,7 +15,7 @@ import java.util.Date;
  */
 @Table(name = "SSM_RESERVED_NAME")
 @Entity(name = "SsmReservedName")
-public class SsmReservedNameImpl extends SsmNameImpl implements Serializable {
+public class SsmReservedNameImpl extends SsmNameImpl implements SsmReservedName, Serializable {
 
     @Column(name = "START_DATE")
     private Date startDate;
@@ -24,5 +25,21 @@ public class SsmReservedNameImpl extends SsmNameImpl implements Serializable {
 
     public SsmReservedNameImpl() {
         setNameType(SsmNameType.RESERVED);
+    }
+
+    public Date getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
+    }
+
+    public Date getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
     }
 }

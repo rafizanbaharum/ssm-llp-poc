@@ -3,6 +3,6 @@ log.debug("SymbolPoisonFilter");
 String[] words = name.split(" ");
 for(int i=0; i < words.length; i++){
         log.debug("words: " + words[i]);
-        if(nameDao.hasName(words[i], NameType.SYMBOL)) return false;
+        if(nameDao.hasName(words[i], 5)) return false;
 }
 return true;

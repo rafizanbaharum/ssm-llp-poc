@@ -11,6 +11,7 @@ import org.apache.log4j.Logger;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
@@ -18,6 +19,7 @@ import java.util.List;
  * @author rafizan.baharum
  * @since 9/14/13
  */
+@Repository("userDao")
 public class SsmUserDaoImpl extends DaoSupport<Long, SsmUser, SsmUserImpl> implements SsmUserDao {
 
     private static final Logger log = Logger.getLogger(SsmUserDaoImpl.class);

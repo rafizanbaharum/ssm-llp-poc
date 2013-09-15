@@ -1,5 +1,6 @@
 package com.ssm.llp.core.model.impl;
 
+import com.ssm.llp.core.model.SsmGazettedName;
 import com.ssm.llp.core.model.SsmNameType;
 
 import javax.persistence.Entity;
@@ -12,7 +13,7 @@ import java.io.Serializable;
  */
 @Table(name = "SSM_GAZETTED_NAME")
 @Entity(name = "SsmGazettedName")
-public class SsmGazettedNameImpl extends SsmNameImpl implements Serializable {
+public class SsmGazettedNameImpl extends SsmNameImpl implements SsmGazettedName, Serializable {
 
     public SsmGazettedNameImpl() {
         setNameType(SsmNameType.GAZETTED);

@@ -90,7 +90,7 @@
                             <img src="/resources/img/icons/25x25/dark/computer-imac.png" width=25 height=25 alt="">
                             Dashboard</a>
                         <ul>
-                            <li>
+                            <li class="current">
                                 <a href="/secure/dashboard">Dashboard</a>
                             </li>
                             <li>
@@ -104,16 +104,16 @@
                             My Companies</a>
                         <ul>
                             <li>
-                                <a href="reservation">Reservations</a>
+                                <a href="/secure/reserve">Reservations</a>
                             </li>
                             <li>
-                                <a href="llp">LLP</a>
+                                <a href="/secure/llp">LLP</a>
                             </li>
                             <li>
-                                <a href="roc">ROC</a>
+                                <a href="/secure/roc">ROC</a>
                             </li>
-                            <li class="last-child">
-                                <a href="rob">ROB</a>
+                            <li>
+                                <a href="/secure/rob">ROB</a>
                             </li>
                         </ul>
                     </li>
@@ -123,10 +123,10 @@
                             Literatures</a>
                         <ul>
                             <li>
-                                <a href="legal">Legal</a>
+                                <a href="/secure/legal">Legal</a>
                             </li>
                             <li>
-                                <a href="about">About</a>
+                                <a href="/secure/about">About</a>
                             </li>
                         </ul>
                     </li>

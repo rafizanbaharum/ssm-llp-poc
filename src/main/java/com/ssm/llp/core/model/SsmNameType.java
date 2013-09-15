@@ -6,10 +6,10 @@ package com.ssm.llp.core.model;
  */
 public enum SsmNameType {
 
-    OFFENSIVE,
-    COUNTRY,
-    STATE,
-    RESERVED,
-    GAZETTED,
-    SYMBOL;
+    OFFENSIVE,  // 0
+    COUNTRY,    // 1
+    STATE,     // 2
+    RESERVED,  // 3
+    GAZETTED,   // 4
+    SYMBOL;     // 5
 }

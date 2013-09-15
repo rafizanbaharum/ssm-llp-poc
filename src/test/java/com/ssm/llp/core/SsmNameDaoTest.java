@@ -4,11 +4,10 @@ import com.ssm.llp.CoreConfig;
 import com.ssm.llp.core.dao.SsmCompanyDao;
 import com.ssm.llp.core.dao.SsmNameDao;
 import com.ssm.llp.core.dao.SsmUserDao;
-import com.ssm.llp.core.model.SsmCompanyStatus;
-import com.ssm.llp.core.model.SsmOffensiveName;
-import com.ssm.llp.core.model.SsmUser;
+import com.ssm.llp.core.model.*;
 import com.ssm.llp.core.model.impl.SsmCompanyImpl;
 import com.ssm.llp.core.model.impl.SsmCountryNameImpl;
+import com.ssm.llp.core.model.impl.SsmReservedNameImpl;
 import com.ssm.llp.core.model.impl.SsmSymbolNameImpl;
 import org.hibernate.SessionFactory;
 import org.junit.Before;
@@ -26,6 +25,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.LineNumberReader;
+import java.util.Date;
 
 /**
  * @author rafizan.baharum
@@ -95,7 +95,7 @@ public class SsmNameDaoTest extends AbstractTransactionalJUnit4SpringContextTest
             LineNumberReader lreader = new LineNumberReader(reader);
             String buff;
             while (null != (buff = lreader.readLine())) {
-                SsmOffensiveName offensiveName = new SsmOffensiveName();
+                SsmOffensiveNameImpl offensiveName = new SsmOffensiveNameImpl();
                 offensiveName.setName(buff.split("\t")[1]);
                 ssmNameDao.save(offensiveName, root);
             }
@@ -131,19 +131,35 @@ public class SsmNameDaoTest extends AbstractTransactionalJUnit4SpringContextTest
     @Test
     @Rollback(value = false)
     public void insertOffensive() {
-        SsmOffensiveName name1 = new SsmOffensiveName();
+        SsmOffensiveName name1 = new SsmOffensiveNameImpl();
         name1.setName("SYARIKAT");
         ssmNameDao.save(name1, root);
 
-        SsmOffensiveName name2 = new SsmOffensiveName();
+        SsmOffensiveName name2 = new SsmOffensiveNameImpl();
         name2.setName("CORPORATION");
         ssmNameDao.save(name2, root);
         sessionFactory.getCurrentSession().flush();
 
-        SsmOffensiveName name3 = new SsmOffensiveName();
+        SsmOffensiveName name3 = new SsmOffensiveNameImpl();
         name3.setName("COMPANY");
         ssmNameDao.save(name3, root);
         sessionFactory.getCurrentSession().flush();
+    }
+
+    @Test
+    @Rollback(value = false)
+    public void insertReserved() {
+        SsmReservedName name1 = new SsmReservedNameImpl();
+        name1.setName("ALI MAJU ENTERPRISE");
+        name1.setStartDate(new Date());
+        name1.setEndDate(new Date());
+        ssmNameDao.save(name1, root);
+
+        SsmReservedName name2 = new SsmReservedNameImpl();
+        name2.setName("ALI JAYA ENTERPRISE");
+        name2.setStartDate(new Date());
+        name2.setEndDate(new Date());
+        ssmNameDao.save(name2, root);
     }
 
     @Test

@@ -72,14 +72,14 @@ public class ScriptManager implements InitializingBean {
         return false;
     }
 
-    public List executeSearchFilter(String script, Map<String, Object> params) {
+    public boolean executeSearchFilter(String script, Map<String, Object> params) {
         try {
             registerParameters(params);
-            return (List) engine.eval(null, 0, 0, script);
+            return (Boolean) engine.eval(null, 0, 0, script);
         } catch (BSFException e) {
             e.printStackTrace();
         }
-        return Collections.EMPTY_LIST;
+        return false;
     }
 
     private void registerParameters(Map<String, Object> params) {

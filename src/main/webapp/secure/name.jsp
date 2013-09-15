@@ -34,43 +34,33 @@
 
 <!-- Begin of #height-wrapper -->
 <div id="height-wrapper">
-<!-- Begin of header -->
-<header>
-    <!-- Begin of the header toolbar -->
-    <div id="header_toolbar">
-        <div class="container_12">
-            <h1 class="grid_8">SSM | MyLLP</h1>
-            <!-- Start of right part -->
-            <div class="grid_4">
-                <!-- A small toolbar button -->
-                <div class="toolbar_small">
-                    <div class="toolbutton">
-                        <span>3</span>
-                        <img src="/resources/img/icons/16x16/mail.png" width="16" height="16" alt="mail">
-                    </div>
-                </div>
-                <!-- End of small toolbar button -->
-
-                <!-- A large toolbar button -->
-                <div class="toolbar_large">
-                    <div class="toolbutton">
-                        <div class="toolicon">
-                            <img src="/resources/img/icons/16x16/user.png" width="16" height="16" alt="user">
+    <!-- Begin of header -->
+    <header>
+        <!-- Begin of the header toolbar -->
+        <div id="header_toolbar">
+            <div class="container_12">
+                <h1 class="grid_8">SSM | MyLLP</h1>
+                <!-- Start of right part -->
+                <div class="grid_4">
+                    <!-- A small toolbar button -->
+                    <div class="toolbar_small">
+                        <div class="toolbutton">
+                            <span>3</span>
+                            <img src="/resources/img/icons/16x16/mail.png" width="16" height="16" alt="mail">
                         </div>
-                        <div class="toolmenu">
-                            <div class="toolcaption">
-                                <span>Administrator</span>
+                    </div>
+                    <!-- End of small toolbar button -->
+
+                    <!-- A large toolbar button -->
+                    <div class="toolbar_large">
+                        <div class="toolbutton">
+                            <div class="toolicon">
+                                <img src="/resources/img/icons/16x16/user.png" width="16" height="16" alt="user">
                             </div>
-                            <!-- Start of menu -->
-                            <div class="dropdown">
-                                <ul>
-                                    <li>
-                                        <a href="#">Settings</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Logout</a>
-                                    </li>
-                                </ul>
+                            <div class="toolmenu">
+                                <div class="toolcaption">
+                                    <span>Administrator</span>
+                                </div>
                             </div>
                             <!-- End of menu -->
                         </div>
@@ -80,77 +70,77 @@
             </div>
             <!-- End of right part -->
         </div>
-    </div>
-    <!-- End of the header toolbar -->
+</div>
+<!-- End of the header toolbar -->
 
-    <!-- Start of the main header bar -->
-    <nav id="header_main">
-        <div class="container_12">
-            <!-- Start of the main navigation -->
-            <ul id="nav_main">
-                <li>
-                    <a href="#">
-                        <img src="/resources/img/icons/25x25/dark/computer-imac.png" width=25 height=25 alt="">
-                        Dashboard</a>
-                    <ul>
-                        <li>
-                            <a href="/secure/dashboard">Dashboard</a>
-                        </li>
-                        <li>
-                            <a href="/secure/search">Name Search</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">
-                        <img src="/resources/img/icons/25x25/dark/documents.png" width=25 height=25 alt="">
-                        My Companies</a>
-                    <ul>
-                        <li>
-                            <a href="reservation">Reservations</a>
-                        </li>
-                        <li>
-                            <a href="llp">LLP</a>
-                        </li>
-                        <li>
-                            <a href="roc">ROC</a>
-                        </li>
-                        <li class="last-child">
-                            <a href="rob">ROB</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">
-                        <img src="/resources/img/icons/25x25/dark/address-book.png" width=25 height=25 alt="">
-                        Literatures</a>
-                    <ul>
-                        <li>
-                            <a href="legal">Legal</a>
-                        </li>
-                        <li>
-                            <a href="about">About</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="current">
-                    <a href="#">
-                        <img src="/resources/img/icons/25x25/dark/archive.png" width=25 height=25 alt="">
-                        Rules</a>
-                    <ul>
-                        <li>
-                            <a href="filter">Filters</a>
-                        </li>
-                        <li class="current">
-                            <a href="name">Names</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-            <!-- End of the main navigation -->
-        </div>
-    </nav>
-    <div id="nav_sub"></div>
+<!-- Start of the main header bar -->
+<nav id="header_main">
+    <div class="container_12">
+        <!-- Start of the main navigation -->
+        <ul id="nav_main">
+            <li>
+                <a href="#">
+                    <img src="/resources/img/icons/25x25/dark/computer-imac.png" width=25 height=25 alt="">
+                    Dashboard</a>
+                <ul>
+                    <li>
+                        <a href="/secure/dashboard">Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="/secure/search">Name Search</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="/resources/img/icons/25x25/dark/documents.png" width=25 height=25 alt="">
+                    My Companies</a>
+                <ul>
+                    <li>
+                        <a href="/secure/reserve">Reservations</a>
+                    </li>
+                    <li>
+                        <a href="/secure/llp">LLP</a>
+                    </li>
+                    <li>
+                        <a href="/secure/roc">ROC</a>
+                    </li>
+                    <li>
+                        <a href="/secure/rob">ROB</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="/resources/img/icons/25x25/dark/address-book.png" width=25 height=25 alt="">
+                    Literatures</a>
+                <ul>
+                    <li>
+                        <a href="/secure/legal">Legal</a>
+                    </li>
+                    <li>
+                        <a href="/secure/about">About</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="current">
+                <a href="#">
+                    <img src="/resources/img/icons/25x25/dark/archive.png" width=25 height=25 alt="">
+                    Rules</a>
+                <ul>
+                    <li>
+                        <a href="filter">Filters</a>
+                    </li>
+                    <li class="current">
+                        <a href="name">Names</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <!-- End of the main navigation -->
+    </div>
+</nav>
+<div id="nav_sub"></div>
 </header>
 
 <!-- Start of the content -->
