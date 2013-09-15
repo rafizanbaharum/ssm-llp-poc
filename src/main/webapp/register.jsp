@@ -98,7 +98,7 @@
                         <h3>Registration Form</h3>
                         <span></span>
                     </div>
-                    <form method="get" action="" class="validate">
+                    <form method="post" action="register" class="validate">
                         <div class="content">
                             <fieldset>
                                 <legend>
@@ -107,9 +107,25 @@
                                 <div class="_50">
                                     <p>
                                         <label for="textfield1">
+                                            Name
+                                        </label>
+                                        <input type="text" value="" class="required" name="name" class="text">
+                                    </p>
+                                </div>
+                                <div class="_50">
+                                    <p>
+                                        <label for="textfield1">
+                                            NRIC
+                                        </label>
+                                        <input type="text" value="" class="required" name="nricNo" class="text">
+                                    </p>
+                                </div>
+                                <div class="_50">
+                                    <p>
+                                        <label for="textfield1">
                                             Username
                                         </label>
-                                        <input type="text" value="" class="required" name="textfield1" class="text">
+                                        <input type="text" value="" class="required" name="username" class="text">
                                     </p>
                                 </div>
                                 <div class="_50">
@@ -117,7 +133,7 @@
                                         <label for="textfield2">
                                             Email
                                         </label>
-                                        <input type="text" value="" name="textfield2" class="text">
+                                        <input type="text" value="" name="email" class="text">
                                     </p>
                                 </div>
                                 <div class="_50">
@@ -125,7 +141,7 @@
                                         <label for="textfield1">
                                             Password
                                         </label>
-                                        <input type="text" value="" class="required" name="textfield1" class="text">
+                                        <input type="password" value="" class="required" name="password" class="text">
                                     </p>
                                 </div>
                                 <div class="_50">
@@ -133,7 +149,7 @@
                                         <label for="textfield2">
                                             Password Again
                                         </label>
-                                        <input type="text" value="" name="textfield2" class="text">
+                                        <input type="password" value="" name="passwordAgain" class="text">
                                     </p>
                                 </div>
                             </fieldset>
@@ -146,7 +162,7 @@
                                         <label for="textfield2">
                                             Phone
                                         </label>
-                                        <input type="text" value="" name="textfield2" class="text">
+                                        <input type="text" value="" name="phone" class="text">
                                     </p>
                                 </div>
                                 <div class="_50">
@@ -154,7 +170,7 @@
                                         <label for="textfield2">
                                             Fax
                                         </label>
-                                        <input type="text" value="" name="textfield2" class="text">
+                                        <input type="text" value="" name="fax" class="text">
                                     </p>
                                 </div>
                             </fieldset>
@@ -166,19 +182,15 @@
                                     <label for="field4">
                                         Address
                                     </label>
-                                    <input type="text" name="field4" class="text">
+                                    <input type="text" name="address1" class="text">
                                 </p>
 
                                 <p class="inline-small-label">
-                                    <input type="text" name="field5" class="text">
+                                    <input type="text" name="address2" class="text">
                                 </p>
 
                                 <p class="inline-small-label">
-                                    <input type="text" name="field5" class="text">
-                                </p>
-
-                                <p class="inline-small-label">
-                                    <input type="text" name="field5" class="text">
+                                    <input type="text" name="address3" class="text">
                                 </p>
                             </fieldset>
                         </div>

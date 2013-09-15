@@ -17,7 +17,8 @@ import java.io.Serializable;
 @Indexed
 @Table(name = "SSM_COMPANY")
 @Entity(name = "SsmCompany")
-public class SsmCompanyImpl implements SsmCompany, Serializable {
+@Inheritance(strategy = InheritanceType.JOINED)
+public abstract class SsmCompanyImpl implements SsmCompany, Serializable {
 
     @Id
     @DocumentId
@@ -34,7 +35,7 @@ public class SsmCompanyImpl implements SsmCompany, Serializable {
     @FieldBridge(impl = EnumBridge.class)
     @Enumerated(EnumType.ORDINAL)
     @Column(name = "COMPANY_STATUS")
-    private SsmCompanyStatus status;
+    private SsmCompanyStatus companyStatus;
 
     @Column(name = "COMPANY_TYPE")
     private SsmCompanyType companyType;
@@ -63,13 +64,13 @@ public class SsmCompanyImpl implements SsmCompany, Serializable {
     }
 
     @Override
-    public SsmCompanyStatus getStatus() {
-        return status;
+    public SsmCompanyStatus getCompanyStatus() {
+        return companyStatus;
     }
 
     @Override
-    public void setStatus(SsmCompanyStatus status) {
-        this.status = status;
+    public void setCompanyStatus(SsmCompanyStatus companyStatus) {
+        this.companyStatus = companyStatus;
     }
 
     @Override

@@ -5,10 +5,7 @@ import com.ssm.llp.core.dao.SsmCompanyDao;
 import com.ssm.llp.core.dao.SsmNameDao;
 import com.ssm.llp.core.dao.SsmUserDao;
 import com.ssm.llp.core.model.*;
-import com.ssm.llp.core.model.impl.SsmCompanyImpl;
-import com.ssm.llp.core.model.impl.SsmCountryNameImpl;
-import com.ssm.llp.core.model.impl.SsmReservedNameImpl;
-import com.ssm.llp.core.model.impl.SsmSymbolNameImpl;
+import com.ssm.llp.core.model.impl.*;
 import org.hibernate.SessionFactory;
 import org.junit.Before;
 import org.junit.Test;
@@ -110,20 +107,20 @@ public class SsmNameDaoTest extends AbstractTransactionalJUnit4SpringContextTest
     @Test
     @Rollback(value = false)
     public void createCompanies() {
-        SsmCompanyImpl name1 = new SsmCompanyImpl();
-        name1.setName("MAJU JAYA ENTEPRISE");
-        name1.setStatus(SsmCompanyStatus.ACTIVE);
+        SsmCompanyImpl name1 = new SsmRocCompanyImpl();
+        name1.setName("MAJU JAYA");
+        name1.setCompanyStatus(SsmCompanyStatus.ACTIVE);
         ssmCompanyDao.save(name1, root);
 
-        SsmCompanyImpl name2 = new SsmCompanyImpl();
+        SsmCompanyImpl name2 = new SsmRocCompanyImpl();
         name2.setName("JAYA & MAJU RESTORAN");
-        name2.setStatus(SsmCompanyStatus.ACTIVE);
+        name2.setCompanyStatus(SsmCompanyStatus.ACTIVE);
         ssmCompanyDao.save(name2, root);
         sessionFactory.getCurrentSession().flush();
 
-        SsmCompanyImpl name3 = new SsmCompanyImpl();
-        name3.setName("MALAYSIA RAYAS PLT");
-        name3.setStatus(SsmCompanyStatus.ACTIVE);
+        SsmCompanyImpl name3 = new SsmLlpCompanyImpl();
+        name3.setName("MALAYSIA RAYAS");
+        name3.setCompanyStatus(SsmCompanyStatus.ACTIVE);
         ssmCompanyDao.save(name3, root);
         sessionFactory.getCurrentSession().flush();
     }

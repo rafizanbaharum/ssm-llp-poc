@@ -1,6 +1,7 @@
 package com.ssm.llp.core.dao;
 
 import com.ssm.llp.core.model.SsmCompany;
+import com.ssm.llp.core.model.SsmCompanyType;
 import com.ssm.llp.core.model.SsmUser;
 
 import java.util.List;
@@ -14,7 +15,9 @@ public interface SsmCompanyDao {
     // finders
     SsmCompany findById(Long id);
 
-    List<SsmCompany> findCompanies(String filter);
+    List<SsmCompany> find(String filter);
+
+    List<SsmCompany> findByOwner(SsmCompanyType companyType, SsmUser owner);
 
 
     // cruds

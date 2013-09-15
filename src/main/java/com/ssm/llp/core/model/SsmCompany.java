@@ -10,9 +10,9 @@ public interface SsmCompany extends SsmMetaObject {
 
     void setName(String name);
 
-    SsmCompanyStatus getStatus();
+    SsmCompanyStatus getCompanyStatus();
 
-    void setStatus(SsmCompanyStatus status);
+    void setCompanyStatus(SsmCompanyStatus status);
 
     SsmCompanyType getCompanyType();
 

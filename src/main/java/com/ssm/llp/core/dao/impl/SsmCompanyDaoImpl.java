@@ -1,7 +1,7 @@
 package com.ssm.llp.core.dao.impl;
 
 import com.ssm.llp.core.dao.SsmCompanyDao;
-import com.ssm.llp.core.model.SsmCompany;
+import com.ssm.llp.core.model.*;
 import com.ssm.llp.core.model.impl.SsmCompanyImpl;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -22,15 +22,15 @@ import java.util.List;
 public class SsmCompanyDaoImpl extends DaoSupport<Long, SsmCompany, SsmCompanyImpl> implements SsmCompanyDao, Serializable {
 
     @Override
-    public SsmCompanyImpl findById(Long id) {
+    public SsmCompany findById(Long id) {
         Session session = sessionFactory.getCurrentSession();
         Query query = session.createQuery("select n from SsmCompany n where n.id = :id");
         query.setLong("id", id);
-        return (SsmCompanyImpl) query.uniqueResult();
+        return (SsmCompany) query.uniqueResult();
     }
 
     @Override
-    public List<SsmCompany> findCompanies(String filter) {
+    public List<SsmCompany> find(String filter) {
         Session session = sessionFactory.getCurrentSession();
         FullTextSession fullTextSession = Search.getFullTextSession(sessionFactory.getCurrentSession());
         QueryBuilder builder = fullTextSession
@@ -43,4 +43,16 @@ public class SsmCompanyDaoImpl extends DaoSupport<Long, SsmCompany, SsmCompanyIm
         FullTextQuery fullTextQuery = fullTextSession.createFullTextQuery(termQuery, SsmCompanyImpl.class);
         return (List<SsmCompany>) fullTextQuery.list();
     }
+
+    @Override
+    public List<SsmCompany> findByOwner(SsmCompanyType companyType, SsmUser owner) {
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery("select n from SsmCompany n where " +
+                "n.metadata.creator = :creatorId " +
+                "and n.companyType=:companyType");
+        query.setInteger("companyType", companyType.ordinal());
+        query.setLong("creatorId", owner.getId());
+        return (List<SsmCompany>) query.list();
+    }
+
 }
