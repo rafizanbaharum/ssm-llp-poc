@@ -71,17 +71,17 @@
 <!-- JavaScript at the bottom for fast page loading -->
 <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.js"><\/script>')</script>
+<script>window.jQuery || document.write('<script src="resources/js/libs/jquery-1.7.1.js"><\/script>')</script>
 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
-<script>window.jQuery.ui || document.write('<script src="js/libs/jquery-ui-1.8.16.min.js"><\/script>')</script>
+<script>window.jQuery.ui || document.write('<script src="resources/js/libs/jquery-ui-1.8.16.min.js"><\/script>')</script>
 
 <!-- scripts concatenated and minified via build script -->
-<script defer src="js/plugins.js"></script>
-<script defer src="js/mylibs/jquery.validate.js"></script>
-<script defer src="js/mylibs/jquery.jgrowl.js"></script>
-<script defer src="js/mylibs/jquery.checkbox.js"></script>
-<script defer src="js/mylibs/jquery.validate.js"></script>
-<script defer src="js/script.js"></script>
+<script defer src="resources/js/plugins.js"></script>
+<script defer src="resources/js/mylibs/jquery.validate.js"></script>
+<script defer src="resources/js/mylibs/jquery.jgrowl.js"></script>
+<script defer src="resources/js/mylibs/jquery.checkbox.js"></script>
+<script defer src="resources/js/mylibs/jquery.validate.js"></script>
+<script defer src="resources/js/script.js"></script>
 
 </body>
 </html>

@@ -2,14 +2,12 @@ package com.ssm.llp.web.config;
 
 import com.ssm.llp.integration.springsecurity.SsmUserDetailService;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.encoding.ShaPasswordEncoder;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.core.userdetails.UserDetailsService;
 
 /**
  * @author rafizan.baharum
@@ -20,42 +18,35 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
+
     @Override
     public void configure(WebSecurity web) throws Exception {
         web
                 .ignoring()
-                .antMatchers("/resources/**"); // #3
+                .antMatchers("/resources/**");
+    }
+
+    @Override
+    protected void registerAuthentication(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(new SsmUserDetailService()).passwordEncoder(new ShaPasswordEncoder());
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-                .authorizeUrls()
+                .authorizeRequests()
                 .antMatchers("/index", "/gate", "/about").permitAll()
-                .antMatchers("/secure/**").hasRole("ADMIN") // drop ROLE_
                 .antMatchers("/secure/**").hasRole("USER")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
-                .loginUrl("/login")
+                .loginProcessingUrl("/login")
                 .defaultSuccessUrl("/secure/dashboard")
                 .failureUrl("/gate?login_error=1")
                 .permitAll()
                 .and()
                 .logout()
-                .logoutUrl("/logout");
-    }
-
-    @Override
-    protected UserDetailsService userDetailsService() {
-        return new SsmUserDetailService();
-    }
-
-    @Override
-    protected AuthenticationManager authenticationManager() throws Exception {
-        return new AuthenticationManagerBuilder()
-                .userDetailsService(userDetailsServiceBean())
-                .passwordEncoder(new ShaPasswordEncoder())
-                .and().build();
+                .logoutUrl("/logout")
+                .invalidateHttpSession(true);
     }
 }

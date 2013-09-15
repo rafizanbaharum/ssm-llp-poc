@@ -8,6 +8,6 @@ public interface SsmPrincipalRole {
 
     SsmRoleType getRoleType();
 
-     SsmPrincipal getPrincipal();
-    
+    SsmPrincipal getPrincipal();
+
 }

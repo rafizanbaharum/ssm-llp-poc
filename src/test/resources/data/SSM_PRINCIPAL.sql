@@ -7,4 +7,7 @@ values (1, 'System Root', '6367c48dd193d56ea7b0baad25b19455e529f5ee', 'rafizan.b
 insert into SSM_PRINCIPAL_ROLE (ID, ROLE_TYPE, PRINCIPAL_ID, M_ST, C_ID)
 values(1, 0, 1, 1, 1);
 
+insert into SSM_PRINCIPAL_ROLE (ID, ROLE_TYPE, PRINCIPAL_ID, M_ST, C_ID)
+values(2, 1, 1, 1, 1);
+
 
