@@ -1,7 +1,7 @@
 package com.ssm.llp.core.dao.impl;
 
 import com.ssm.llp.core.dao.SsmPrincipalDao;
-import com.ssm.llp.core.dao.SsmRoleDao;
+import com.ssm.llp.core.dao.SsmPrincipalRoleDao;
 import com.ssm.llp.core.exception.RecursiveGroupException;
 import com.ssm.llp.core.model.SsmMetaState;
 import com.ssm.llp.core.model.SsmPrincipal;
@@ -27,7 +27,7 @@ public class SsmPrincipalDaoImpl extends DaoSupport<Long, SsmPrincipal, SsmPrinc
 
     private static final Logger log = Logger.getLogger(SsmPrincipalDaoImpl.class);
 
-    private SsmRoleDao roleDao;
+    private SsmPrincipalRoleDao roleDao;
 
     private boolean allowRecursiveGroup = false;
 

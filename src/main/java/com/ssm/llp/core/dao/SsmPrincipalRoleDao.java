@@ -8,7 +8,7 @@ import com.ssm.llp.core.model.SsmUser;
  * @author rafizan.baharum
  * @since 9/14/13
  */
-public interface SsmRoleDao {
+public interface SsmPrincipalRoleDao {
 
     void grant(SsmPrincipal principal, SsmRoleType roleType, SsmUser user);
 
@@ -23,8 +23,5 @@ public interface SsmRoleDao {
     void overwrite(SsmPrincipal principal, SsmRoleType roleType, SsmUser user);
 
     void overwrite(SsmPrincipal principal, SsmRoleType[] roleTypes, SsmUser user);
-
-    void update(SsmPrincipal principal, SsmRoleType[] roleTypes, SsmUser user);
-
 
 }

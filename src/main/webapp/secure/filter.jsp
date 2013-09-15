@@ -217,6 +217,7 @@
                             <col class="wwe-align-left">
                             <col class="wwe-table-col-width">
                             <col class="wwe-table-col-width">
+                            <col class="wwe-table-col-width">
                         </colgroup>
                         <thead>
                         <tr>
@@ -224,6 +225,7 @@
                             <th class="wwe-align-left wwe-lang-club" scope="col">Name</th>
                             <th class="wwe-lang-matches" scope="col">Script</th>
                             <th class="wwe-lang-matches" scope="col">Type</th>
+                            <th class="wwe-lang-matches" scope="col">Action</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -233,6 +235,7 @@
                                 <td class="wwe-align-left">${filter.name}</td>
                                 <td>${filter.script}</td>
                                 <td>${filter.filterType}</td>
+                                <td><a href="/secure/edit_filter">Edit</a></td>
                             </tr>
                         </c:forEach>
                         </tbody>
