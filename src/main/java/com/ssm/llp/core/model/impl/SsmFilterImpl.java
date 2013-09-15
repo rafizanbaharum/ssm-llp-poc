@@ -6,6 +6,7 @@ import com.ssm.llp.core.model.SsmFilterType;
 import com.ssm.llp.core.model.SsmMetadata;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * @author rafizan.baharum
@@ -14,7 +15,7 @@ import javax.persistence.*;
 @Table(name = "SSM_FILTER")
 @Entity(name = "SsmFilter")
 @Inheritance(strategy = InheritanceType.JOINED)
-public abstract class SsmFilterImpl implements SsmFilter {
+public abstract class SsmFilterImpl implements SsmFilter, Serializable {
 
     @Id
     @Column(name = "ID", nullable = false)

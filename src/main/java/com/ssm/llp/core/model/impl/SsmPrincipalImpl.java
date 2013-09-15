@@ -1,10 +1,12 @@
 package com.ssm.llp.core.model.impl;
 
 import com.ssm.llp.core.model.SsmMetadata;
+import com.ssm.llp.core.model.SsmPrincipal;
 import com.ssm.llp.core.model.SsmPrincipalRole;
 import com.ssm.llp.core.model.SsmPrincipalType;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Set;
 
 /**
@@ -14,7 +16,7 @@ import java.util.Set;
 @Table(name = "SSM_PRINCIPAL")
 @Entity(name = "SsmPrincipal")
 @Inheritance(strategy = InheritanceType.JOINED)
-public class SsmPrincipalImpl {
+public class SsmPrincipalImpl implements SsmPrincipal, Serializable {
 
     @Id
     @Column(name = "ID", nullable = false)
