@@ -1,14 +1,12 @@
 package com.ssm.llp.core.model.impl;
 
-import com.ssm.llp.core.model.SsmCompany;
-import com.ssm.llp.core.model.SsmCompanyStatus;
-import com.ssm.llp.core.model.SsmMetadata;
-import com.ssm.llp.core.model.SsmCompanyType;
+import com.ssm.llp.core.model.*;
 import org.hibernate.search.annotations.*;
 import org.hibernate.search.bridge.builtin.EnumBridge;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * @author rafizan.baharum
@@ -39,6 +37,9 @@ public abstract class SsmCompanyImpl implements SsmCompany, Serializable {
 
     @Column(name = "COMPANY_TYPE")
     private SsmCompanyType companyType;
+
+    @OneToMany(targetEntity = SsmCompanyMemberImpl.class, mappedBy = "company", fetch = FetchType.LAZY)
+    private List<SsmCompanyMember> members;
 
     @Embedded
     private SsmMetadata metadata = new SsmMetadata();
@@ -81,6 +82,14 @@ public abstract class SsmCompanyImpl implements SsmCompany, Serializable {
     @Override
     public void setCompanyType(SsmCompanyType companyType) {
         this.companyType = companyType;
+    }
+
+    public List<SsmCompanyMember> getMembers() {
+        return members;
+    }
+
+    public void setMembers(List<SsmCompanyMember> members) {
+        this.members = members;
     }
 
     public SsmMetadata getMetadata() {

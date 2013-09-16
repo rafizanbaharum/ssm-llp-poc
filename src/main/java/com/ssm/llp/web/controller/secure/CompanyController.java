@@ -67,7 +67,9 @@ public class CompanyController extends SecureControllerSupport {
 
     @RequestMapping(value = "/view/{id}", method = {RequestMethod.GET})
     public String view(@PathVariable Long id, ModelMap model) {
-        model.put("company", companyDao.findById(id));
+        SsmCompany company = companyDao.findById(id);
+        model.put("company", company);
+        model.put("members", company.getMembers());
         return "secure/company_view";
     }
 
