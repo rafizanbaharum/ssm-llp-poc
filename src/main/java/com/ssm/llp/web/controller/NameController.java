@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 @RequestMapping("/secure/name")
-public class NameController {
+public class NameController  extends ControllerSupport{
 
     @Autowired
     private SsmNameDao nameDao;
@@ -46,15 +46,4 @@ public class NameController {
         nameDao.update(n, getCurrentUser());
         return "redirect:secure/name/" + n.getId();
     }
-
-
-    public SsmUser getCurrentUser() {
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        if (auth.getPrincipal() instanceof UserDetails) {
-            return ((SsmUserDetails) auth.getPrincipal()).getUser();
-        } else {
-            return null;
-        }
-    }
-
 }

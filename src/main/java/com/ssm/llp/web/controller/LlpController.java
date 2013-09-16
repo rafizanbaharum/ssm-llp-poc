@@ -1,7 +1,6 @@
 package com.ssm.llp.web.controller;
 
 import com.ssm.llp.core.dao.SsmCompanyDao;
-import com.ssm.llp.core.dao.SsmNameDao;
 import com.ssm.llp.core.model.SsmCompanyType;
 import com.ssm.llp.core.model.SsmUser;
 import com.ssm.llp.integration.springsecurity.SsmUserDetails;
@@ -20,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 @RequestMapping("/secure/llp")
-public class LlpController {
+public class LlpController  extends ControllerSupport{
 
     @Autowired
     private SsmCompanyDao companyDao;
@@ -29,15 +28,6 @@ public class LlpController {
     public String go(ModelMap model) {
         model.put("llps", companyDao.findByOwner(SsmCompanyType.LLP, getCurrentUser()));
         return "secure/llp";
-    }
-
-    public SsmUser getCurrentUser() {
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        if (auth.getPrincipal() instanceof UserDetails) {
-            return ((SsmUserDetails) auth.getPrincipal()).getUser();
-        } else {
-            return null;
-        }
     }
 }
 

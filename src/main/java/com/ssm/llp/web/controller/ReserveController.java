@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 @RequestMapping("/secure/reserve")
-public class ReserveController {
+public class ReserveController  extends ControllerSupport{
 
     @Autowired
     private SsmNameDao nameDao;
@@ -28,15 +28,6 @@ public class ReserveController {
     public String go(ModelMap model) {
         model.put("reserves", nameDao.findByOwner(SsmNameType.RESERVED, getCurrentUser()));
         return "secure/reserve";
-    }
-
-    public SsmUser getCurrentUser() {
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        if (auth.getPrincipal() instanceof UserDetails) {
-            return ((SsmUserDetails) auth.getPrincipal()).getUser();
-        } else {
-            return null;
-        }
     }
 }
 

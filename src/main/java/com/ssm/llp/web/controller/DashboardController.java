@@ -11,11 +11,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 @RequestMapping("/secure/dashboard")
-public class DashboardController {
+public class DashboardController extends ControllerSupport{
 
     @RequestMapping(method = {RequestMethod.GET})
     public String go(ModelMap model) {
         return "secure/dashboard";
     }
-
 }

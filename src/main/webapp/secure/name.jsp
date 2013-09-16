@@ -60,7 +60,7 @@
                             </div>
                             <div class="toolmenu">
                                 <div class="toolcaption">
-                                    <span>User X</span>
+                                    <span>${currentUser.realname}</span>
                                 </div>
                             </div>
                             <!-- End of menu -->

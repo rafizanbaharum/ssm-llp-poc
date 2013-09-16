@@ -3,13 +3,13 @@ TODO ssm-llp-poc
 - DONE login as admin use spring-sec taglibs  <sec:authorize ifAllGranted="ROLE_ADMINISTRATOR">
 - DONE login as regular user
 - DONE email username/password:ssm.llp.poc@gmail.com/senanggila
+- DONE add current username "User X" to page header
 - registration     register > registered
 - reserve name
 - logout
 - port to POSTGRES on amazon cloud
 - class diagram for presentation NAME, COMPANY
 - sitemesh for templating
-- add current username "User X" to page header
 
 
 KEY POINTS
