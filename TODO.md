@@ -4,6 +4,7 @@ TODO ssm-llp-poc
 - DONE login as regular user
 - DONE email username/password:ssm.llp.poc@gmail.com/senanggila
 - DONE add current username "User X" to page header
+- DONE gmail email registration
 - registration     register > registered
 - reserve name
 - logout

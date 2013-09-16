@@ -8,6 +8,8 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
 import org.springframework.transaction.PlatformTransactionManager;
@@ -79,5 +81,26 @@ public class WebappConfig {
         dataSource.setMaxActive(5);
         dataSource.setMaxWait(5000);
         return dataSource;
+    }
+
+    @Bean
+    public JavaMailSender mailSender() {
+        JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
+        mailSender.setHost("smtp.gmail.com");
+        mailSender.setPort(587);
+        mailSender.setProtocol("smtp");
+        mailSender.setUsername("ssm.llp.poc@gmail.com");
+        mailSender.setPassword("senanggila");
+        Properties props = new Properties();
+        props.setProperty("mail.debug", "true");
+        props.setProperty("mail.smtp.from", "ssm.llp.poc@gmail.com");
+        props.setProperty("mail.smtp.user", "ssm.llp.poc@gmail.com");
+        props.setProperty("mail.smtp.host", "smtp.gmail.com");
+        props.setProperty("mail.smtp.port", "587");
+        props.setProperty("mail.smtp.auth", "true");
+        props.setProperty("mail.smtp.starttls.enable", "true");
+        props.setProperty("mail.smtp.quitwait", "false");
+        mailSender.setJavaMailProperties(props);
+        return mailSender;
     }
 }

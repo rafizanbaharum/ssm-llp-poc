@@ -1,5 +1,6 @@
 package com.ssm.llp.biz.manager.impl;
 
+import com.ssm.llp.biz.event.EmailEvent;
 import com.ssm.llp.biz.manager.RegistrationManager;
 import com.ssm.llp.core.dao.SsmActorDao;
 import com.ssm.llp.core.dao.SsmPrincipalRoleDao;
@@ -11,6 +12,7 @@ import com.ssm.llp.core.model.impl.SsmOfficerImpl;
 import com.ssm.llp.core.model.impl.SsmUserImpl;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -34,6 +36,9 @@ public class RegistrationManagerImpl implements RegistrationManager {
 
     @Autowired
     private SessionFactory sessionFactory;
+
+    @Autowired
+    private ApplicationContext applicationContext;
 
     @Override
     public void register(String username, String password, String name, String nricNo,
@@ -79,5 +84,6 @@ public class RegistrationManagerImpl implements RegistrationManager {
         sessionFactory.getCurrentSession().refresh(officer);
 
         // send email with links
+        applicationContext.publishEvent(new EmailEvent(email, "ssm.llp.poc@gmail.com", "Portal Registration", "Thank you for your registration."));
     }
 }
