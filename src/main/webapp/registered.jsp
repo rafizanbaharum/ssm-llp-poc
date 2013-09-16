@@ -105,7 +105,7 @@
             <!-- End of .grid_6 -->
 
             <div class="clear"></div>
-
+                                                                       b
         </div>
         <!-- End of #main_content -->
         <div class="push clear"></div>

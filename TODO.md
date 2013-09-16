@@ -5,11 +5,12 @@ TODO ssm-llp-poc
 - DONE email username/password:ssm.llp.poc@gmail.com/senanggila
 - DONE add current username "User X" to page header
 - DONE gmail email registration
-- registration     register > registered
+- DONE registration     register > registered
+- DONE class diagram for presentation NAME, COMPANY
+- JSON android name search
 - reserve name
 - logout
 - port to POSTGRES on amazon cloud
-- class diagram for presentation NAME, COMPANY
 - sitemesh for templating
 
 
