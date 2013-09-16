@@ -55,7 +55,7 @@
                                 <div class="dropdown">
                                     <ul>
                                         <li>
-                                            <a href="/gate/login">Login</a>
+                                            <a href="/gate/in">Login</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -210,7 +210,7 @@
                     <span><a href="secure/dashboard.jsp">Dashboard</a></span>
                 </li>
                 <li>
-                    <span><a href="/gate/login">Login</a></span>
+                    <span><a href="/gate/in">Login</a></span>
                 </li>
             </ul>
         </div>

@@ -69,7 +69,7 @@
                                             <a href="#">Settings</a>
                                         </li>
                                         <li>
-                                            <a href="/gate/logout">Logout</a>
+                                            <a href="/gate/out">Logout</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -227,7 +227,7 @@
                     <span><a href="/secure/dashboard">Dashboard</a></span>
                 </li>
                 <li>
-                    <span><a href="/gate/logout">Logout</a></span>
+                    <span><a href="/gate/out">Logout</a></span>
                 </li>
             </ul>
         </div>
