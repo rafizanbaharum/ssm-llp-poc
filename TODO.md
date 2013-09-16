@@ -7,9 +7,9 @@ TODO ssm-llp-poc
 - DONE gmail email registration
 - DONE registration     register > registered
 - DONE class diagram for presentation NAME, COMPANY
-- JSON android name search
-- reserve name
-- logout
+- DONE logout
+- DONE JSON android name search
+- reserve name from page dashboard > companies > reservations
 - port to POSTGRES on amazon cloud
 - sitemesh for templating
 

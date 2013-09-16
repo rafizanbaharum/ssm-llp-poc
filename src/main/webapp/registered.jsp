@@ -95,7 +95,9 @@
 
                         <h3>Registration</h3>
                         <span></span>
+
                         <div class="alert success"><span class="icon"></span>
+
                             <p>You have successfully registered. Please check your email for activation.</p>
                         </div>
                     </div>
@@ -105,7 +107,7 @@
             <!-- End of .grid_6 -->
 
             <div class="clear"></div>
-                                                                       b
+            b
         </div>
         <!-- End of #main_content -->
         <div class="push clear"></div>
@@ -129,7 +131,7 @@
                     <span><a href="secure/dashboard.jsp">Dashboard</a></span>
                 </li>
                 <li>
-                    <span><a href="/gate">Login</a></span>
+                    <span><a href="/gate/login">Login</a></span>
                 </li>
             </ul>
         </div>

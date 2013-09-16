@@ -71,7 +71,7 @@
                                             </li>
                                         </sec:authorize>
                                         <li>
-                                            <a href="/logout">Logout</a>
+                                            <a href="/gate/logout">Logout</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -231,7 +231,7 @@
                     <span><a href="/secure/dashboard">Dashboard</a></span>
                 </li>
                 <li>
-                    <span><a href="/logout">Logout</a></span>
+                    <span><a href="/gate/logout">Logout</a></span>
                 </li>
             </ul>
         </div>

@@ -12,9 +12,14 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/gate")
 public class GateController {
 
-    @RequestMapping(method = {RequestMethod.GET})
-    public String go(ModelMap model) {
-        return "gate";
+    @RequestMapping(value = "/login", method = {RequestMethod.GET})
+    public String gatein(ModelMap model) {
+        return "gatein";
+    }
+
+    @RequestMapping(value = "/logout", method = {RequestMethod.GET})
+    public String gateout(ModelMap model) {
+        return "gateout";
     }
 
 }
