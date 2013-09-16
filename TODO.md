@@ -10,9 +10,21 @@ TODO ssm-llp-poc
 - DONE logout
 - DONE JSON android name search
 - DONE checkout+build on amazon
-- reserve name from page dashboard > companies > reservations
+- register name from page dashboard > companies > reservations
+- search name in secure/ pages, then reserve or register
 - port to POSTGRES on amazon cloud
 - sitemesh for templating
+
+NAME RESERVATION
+ - pilih nama
+ - kalau valid (check thru poison + search) boleh register or reserve(optional, kena bayar)
+ - reserve ada expiry date, kasik 3 bulan
+ - dari reserve, boleh register
+
+NAME REGISTRATION
+ - pilih nama
+ - kalau valid boleh register terus, tanpa reserve
+ - register, kasik name, registrar(nama tukang register, boleh 3rd party), payment info
 
 
 KEY POINTS
