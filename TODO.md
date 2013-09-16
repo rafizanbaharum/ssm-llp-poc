@@ -9,6 +9,7 @@ TODO ssm-llp-poc
 - DONE class diagram for presentation NAME, COMPANY
 - DONE logout
 - DONE JSON android name search
+- checkout+build on amazon
 - reserve name from page dashboard > companies > reservations
 - port to POSTGRES on amazon cloud
 - sitemesh for templating

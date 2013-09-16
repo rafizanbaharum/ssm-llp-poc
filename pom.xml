@@ -413,6 +413,10 @@
             <url>http://repo.springsource.org/release</url>
         </repository>
         <repository>
+            <id>activiti</id>
+            <url>http://maven.alfresco.com/nexus/content/groups/public</url>
+        </repository>
+        <repository>
             <id>repository.springsource.milestone</id>
             <name>SpringSource Milestone Repository</name>
             <url>http://repo.springsource.org/milestone</url>
