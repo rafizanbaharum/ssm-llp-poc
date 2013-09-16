@@ -315,6 +315,65 @@
 
     <div class="push clear"></div>
 
+    <h2 class="grid_12">Search Your LLP Name</h2>
+
+    <div class="clean"></div>
+
+    <div class="grid_12">
+        <c:choose>
+            <c:when test="${valid eq true}">
+                <div class="alert success"><span class="icon"></span>
+                    Your choice of LLP name is available. Please reserve the name
+                    by clicking <a href="/secure/company/reserve/${name}/${from}">here</a>.
+                </div>
+            </c:when>
+            <c:when test="${valid eq false}">
+                <div class="alert info">
+                    <span class="icon"></span><span class="hide">x</span>
+                    <strong>Sorry!</strong> Please pick a different name.
+                </div>
+            </c:when>
+            <c:otherwise>
+            </c:otherwise>
+        </c:choose>
+
+        <div class="box">
+            <div class="header">
+                <img src="/resources/img/icons/packs/fugue/16x16/ui-text-field-format.png" alt="" width="16"
+                     height="16">
+
+                <h3>Search Form</h3>
+                <span></span>
+            </div>
+            <form class="validate" novalidate action="/validate/dashboard" method="get">
+                <div class="content">
+                    <div class="_50">
+                        <p>
+                            <input name="name" type="text" placeholder=" Your Next LLP Name" class="required"/>
+                        </p>
+                    </div>
+                    <div class="_20">
+                        <p>
+                            <select name="from">
+                                <option selected>LLP</option>
+                                <option>ROC</option>
+                                <option>ROB</option>
+                            </select>
+                        </p>
+                    </div>
+                </div>
+                <div class="actions">
+                    <div class="actions-right">
+                        <input type="submit" value="Search"/>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!-- End of .box -->
+    </div>
+
+    <div class="push clear"></div>
+
     <h2 class="grid_12">List of Registered Companies</h2>
 
     <div class="clear"></div>

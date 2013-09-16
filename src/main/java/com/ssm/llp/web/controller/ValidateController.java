@@ -40,6 +40,13 @@ public class ValidateController {
         return "index";
     }
 
+    @RequestMapping(value = "dashboard", method =  RequestMethod.GET)
+    public String validateDashboard(@RequestParam("name") String name,@RequestParam("from") String from, ModelMap model) {
+        validate(name,from,model);
+
+        return "secure/dashboard";
+    }
+
     @RequestMapping(value = "/json/{name}", method = RequestMethod.GET)
     @ResponseBody
     public String validateJson(@PathVariable("name") String name, ModelMap model) {
