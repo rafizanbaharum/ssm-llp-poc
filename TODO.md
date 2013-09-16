@@ -14,6 +14,7 @@ TODO ssm-llp-poc
 - search name in secure/ pages, then reserve or register
 - port to POSTGRES on amazon cloud
 - sitemesh for templating
+- logo on gatein, gateout
 
 NAME RESERVATION
  - pilih nama

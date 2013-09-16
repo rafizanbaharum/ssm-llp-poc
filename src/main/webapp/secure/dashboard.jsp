@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="/resources/css/ie.fixes.css">
     <link rel="stylesheet" href="/resources/css/sprite.forms.css">
     <link rel="stylesheet" href="/resources/css/sprite.lists.css">
+    <link rel="stylesheet" href="/resources/css/sprite.tables.css">
     <link rel="stylesheet" href="/resources/css/icons.css">
     <link rel="stylesheet" href="/resources/css/external/jquery-ui-1.8.16.custom.css">
     <link rel="stylesheet" href="/resources/css/sidebar.css">
@@ -35,190 +36,339 @@
 
 <!-- Begin of #height-wrapper -->
 <div id="height-wrapper">
-    <!-- Begin of header -->
-    <header>
-        <!-- Begin of the header toolbar -->
-        <div id="header_toolbar">
-            <div class="container_12">
-                <h1 class="grid_8">SSM | MyLLP</h1>
-                <!-- Start of right part -->
-                <div class="grid_4">
-                    <!-- A small toolbar button -->
-                    <div class="toolbar_small">
-                        <div class="toolbutton">
-                            <span>3</span>
-                            <img src="/resources/img/icons/16x16/mail.png" width="16" height="16" alt="mail">
-                        </div>
+<!-- Begin of header -->
+<header>
+    <!-- Begin of the header toolbar -->
+    <div id="header_toolbar">
+        <div class="container_12">
+            <h1 class="grid_8">SSM | MyLLP</h1>
+            <!-- Start of right part -->
+            <div class="grid_4">
+                <!-- A small toolbar button -->
+                <div class="toolbar_small">
+                    <div class="toolbutton">
+                        <span>3</span>
+                        <img src="/resources/img/icons/16x16/mail.png" width="16" height="16" alt="mail">
                     </div>
-                    <!-- End of small toolbar button -->
-
-                    <!-- A large toolbar button -->
-                    <div class="toolbar_large">
-                        <div class="toolbutton">
-                            <div class="toolicon">
-                                <img src="/resources/img/icons/16x16/user.png" width="16" height="16" alt="user">
-                            </div>
-                            <div class="toolmenu">
-                                <div class="toolcaption">
-                                    <span>${currentUser.realname}</span>
-                                </div>
-                                <!-- Start of menu -->
-                                <div class="dropdown">
-                                    <ul>
-                                        <sec:authorize ifAllGranted="ROLE_ADMINISTRATOR">
-                                            <li>
-                                                <a href="/secure/settings">Settings</a>
-                                            </li>
-                                        </sec:authorize>
-                                        <li>
-                                            <a href="/gate/out">Logout</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <!-- End of menu -->
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End of large toolbar button -->
                 </div>
-                <!-- End of right part -->
+                <!-- End of small toolbar button -->
+
+                <!-- A large toolbar button -->
+                <div class="toolbar_large">
+                    <div class="toolbutton">
+                        <div class="toolicon">
+                            <img src="/resources/img/icons/16x16/user.png" width="16" height="16" alt="user">
+                        </div>
+                        <div class="toolmenu">
+                            <div class="toolcaption">
+                                <span>${currentUser.realname}</span>
+                            </div>
+                            <!-- Start of menu -->
+                            <div class="dropdown">
+                                <ul>
+                                    <sec:authorize ifAllGranted="ROLE_ADMINISTRATOR">
+                                        <li>
+                                            <a href="/secure/settings">Settings</a>
+                                        </li>
+                                    </sec:authorize>
+                                    <li>
+                                        <a href="/gate/out">Logout</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- End of menu -->
+                        </div>
+                    </div>
+                </div>
+                <!-- End of large toolbar button -->
             </div>
+            <!-- End of right part -->
         </div>
-        <!-- End of the header toolbar -->
+    </div>
+    <!-- End of the header toolbar -->
 
-        <!-- Start of the main header bar -->
-        <nav id="header_main">
-            <div class="container_12">
-                <!-- Start of the main navigation -->
-                <ul id="nav_main">
-                    <li class="current">
-                        <a href="#">
-                            <img src="/resources/img/icons/25x25/dark/computer-imac.png" width=25 height=25 alt="">
-                            Dashboard</a>
-                        <ul>
-                            <li class="current">
-                                <a href="/secure/dashboard">Dashboard</a>
-                            </li>
-                            <li>
-                                <a href="/secure/search">Name Search</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="/resources/img/icons/25x25/dark/documents.png" width=25 height=25 alt="">
-                            My Companies</a>
-                        <ul>
-                            <li>
-                                <a href="/secure/company/reserve">Reservations</a>
-                            </li>
-                            <li>
-                                <a href="/secure/company/llp">LLP</a>
-                            </li>
-                            <li>
-                                <a href="/secure/company/roc">ROC</a>
-                            </li>
-                            <li>
-                                <a href="/secure/company/rob">ROB</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="/resources/img/icons/25x25/dark/address-book.png" width=25 height=25 alt="">
-                            Literatures</a>
-                        <ul>
-                            <li>
-                                <a href="/secure/legal">Legal</a>
-                            </li>
-                            <li>
-                                <a href="/secure/about">About</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <sec:authorize ifAllGranted="ROLE_ADMINISTRATOR">
+    <!-- Start of the main header bar -->
+    <nav id="header_main">
+        <div class="container_12">
+            <!-- Start of the main navigation -->
+            <ul id="nav_main">
+                <li class="current">
+                    <a href="#">
+                        <img src="/resources/img/icons/25x25/dark/computer-imac.png" width=25 height=25 alt="">
+                        Dashboard</a>
+                    <ul>
+                        <li class="current">
+                            <a href="/secure/dashboard">Dashboard</a>
+                        </li>
                         <li>
-                            <a href="#">
-                                <img src="/resources/img/icons/25x25/dark/archive.png" width=25 height=25 alt="">
-                                Rules</a>
-                            <ul>
-                                <li>
-                                    <a href="/secure/filter/all">Filters</a>
-                                </li>
-                                <li>
-                                    <a href="/secure/name/all">Names</a>
-                                </li>
-                            </ul>
+                            <a href="/secure/search">Name Search</a>
                         </li>
-                    </sec:authorize>
-                </ul>
-                <!-- End of the main navigation -->
-            </div>
-        </nav>
-        <div id="nav_sub"></div>
-    </header>
-
-    <!-- Start of the content -->
-    <div role="main" class="container_12" id="content-wrapper">
-        <!-- Start of the sidebar -->
-        <aside>
-            <div id="sidebar_content">
-                <h2>Menu</h2>
-
-                <p>
-                    Lorem ipsum dolor sit amet,
-                    consectetur adipisicing elit, sed do
-                    eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua.
-                </p>
-
-                <div class="divider"></div>
-                <nav>
-                    <ul class="menu collapsible">
-                        <li class="first-child current">
-                            <a href="#">State: current</a>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="/resources/img/icons/25x25/dark/documents.png" width=25 height=25 alt="">
+                        My Companies</a>
+                    <ul>
+                        <li>
+                            <a href="/secure/company/reserve">Reservations</a>
                         </li>
+                        <li>
+                            <a href="/secure/company/llp">LLP</a>
+                        </li>
+                        <li>
+                            <a href="/secure/company/roc">ROC</a>
+                        </li>
+                        <li>
+                            <a href="/secure/company/rob">ROB</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="/resources/img/icons/25x25/dark/address-book.png" width=25 height=25 alt="">
+                        Literatures</a>
+                    <ul>
+                        <li>
+                            <a href="/secure/literature/legal">Legal</a>
+                        </li>
+                        <li>
+                            <a href="/secure/literature/about">About</a>
+                        </li>
+                    </ul>
+                </li>
+                <sec:authorize ifAllGranted="ROLE_ADMINISTRATOR">
+                    <li>
+                        <a href="#">
+                            <img src="/resources/img/icons/25x25/dark/archive.png" width=25 height=25 alt="">
+                            Rules</a>
+                        <ul>
+                            <li>
+                                <a href="/secure/filter/all">Filters</a>
+                            </li>
+                            <li>
+                                <a href="/secure/name/all">Names</a>
+                            </li>
+                        </ul>
+                    </li>
+                </sec:authorize>
+            </ul>
+            <!-- End of the main navigation -->
+        </div>
+    </nav>
+    <div id="nav_sub"></div>
+</header>
+
+<!-- Start of the content -->
+<div role="main" class="container_12" id="content-wrapper">
+<!-- Start of the sidebar -->
+<aside>
+    <div id="sidebar_content">
+        <h2>Menu</h2>
+
+        <p>
+            Lorem ipsum dolor sit amet,
+            consectetur adipisicing elit, sed do
+            eiusmod tempor incididunt ut labore
+            et dolore magna aliqua.
+        </p>
+
+        <div class="divider"></div>
+        <nav>
+            <ul class="menu collapsible">
+                <li class="first-child current">
+                    <a href="#">State: current</a>
+                </li>
+                <li>
+                    <a href="#">State: normal</a>
+                    <ul class="sub">
                         <li>
                             <a href="#">State: normal</a>
-                            <ul class="sub">
-                                <li>
-                                    <a href="#">State: normal</a>
-                                </li>
-                                <li>
-                                    <a href="#">State: normal</a>
-                                </li>
-                                <li>
-                                    <a href="#">State: normal</a>
-                                </li>
-                            </ul>
                         </li>
                         <li>
                             <a href="#">State: normal</a>
                         </li>
-                        <li class="last-child">
+                        <li>
                             <a href="#">State: normal</a>
                         </li>
                     </ul>
-                </nav>
-            </div>
-        </aside>
-        <!-- End of the sidebar-->
-
-        <!-- Start of the main content -->
-        <div id="main_content">
-
-            <h2 class="grid_12">Dashboard</h2>
-
-            <div class="clear"></div>
-
-        </div>
-        <!-- End of #main_content -->
-        <div class="push clear"></div>
-
+                </li>
+                <li>
+                    <a href="#">State: normal</a>
+                </li>
+                <li class="last-child">
+                    <a href="#">State: normal</a>
+                </li>
+            </ul>
+        </nav>
     </div>
-    <!-- End of #content-wrapper -->
+</aside>
+<!-- End of the sidebar-->
+
+<!-- Start of the main content -->
+<div id="main_content">
+
+    <h2 class="grid_12">Dashboard</h2>
+
     <div class="clear"></div>
-    <div class="push"></div>
+
+
+    <div class="grid_6">
+        <div class="box">
+            <div class="header">
+                <img src="/resources/img/icons/packs/fugue/16x16/document--plus.png" alt="" width="16"
+                     height="16">
+
+                <h3>Send a Support Message</h3>
+                <span></span>
+            </div>
+            <form action="dashboard.html" class="validate">
+                <div class="content no-padding">
+                    <div class="section _100">
+                        <label for="blogpost-title">
+                            Title
+                        </label>
+
+                        <div>
+                            <input class="required" name="blogpost-title" id="blogpost-title">
+                        </div>
+                    </div>
+                    <div class="section _100">
+                        <label for="blogpost-category">
+                            Category
+                        </label>
+
+                        <div>
+                            <select name="blogpost-category" id="blogpost-category" class="required">
+                                <option></option>
+                                <option>SUPPORT</option>
+                                <option>PAYMENT</option>
+                                <option>GENERAL</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="section _100">
+                        <label for="blogpost-post">
+                            Post
+                        </label>
+
+                        <div>
+                            <textarea cols="40" rows="5" class="required" name="blogpost-post"
+                                      id="blogpost-post"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <!-- End of .content -->
+                <div class="actions">
+                    <div class="actions-left">
+                        <input type="reset"/>
+                    </div>
+                    <div class="actions-right">
+                        <input type="submit"/>
+                    </div>
+                </div>
+                <!-- End of .actions -->
+            </form>
+        </div>
+        <!-- End of .box -->
+    </div>
+    <!-- End of .grid_6 -->
+
+    <div class="grid_6">
+        <div class="box">
+            <div class="header">
+                <img src="/resources/img/icons/16x16/list.png" alt="" width="16"
+                     height="16">
+
+                <h3>Stats List</h3>
+                <span></span>
+            </div>
+            <div class="content">
+                <div class="alert warning no-margin top">
+                    <span class="icon"></span>You have 3 overdue support tickets.
+                </div>
+                <ul class="stats-list">
+                    <li>
+                        <a href="#">Pending Registrations <span>12132</span></a>
+                    </li>
+                    <li>
+                        <a href="#">Today Registrations <span>875</span></a>
+                    </li>
+                    <li>
+                        <a href="#">Support Tickets <span>12</span></a>
+                    </li>
+                </ul>
+            </div>
+            <!-- End of .content -->
+            <div class="actions">
+                <div class="actions-left"></div>
+                <div class="actions-right">
+                    <a class="button" href="charts.html">Go to stats &raquo;</a>
+                </div>
+            </div>
+            <!-- End of .actions -->
+            <div class="clear"></div>
+        </div>
+        <!-- End of .box -->
+    </div>
+    <!-- End of .grid_6 -->
+
+    <div class="push clear"></div>
+
+    <h2 class="grid_12">List of Registered Companies</h2>
+
+    <div class="clear"></div>
+
+    <div class="grid_12">
+        <div class="box">
+            <div class="header">
+                <img src="/resources/img/icons/packs/fugue/16x16/shadeless/table.png" width="16" height="16">
+
+                <h3>Reserved Name</h3><span></span>
+            </div>
+            <div class="content no-padding">
+                <table class="table">
+                    <colgroup>
+                        <col class="wwe-first-col">
+                        <col class="wwe-table-col-width">
+                        <col class="wwe-table-col-width">
+                        <col class="wwe-align-center">
+                    </colgroup>
+                    <thead>
+                    <tr>
+                        <th class="wwe-lang-rank" scope="col">ID</th>
+                        <th class="wwe-align-left wwe-lang-club" scope="col">Name</th>
+                        <th class="wwe-lang-matches" scope="col">Type</th>
+                        <th class="wwe-lang-matches" scope="col">Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <c:forEach var="member" items="${companies}">
+                        <tr>
+                            <td class="wwe-1rank"><span>${member.id}</span></td>
+                            <td class="wwe-align-left">${member.name}</td>
+                            <td>${member.companyType}</td>
+                            <td><a href="/secure/company/view/${member.id}">View</a></td>
+                        </tr>
+                    </c:forEach>
+                    </tbody>
+                </table>
+            </div>
+            <!-- End of .content -->
+            <div class="clear"></div>
+        </div>
+        <!-- End of .box -->
+    </div>
+
+
+</div>
+<!-- End of #main_content -->
+<div class="push clear"></div>
+
+</div>
+<!-- End of #content-wrapper -->
+<div class="clear"></div>
+<div class="push"></div>
 </div>
 
 <!-- Start of footer-->

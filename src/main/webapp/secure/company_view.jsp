@@ -135,19 +135,19 @@
                     </ul>
                 </li>
                 <sec:authorize ifAllGranted="ROLE_ADMINISTRATOR">
-                <li class="current">
-                    <a href="#">
-                        <img src="/resources/img/icons/25x25/dark/archive.png" width=25 height=25 alt="">
-                        Rules</a>
-                    <ul>
-                        <li class="current">
-                            <a href="/secure/filter/all">Filters</a>
-                        </li>
-                        <li>
-                            <a  href="/secure/name/all">Names</a>
-                        </li>
-                    </ul>
-                </li>
+                    <li class="current">
+                        <a href="#">
+                            <img src="/resources/img/icons/25x25/dark/archive.png" width=25 height=25 alt="">
+                            Rules</a>
+                        <ul>
+                            <li class="current">
+                                <a href="/secure/filter/all">Filters</a>
+                            </li>
+                            <li>
+                                <a href="/secure/name/all">Names</a>
+                            </li>
+                        </ul>
+                    </li>
                 </sec:authorize>
             </ul>
             <!-- End of the main navigation -->
@@ -158,67 +158,57 @@
 
 <!-- Start of the content -->
 <div role="main" class="container_12" id="content-wrapper">
-    <!-- Start of the sidebar -->
-    <aside>
-        <div id="sidebar_content">
-            <h2>Menu</h2>
-
-            <p>
-                Use actions below:
-            </p>
-
-            <div class="divider"></div>
-            <nav>
-                <ul class="menu collapsible">
-                    <li class="first-child current">
-                        <a href="#">State: current</a>
-                    </li>
-                    <li>
-                        <a href="#">State: normal</a>
-                        <ul class="sub">
-                            <li>
-                                <a href="#">State: normal</a>
-                            </li>
-                            <li>
-                                <a href="#">State: normal</a>
-                            </li>
-                            <li>
-                                <a href="#">State: normal</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#">State: normal</a>
-                    </li>
-                    <li class="last-child">
-                        <a href="#">State: normal</a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </aside>
-    <!-- End of the sidebar-->
-
     <!-- Start of the main content -->
     <div id="main_content">
-        <h2 class="grid_12">LLP Name Rules</h2>
+        <h2 class="grid_12">Company: ${company.name}</h2>
 
         <div class="clean"></div>
 
         <div class="grid_12">
             <div class="box">
                 <div class="header">
+                    <img src="/resources/img/icons/packs/fugue/16x16/task-select-first.png" alt="" width="16"
+                         height="16">
+
+                    <h3>Company Information</h3>
+                    <span></span>
+                </div>
+                <form method="post" action="/secure/company/update" class="validate">
+                    <div class="content">
+                        <fieldset>
+                            <legend>
+                                Company Details
+                            </legend>
+                            <div class="_100">
+                                <p>
+                                    <label for="name">
+                                        Name
+                                    </label>
+                                    <input type="text" value="${company.name}" class="required" name="name"
+                                           class="text" readonly="true">
+                                </p>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="actions">
+                    </div>
+                </form>
+            </div>
+            <!-- End of .box -->
+        </div>
+        <!-- End of .grid_12 -->
+
+        <div class="grid_12">
+            <div class="box">
+                <div class="header">
                     <img src="/resources/img/icons/packs/fugue/16x16/shadeless/table.png" width="16" height="16">
 
-                    <h3>Offensive Name</h3><span></span>
+                    <h3>Members</h3><span></span>
                 </div>
                 <div class="content no-padding">
                     <table class="table">
                         <colgroup>
                             <col class="wwe-first-col">
-                            <col class="wwe-table-col-width">
-                            <col class="wwe-align-left">
-                            <col class="wwe-table-col-width">
                             <col class="wwe-table-col-width">
                             <col class="wwe-table-col-width">
                         </colgroup>
@@ -226,19 +216,15 @@
                         <tr>
                             <th class="wwe-lang-rank" scope="col">ID</th>
                             <th class="wwe-align-left wwe-lang-club" scope="col">Name</th>
-                            <th class="wwe-lang-matches" scope="col">Script</th>
                             <th class="wwe-lang-matches" scope="col">Type</th>
-                            <th class="wwe-lang-matches" scope="col">Action</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <c:forEach var="filter" items="${filters}">
+                        <c:forEach var="member" items="${members}">
                             <tr>
-                                <td class="wwe-1rank"><span>${filter.id}</span></td>
-                                <td class="wwe-align-left">${filter.name}</td>
-                                <td>${filter.script}</td>
-                                <td>${filter.filterType}</td>
-                                <td><a href="/secure/filter/edit/${filter.id}">Edit</a></td>
+                                <td class="wwe-1rank"><span>${member.id}</span></td>
+                                <td class="wwe-align-left">${member.principal.name}</td>
+                                <td>${member.roleType}</td>
                             </tr>
                         </c:forEach>
                         </tbody>
@@ -249,8 +235,6 @@
             </div>
             <!-- End of .box -->
         </div>
-        <!-- End of .grid_12 -->
-        <!-- End of .grid_12 -->
 
     </div>
     <!-- End of #main_content -->

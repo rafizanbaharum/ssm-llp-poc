@@ -117,10 +117,10 @@
                     Literatures</a>
                 <ul>
                     <li>
-                        <a href="/secure/legal">Legal</a>
+                        <a href="/secure/literature/legal">Legal</a>
                     </li>
                     <li>
-                        <a href="/secure/about">About</a>
+                        <a href="/secure/literature/about">About</a>
                     </li>
                 </ul>
             </li>

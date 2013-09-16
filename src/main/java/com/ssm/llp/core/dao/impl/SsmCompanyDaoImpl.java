@@ -30,6 +30,13 @@ public class SsmCompanyDaoImpl extends DaoSupport<Long, SsmCompany, SsmCompanyIm
     }
 
     @Override
+    public List<SsmCompany> find() {
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery("select n from SsmCompany n");
+        return (List<SsmCompany>) query.list();
+    }
+
+    @Override
     public List<SsmCompany> find(String filter) {
         Session session = sessionFactory.getCurrentSession();
         FullTextSession fullTextSession = Search.getFullTextSession(sessionFactory.getCurrentSession());

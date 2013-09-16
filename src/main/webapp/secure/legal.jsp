@@ -1,6 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+
 <html>
 <head>
     <meta charset="utf-8">
@@ -25,7 +26,6 @@
     <link rel="stylesheet" href="/resources/css/ie.fixes.css">
     <link rel="stylesheet" href="/resources/css/sprite.forms.css">
     <link rel="stylesheet" href="/resources/css/sprite.lists.css">
-    <link rel="stylesheet" href="/resources/css/sprite.tables.css">
     <link rel="stylesheet" href="/resources/css/icons.css">
     <link rel="stylesheet" href="/resources/css/external/jquery-ui-1.8.16.custom.css">
     <link rel="stylesheet" href="/resources/css/sidebar.css">
@@ -65,9 +65,11 @@
                                 <!-- Start of menu -->
                                 <div class="dropdown">
                                     <ul>
-                                        <li>
-                                            <a href="#">Settings</a>
-                                        </li>
+                                        <sec:authorize ifAllGranted="ROLE_ADMINISTRATOR">
+                                            <li>
+                                                <a href="/secure/settings">Settings</a>
+                                            </li>
+                                        </sec:authorize>
                                         <li>
                                             <a href="/gate/out">Logout</a>
                                         </li>
@@ -102,12 +104,12 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="current">
+                    <li>
                         <a href="#">
                             <img src="/resources/img/icons/25x25/dark/documents.png" width=25 height=25 alt="">
                             My Companies</a>
                         <ul>
-                            <li class="current">
+                            <li>
                                 <a href="/secure/company/reserve">Reservations</a>
                             </li>
                             <li>
@@ -116,17 +118,17 @@
                             <li>
                                 <a href="/secure/company/roc">ROC</a>
                             </li>
-                            <li class="last-child">
+                            <li>
                                 <a href="/secure/company/rob">ROB</a>
                             </li>
                         </ul>
                     </li>
-                    <li>
+                    <li class="current">
                         <a href="#">
                             <img src="/resources/img/icons/25x25/dark/address-book.png" width=25 height=25 alt="">
                             Literatures</a>
                         <ul>
-                            <li>
+                            <li class="current">
                                 <a href="/secure/literature/legal">Legal</a>
                             </li>
                             <li>
@@ -135,19 +137,19 @@
                         </ul>
                     </li>
                     <sec:authorize ifAllGranted="ROLE_ADMINISTRATOR">
-                    <li>
-                        <a href="#">
-                            <img src="/resources/img/icons/25x25/dark/archive.png" width=25 height=25 alt="">
-                            Rules</a>
-                        <ul>
-                            <li>
-                                <a href="/secure/filter/all">Filters</a>
-                            </li>
-                            <li>
-                                <a href="/secure/name/all">Names</a>
-                            </li>
-                        </ul>
-                    </li>
+                        <li>
+                            <a href="#">
+                                <img src="/resources/img/icons/25x25/dark/archive.png" width=25 height=25 alt="">
+                                Rules</a>
+                            <ul>
+                                <li>
+                                    <a href="/secure/filter/all">Filters</a>
+                                </li>
+                                <li>
+                                    <a href="/secure/name/all">Names</a>
+                                </li>
+                            </ul>
+                        </li>
                     </sec:authorize>
                 </ul>
                 <!-- End of the main navigation -->
@@ -158,58 +160,51 @@
 
     <!-- Start of the content -->
     <div role="main" class="container_12" id="content-wrapper">
+        <!-- Start of the sidebar -->
+        <aside>
+            <div id="sidebar_content">
+                <h2>Legales</h2>
+
+                <p></p>
+
+                <div class="divider"></div>
+                <nav>
+                    <ul class="menu collapsible">
+                        <li class="first-child current">
+                            <a href="#">State: current</a>
+                        </li>
+                        <li>
+                            <a href="#">State: normal</a>
+                            <ul class="sub">
+                                <li>
+                                    <a href="#">State: normal</a>
+                                </li>
+                                <li>
+                                    <a href="#">State: normal</a>
+                                </li>
+                                <li>
+                                    <a href="#">State: normal</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">State: normal</a>
+                        </li>
+                        <li class="last-child">
+                            <a href="#">State: normal</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+        <!-- End of the sidebar-->
+
         <!-- Start of the main content -->
         <div id="main_content">
-            <h2 class="grid_12">Reserved Companies Names</h2>
 
-            <div class="clean"></div>
+            <h2 class="grid_12">Legal</h2>
+            <div class="clear"></div>
 
-            <div class="grid_12">
-                <div class="box">
-                    <div class="header">
-                        <img src="/resources/img/icons/packs/fugue/16x16/shadeless/table.png" width="16" height="16">
-
-                        <h3>Reserved Name</h3><span></span>
-                    </div>
-                    <div class="content no-padding">
-                        <table class="table">
-                            <colgroup>
-                                <col class="wwe-first-col">
-                                <col class="wwe-table-col-width">
-                                <col class="wwe-table-col-width">
-                                <col class="wwe-table-col-width">
-                                <col class="wwe-table-col-width">
-                                <col class="wwe-align-center">
-                            </colgroup>
-                            <thead>
-                            <tr>
-                                <th class="wwe-lang-rank" scope="col">ID</th>
-                                <th class="wwe-align-left wwe-lang-club" scope="col">Name</th>
-                                <th class="wwe-lang-matches" scope="col">Start</th>
-                                <th class="wwe-lang-matches" scope="col">End</th>
-                                <th class="wwe-lang-matches" scope="col">Type</th>
-                                <th class="wwe-lang-matches" scope="col">Action</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <c:forEach var="member" items="${reserves}">
-                                <tr>
-                                    <td class="wwe-1rank"><span>${member.id}</span></td>
-                                    <td class="wwe-align-left">${member.name}</td>
-                                    <td>${member.startDate}</td>
-                                    <td>${member.endDate}</td>
-                                    <td>${member.companyType}</td>
-                                    <td><a href="/secure/company/register?${member.name}">Register</a></td>
-                                </tr>
-                            </c:forEach>
-                            </tbody>
-                        </table>
-                    </div>
-                    <!-- End of .content -->
-                    <div class="clear"></div>
-                </div>
-                <!-- End of .box -->
-            </div>
         </div>
         <!-- End of #main_content -->
         <div class="push clear"></div>
@@ -238,6 +233,7 @@
 </footer>
 <!-- End of footer-->
 
+
 <!-- JavaScript at the bottom for fast page loading -->
 <!-- Grab Google CDN's jQuery + jQueryUI, with a protocol relative URL; fall back to local -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"></script>
@@ -247,11 +243,23 @@
 
 <!-- scripts concatenated and minified via build script -->
 <script defer src="/resources/js/plugins.js"></script>
+<!-- REQUIRED: Different own jQuery plugnis -->
 <script defer src="/resources/js/mylibs/jquery.ba-resize.js"></script>
+<!-- RECOMMENDED when using sidebar: page resizing -->
 <script defer src="/resources/js/mylibs/jquery.easing.1.3.js"></script>
+<!-- RECOMMENDED: box animations -->
 <script defer src="/resources/js/mylibs/jquery.ui.touch-punch.js"></script>
+<!-- RECOMMENDED: touch compatibility -->
 <script defer src="/resources/js/mylibs/jquery.chosen.js"></script>
 <script defer src="/resources/js/mylibs/jquery.validate.js"></script>
 <script defer src="/resources/js/script.js"></script>
+<!-- REQUIRED: Generic scripts -->
+<!-- end scripts -->
+<script>
+    $(window).load(function() {
+        $('#accordion').accordion();
+        $(window).resize();
+    });
+</script>
 </body>
 </html>

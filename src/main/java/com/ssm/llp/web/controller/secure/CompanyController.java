@@ -3,11 +3,14 @@ package com.ssm.llp.web.controller.secure;
 import com.ssm.llp.biz.manager.CompanyRegistrationManager;
 import com.ssm.llp.core.dao.SsmCompanyDao;
 import com.ssm.llp.core.dao.SsmNameDao;
+import com.ssm.llp.core.model.SsmCompany;
 import com.ssm.llp.core.model.SsmCompanyType;
 import com.ssm.llp.core.model.SsmNameType;
+import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -22,6 +25,9 @@ public class CompanyController extends SecureControllerSupport {
 
     @Autowired
     private CompanyRegistrationManager registrationManager;
+
+    @Autowired
+    private SessionFactory sessionFactory;
 
     @Autowired
     private SsmNameDao nameDao;
@@ -53,10 +59,31 @@ public class CompanyController extends SecureControllerSupport {
         return "secure/roc";
     }
 
+    @RequestMapping(value = "/edit/{id}", method = {RequestMethod.GET})
+    public String edit(@PathVariable Long id, ModelMap model) {
+        model.put("company", companyDao.findById(id));
+        return "secure/company_edit";
+    }
+
+    @RequestMapping(value = "/view/{id}", method = {RequestMethod.GET})
+    public String view(@PathVariable Long id, ModelMap model) {
+        model.put("company", companyDao.findById(id));
+        return "secure/company_view";
+    }
+
+    @RequestMapping(value = "/update", method = {RequestMethod.POST})
+    public String update(@RequestParam Long id, @RequestParam String name, ModelMap model) {
+        SsmCompany n = companyDao.findById(id);
+        n.setName(name);
+        companyDao.update(n, getCurrentUser());
+        sessionFactory.getCurrentSession().flush();
+        return "redirect:/secure/company/edit/" + n.getId();
+    }
+
 
     @RequestMapping(value = "/register", method = {RequestMethod.GET})
     public String register(ModelMap model) {
-        model.put("name", "TEST NAMA");
+        model.put("name", "TEST NAMA SILA TUKAR");
         return "secure/register";
     }
 

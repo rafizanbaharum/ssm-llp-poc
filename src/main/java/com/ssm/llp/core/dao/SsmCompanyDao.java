@@ -15,6 +15,8 @@ public interface SsmCompanyDao {
     // finders
     SsmCompany findById(Long id);
 
+    List<SsmCompany> find();
+
     List<SsmCompany> find(String filter);
 
     List<SsmCompany> findByOwner(SsmCompanyType companyType, SsmUser owner);

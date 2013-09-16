@@ -102,12 +102,12 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="current">
+                    <li>
                         <a href="#">
                             <img src="/resources/img/icons/25x25/dark/documents.png" width=25 height=25 alt="">
                             My Companies</a>
                         <ul>
-                            <li class="current">
+                            <li>
                                 <a href="/secure/company/reserve">Reservations</a>
                             </li>
                             <li>
@@ -116,7 +116,7 @@
                             <li>
                                 <a href="/secure/company/roc">ROC</a>
                             </li>
-                            <li class="last-child">
+                            <li>
                                 <a href="/secure/company/rob">ROB</a>
                             </li>
                         </ul>
@@ -135,19 +135,19 @@
                         </ul>
                     </li>
                     <sec:authorize ifAllGranted="ROLE_ADMINISTRATOR">
-                    <li>
-                        <a href="#">
-                            <img src="/resources/img/icons/25x25/dark/archive.png" width=25 height=25 alt="">
-                            Rules</a>
-                        <ul>
-                            <li>
-                                <a href="/secure/filter/all">Filters</a>
-                            </li>
-                            <li>
-                                <a href="/secure/name/all">Names</a>
-                            </li>
-                        </ul>
-                    </li>
+                        <li class="current">
+                            <a href="#">
+                                <img src="/resources/img/icons/25x25/dark/archive.png" width=25 height=25 alt="">
+                                Rules</a>
+                            <ul>
+                                <li class="current">
+                                    <a href="/secure/filter/all">Filters</a>
+                                </li>
+                                <li>
+                                    <a href="/secure/name/all">Names</a>
+                                </li>
+                            </ul>
+                        </li>
                     </sec:authorize>
                 </ul>
                 <!-- End of the main navigation -->
@@ -160,56 +160,50 @@
     <div role="main" class="container_12" id="content-wrapper">
         <!-- Start of the main content -->
         <div id="main_content">
-            <h2 class="grid_12">Reserved Companies Names</h2>
+            <h2 class="grid_12">Company: ${company.name}</h2>
 
             <div class="clean"></div>
 
             <div class="grid_12">
                 <div class="box">
                     <div class="header">
-                        <img src="/resources/img/icons/packs/fugue/16x16/shadeless/table.png" width="16" height="16">
+                        <img src="/resources/img/icons/packs/fugue/16x16/task-select-first.png" alt="" width="16"
+                             height="16">
 
-                        <h3>Reserved Name</h3><span></span>
+                        <h3>Update Company Form</h3>
+                        <span></span>
                     </div>
-                    <div class="content no-padding">
-                        <table class="table">
-                            <colgroup>
-                                <col class="wwe-first-col">
-                                <col class="wwe-table-col-width">
-                                <col class="wwe-table-col-width">
-                                <col class="wwe-table-col-width">
-                                <col class="wwe-table-col-width">
-                                <col class="wwe-align-center">
-                            </colgroup>
-                            <thead>
-                            <tr>
-                                <th class="wwe-lang-rank" scope="col">ID</th>
-                                <th class="wwe-align-left wwe-lang-club" scope="col">Name</th>
-                                <th class="wwe-lang-matches" scope="col">Start</th>
-                                <th class="wwe-lang-matches" scope="col">End</th>
-                                <th class="wwe-lang-matches" scope="col">Type</th>
-                                <th class="wwe-lang-matches" scope="col">Action</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <c:forEach var="member" items="${reserves}">
-                                <tr>
-                                    <td class="wwe-1rank"><span>${member.id}</span></td>
-                                    <td class="wwe-align-left">${member.name}</td>
-                                    <td>${member.startDate}</td>
-                                    <td>${member.endDate}</td>
-                                    <td>${member.companyType}</td>
-                                    <td><a href="/secure/company/register?${member.name}">Register</a></td>
-                                </tr>
-                            </c:forEach>
-                            </tbody>
-                        </table>
-                    </div>
-                    <!-- End of .content -->
-                    <div class="clear"></div>
+                    <form method="post" action="/secure/company/update" class="validate">
+                        <div class="content">
+                            <fieldset>
+                                <legend>
+                                    Company Details
+                                </legend>
+                                <div class="_100">
+                                    <p>
+                                        <label for="name">
+                                            Name
+                                        </label>
+                                        <input type="text" value="${company.name}" class="required" name="name"
+                                               class="text">
+                                    </p>
+                                </div>
+                            </fieldset>
+                        </div>
+                        <div class="actions">
+                            <input type="hidden" name="id" value="${company.id}"/>
+
+                            <div class="actions-right">
+                                <input type="submit">
+                            </div>
+                        </div>
+                    </form>
                 </div>
                 <!-- End of .box -->
             </div>
+            <!-- End of .grid_12 -->
+            <!-- End of .grid_12 -->
+
         </div>
         <!-- End of #main_content -->
         <div class="push clear"></div>
@@ -230,7 +224,7 @@
                     <span><a href="/secure/dashboard">Dashboard</a></span>
                 </li>
                 <li>
-                    <span><a href="/gate/out">Logout</a></span>
+                    <span><a href="/secure/gate/out">Logout</a></span>
                 </li>
             </ul>
         </div>
