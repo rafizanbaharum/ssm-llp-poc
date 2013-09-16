@@ -39,8 +39,6 @@
         <!-- Begin of the header toolbar -->
         <div id="header_toolbar">
             <div class="container_12">
-                <div style="float: right"><img src="resources/img/logo/ssm_logo_small.png"></div>
-
                 <div class="grid_4">
                     <div class="toolbar_small">
                     </div>
