@@ -108,16 +108,16 @@
                         My Companies</a>
                     <ul>
                         <li>
-                            <a href="/secure/reserve">Reservations</a>
+                            <a href="/secure/company/reserve">Reservations</a>
                         </li>
                         <li>
-                            <a href="/secure/llp">LLP</a>
+                            <a href="/secure/company/llp">LLP</a>
                         </li>
                         <li>
-                            <a href="/secure/roc">ROC</a>
+                            <a href="/secure/company/roc">ROC</a>
                         </li>
-                        <li class="last-child">
-                            <a href="/secure/rob">ROB</a>
+                        <li>
+                            <a href="/secure/company/rob">ROB</a>
                         </li>
                     </ul>
                 </li>
@@ -222,7 +222,7 @@
                             </legend>
                             <div class="_100">
                                 <p>
-                                    <label for="textfield1">
+                                    <label for="name">
                                         Name
                                     </label>
                                     <input type="text" value="${filter.name}" class="required" name="name" class="text">
@@ -230,7 +230,7 @@
                             </div>
                             <div class="_100">
                                 <p>
-                                    <label for="textfield1">
+                                    <label for="script">
                                         Script
                                     </label>
                                     <textarea value="${filter.script}" class="required" name="script"
@@ -241,6 +241,7 @@
                     </div>
                     <div class="actions">
                         <input type="hidden" name="id" value="${filter.id}"/>
+
                         <div class="actions-right">
                             <input type="submit">
                         </div>

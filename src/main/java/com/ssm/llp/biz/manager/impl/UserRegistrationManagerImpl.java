@@ -1,7 +1,7 @@
 package com.ssm.llp.biz.manager.impl;
 
 import com.ssm.llp.biz.event.EmailEvent;
-import com.ssm.llp.biz.manager.RegistrationManager;
+import com.ssm.llp.biz.manager.UserRegistrationManager;
 import com.ssm.llp.core.dao.SsmActorDao;
 import com.ssm.llp.core.dao.SsmPrincipalRoleDao;
 import com.ssm.llp.core.dao.SsmUserDao;
@@ -20,9 +20,9 @@ import org.springframework.transaction.annotation.Transactional;
  * @author rafizan.baharum
  * @since 9/15/13
  */
-@Service("registrationManager")
+@Service("userRegistrationManager")
 @Transactional
-public class RegistrationManagerImpl implements RegistrationManager {
+public class UserRegistrationManagerImpl implements UserRegistrationManager {
 
     public static final String ADMIN = "root";
     @Autowired

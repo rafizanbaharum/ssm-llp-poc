@@ -1,14 +1,9 @@
-package com.ssm.llp.web.controller;
+package com.ssm.llp.web.controller.secure;
 
 import com.ssm.llp.core.dao.SsmNameDao;
 import com.ssm.llp.core.model.SsmName;
 import com.ssm.llp.core.model.SsmNameType;
-import com.ssm.llp.core.model.SsmUser;
-import com.ssm.llp.integration.springsecurity.SsmUserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 @RequestMapping("/secure/name")
-public class NameController  extends ControllerSupport{
+public class NameController  extends SecureControllerSupport {
 
     @Autowired
     private SsmNameDao nameDao;

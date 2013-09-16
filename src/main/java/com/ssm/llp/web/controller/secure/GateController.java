@@ -1,4 +1,4 @@
-package com.ssm.llp.web.controller;
+package com.ssm.llp.web.controller.secure;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;

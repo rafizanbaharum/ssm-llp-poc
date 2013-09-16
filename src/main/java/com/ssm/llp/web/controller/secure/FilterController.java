@@ -1,4 +1,4 @@
-package com.ssm.llp.web.controller;
+package com.ssm.llp.web.controller.secure;
 
 import com.ssm.llp.core.dao.SsmFilterDao;
 import com.ssm.llp.core.model.SsmFilter;
@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  */
 @Controller
 @RequestMapping("/secure/filter")
-public class FilterController extends ControllerSupport {
+public class FilterController extends SecureControllerSupport {
 
     private Logger log = LoggerFactory.getLogger(FilterController.class);
 

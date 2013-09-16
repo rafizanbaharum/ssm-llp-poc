@@ -108,16 +108,16 @@
                             My Companies</a>
                         <ul>
                             <li class="current">
-                                <a href="/secure/reserve">Reservations</a>
+                                <a href="/secure/company/reserve">Reservations</a>
                             </li>
                             <li>
-                                <a href="/secure/llp">LLP</a>
+                                <a href="/secure/company/llp">LLP</a>
                             </li>
                             <li>
-                                <a href="/secure/roc">ROC</a>
+                                <a href="/secure/company/roc">ROC</a>
                             </li>
                             <li class="last-child">
-                                <a href="/secure/rob">ROB</a>
+                                <a href="/secure/company/rob">ROB</a>
                             </li>
                         </ul>
                     </li>
@@ -144,7 +144,7 @@
                                 <a href="/secure/filter/all">Filters</a>
                             </li>
                             <li>
-                                <a href="/secure/name">Names</a>
+                                <a href="/secure/name/all">Names</a>
                             </li>
                         </ul>
                     </li>
@@ -199,7 +199,7 @@
                                     <td>${reserve.startDate}</td>
                                     <td>${reserve.endDate}</td>
                                     <td>${reserve.companyType}</td>
-                                    <td><a href="/secure/register">Register</a></td>
+                                    <td><a href="/secure/company/register">Register</a></td>
                                 </tr>
                             </c:forEach>
                             </tbody>

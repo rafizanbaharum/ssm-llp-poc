@@ -98,16 +98,16 @@
                     My Companies</a>
                 <ul>
                     <li>
-                        <a href="/secure/reserve">Reservations</a>
+                        <a href="/secure/company/reserve">Reservations</a>
                     </li>
                     <li>
-                        <a href="/secure/llp">LLP</a>
+                        <a href="/secure/company/llp">LLP</a>
                     </li>
                     <li>
-                        <a href="/secure/roc">ROC</a>
+                        <a href="/secure/company/roc">ROC</a>
                     </li>
                     <li>
-                        <a href="/secure/rob">ROB</a>
+                        <a href="/secure/company/rob">ROB</a>
                     </li>
                 </ul>
             </li>

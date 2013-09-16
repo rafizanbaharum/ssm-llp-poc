@@ -5,7 +5,7 @@ package com.ssm.llp.core.model;
  * @since 9/6/13
  */
 public enum SsmCompanyStatus {
-
+    NEW,
     ACTIVE,
     RESERVED,
     WINDING,

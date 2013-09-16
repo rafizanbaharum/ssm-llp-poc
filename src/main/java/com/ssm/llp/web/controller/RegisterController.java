@@ -1,6 +1,6 @@
 package com.ssm.llp.web.controller;
 
-import com.ssm.llp.biz.manager.RegistrationManager;
+import com.ssm.llp.biz.manager.UserRegistrationManager;
 import com.ssm.llp.core.dao.SsmNameDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -22,7 +22,7 @@ public class RegisterController {
     private ApplicationContext applicationContext;
 
     @Autowired
-    private RegistrationManager registrationManager;
+    private UserRegistrationManager registrationManager;
 
     @Autowired
     private SsmNameDao nameDao;

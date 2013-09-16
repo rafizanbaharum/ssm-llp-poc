@@ -1,4 +1,4 @@
-package com.ssm.llp.web.controller;
+package com.ssm.llp.web.controller.secure;
 
 import com.ssm.llp.core.model.SsmUser;
 import com.ssm.llp.integration.springsecurity.SsmUserDetails;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
  * @author rafizan.baharum
  * @since 9/16/13
  */
-public class ControllerSupport {
+public class SecureControllerSupport {
 
     @ModelAttribute("currentUser")
     protected SsmUser getCurrentUser() {

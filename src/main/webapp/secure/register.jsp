@@ -135,19 +135,19 @@
                     </ul>
                 </li>
                 <sec:authorize ifAllGranted="ROLE_ADMINISTRATOR">
-                <li class="current">
-                    <a href="#">
-                        <img src="/resources/img/icons/25x25/dark/archive.png" width=25 height=25 alt="">
-                        Rules</a>
-                    <ul>
-                        <li class="current">
-                            <a href="/secure/filter/all">Filters</a>
-                        </li>
-                        <li>
-                            <a  href="/secure/name/all">Names</a>
-                        </li>
-                    </ul>
-                </li>
+                    <li class="current">
+                        <a href="#">
+                            <img src="/resources/img/icons/25x25/dark/archive.png" width=25 height=25 alt="">
+                            Rules</a>
+                        <ul>
+                            <li class="current">
+                                <a href="/secure/filter/all">Filters</a>
+                            </li>
+                            <li>
+                                <a href="/secure/name/all">Names</a>
+                            </li>
+                        </ul>
+                    </li>
                 </sec:authorize>
             </ul>
             <!-- End of the main navigation -->
@@ -201,51 +201,51 @@
 
     <!-- Start of the main content -->
     <div id="main_content">
-        <h2 class="grid_12">LLP Name Rules</h2>
+        <h2 class="grid_12">Filter: ${filter.name}</h2>
 
         <div class="clean"></div>
 
         <div class="grid_12">
             <div class="box">
                 <div class="header">
-                    <img src="/resources/img/icons/packs/fugue/16x16/shadeless/table.png" width="16" height="16">
+                    <img src="/resources/img/icons/packs/fugue/16x16/task-select-first.png" alt="" width="16"
+                         height="16">
 
-                    <h3>Offensive Name</h3><span></span>
+                    <h3>Update Filter Form</h3>
+                    <span></span>
                 </div>
-                <div class="content no-padding">
-                    <table class="table">
-                        <colgroup>
-                            <col class="wwe-first-col">
-                            <col class="wwe-table-col-width">
-                            <col class="wwe-align-left">
-                            <col class="wwe-table-col-width">
-                            <col class="wwe-table-col-width">
-                            <col class="wwe-table-col-width">
-                        </colgroup>
-                        <thead>
-                        <tr>
-                            <th class="wwe-lang-rank" scope="col">ID</th>
-                            <th class="wwe-align-left wwe-lang-club" scope="col">Name</th>
-                            <th class="wwe-lang-matches" scope="col">Script</th>
-                            <th class="wwe-lang-matches" scope="col">Type</th>
-                            <th class="wwe-lang-matches" scope="col">Action</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <c:forEach var="filter" items="${filters}">
-                            <tr>
-                                <td class="wwe-1rank"><span>${filter.id}</span></td>
-                                <td class="wwe-align-left">${filter.name}</td>
-                                <td>${filter.script}</td>
-                                <td>${filter.filterType}</td>
-                                <td><a href="/secure/filter/edit/${filter.id}">Edit</a></td>
-                            </tr>
-                        </c:forEach>
-                        </tbody>
-                    </table>
-                </div>
-                <!-- End of .content -->
-                <div class="clear"></div>
+                <form method="post" action="/secure/filter/update" class="validate">
+                    <div class="content">
+                        <fieldset>
+                            <legend>
+                                Filter Details
+                            </legend>
+                            <div class="_100">
+                                <p>
+                                    <label for="name">
+                                        Name
+                                    </label>
+                                    <input type="text" value="${filter.name}" class="required" name="name" class="text">
+                                </p>
+                            </div>
+                            <div class="_100">
+                                <p>
+                                    <label for="script">
+                                        Script
+                                    </label>
+                                    <textarea value="${filter.script}" class="required" name="script"
+                                              class="text" rows="20">${filter.script}</textarea>
+                                </p>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="actions">
+                        <input type="hidden" name="id" value="${filter.id}"/>
+                        <div class="actions-right">
+                            <input type="submit">
+                        </div>
+                    </div>
+                </form>
             </div>
             <!-- End of .box -->
         </div>

@@ -1,4 +1,4 @@
-package com.ssm.llp.web.controller;
+package com.ssm.llp.web.controller.secure;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 @RequestMapping("/secure/dashboard")
-public class DashboardController extends ControllerSupport{
+public class DashboardController extends SecureControllerSupport {
 
     @RequestMapping(method = {RequestMethod.GET})
     public String go(ModelMap model) {
