@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="/resources/css/sprite.forms.css">
     <link rel="stylesheet" href="/resources/css/sprite.lists.css">
     <link rel="stylesheet" href="/resources/css/sprite.tables.css">
+    <link rel="stylesheet" href="/resources/css/sprite.wizard.css">
     <link rel="stylesheet" href="/resources/css/icons.css">
     <link rel="stylesheet" href="/resources/css/external/jquery-ui-1.8.16.custom.css">
     <link rel="stylesheet" href="/resources/css/sidebar.css">
@@ -102,12 +103,12 @@
                         </li>
                     </ul>
                 </li>
-                <li>
+                <li class="current">
                     <a href="#">
                         <img src="/resources/img/icons/25x25/dark/documents.png" width=25 height=25 alt="">
                         My Companies</a>
                     <ul>
-                        <li>
+                        <li class="current">
                             <a href="/secure/company/reserve">Reservations</a>
                         </li>
                         <li>
@@ -135,12 +136,12 @@
                     </ul>
                 </li>
                 <sec:authorize ifAllGranted="ROLE_ADMINISTRATOR">
-                    <li class="current">
+                    <li>
                         <a href="#">
                             <img src="/resources/img/icons/25x25/dark/archive.png" width=25 height=25 alt="">
                             Rules</a>
                         <ul>
-                            <li class="current">
+                            <li>
                                 <a href="/secure/filter/all">Filters</a>
                             </li>
                             <li>
@@ -158,103 +159,233 @@
 
 <!-- Start of the content -->
 <div role="main" class="container_12" id="content-wrapper">
-    <!-- Start of the sidebar -->
-    <aside>
-        <div id="sidebar_content">
-            <h2>Menu</h2>
 
-            <p>
-                Use actions below:
-            </p>
+<!-- Start of the main content -->
+<div id="main_content">
 
-            <div class="divider"></div>
-            <nav>
-                <ul class="menu collapsible">
-                    <li class="first-child current">
-                        <a href="#">State: current</a>
-                    </li>
-                    <li>
-                        <a href="#">State: normal</a>
-                        <ul class="sub">
-                            <li>
-                                <a href="#">State: normal</a>
-                            </li>
-                            <li>
-                                <a href="#">State: normal</a>
-                            </li>
-                            <li>
-                                <a href="#">State: normal</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#">State: normal</a>
-                    </li>
-                    <li class="last-child">
-                        <a href="#">State: normal</a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </aside>
-    <!-- End of the sidebar-->
+<h2 class="grid_12">Wizard</h2>
 
-    <!-- Start of the main content -->
-    <div id="main_content">
-        <h2 class="grid_12">Filter: ${filter.name}</h2>
+<div class="clean"></div>
 
-        <div class="clean"></div>
+<div class="grid_12">
+<div class="box wizard" data-step="1">
+<div class="header">
+    <img src="/resources/img/icons/packs/fugue/16x16/application--arrow.png" alt="" width="16"
+         height="16">
 
-        <div class="grid_12">
-            <div class="box">
-                <div class="header">
-                    <img src="/resources/img/icons/packs/fugue/16x16/task-select-first.png" alt="" width="16"
-                         height="16">
+    <h3>Registration Steps</h3>
+    <span></span>
+</div>
+<div class="content">
+    <form method="post" action="/secure/company/confirm" class="validate">
 
-                    <h3>Update Filter Form</h3>
-                    <span></span>
-                </div>
-                <form method="post" action="/secure/filter/update" class="validate">
-                    <div class="content">
-                        <fieldset>
-                            <legend>
-                                Filter Details
-                            </legend>
-                            <div class="_100">
-                                <p>
-                                    <label for="name">
-                                        Name
-                                    </label>
-                                    <input type="text" value="${filter.name}" class="required" name="name" class="text">
-                                </p>
-                            </div>
-                            <div class="_100">
-                                <p>
-                                    <label for="script">
-                                        Script
-                                    </label>
-                                    <textarea value="${filter.script}" class="required" name="script"
-                                              class="text" rows="20">${filter.script}</textarea>
-                                </p>
-                            </div>
-                        </fieldset>
-                    </div>
-                    <div class="actions">
-                        <input type="hidden" name="id" value="${filter.id}"/>
-                        <div class="actions-right">
-                            <input type="submit">
+        <div class="steps">
+            <ul>
+                <li class="current">
+                    <a href="#step_1"> <span>1</span>
+
+                        <div>
+                            <strong>Register</strong>
+                            <small>
+                                It only takes a minute
+                            </small>
                         </div>
-                    </div>
-                </form>
-            </div>
-            <!-- End of .box -->
-        </div>
-        <!-- End of .grid_12 -->
-        <!-- End of .grid_12 -->
+                    </a>
+                </li>
+                <li>
+                    <a href="#step_2"> <span>2</span>
 
+                        <div>
+                            <strong>Registrar</strong>
+                            <small>
+                                Fill out who is registering for you
+                            </small>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#step_3"> <span>3</span>
+
+                        <div>
+                            <strong>Payment</strong>
+                            <small>
+                                Method of payment
+                            </small>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="wiz_page step_1">
+            <div class="wiz_sidebar grid_3">
+                <span>1</span>
+
+                <div>
+                    <strong>Register</strong>
+                    <small>
+                        Choose company name
+                    </small>
+                </div>
+                <p>
+                </p>
+            </div>
+            <div class="wiz_content grid_9">
+                <h3>Registration Information</h3>
+
+                <p>Your choosen LLP name</p>
+
+                <div class="_100">
+                    <p>
+                        <label for="name">
+                            Choosen Name
+                        </label>
+                        <input type="text" value="${name}" class="required" name="name" class="text">
+                    </p>
+                </div>
+                <div class="_100">
+                    <p>
+                        <select name="companyType">
+                            <option selected>LLP</option>
+                            <option>ROC</option>
+                            <option>ROB</option>
+                        </select>
+                    </p>
+                </div>
+
+            </div>
+        </div>
+        <div class="wiz_page step_2">
+            <div class="wiz_sidebar grid_3">
+                <span>2</span>
+
+                <div>
+                    <strong>Registrar</strong>
+                    <small>
+                        Your official registrar
+                    </small>
+                </div>
+            </div>
+            <div class="wiz_content grid_9">
+                <h3>Registrar Information</h3>
+
+                <p>Registrar can be yourself or Compliant Officers</p>
+
+                <div class="_100">
+                    <p>
+                        <label for="name">
+                            Choosen Registar
+                        </label>
+                        <input type="text" class="required" name="name" class="text">
+                    </p>
+                </div>
+
+            </div>
+        </div>
+        <div class="wiz_page step_3">
+            <div class="wiz_sidebar grid_3">
+                <span>3</span>
+
+                <div>
+                    <strong>Payment</strong>
+                    <small>
+                        Payment method
+                    </small>
+                </div>
+                <p>
+                </p>
+            </div>
+            <div class="wiz_content grid_9">
+                <h3>Payment Information</h3>
+
+                <p>Payment can be made via credit card or prepaid</p>
+
+                <div class="_100">
+                    <p>
+                        <select name="paymentMethod">
+                            <option selected>VISA</option>
+                            <option>MASTER_CARD</option>
+                            <option>ELECTRONIC_FUND</option>
+                        </select>
+                    </p>
+                </div>
+
+                <div class="_50">
+                    <p>
+                        <label for="billingName">
+                            Billing Name
+                        </label>
+                        <input type="text" class="required" name="billingName" class="text">
+                    </p>
+                </div>
+
+                <div class="_50">
+                    <p>
+                        <label for="email">
+                            Email
+                        </label>
+                        <input type="text" class="required" name="email" class="text">
+                    </p>
+                </div>
+
+                <div class="_100">
+                    <p>
+                        <label for="address1">
+                            Address
+                        </label>
+                        <input type="text" class="required" name="address1" class="text">
+                    </p>
+                </div>
+
+                <div class="_100">
+                    <p>
+                        <label for="address2">
+                        </label>
+                        <input type="text" class="required" name="address2" class="text">
+                    </p>
+                </div>
+
+                <div class="_100">
+                    <p>
+                        <label for="address3">
+                        </label>
+                        <input type="text" class="required" name="address3" class="text">
+                    </p>
+                </div>
+
+                <div class="_100">
+                    <p>
+                        <label for="address4">
+                        </label>
+                        <input type="text" class="required" name="address4" class="text">
+                    </p>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="actions">
+    <div class="actions-left">
+        <button class="prev">
+            &laquo; Back
+        </button>
     </div>
-    <!-- End of #main_content -->
-    <div class="push clear"></div>
+    <div class="actions-right">
+        <button class="next">
+            Forward &raquo;
+        </button>
+    </div>
+</div>
+<!-- End of .content -->
+<div class="clear"></div>
+</div>
+<!-- End of .box -->
+</div>
+<!-- End of .grid_12 -->
+
+
+</div>
+<!-- End of #main_content -->
+<div class="push clear"></div>
 
 </div>
 <!-- End of #content-wrapper -->

@@ -196,7 +196,7 @@
                                     <td class="wwe-align-left">${llp.name}</td>
                                     <td>${llp.companyStatus}</td>
                                     <td>${llp.companyType}</td>
-                                    <td><a href="/secure/edit">Edit</a></td>
+                                    <td><a href="/secure/company/edit">Edit</a></td>
                                 </tr>
                             </c:forEach>
                             </tbody>

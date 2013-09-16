@@ -53,17 +53,21 @@ public class CompanyController extends SecureControllerSupport {
         return "secure/roc";
     }
 
-    @RequestMapping(method = {RequestMethod.GET})
-    public String go(ModelMap model) {
-        model.put("name", "xxx");
-        return "register";
+
+    @RequestMapping(value = "/register", method = {RequestMethod.GET})
+    public String register(ModelMap model) {
+        model.put("name", "TEST NAMA");
+        return "secure/register";
     }
 
-    @RequestMapping(value = "/register", method = {RequestMethod.POST})
-    public String register(
+    @RequestMapping(value = "/confirm", method = {RequestMethod.POST})
+    public String confirm(
             @RequestParam("name") String name,
+            @RequestParam("companyType") String companyType,
+            @RequestParam("registrar") String registrar,
+            @RequestParam("paymentMethod") String paymentMethod,
             ModelMap model) {
         registrationManager.register(name, SsmCompanyType.LLP, getCurrentUser());
-        return "registered";
+        return "confirm";
     }
 }

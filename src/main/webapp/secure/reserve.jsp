@@ -199,7 +199,7 @@
                                     <td>${reserve.startDate}</td>
                                     <td>${reserve.endDate}</td>
                                     <td>${reserve.companyType}</td>
-                                    <td><a href="/secure/company/register">Register</a></td>
+                                    <td><a href="/secure/company/register?${reserve.name}">Register</a></td>
                                 </tr>
                             </c:forEach>
                             </tbody>
