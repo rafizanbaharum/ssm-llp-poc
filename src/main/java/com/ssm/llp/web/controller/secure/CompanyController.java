@@ -3,9 +3,8 @@ package com.ssm.llp.web.controller.secure;
 import com.ssm.llp.biz.manager.CompanyRegistrationManager;
 import com.ssm.llp.core.dao.SsmCompanyDao;
 import com.ssm.llp.core.dao.SsmNameDao;
-import com.ssm.llp.core.model.SsmCompany;
-import com.ssm.llp.core.model.SsmCompanyType;
-import com.ssm.llp.core.model.SsmNameType;
+import com.ssm.llp.core.model.*;
+import com.ssm.llp.core.model.impl.SsmReservedNameImpl;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,6 +13,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 
 /**
  * @author rafizan.baharum
@@ -39,6 +42,13 @@ public class CompanyController extends SecureControllerSupport {
     public String reserve(ModelMap model) {
         model.put("reserves", nameDao.findByOwner(SsmNameType.RESERVED, getCurrentUser()));
         return "secure/reserve";
+    }
+
+    @RequestMapping(value = "/reserve/{name}/{from}", method = {RequestMethod.GET})
+    public String makeReservation(@PathVariable String name,@PathVariable String from,ModelMap model) {
+
+        registrationManager.reserveName(name,SsmCompanyType.valueOf(from), getCurrentUser());
+        return reserve(model);
     }
 
     @RequestMapping(value = "/llp", method = {RequestMethod.GET})

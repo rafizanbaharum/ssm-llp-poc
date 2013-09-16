@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
+<%@ taglib prefix = "fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <html>
 <head>
@@ -196,8 +197,8 @@
                                 <tr>
                                     <td class="wwe-1rank"><span>${member.id}</span></td>
                                     <td class="wwe-align-left">${member.name}</td>
-                                    <td>${member.startDate}</td>
-                                    <td>${member.endDate}</td>
+                                    <td><fmt:formatDate value="${member.startDate}" pattern="dd/MM/yyyy"/></td>
+                                    <td><fmt:formatDate value="${member.endDate}" pattern="dd/MM/yyyy"/></td>
                                     <td>${member.companyType}</td>
                                     <td><a href="/secure/company/register?${member.name}">Register</a></td>
                                 </tr>

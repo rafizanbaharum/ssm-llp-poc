@@ -125,7 +125,7 @@
                     <c:when test="${valid eq true}">
                         <div class="alert success"><span class="icon"></span>
                             Your choice of LLP name is available. Please reserve the name
-                            by clicking <a href="/reserve">here</a>.
+                            by clicking <a href="/secure/company/reserve/${name}/${from}">here</a>.
                         </div>
                     </c:when>
                     <c:when test="${valid eq false}">
