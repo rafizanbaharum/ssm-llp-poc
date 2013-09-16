@@ -2,7 +2,7 @@ package com.ssm.llp.core.model.impl;
 
 import com.ssm.llp.core.model.SsmCompanyType;
 import com.ssm.llp.core.model.SsmNameType;
-import com.ssm.llp.core.model.SsmReservedName;
+import com.ssm.llp.core.model.SsmUsedName;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,13 +11,14 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * BOOKED NAME
+ * NAMA LAMA: 1 tahun after change
+ *
  * @author rafizan.baharum
  * @since 9/6/13
  */
-@Table(name = "SSM_RESERVED_NAME")
-@Entity(name = "SsmReservedName")
-public class SsmReservedNameImpl extends SsmNameImpl implements SsmReservedName, Serializable {
+@Table(name = "SSM_USED_NAME")
+@Entity(name = "SsmUsedName")
+public class SsmUsedNameImpl extends SsmNameImpl implements SsmUsedName, Serializable {
 
     @Column(name = "START_DATE")
     private Date startDate;
@@ -28,8 +29,8 @@ public class SsmReservedNameImpl extends SsmNameImpl implements SsmReservedName,
     @Column(name = "COMPANY_TYPE")
     private SsmCompanyType companyType;
 
-    public SsmReservedNameImpl() {
-        setNameType(SsmNameType.RESERVED);
+    public SsmUsedNameImpl() {
+        setNameType(SsmNameType.USED);
     }
 
     public Date getStartDate() {
