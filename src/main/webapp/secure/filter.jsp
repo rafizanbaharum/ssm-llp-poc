@@ -60,7 +60,7 @@
                         </div>
                         <div class="toolmenu">
                             <div class="toolcaption">
-                                <span>User X</span>
+                                <span>${currentUser}</span>
                             </div>
                             <!-- Start of menu -->
                             <div class="dropdown">
@@ -141,7 +141,7 @@
                         Rules</a>
                     <ul>
                         <li class="current">
-                            <a href="filter/all">Filters</a>
+                            <a href="/secure/filter/all">Filters</a>
                         </li>
                         <li>
                             <a  href="/secure/name/all">Names</a>

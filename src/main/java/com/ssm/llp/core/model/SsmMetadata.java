@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import java.io.Serializable;
 import java.util.Date;
 
 
@@ -12,7 +13,7 @@ import java.util.Date;
  * @since 7/10/13
  */
 @Embeddable
-public class SsmMetadata {
+public class SsmMetadata implements Serializable{
 
     @Column(name = "C_ID")
     private Long creator;

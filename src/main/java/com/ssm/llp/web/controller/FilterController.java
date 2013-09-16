@@ -4,15 +4,16 @@ import com.ssm.llp.core.dao.SsmFilterDao;
 import com.ssm.llp.core.model.SsmFilter;
 import com.ssm.llp.core.model.SsmUser;
 import com.ssm.llp.integration.springsecurity.SsmUserDetails;
+import org.hibernate.SessionFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author rafizan.baharum
@@ -21,6 +22,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 @RequestMapping("/secure/filter")
 public class FilterController {
+
+    private Logger log = LoggerFactory.getLogger(FilterController.class);
+
+    @Autowired
+    private SessionFactory sessionFactory;
 
     @Autowired
     private SsmFilterDao filterDao;
@@ -38,14 +44,16 @@ public class FilterController {
     }
 
     @RequestMapping(value = "/update", method = {RequestMethod.POST})
-    public String update(@PathVariable Long id, @PathVariable String name, @PathVariable String script, ModelMap model) {
+    public String update(@RequestParam Long id, @RequestParam String name, @RequestParam String script, ModelMap model) {
         SsmFilter n = filterDao.findById(id);
         n.setName(name);
         n.setScript(script);
         filterDao.update(n, getCurrentUser());
-        return "redirect:/secure/filter/" + n.getId();
+        sessionFactory.getCurrentSession().flush();
+        return "redirect:/secure/filter/edit/" + n.getId();
     }
 
+    @ModelAttribute
     public SsmUser getCurrentUser() {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         if (auth.getPrincipal() instanceof UserDetails) {

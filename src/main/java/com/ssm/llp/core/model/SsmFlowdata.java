@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -11,7 +12,7 @@ import java.util.Date;
  * @since 7/10/13
  */
 @Embeddable
-public class SsmFlowdata { 
+public class SsmFlowdata implements Serializable {
 
     @Column(name = "DF_ID")
     private Long drafter;
