@@ -7,9 +7,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * @author rafizan.baharum
@@ -36,5 +36,16 @@ public class ValidateController {
         log.debug("poisoned?: " + poisoned);
         model.put("valid", !poisoned);
         return "index";
+    }
+
+    @RequestMapping(value = "/json/{name}", method = RequestMethod.GET)
+    @ResponseBody
+    public String validateJson(@PathVariable("name") String name, ModelMap model) {
+        log.debug("validate: " + name);
+        boolean poisoned = false;
+        boolean existed = false;
+        poisoned = !poisonValidator.validate(name);
+        if (poisoned) return "Name not valid";
+        else return "Name is valid";
     }
 }
