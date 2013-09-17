@@ -91,7 +91,7 @@ public class ScriptManager implements InitializingBean {
             manager.declareBean("filterDao", filterDao, SsmFilterDaoImpl.class);
             manager.declareBean("name", params.get("name"), String.class);
             manager.declareBean("log", scriptLog, ScriptLog.class);
-            manager.declareBean("util", scriptUtil, ScriptLog.class);
+            manager.declareBean("util", scriptUtil, ScriptUtil.class);
         } catch (BSFException e) {
             e.printStackTrace();
         }
