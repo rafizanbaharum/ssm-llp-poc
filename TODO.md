@@ -15,7 +15,9 @@ TODO ssm-llp-poc
 - DONE search name in secure/ pages, then register
 - DONE register name from page dashboard > companies > reservations
 - cache jquery js
+- if user type name with "LLP", remove LLP automatically
 - non-avatar menu
+- uppercase all field
 - port to POSTGRES on amazon cloud
 - sitemesh for templating
 
@@ -49,6 +51,8 @@ KEY POINTS
    - Gazetted, Offensive, state, country - can add record.
    - Reserved - expiry, time sensitive
    - Rules are scripted, exposed for admin
+   - Fail-fast design
+   - Dynamic rules can be inserted at runtime
 
 4. Performance + Scalability
    - Can take advantage of L1, L2, distributed cache.

@@ -53,9 +53,9 @@ public class SsmFilterDaoTest extends AbstractTransactionalJUnit4SpringContextTe
     }
 
     /**
-     * delete FROM POISON_FILTER;
-     * delete from SEARCH_FILTER;
-     * delete from FILTER;
+     * delete from SSM_POISON_FILTER;
+     * delete from SSM_SEARCH_FILTER;
+     * delete from SSM_FILTER;
      */
     @Test
     @Rollback(value = false)

@@ -27,6 +27,7 @@ public class ValidateController {
 
     /**
      * fail fast validation
+     *
      * @param name
      * @param type
      * @param model
@@ -35,11 +36,14 @@ public class ValidateController {
     @RequestMapping(method = RequestMethod.GET)
     public String validate(@RequestParam("name") String name, @RequestParam("type") String type, ModelMap model) {
         log.debug("validate: " + name);
-        boolean poisoned = false;
-        boolean existed = false;
-        poisoned = !poisonValidator.validate(name);
+        boolean poisoned = poisonValidator.isPoisoned(name);
+        boolean existed = searchValidator.isExisted(name);
+        boolean valid = !(poisoned | existed);
         log.debug("poisoned?: " + poisoned);
-        model.put("valid", !poisoned);
+        log.debug("existed?: " + existed);
+        log.debug("valid?: " + valid);
+
+        model.put("valid", valid);
         model.put("name", name);
         model.put("type", type);
         return "index";
@@ -55,10 +59,12 @@ public class ValidateController {
     @ResponseBody
     public String validateJson(@PathVariable("name") String name, ModelMap model) {
         log.debug("validate: " + name);
-        boolean poisoned = false;
-        boolean existed = false;
-        poisoned = !poisonValidator.validate(name);
-        if (poisoned) return "Name not valid";
+        boolean poisoned = poisonValidator.isPoisoned(name);
+        boolean existed = searchValidator.isExisted(name);
+        boolean valid = !(poisoned && existed);
+        log.debug("poisoned?: " + poisoned);
+        log.debug("existed?: " + existed);
+        if (valid) return "Name not valid";
         else return "Name is valid";
     }
 }

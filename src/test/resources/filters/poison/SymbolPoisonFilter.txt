@@ -1,17 +1,18 @@
 log.debug("SymbolPoisonFilter");
 
-
+boolean result = false;
 // check as a whole
-if(nameDao.hasName(name.toUpperCase(), 2)) return false;
+result = nameDao.hasName(name.toUpperCase(), 5);
+if(result) return result;
 
 // check word for word
 String[] words = name.toUpperCase().split(" ");
 for(int i=0; i < words.length; i++){
         log.debug("words: " + words[i]);
-        if(nameDao.hasName(words[i], 5)) return false;
+        if(nameDao.hasName(words[i], 5)) return true;
 }
 
 // check contains
 // TODO:
 
-return true;
+return false;

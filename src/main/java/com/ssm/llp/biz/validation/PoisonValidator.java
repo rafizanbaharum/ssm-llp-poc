@@ -13,6 +13,8 @@ import java.util.HashMap;
 import java.util.List;
 
 /**
+ * Fail fast
+ *
  * @author rafizan.baharum
  * @since 9/7/13
  */
@@ -29,16 +31,15 @@ public class PoisonValidator {
     @Autowired
     private ScriptManager scriptManager;
 
-    public boolean validate(String name) {
+    public boolean isPoisoned(String name) {
         List<SsmFilter> filters = filterDao.find(FILTER_TYPE);
         HashMap<String, Object> map = new HashMap<String, Object>();
         map.put("name", name);
-        // NOTE: GRRR! STUPID BOOLEAN LOGIC
-        boolean result = true;
+        boolean result = false;
         for (SsmFilter filter : filters) {
             result = scriptManager.executePoisonFilter(filter.getScript(), map);
             log.debug(filter.getName() + ":" + result);
-            if (!result) break;
+            if (result) break;
         }
         return result;
     }

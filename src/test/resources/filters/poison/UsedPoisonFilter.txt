@@ -2,5 +2,4 @@ log.debug("UsedPoisonFilter");
 log.debug("test: " + nameDao.hasName(name.toUpperCase(), 6));
 
 // check as a whole
-if(nameDao.hasName(name.toUpperCase(), 6)) return false;
-else return true;
+return nameDao.hasName(name.toUpperCase(), 6);

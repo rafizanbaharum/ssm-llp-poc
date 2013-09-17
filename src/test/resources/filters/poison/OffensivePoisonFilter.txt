@@ -1,12 +1,15 @@
 log.debug("OffensivePoisonFilter");
 
+boolean result = false;
+
 // check as a whole
-if(nameDao.hasName(name.toUpperCase(), 2)) return false;
+result =  nameDao.hasName(name.toUpperCase(), 0);
+if(result) return result;
 
 // check word for word
 String[] words = name.toUpperCase().split(" ");
 for(int i=0; i < words.length; i++){
     log.debug("words: " + words[i]);
-    if(nameDao.hasName(words[i], 0)) return false;
+    if(nameDao.hasName(words[i], 0)) return true;
 }
-return true;
+return false;

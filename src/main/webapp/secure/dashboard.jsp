@@ -243,7 +243,7 @@
             <h3>Search Form</h3>
             <span></span>
         </div>
-        <form action="/validate/dashboard" class="validate">
+        <form action="/secure/dashboard/validate" class="validate">
             <div class="content no-padding">
                 <div class="section _100">
                     <label for="name">
