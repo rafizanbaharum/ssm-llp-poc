@@ -10,8 +10,8 @@ TODO ssm-llp-poc
 - DONE logout
 - DONE JSON android name search
 - DONE checkout+build on amazon
-- register name from page dashboard > companies > reservations
 - DONE search name in secure/ pages, then reserve
+- register name from page dashboard > companies > reservations
 - search name in secure/ pages, then register
 - port to POSTGRES on amazon cloud
 - sitemesh for templating

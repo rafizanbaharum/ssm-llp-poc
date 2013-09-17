@@ -97,9 +97,6 @@
                             <li>
                                 <a href="/secure/dashboard">Dashboard</a>
                             </li>
-                            <li>
-                                <a href="/secure/search">Name Search</a>
-                            </li>
                         </ul>
                     </li>
                     <li class="current">
@@ -110,13 +107,13 @@
                             <li>
                                 <a href="/secure/company/reserve">Reservations</a>
                             </li>
-                            <li class="current">
+                            <li>
                                 <a href="/secure/company/llp">LLP</a>
                             </li>
                             <li>
                                 <a href="/secure/company/roc">ROC</a>
                             </li>
-                            <li>
+                            <li class="current">
                                 <a href="/secure/company/rob">ROB</a>
                             </li>
                         </ul>
@@ -196,7 +193,7 @@
                                     <td class="wwe-align-left">${rob.name}</td>
                                     <td>${rob.companyStatus}</td>
                                     <td>${rob.companyType}</td>
-                                    <td><a href="/secure/edit">Edit</a></td>
+                                    <td><a href="/secure/edit/${rob.id}">Edit</a></td>
                                 </tr>
                             </c:forEach>
                             </tbody>

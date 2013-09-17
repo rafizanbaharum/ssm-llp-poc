@@ -3,8 +3,9 @@ package com.ssm.llp.web.controller.secure;
 import com.ssm.llp.biz.manager.CompanyRegistrationManager;
 import com.ssm.llp.core.dao.SsmCompanyDao;
 import com.ssm.llp.core.dao.SsmNameDao;
-import com.ssm.llp.core.model.*;
-import com.ssm.llp.core.model.impl.SsmReservedNameImpl;
+import com.ssm.llp.core.model.SsmCompany;
+import com.ssm.llp.core.model.SsmCompanyType;
+import com.ssm.llp.core.model.SsmNameType;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,10 +14,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
 
 /**
  * @author rafizan.baharum

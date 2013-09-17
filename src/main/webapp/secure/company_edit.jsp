@@ -97,12 +97,9 @@
                             <li>
                                 <a href="/secure/dashboard">Dashboard</a>
                             </li>
-                            <li>
-                                <a href="/secure/search">Name Search</a>
-                            </li>
                         </ul>
                     </li>
-                    <li>
+                    <li class="current">
                         <a href="#">
                             <img src="/resources/img/icons/25x25/dark/documents.png" width=25 height=25 alt="">
                             My Companies</a>
@@ -135,12 +132,12 @@
                         </ul>
                     </li>
                     <sec:authorize ifAllGranted="ROLE_ADMINISTRATOR">
-                        <li class="current">
+                        <li>
                             <a href="#">
                                 <img src="/resources/img/icons/25x25/dark/archive.png" width=25 height=25 alt="">
                                 Rules</a>
                             <ul>
-                                <li class="current">
+                                <li>
                                     <a href="/secure/filter/all">Filters</a>
                                 </li>
                                 <li>

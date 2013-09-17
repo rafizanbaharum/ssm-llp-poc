@@ -97,12 +97,9 @@
                         <li>
                             <a href="/secure/dashboard">Dashboard</a>
                         </li>
-                        <li>
-                            <a href="/secure/search">Name Search</a>
-                        </li>
                     </ul>
                 </li>
-                <li>
+                <li class="current">
                     <a href="#">
                         <img src="/resources/img/icons/25x25/dark/documents.png" width=25 height=25 alt="">
                         My Companies</a>
@@ -211,10 +208,12 @@
                             <col class="wwe-first-col">
                             <col class="wwe-table-col-width">
                             <col class="wwe-table-col-width">
+                            <col class="wwe-table-col-width">
                         </colgroup>
                         <thead>
                         <tr>
                             <th class="wwe-lang-rank" scope="col">ID</th>
+                            <th class="wwe-align-left wwe-lang-club" scope="col">NRIC</th>
                             <th class="wwe-align-left wwe-lang-club" scope="col">Name</th>
                             <th class="wwe-lang-matches" scope="col">Type</th>
                         </tr>
@@ -223,6 +222,7 @@
                         <c:forEach var="member" items="${members}">
                             <tr>
                                 <td class="wwe-1rank"><span>${member.id}</span></td>
+                                <td class="wwe-align-left">${member.principal.actor.identityNo}</td>
                                 <td class="wwe-align-left">${member.principal.name}</td>
                                 <td>${member.roleType}</td>
                             </tr>

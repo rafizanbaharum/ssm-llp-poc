@@ -100,9 +100,6 @@
                         <li class="current">
                             <a href="/secure/dashboard">Dashboard</a>
                         </li>
-                        <li>
-                            <a href="/secure/search">Name Search</a>
-                        </li>
                     </ul>
                 </li>
                 <li>
