@@ -12,4 +12,13 @@ for(int i=0; i < words.length; i++){
     log.debug("words: " + words[i]);
     if(nameDao.hasName(words[i], 0)) return true;
 }
+
+// check permutations
+String[] pairs = util.permutatePairs(name);
+for(int i=0; i < pairs.length; i++){
+    log.debug("pairs: " + pairs[i]);
+    if(nameDao.hasName(pairs[i], 0)) return true;
+}
+
 return false;
+

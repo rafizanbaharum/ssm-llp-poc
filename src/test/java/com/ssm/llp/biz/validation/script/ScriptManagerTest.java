@@ -37,6 +37,9 @@ public class ScriptManagerTest extends AbstractTransactionalJUnit4SpringContextT
     private ScriptManager scriptManager;
 
     @Autowired
+    private ScriptUtil scriptUtil;
+
+    @Autowired
     private SessionFactory sessionFactory;
 
     @Before
@@ -55,6 +58,7 @@ public class ScriptManagerTest extends AbstractTransactionalJUnit4SpringContextT
         }
     }
 
+
     @Test
     @Rollback(value = false)
     public void testPoisonScript() {
@@ -64,6 +68,46 @@ public class ScriptManagerTest extends AbstractTransactionalJUnit4SpringContextT
             map.put("name", "MALAYSIA MEMBODOH PLT");
             boolean valid = scriptManager.executePoisonFilter(filter.getScript(), map);
             log.debug("Result : " + filter.getName() + " " + valid);
+        }
+    }
+
+    @Test
+    @Rollback(value = false)
+    public void testUtils() {
+        String[] strings = scriptUtil.makePairs("AL ARABI WAL WAHDI");
+        for (int i = 0; i < strings.length; i++) {
+            String string = strings[i];
+            log.debug(string);
+        }
+    }
+
+    @Test
+    @Rollback(value = false)
+    public void testUtils2() {
+        String[] strings = scriptUtil.makePairs("");
+        for (int i = 0; i < strings.length; i++) {
+            String string = strings[i];
+            log.debug(string);
+        }
+    }
+
+    @Test
+    @Rollback(value = false)
+    public void testPermutates() {
+        String[] strings = scriptUtil.permutatePairs("AL ARABI WAL WAHDI");
+        for (int i = 0; i < strings.length; i++) {
+            String string = strings[i];
+            log.debug(string);
+        }
+    }
+
+    @Test
+    @Rollback(value = false)
+    public void testPermutates2() {
+        String[] strings = scriptUtil.permutatePairs("");
+        for (int i = 0; i < strings.length; i++) {
+            String string = strings[i];
+            log.debug(string);
         }
     }
 }
