@@ -11,11 +11,11 @@ TODO ssm-llp-poc
 - DONE JSON android name search
 - DONE checkout+build on amazon
 - DONE search name in secure/ pages, then reserve
+- DONE logo on gatein, gateout
 - register name from page dashboard > companies > reservations
 - search name in secure/ pages, then register
 - port to POSTGRES on amazon cloud
 - sitemesh for templating
-- logo on gatein, gateout
 
 NAME RESERVATION
  - pilih nama
