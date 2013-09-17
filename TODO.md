@@ -8,16 +8,16 @@ TODO ssm-llp-poc
 - DONE registration     register > registered
 - DONE class diagram for presentation NAME, COMPANY
 - DONE logout
-- DONE JSON android na  me search
+- DONE JSON android name search
 - DONE checkout+build on amazon
 - DONE search name in secure/ pages, then reserve
 - DONE logo on gatein, gateout
+- DONE search name in secure/ pages, then register
+- DONE register name from page dashboard > companies > reservations
+- cache jquery js
 - non-avatar menu
-- register name from page dashboard > companies > reservations
-- search name in secure/ pages, then register
 - port to POSTGRES on amazon cloud
 - sitemesh for templating
-- cache jquery js
 
 NAME RESERVATION
  - pilih nama

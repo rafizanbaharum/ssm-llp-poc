@@ -417,12 +417,12 @@
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach var="member" items="${companies}">
+                <c:forEach var="reserve" items="${companies}">
                     <tr>
-                        <td class="wwe-1rank"><span>${member.id}</span></td>
-                        <td class="wwe-align-left">${member.name}</td>
-                        <td>${member.companyType}</td>
-                        <td><a href="/secure/company/view/${member.id}">View</a></td>
+                        <td class="wwe-1rank"><span>${reserve.id}</span></td>
+                        <td class="wwe-align-left">${reserve.name}</td>
+                        <td>${reserve.companyType}</td>
+                        <td><a href="/secure/company/view/${reserve.id}">View</a></td>
                     </tr>
                 </c:forEach>
                 </tbody>

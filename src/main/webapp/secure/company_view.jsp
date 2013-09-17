@@ -217,12 +217,12 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <c:forEach var="member" items="${members}">
+                        <c:forEach var="reserve" items="${members}">
                             <tr>
-                                <td class="wwe-1rank"><span>${member.id}</span></td>
-                                <td class="wwe-align-left">${member.principal.actor.identityNo}</td>
-                                <td class="wwe-align-left">${member.principal.name}</td>
-                                <td>${member.roleType}</td>
+                                <td class="wwe-1rank"><span>${reserve.id}</span></td>
+                                <td class="wwe-align-left">${reserve.principal.actor.identityNo}</td>
+                                <td class="wwe-align-left">${reserve.principal.name}</td>
+                                <td>${reserve.roleType}</td>
                             </tr>
                         </c:forEach>
                         </tbody>

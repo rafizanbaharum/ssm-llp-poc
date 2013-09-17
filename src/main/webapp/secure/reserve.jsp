@@ -190,14 +190,14 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <c:forEach var="member" items="${reserves}">
+                            <c:forEach var="reserve" items="${reserves}">
                                 <tr>
-                                    <td class="wwe-1rank"><span>${member.id}</span></td>
-                                    <td class="wwe-align-left">${member.name}</td>
-                                    <td><fmt:formatDate value="${member.startDate}" pattern="dd/MM/yyyy"/></td>
-                                    <td><fmt:formatDate value="${member.endDate}" pattern="dd/MM/yyyy"/></td>
-                                    <td>${member.companyType}</td>
-                                    <td><a href="/secure/company/register?${member.name}">Register</a></td>
+                                    <td class="wwe-1rank"><span>${reserve.id}</span></td>
+                                    <td class="wwe-align-left">${reserve.name}</td>
+                                    <td><fmt:formatDate value="${reserve.startDate}" pattern="dd/MM/yyyy"/></td>
+                                    <td><fmt:formatDate value="${reserve.endDate}" pattern="dd/MM/yyyy"/></td>
+                                    <td>${reserve.companyType}</td>
+                                    <td><a href="/secure/company/register/${reserve.name}/LLP">Register</a></td>
                                 </tr>
                             </c:forEach>
                             </tbody>
@@ -236,14 +236,7 @@
 </footer>
 <!-- End of footer-->
 
-<!-- JavaScript at the bottom for fast page loading -->
-<!-- Grab Google CDN's jQuery + jQueryUI, with a protocol relative URL; fall back to local -->
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"></script>
-<script>window.jQuery || document.write('<script src="/resources/js/libs/jquery-1.7.1.js"><\/script>')</script>
-<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
-<script>window.jQuery.ui || document.write('<script src="/resources/js/libs/jquery-ui-1.8.16.min.js"><\/script>')</script>
-
-<!-- scripts concatenated and minified via build script -->
+<script src="/resources/js/libs/jquery-ui-1.8.16.min.js"></script>
 <script defer src="/resources/js/plugins.js"></script>
 <script defer src="/resources/js/mylibs/jquery.ba-resize.js"></script>
 <script defer src="/resources/js/mylibs/jquery.easing.1.3.js"></script>
