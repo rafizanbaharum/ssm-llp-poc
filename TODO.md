@@ -10,12 +10,16 @@ TODO ssm-llp-poc
 - DONE logout
 - DONE JSON android name search
 - DONE checkout+build on amazon
-- register name from page dashboard > companies > reservations
 - DONE search name in secure/ pages, then reserve
-- search name in secure/ pages, then register
+- DONE logo on gatein, gateout
+- DONE search name in secure/ pages, then register
+- DONE register name from page dashboard > companies > reservations
+- cache jquery js
+- if user type name with "LLP", remove LLP automatically
+- non-avatar menu
+- uppercase all field
 - port to POSTGRES on amazon cloud
 - sitemesh for templating
-- logo on gatein, gateout
 
 NAME RESERVATION
  - pilih nama
@@ -44,9 +48,11 @@ KEY POINTS
    - Can integrate with external via ESB.
 
 3. Dynamic, Configurable Rules and Filters
-   - Gazetted, Offensive, state, country - can add record.
+   - Gazetted, Offensive, State, Country - can add record.
    - Reserved - expiry, time sensitive
    - Rules are scripted, exposed for admin
+   - Fail-fast design
+   - Dynamic rules can be inserted at runtime
 
 4. Performance + Scalability
    - Can take advantage of L1, L2, distributed cache.

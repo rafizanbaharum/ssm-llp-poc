@@ -41,13 +41,13 @@ public class ValidationTest extends AbstractTransactionalJUnit4SpringContextTest
     @Test
     @Rollback(value = true)
     public void testSearch() {
-        boolean validate = searchValidator.validate("MALAYSIA RAYA PLT");
+        boolean validate = searchValidator.isExisted("MALAYSIA RAYA PLT");
         log.debug("valid?: " + validate);
     }
 
     @Test
     @Rollback(value = true)
     public void testPoison() {
-        log.debug("valid?: " + poisonValidator.validate("* RAYA PLT"));
+        log.debug("valid?: " + poisonValidator.isPoisoned("* RAYA PLT"));
     }
 }

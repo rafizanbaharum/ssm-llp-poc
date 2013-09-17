@@ -26,8 +26,8 @@ window.log = function() {
 })());
 
 /*
- * Peach - Clean & Smooth Admin Template
- * by Stammi <http://themeforest.net/user/Stammi>
+ * Canang Template
+ *
  *
  * ===========
  *   Plugins

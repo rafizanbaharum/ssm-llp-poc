@@ -53,9 +53,9 @@ public class SsmFilterDaoTest extends AbstractTransactionalJUnit4SpringContextTe
     }
 
     /**
-     * delete FROM POISON_FILTER;
-     * delete from SEARCH_FILTER;
-     * delete from FILTER;
+     * delete from SSM_POISON_FILTER;
+     * delete from SSM_SEARCH_FILTER;
+     * delete from SSM_FILTER;
      */
     @Test
     @Rollback(value = false)
@@ -67,6 +67,7 @@ public class SsmFilterDaoTest extends AbstractTransactionalJUnit4SpringContextTe
                 File file = files[i];
                 SsmPoisonFilterImpl filter = new SsmPoisonFilterImpl();
                 filter.setName(file.getName().substring(0, file.getName().length() - 4));
+                filter.setDescription(file.getName().substring(0, file.getName().length() - 4));
                 filter.setScript(readFile(file.getAbsolutePath(), Charset.defaultCharset()));
                 filterDao.save(filter, root);
             }
@@ -78,6 +79,7 @@ public class SsmFilterDaoTest extends AbstractTransactionalJUnit4SpringContextTe
                 File file = searchFiles[i];
                 SsmSearchFilterImpl filter = new SsmSearchFilterImpl();
                 filter.setName(file.getName().substring(0, file.getName().length() - 4));
+                filter.setDescription(file.getName().substring(0, file.getName().length() - 4));
                 filter.setScript(readFile(file.getAbsolutePath(), Charset.defaultCharset()));
                 filterDao.save(filter, root);
             }

@@ -26,6 +26,9 @@ public abstract class SsmFilterImpl implements SsmFilter, Serializable {
     @Column(name = "NAME")
     private String name;
 
+    @Column(name = "DESCRIPTION")
+    private String description;
+
     @Lob
     @Column(name = "SCRIPT")
     private String script;
@@ -51,6 +54,14 @@ public abstract class SsmFilterImpl implements SsmFilter, Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getScript() {

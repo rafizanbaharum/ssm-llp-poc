@@ -100,9 +100,6 @@
                         <li class="current">
                             <a href="/secure/dashboard">Dashboard</a>
                         </li>
-                        <li>
-                            <a href="/secure/search">Name Search</a>
-                        </li>
                     </ul>
                 </li>
                 <li>
@@ -208,216 +205,234 @@
 <!-- Start of the main content -->
 <div id="main_content">
 
-    <h2 class="grid_12">Dashboard</h2>
+<h2 class="grid_12">Search Your LLP Name</h2>
 
-    <div class="clear"></div>
+<div class="clean"></div>
 
 
-    <div class="grid_6">
-        <div class="box">
-            <div class="header">
-                <img src="/resources/img/icons/packs/fugue/16x16/document--plus.png" alt="" width="16"
-                     height="16">
+<div class="grid_12">
 
-                <h3>Send a Support Message</h3>
-                <span></span>
-            </div>
-            <form action="dashboard.html" class="validate">
-                <div class="content no-padding">
-                    <div class="section _100">
-                        <label for="blogpost-title">
-                            Title
-                        </label>
-
-                        <div>
-                            <input class="required" name="blogpost-title" id="blogpost-title">
-                        </div>
-                    </div>
-                    <div class="section _100">
-                        <label for="blogpost-category">
-                            Category
-                        </label>
-
-                        <div>
-                            <select name="blogpost-category" id="blogpost-category" class="required">
-                                <option></option>
-                                <option>SUPPORT</option>
-                                <option>PAYMENT</option>
-                                <option>GENERAL</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="section _100">
-                        <label for="blogpost-post">
-                            Post
-                        </label>
-
-                        <div>
-                            <textarea cols="40" rows="5" class="required" name="blogpost-post"
-                                      id="blogpost-post"></textarea>
-                        </div>
-                    </div>
-                </div>
-                <!-- End of .content -->
-                <div class="actions">
-                    <div class="actions-left">
-                        <input type="reset"/>
-                    </div>
-                    <div class="actions-right">
-                        <input type="submit"/>
-                    </div>
-                </div>
-                <!-- End of .actions -->
-            </form>
-        </div>
-        <!-- End of .box -->
-    </div>
-    <!-- End of .grid_6 -->
-
-    <div class="grid_6">
-        <div class="box">
-            <div class="header">
-                <img src="/resources/img/icons/16x16/list.png" alt="" width="16"
-                     height="16">
-
-                <h3>Stats List</h3>
-                <span></span>
-            </div>
-            <div class="content">
-                <div class="alert warning no-margin top">
-                    <span class="icon"></span>You have 3 overdue support tickets.
-                </div>
-                <ul class="stats-list">
-                    <li>
-                        <a href="#">Pending Registrations <span>12132</span></a>
-                    </li>
-                    <li>
-                        <a href="#">Today Registrations <span>875</span></a>
-                    </li>
-                    <li>
-                        <a href="#">Support Tickets <span>12</span></a>
+    <c:choose>
+        <c:when test="${valid eq true}">
+            <div class="alert success"><span class="icon"></span>
+                Your choice of LLP name ${name} is available.
+                <ul>
+                    <li>If you want RESERVE the name please click <a
+                            href="/secure/company/reserve/${name}/${type}">here</a></li>
+                    <li>If you want the name please click <a href="/secure/company/register/${name}/${type}">here</a>
                     </li>
                 </ul>
             </div>
+        </c:when>
+        <c:when test="${valid eq false}">
+            <div class="alert info">
+                <span class="icon"></span><span class="hide">x</span>
+                <strong>Sorry!</strong> Please pick a different name.
+            </div>
+        </c:when>
+        <c:otherwise>
+        </c:otherwise>
+    </c:choose>
+
+
+    <div class="box">
+        <div class="header">
+            <img src="/resources/img/icons/packs/fugue/16x16/document--plus.png" alt="" width="16"
+                 height="16">
+
+            <h3>Search Form</h3>
+            <span></span>
+        </div>
+        <form action="/secure/dashboard/validate" class="validate">
+            <div class="content no-padding">
+                <div class="section _100">
+                    <label for="name">
+                        Name
+                    </label>
+
+                    <div>
+                        <input class="required" name="name" id="name" value="${name}">
+                    </div>
+                </div>
+                <div class="section _100">
+                    <label for="type">
+                        Type
+                    </label>
+
+                    <div>
+                        <select name="type" id="type" class="required">
+                            <option selected>LLP</option>
+                            <option>ROB</option>
+                            <option>ROC</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
             <!-- End of .content -->
             <div class="actions">
-                <div class="actions-left"></div>
                 <div class="actions-right">
-                    <a class="button" href="charts.html">Go to stats &raquo;</a>
+                    <input type="submit"/>
                 </div>
             </div>
             <!-- End of .actions -->
-            <div class="clear"></div>
-        </div>
-        <!-- End of .box -->
+        </form>
     </div>
-    <!-- End of .grid_6 -->
+    <!-- End of .box -->
+</div>
 
-    <div class="push clear"></div>
+<div class="push clear"></div>
 
-    <h2 class="grid_12">Search Your LLP Name</h2>
+<h2 class="grid_12">Dashboard</h2>
 
-    <div class="clean"></div>
+<div class="clear"></div>
 
-    <div class="grid_12">
-        <c:choose>
-            <c:when test="${valid eq true}">
-                <div class="alert success"><span class="icon"></span>
-                    Your choice of LLP name is available. Please reserve the name
-                    by clicking <a href="/secure/company/reserve/${name}/${from}">here</a>.
-                </div>
-            </c:when>
-            <c:when test="${valid eq false}">
-                <div class="alert info">
-                    <span class="icon"></span><span class="hide">x</span>
-                    <strong>Sorry!</strong> Please pick a different name.
-                </div>
-            </c:when>
-            <c:otherwise>
-            </c:otherwise>
-        </c:choose>
 
-        <div class="box">
-            <div class="header">
-                <img src="/resources/img/icons/packs/fugue/16x16/ui-text-field-format.png" alt="" width="16"
-                     height="16">
+<div class="grid_6">
+    <div class="box">
+        <div class="header">
+            <img src="/resources/img/icons/packs/fugue/16x16/document--plus.png" alt="" width="16"
+                 height="16">
 
-                <h3>Search Form</h3>
-                <span></span>
-            </div>
-            <form class="validate" novalidate action="/validate/dashboard" method="get">
-                <div class="content">
-                    <div class="_50">
-                        <p>
-                            <input name="name" type="text" placeholder=" Your Next LLP Name" class="required"/>
-                        </p>
-                    </div>
-                    <div class="_20">
-                        <p>
-                            <select name="from">
-                                <option selected>LLP</option>
-                                <option>ROC</option>
-                                <option>ROB</option>
-                            </select>
-                        </p>
-                    </div>
-                </div>
-                <div class="actions">
-                    <div class="actions-right">
-                        <input type="submit" value="Search"/>
-                    </div>
-                </div>
-            </form>
+            <h3>Send a Support Message</h3>
+            <span></span>
         </div>
-        <!-- End of .box -->
-    </div>
-
-    <div class="push clear"></div>
-
-    <h2 class="grid_12">List of Registered Companies</h2>
-
-    <div class="clear"></div>
-
-    <div class="grid_12">
-        <div class="box">
-            <div class="header">
-                <img src="/resources/img/icons/packs/fugue/16x16/shadeless/table.png" width="16" height="16">
-
-                <h3>Reserved Name</h3><span></span>
-            </div>
+        <form action="dashboard.html" class="validate">
             <div class="content no-padding">
-                <table class="table">
-                    <colgroup>
-                        <col class="wwe-first-col">
-                        <col class="wwe-table-col-width">
-                        <col class="wwe-table-col-width">
-                        <col class="wwe-align-center">
-                    </colgroup>
-                    <thead>
-                    <tr>
-                        <th class="wwe-lang-rank" scope="col">ID</th>
-                        <th class="wwe-align-left wwe-lang-club" scope="col">Name</th>
-                        <th class="wwe-lang-matches" scope="col">Type</th>
-                        <th class="wwe-lang-matches" scope="col">Action</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <c:forEach var="member" items="${companies}">
-                        <tr>
-                            <td class="wwe-1rank"><span>${member.id}</span></td>
-                            <td class="wwe-align-left">${member.name}</td>
-                            <td>${member.companyType}</td>
-                            <td><a href="/secure/company/view/${member.id}">View</a></td>
-                        </tr>
-                    </c:forEach>
-                    </tbody>
-                </table>
+                <div class="section _100">
+                    <label for="blogpost-title">
+                        Title
+                    </label>
+
+                    <div>
+                        <input class="required" name="blogpost-title" id="blogpost-title">
+                    </div>
+                </div>
+                <div class="section _100">
+                    <label for="blogpost-category">
+                        Category
+                    </label>
+
+                    <div>
+                        <select name="blogpost-category" id="blogpost-category" class="required">
+                            <option></option>
+                            <option>SUPPORT</option>
+                            <option>PAYMENT</option>
+                            <option>GENERAL</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="section _100">
+                    <label for="blogpost-post">
+                        Post
+                    </label>
+
+                    <div>
+                        <textarea cols="40" rows="5" class="required" name="blogpost-post"
+                                  id="blogpost-post"></textarea>
+                    </div>
+                </div>
             </div>
             <!-- End of .content -->
-            <div class="clear"></div>
-        </div>
-        <!-- End of .box -->
+            <div class="actions">
+                <div class="actions-left">
+                    <input type="reset"/>
+                </div>
+                <div class="actions-right">
+                    <input type="submit"/>
+                </div>
+            </div>
+            <!-- End of .actions -->
+        </form>
     </div>
+    <!-- End of .box -->
+</div>
+<!-- End of .grid_6 -->
+
+<div class="grid_6">
+    <div class="box">
+        <div class="header">
+            <img src="/resources/img/icons/16x16/list.png" alt="" width="16"
+                 height="16">
+
+            <h3>Stats List</h3>
+            <span></span>
+        </div>
+        <div class="content">
+            <div class="alert warning no-margin top">
+                <span class="icon"></span>You have 3 overdue support tickets.
+            </div>
+            <ul class="stats-list">
+                <li>
+                    <a href="#">Pending Registrations <span>12132</span></a>
+                </li>
+                <li>
+                    <a href="#">Today Registrations <span>875</span></a>
+                </li>
+                <li>
+                    <a href="#">Support Tickets <span>12</span></a>
+                </li>
+            </ul>
+        </div>
+        <!-- End of .content -->
+        <div class="actions">
+            <div class="actions-left"></div>
+            <div class="actions-right">
+                <a class="button" href="charts.html">Go to stats &raquo;</a>
+            </div>
+        </div>
+        <!-- End of .actions -->
+        <div class="clear"></div>
+    </div>
+    <!-- End of .box -->
+</div>
+<!-- End of .grid_6 -->
+
+<div class="push clear"></div>
+
+<h2 class="grid_12">List of Registered Companies</h2>
+
+<div class="clear"></div>
+
+<div class="grid_12">
+    <div class="box">
+        <div class="header">
+            <img src="/resources/img/icons/packs/fugue/16x16/shadeless/table.png" width="16" height="16">
+
+            <h3>Reserved Name</h3><span></span>
+        </div>
+        <div class="content no-padding">
+            <table class="table">
+                <colgroup>
+                    <col class="wwe-first-col">
+                    <col class="wwe-table-col-width">
+                    <col class="wwe-table-col-width">
+                    <col class="wwe-align-center">
+                </colgroup>
+                <thead>
+                <tr>
+                    <th class="wwe-lang-rank" scope="col">ID</th>
+                    <th class="wwe-align-left wwe-lang-club" scope="col">Name</th>
+                    <th class="wwe-lang-matches" scope="col">Type</th>
+                    <th class="wwe-lang-matches" scope="col">Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <c:forEach var="reserve" items="${companies}">
+                    <tr>
+                        <td class="wwe-1rank"><span>${reserve.id}</span></td>
+                        <td class="wwe-align-left">${reserve.name}</td>
+                        <td>${reserve.companyType}</td>
+                        <td><a href="/secure/company/view/${reserve.id}">View</a></td>
+                    </tr>
+                </c:forEach>
+                </tbody>
+            </table>
+        </div>
+        <!-- End of .content -->
+        <div class="clear"></div>
+    </div>
+    <!-- End of .box -->
+</div>
 
 
 </div>

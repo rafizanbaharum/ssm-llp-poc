@@ -97,9 +97,6 @@
                             <li>
                                 <a href="/secure/dashboard">Dashboard</a>
                             </li>
-                            <li>
-                                <a href="/secure/search">Name Search</a>
-                            </li>
                         </ul>
                     </li>
                     <li class="current">
@@ -196,7 +193,7 @@
                                     <td class="wwe-align-left">${llp.name}</td>
                                     <td>${llp.companyStatus}</td>
                                     <td>${llp.companyType}</td>
-                                    <td><a href="/secure/company/edit">Edit</a></td>
+                                    <td><a href="/secure/company/edit/${llp.id}">Edit</a></td>
                                 </tr>
                             </c:forEach>
                             </tbody>

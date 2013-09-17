@@ -97,12 +97,9 @@
                             <li>
                                 <a href="/secure/dashboard">Dashboard</a>
                             </li>
-                            <li>
-                                <a href="/secure/search">Name Search</a>
-                            </li>
                         </ul>
                     </li>
-                    <li>
+                    <li class="current">
                         <a href="#">
                             <img src="/resources/img/icons/25x25/dark/documents.png" width=25 height=25 alt="">
                             My Companies</a>
@@ -135,12 +132,12 @@
                         </ul>
                     </li>
                     <sec:authorize ifAllGranted="ROLE_ADMINISTRATOR">
-                        <li class="current">
+                        <li>
                             <a href="#">
                                 <img src="/resources/img/icons/25x25/dark/archive.png" width=25 height=25 alt="">
                                 Rules</a>
                             <ul>
-                                <li class="current">
+                                <li>
                                     <a href="/secure/filter/all">Filters</a>
                                 </li>
                                 <li>
@@ -232,14 +229,7 @@
 </footer>
 <!-- End of footer-->
 
-<!-- JavaScript at the bottom for fast page loading -->
-<!-- Grab Google CDN's jQuery + jQueryUI, with a protocol relative URL; fall back to local -->
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"></script>
-<script>window.jQuery || document.write('<script src="/resources/js/libs/jquery-1.7.1.js"><\/script>')</script>
-<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
-<script>window.jQuery.ui || document.write('<script src="/resources/js/libs/jquery-ui-1.8.16.min.js"><\/script>')</script>
-
-<!-- scripts concatenated and minified via build script -->
+<script src="/resources/js/libs/jquery-ui-1.8.16.min.js"></script>
 <script defer src="/resources/js/plugins.js"></script>
 <script defer src="/resources/js/mylibs/jquery.ba-resize.js"></script>
 <script defer src="/resources/js/mylibs/jquery.easing.1.3.js"></script>

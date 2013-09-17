@@ -30,9 +30,7 @@
     <link rel="stylesheet" href="/resources/css/external/jquery-ui-1.8.16.custom.css">
     <link rel="stylesheet" href="/resources/css/sidebar.css">
 </head>
-
 <body>
-
 <!-- Begin of #height-wrapper -->
 <div id="height-wrapper">
 <!-- Begin of header -->
@@ -97,12 +95,9 @@
                         <li>
                             <a href="/secure/dashboard">Dashboard</a>
                         </li>
-                        <li>
-                            <a href="/secure/search">Name Search</a>
-                        </li>
                     </ul>
                 </li>
-                <li>
+                <li class="current">
                     <a href="#">
                         <img src="/resources/img/icons/25x25/dark/documents.png" width=25 height=25 alt="">
                         My Companies</a>
@@ -211,20 +206,23 @@
                             <col class="wwe-first-col">
                             <col class="wwe-table-col-width">
                             <col class="wwe-table-col-width">
+                            <col class="wwe-table-col-width">
                         </colgroup>
                         <thead>
                         <tr>
                             <th class="wwe-lang-rank" scope="col">ID</th>
+                            <th class="wwe-align-left wwe-lang-club" scope="col">NRIC</th>
                             <th class="wwe-align-left wwe-lang-club" scope="col">Name</th>
                             <th class="wwe-lang-matches" scope="col">Type</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <c:forEach var="member" items="${members}">
+                        <c:forEach var="reserve" items="${members}">
                             <tr>
-                                <td class="wwe-1rank"><span>${member.id}</span></td>
-                                <td class="wwe-align-left">${member.principal.name}</td>
-                                <td>${member.roleType}</td>
+                                <td class="wwe-1rank"><span>${reserve.id}</span></td>
+                                <td class="wwe-align-left">${reserve.principal.actor.identityNo}</td>
+                                <td class="wwe-align-left">${reserve.principal.name}</td>
+                                <td>${reserve.roleType}</td>
                             </tr>
                         </c:forEach>
                         </tbody>

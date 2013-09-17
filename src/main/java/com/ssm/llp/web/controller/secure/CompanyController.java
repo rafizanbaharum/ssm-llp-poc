@@ -3,8 +3,9 @@ package com.ssm.llp.web.controller.secure;
 import com.ssm.llp.biz.manager.CompanyRegistrationManager;
 import com.ssm.llp.core.dao.SsmCompanyDao;
 import com.ssm.llp.core.dao.SsmNameDao;
-import com.ssm.llp.core.model.*;
-import com.ssm.llp.core.model.impl.SsmReservedNameImpl;
+import com.ssm.llp.core.model.SsmCompany;
+import com.ssm.llp.core.model.SsmCompanyType;
+import com.ssm.llp.core.model.SsmNameType;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,10 +14,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
 
 /**
  * @author rafizan.baharum
@@ -44,11 +41,17 @@ public class CompanyController extends SecureControllerSupport {
         return "secure/reserve";
     }
 
-    @RequestMapping(value = "/reserve/{name}/{from}", method = {RequestMethod.GET})
-    public String makeReservation(@PathVariable String name,@PathVariable String from,ModelMap model) {
-
-        registrationManager.reserveName(name,SsmCompanyType.valueOf(from), getCurrentUser());
+    @RequestMapping(value = "/reserve/{name}/{type}", method = {RequestMethod.GET})
+    public String makeReservation(@PathVariable String name, @PathVariable String type, ModelMap model) {
+        registrationManager.reserveName(name, SsmCompanyType.valueOf(type), getCurrentUser());
         return reserve(model);
+    }
+
+    @RequestMapping(value = "/register/{name}/{type}", method = {RequestMethod.GET})
+    public String register(@PathVariable String name, @PathVariable String type, ModelMap model) {
+        model.put("type", SsmCompanyType.valueOf(type));
+        model.put("name", name);
+        return "secure/register";
     }
 
     @RequestMapping(value = "/llp", method = {RequestMethod.GET})
@@ -92,6 +95,7 @@ public class CompanyController extends SecureControllerSupport {
         return "redirect:/secure/company/edit/" + n.getId();
     }
 
+<<<<<<< HEAD
 
     @RequestMapping(value = "/register/{name}/{type}", method = {RequestMethod.GET})
     public String register(@PathVariable String name,@PathVariable String type,ModelMap model) {
@@ -100,6 +104,8 @@ public class CompanyController extends SecureControllerSupport {
         return "secure/register";
     }
 
+=======
+>>>>>>> f49b9199c4128738f1c5e5b591be6a772f441bc0
     @RequestMapping(value = "/confirm", method = {RequestMethod.POST})
     public String confirm(
             @RequestParam("name") String name,

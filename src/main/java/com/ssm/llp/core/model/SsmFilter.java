@@ -10,6 +10,10 @@ public interface SsmFilter extends SsmMetaObject {
 
     void setName(String name);
 
+    String getDescription();
+
+    void setDescription(String description);
+
     String getScript();
 
     void setScript(String script);

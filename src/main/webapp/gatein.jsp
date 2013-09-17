@@ -25,13 +25,13 @@
     <div class="shadow"></div>
 </div>
 <div class="content">
-    <h1>SSM | MyLLP</h1>
+    <%--<h1>SSM | MyLLP</h1>--%>
 
     <div class="background"></div>
     <div class="wrapper">
         <div class="box">
             <div class="header grey">
-                <img src="resources/img/icons/packs/fugue/16x16/lock.png" width="16" height="16">
+                <img src="/resources/img/icons/packs/fugue/16x16/lock.png" width="16" height="16">
 
                 <h3>Login</h3>
             </div>
@@ -67,15 +67,7 @@
     </div>
 </div>
 
-
-<!-- JavaScript at the bottom for fast page loading -->
-<!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="resources/js/libs/jquery-1.7.1.js"><\/script>')</script>
-<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
-<script>window.jQuery.ui || document.write('<script src="resources/js/libs/jquery-ui-1.8.16.min.js"><\/script>')</script>
-
-<!-- scripts concatenated and minified via build script -->
+<script src="resources/js/libs/jquery-ui-1.8.16.min.js"></script>
 <script defer src="resources/js/plugins.js"></script>
 <script defer src="resources/js/mylibs/jquery.validate.js"></script>
 <script defer src="resources/js/mylibs/jquery.jgrowl.js"></script>

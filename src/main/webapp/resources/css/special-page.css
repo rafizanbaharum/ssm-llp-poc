@@ -1,6 +1,6 @@
 /*
- * Peach - Clean & Smooth Admin Template
- * by Stammi <http://themeforest.net/user/Stammi>
+ * Canang Template
+ *
  * 
  * ================
  *   Special Page
@@ -101,7 +101,8 @@
 	margin: 0 auto;
 	width: 790px;
 	height: 167px;
-	background: url(../img/special-page/header.png);
+    background: url(/resources/img/special-page/header_with_ssm_logo.png) no-repeat top center;
+	/*background: url(/resources/img/special-page/header.png);*/
 	
 }
 

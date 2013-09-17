@@ -6,4 +6,4 @@ for(int i=0; i < words.length; i++){
     // TODO: endWith y
     buff.append(words[i]+"s");
 }
-return nameDao.find(buff.toString()).isEmpty();
+return !nameDao.find(buff.toString()).isEmpty();

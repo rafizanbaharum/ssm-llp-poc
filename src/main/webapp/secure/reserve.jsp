@@ -11,6 +11,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <meta name="viewport" content="width=device-width,initial-scale=1">
+
     <!-- CSS -->
     <link rel="stylesheet" href="/resources/css/960gs/fluid.css">
     <link rel="stylesheet" href="/resources/css/h5bp/normalize.css">
@@ -98,9 +99,6 @@
                             <li>
                                 <a href="/secure/dashboard">Dashboard</a>
                             </li>
-                            <li>
-                                <a href="/secure/search">Name Search</a>
-                            </li>
                         </ul>
                     </li>
                     <li class="current">
@@ -117,7 +115,7 @@
                             <li>
                                 <a href="/secure/company/roc">ROC</a>
                             </li>
-                            <li class="last-child">
+                            <li>
                                 <a href="/secure/company/rob">ROB</a>
                             </li>
                         </ul>
@@ -193,14 +191,23 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <c:forEach var="member" items="${reserves}">
+                            <c:forEach var="reserve" items="${reserves}">
                                 <tr>
+<<<<<<< HEAD
                                     <td class="wwe-1rank"><span>${member.id}</span></td>
                                     <td class="wwe-align-left">${member.name}</td>
                                     <td><fmt:formatDate value="${member.startDate}" pattern="dd/MM/yyyy"/></td>
                                     <td><fmt:formatDate value="${member.endDate}" pattern="dd/MM/yyyy"/></td>
                                     <td>${member.companyType}</td>
                                     <td><a href="/secure/company/register/${member.name}/${member.companyType}">Register</a></td>
+=======
+                                    <td class="wwe-1rank"><span>${reserve.id}</span></td>
+                                    <td class="wwe-align-left">${reserve.name}</td>
+                                    <td><fmt:formatDate value="${reserve.startDate}" pattern="dd/MM/yyyy"/></td>
+                                    <td><fmt:formatDate value="${reserve.endDate}" pattern="dd/MM/yyyy"/></td>
+                                    <td>${reserve.companyType}</td>
+                                    <td><a href="/secure/company/register/${reserve.name}/LLP">Register</a></td>
+>>>>>>> f49b9199c4128738f1c5e5b591be6a772f441bc0
                                 </tr>
                             </c:forEach>
                             </tbody>
@@ -246,7 +253,6 @@
 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
 <script>window.jQuery.ui || document.write('<script src="/resources/js/libs/jquery-ui-1.8.16.min.js"><\/script>')</script>
 
-<!-- scripts concatenated and minified via build script -->
 <script defer src="/resources/js/plugins.js"></script>
 <script defer src="/resources/js/mylibs/jquery.ba-resize.js"></script>
 <script defer src="/resources/js/mylibs/jquery.easing.1.3.js"></script>
@@ -254,5 +260,6 @@
 <script defer src="/resources/js/mylibs/jquery.chosen.js"></script>
 <script defer src="/resources/js/mylibs/jquery.validate.js"></script>
 <script defer src="/resources/js/script.js"></script>
+
 </body>
 </html>

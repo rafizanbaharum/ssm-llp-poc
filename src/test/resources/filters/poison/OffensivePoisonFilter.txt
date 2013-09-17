@@ -1,8 +1,24 @@
 log.debug("OffensivePoisonFilter");
 
-String[] words = name.split(" ");
+boolean result = false;
+
+// check as a whole
+result =  nameDao.hasName(name.toUpperCase(), 0);
+if(result) return result;
+
+// check word for word
+String[] words = name.toUpperCase().split(" ");
 for(int i=0; i < words.length; i++){
     log.debug("words: " + words[i]);
-    if(nameDao.hasName(words[i], 0)) return false;
+    if(nameDao.hasName(words[i], 0)) return true;
 }
-return true;
+
+// check permutations
+String[] pairs = util.permutatePairs(name);
+for(int i=0; i < pairs.length; i++){
+    log.debug("pairs: " + pairs[i]);
+    if(nameDao.hasName(pairs[i], 0)) return true;
+}
+
+return false;
+

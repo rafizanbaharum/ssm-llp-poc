@@ -9,8 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 /**
  * @author rafizan.baharum
  * @since 9/9/13
@@ -27,23 +25,33 @@ public class ValidateController {
     @Autowired
     private SearchValidator searchValidator;
 
+    /**
+     * fail fast validation
+     *
+     * @param name
+     * @param type
+     * @param model
+     * @return
+     */
     @RequestMapping(method = RequestMethod.GET)
-    public String validate(@RequestParam("name") String name,@RequestParam("from") String from, ModelMap model) {
+    public String validate(@RequestParam("name") String name, @RequestParam("type") String type, ModelMap model) {
         log.debug("validate: " + name);
-        boolean poisoned = false;
-        boolean existed = false;
-        poisoned = !poisonValidator.validate(name);
+        boolean poisoned = poisonValidator.isPoisoned(name);
+        boolean existed = searchValidator.isExisted(name);
+        boolean valid = !(poisoned | existed);
         log.debug("poisoned?: " + poisoned);
-        model.put("valid", !poisoned);
+        log.debug("existed?: " + existed);
+        log.debug("valid?: " + valid);
+
+        model.put("valid", valid);
         model.put("name", name);
-        model.put("from", from);
+        model.put("type", type);
         return "index";
     }
 
-    @RequestMapping(value = "dashboard", method =  RequestMethod.GET)
-    public String validateDashboard(@RequestParam("name") String name,@RequestParam("from") String from, ModelMap model) {
-        validate(name,from,model);
-
+    @RequestMapping(value = "dashboard", method = RequestMethod.GET)
+    public String validateDashboard(@RequestParam("name") String name, @RequestParam("type") String type, ModelMap model) {
+        validate(name, type, model);
         return "secure/dashboard";
     }
 
@@ -51,10 +59,12 @@ public class ValidateController {
     @ResponseBody
     public String validateJson(@PathVariable("name") String name, ModelMap model) {
         log.debug("validate: " + name);
-        boolean poisoned = false;
-        boolean existed = false;
-        poisoned = !poisonValidator.validate(name);
-        if (poisoned) return "Name not valid";
+        boolean poisoned = poisonValidator.isPoisoned(name);
+        boolean existed = searchValidator.isExisted(name);
+        boolean valid = !(poisoned && existed);
+        log.debug("poisoned?: " + poisoned);
+        log.debug("existed?: " + existed);
+        if (valid) return "Name not valid";
         else return "Name is valid";
     }
 }

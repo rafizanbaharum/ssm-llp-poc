@@ -97,9 +97,6 @@
                         <li>
                             <a href="/secure/dashboard">Dashboard</a>
                         </li>
-                        <li>
-                            <a href="/secure/search">Name Search</a>
-                        </li>
                     </ul>
                 </li>
                 <li>
@@ -226,6 +223,15 @@
                                         Name
                                     </label>
                                     <input type="text" value="${filter.name}" class="required" name="name" class="text">
+                                </p>
+                            </div>
+                            <div class="_100">
+                                <p>
+                                    <label for="description">
+                                        Description
+                                    </label>
+                                    <input type="text" value="${filter.description}" class="required" name="description"
+                                           class="text">
                                 </p>
                             </div>
                             <div class="_100">
