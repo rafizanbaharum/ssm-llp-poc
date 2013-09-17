@@ -132,19 +132,19 @@
                     </ul>
                 </li>
                 <sec:authorize ifAllGranted="ROLE_ADMINISTRATOR">
-                <li class="current">
-                    <a href="#">
-                        <img src="/resources/img/icons/25x25/dark/archive.png" width=25 height=25 alt="">
-                        Rules</a>
-                    <ul>
-                        <li class="current">
-                            <a href="/secure/filter/all">Filters</a>
-                        </li>
-                        <li>
-                            <a  href="/secure/name/all">Names</a>
-                        </li>
-                    </ul>
-                </li>
+                    <li class="current">
+                        <a href="#">
+                            <img src="/resources/img/icons/25x25/dark/archive.png" width=25 height=25 alt="">
+                            Rules</a>
+                        <ul>
+                            <li class="current">
+                                <a href="/secure/filter/all">Filters</a>
+                            </li>
+                            <li>
+                                <a href="/secure/name/all">Names</a>
+                            </li>
+                        </ul>
+                    </li>
                 </sec:authorize>
             </ul>
             <!-- End of the main navigation -->
@@ -214,6 +214,7 @@
                         <colgroup>
                             <col class="wwe-first-col">
                             <col class="wwe-table-col-width">
+                            <col class="wwe-table-col-width">
                             <col class="wwe-align-left">
                             <col class="wwe-table-col-width">
                             <col class="wwe-table-col-width">
@@ -223,6 +224,7 @@
                         <tr>
                             <th class="wwe-lang-rank" scope="col">ID</th>
                             <th class="wwe-align-left wwe-lang-club" scope="col">Name</th>
+                            <th class="wwe-lang-matches" scope="col">Description</th>
                             <th class="wwe-lang-matches" scope="col">Script</th>
                             <th class="wwe-lang-matches" scope="col">Type</th>
                             <th class="wwe-lang-matches" scope="col">Action</th>
@@ -233,6 +235,7 @@
                             <tr>
                                 <td class="wwe-1rank"><span>${filter.id}</span></td>
                                 <td class="wwe-align-left">${filter.name}</td>
+                                <td class="wwe-align-left">${filter.description}</td>
                                 <td>${filter.script}</td>
                                 <td>${filter.filterType}</td>
                                 <td><a href="/secure/filter/edit/${filter.id}">Edit</a></td>

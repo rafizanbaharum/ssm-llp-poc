@@ -227,6 +227,15 @@
                             </div>
                             <div class="_100">
                                 <p>
+                                    <label for="description">
+                                        Description
+                                    </label>
+                                    <input type="text" value="${filter.description}" class="required" name="description"
+                                           class="text">
+                                </p>
+                            </div>
+                            <div class="_100">
+                                <p>
                                     <label for="script">
                                         Script
                                     </label>
