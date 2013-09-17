@@ -25,6 +25,13 @@ public class ValidateController {
     @Autowired
     private SearchValidator searchValidator;
 
+    /**
+     * fail fast validation
+     * @param name
+     * @param type
+     * @param model
+     * @return
+     */
     @RequestMapping(method = RequestMethod.GET)
     public String validate(@RequestParam("name") String name, @RequestParam("type") String type, ModelMap model) {
         log.debug("validate: " + name);

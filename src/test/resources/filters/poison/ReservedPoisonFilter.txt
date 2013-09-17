@@ -1,4 +1,6 @@
 log.debug("ReservedPoisonFilter");
 log.debug("test: " + nameDao.hasName(name, 3));
+
+// check as a whole
 if(nameDao.hasName(name, 3)) return false;
 else return true;

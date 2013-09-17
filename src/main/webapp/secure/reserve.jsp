@@ -11,6 +11,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <meta name="viewport" content="width=device-width,initial-scale=1">
+
     <!-- CSS -->
     <link rel="stylesheet" href="/resources/css/960gs/fluid.css">
     <link rel="stylesheet" href="/resources/css/h5bp/normalize.css">
@@ -114,7 +115,7 @@
                             <li>
                                 <a href="/secure/company/roc">ROC</a>
                             </li>
-                            <li class="last-child">
+                            <li>
                                 <a href="/secure/company/rob">ROB</a>
                             </li>
                         </ul>
@@ -236,7 +237,13 @@
 </footer>
 <!-- End of footer-->
 
-<script src="/resources/js/libs/jquery-ui-1.8.16.min.js"></script>
+<!-- JavaScript at the bottom for fast page loading -->
+<!-- Grab Google CDN's jQuery + jQueryUI, with a protocol relative URL; fall back to local -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"></script>
+<script>window.jQuery || document.write('<script src="/resources/js/libs/jquery-1.7.1.js"><\/script>')</script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
+<script>window.jQuery.ui || document.write('<script src="/resources/js/libs/jquery-ui-1.8.16.min.js"><\/script>')</script>
+
 <script defer src="/resources/js/plugins.js"></script>
 <script defer src="/resources/js/mylibs/jquery.ba-resize.js"></script>
 <script defer src="/resources/js/mylibs/jquery.easing.1.3.js"></script>
@@ -244,5 +251,6 @@
 <script defer src="/resources/js/mylibs/jquery.chosen.js"></script>
 <script defer src="/resources/js/mylibs/jquery.validate.js"></script>
 <script defer src="/resources/js/script.js"></script>
+
 </body>
 </html>

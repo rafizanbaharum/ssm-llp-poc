@@ -1,5 +1,9 @@
 log.debug("OffensivePoisonFilter");
 
+// check as a whole
+if(nameDao.hasName(name, 2)) return false;
+
+// check word for word
 String[] words = name.split(" ");
 for(int i=0; i < words.length; i++){
     log.debug("words: " + words[i]);

@@ -1,4 +1,6 @@
 log.debug("UsedPoisonFilter");
 log.debug("test: " + nameDao.hasName(name, 6));
+
+// check as a whole
 if(nameDao.hasName(name, 6)) return false;
 else return true;
