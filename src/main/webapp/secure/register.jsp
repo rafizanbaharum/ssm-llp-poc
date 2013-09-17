@@ -30,6 +30,9 @@
     <link rel="stylesheet" href="/resources/css/icons.css">
     <link rel="stylesheet" href="/resources/css/external/jquery-ui-1.8.16.custom.css">
     <link rel="stylesheet" href="/resources/css/sidebar.css">
+
+    <script src="/resources/js/libs/modernizr-2.0.6.min.js"></script>
+
 </head>
 
 <body>
@@ -128,12 +131,12 @@
                         <label for="name">
                             Choosen Name
                         </label>
-                        <input type="text" value="${name}" class="required" name="name" class="text">
+                        <input type="text" value="${name}" class="required" id="name" name="name" class="text" disabled="true">
                     </p>
                 </div>
                 <div class="_100">
                     <p>
-                        <select name="companyType">
+                        <select name="companyType" disabled="true">
                             <option selected>LLP</option>
                             <option>ROC</option>
                             <option>ROB</option>
@@ -161,10 +164,10 @@
 
                 <div class="_100">
                     <p>
-                        <label for="name">
+                        <label for="registrar">
                             Choosen Registar
                         </label>
-                        <input type="text" class="required" name="name" class="text">
+                        <input type="text" id="registrar" class="required" name="registrar" class="text">
                     </p>
                 </div>
 

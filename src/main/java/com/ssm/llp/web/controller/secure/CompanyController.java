@@ -93,9 +93,10 @@ public class CompanyController extends SecureControllerSupport {
     }
 
 
-    @RequestMapping(value = "/register", method = {RequestMethod.GET})
-    public String register(ModelMap model) {
-        model.put("name", "TEST NAMA SILA TUKAR");
+    @RequestMapping(value = "/register/{name}/{type}", method = {RequestMethod.GET})
+    public String register(@PathVariable String name,@PathVariable String type,ModelMap model) {
+        model.put("name", name);
+        model.put("type", type);
         return "secure/register";
     }
 

@@ -200,7 +200,7 @@
                                     <td><fmt:formatDate value="${member.startDate}" pattern="dd/MM/yyyy"/></td>
                                     <td><fmt:formatDate value="${member.endDate}" pattern="dd/MM/yyyy"/></td>
                                     <td>${member.companyType}</td>
-                                    <td><a href="/secure/company/register?${member.name}">Register</a></td>
+                                    <td><a href="/secure/company/register/${member.name}/${member.companyType}">Register</a></td>
                                 </tr>
                             </c:forEach>
                             </tbody>
