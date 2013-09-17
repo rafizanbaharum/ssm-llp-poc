@@ -133,7 +133,7 @@
                 </div>
                 <div class="_100">
                     <p>
-                        <select name="companyType">
+                        <select name="type">
                             <option selected>LLP</option>
                             <option>ROC</option>
                             <option>ROB</option>

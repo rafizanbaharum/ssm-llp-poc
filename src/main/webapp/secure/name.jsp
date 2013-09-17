@@ -30,49 +30,47 @@
     <link rel="stylesheet" href="/resources/css/external/jquery-ui-1.8.16.custom.css">
     <link rel="stylesheet" href="/resources/css/sidebar.css">
 </head>
-
 <body>
-
 <!-- Begin of #height-wrapper -->
 <div id="height-wrapper">
-    <!-- Begin of header -->
-    <header>
-        <!-- Begin of the header toolbar -->
-        <div id="header_toolbar">
-            <div class="container_12">
-                <h1 class="grid_8">SSM | MyLLP</h1>
-                <!-- Start of right part -->
-                <div class="grid_4">
-                    <!-- A small toolbar button -->
-                    <div class="toolbar_small">
-                        <div class="toolbutton">
-                            <span>3</span>
-                            <img src="/resources/img/icons/16x16/mail.png" width="16" height="16" alt="mail">
-                        </div>
-                    </div>
-                    <!-- End of small toolbar button -->
-
-                    <!-- A large toolbar button -->
-                    <div class="toolbar_large">
-                        <div class="toolbutton">
-                            <div class="toolicon">
-                                <img src="/resources/img/icons/16x16/user.png" width="16" height="16" alt="user">
-                            </div>
-                            <div class="toolmenu">
-                                <div class="toolcaption">
-                                    <span>${currentUser.realname}</span>
-                                </div>
-                            </div>
-                            <!-- End of menu -->
-                        </div>
+<!-- Begin of header -->
+<header>
+    <!-- Begin of the header toolbar -->
+    <div id="header_toolbar">
+        <div class="container_12">
+            <h1 class="grid_8">SSM | MyLLP</h1>
+            <!-- Start of right part -->
+            <div class="grid_4">
+                <!-- A small toolbar button -->
+                <div class="toolbar_small">
+                    <div class="toolbutton">
+                        <span>3</span>
+                        <img src="/resources/img/icons/16x16/mail.png" width="16" height="16" alt="mail">
                     </div>
                 </div>
-                <!-- End of large toolbar button -->
+                <!-- End of small toolbar button -->
+
+                <!-- A large toolbar button -->
+                <div class="toolbar_large">
+                    <div class="toolbutton">
+                        <div class="toolicon">
+                            <img src="/resources/img/icons/16x16/user.png" width="16" height="16" alt="user">
+                        </div>
+                        <div class="toolmenu">
+                            <div class="toolcaption">
+                                <span>${currentUser.realname}</span>
+                            </div>
+                        </div>
+                        <!-- End of menu -->
+                    </div>
+                </div>
             </div>
-            <!-- End of right part -->
+            <!-- End of large toolbar button -->
         </div>
-</div>
-<!-- End of the header toolbar -->
+        <!-- End of right part -->
+    </div>
+    <!-- End of the header toolbar -->
+</header>
 
 <!-- Start of the main header bar -->
 <nav id="header_main">
@@ -122,19 +120,19 @@
                 </ul>
             </li>
             <sec:authorize ifAllGranted="ROLE_ADMINISTRATOR">
-            <li class="current">
-                <a href="#">
-                    <img src="/resources/img/icons/25x25/dark/archive.png" width=25 height=25 alt="">
-                    Rules</a>
-                <ul>
-                    <li>
-                        <a href="/secure/filter/all">Filters</a>
-                    </li>
-                    <li class="current">
-                        <a  href="/secure/name/all">Names</a>
-                    </li>
-                </ul>
-            </li>
+                <li class="current">
+                    <a href="#">
+                        <img src="/resources/img/icons/25x25/dark/archive.png" width=25 height=25 alt="">
+                        Rules</a>
+                    <ul>
+                        <li>
+                            <a href="/secure/filter/all">Filters</a>
+                        </li>
+                        <li class="current">
+                            <a href="/secure/name/all">Names</a>
+                        </li>
+                    </ul>
+                </li>
             </sec:authorize>
         </ul>
         <!-- End of the main navigation -->

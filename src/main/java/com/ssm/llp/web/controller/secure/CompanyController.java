@@ -41,11 +41,17 @@ public class CompanyController extends SecureControllerSupport {
         return "secure/reserve";
     }
 
-    @RequestMapping(value = "/reserve/{name}/{from}", method = {RequestMethod.GET})
-    public String makeReservation(@PathVariable String name,@PathVariable String from,ModelMap model) {
-
-        registrationManager.reserveName(name,SsmCompanyType.valueOf(from), getCurrentUser());
+    @RequestMapping(value = "/reserve/{name}/{type}", method = {RequestMethod.GET})
+    public String makeReservation(@PathVariable String name, @PathVariable String type, ModelMap model) {
+        registrationManager.reserveName(name, SsmCompanyType.valueOf(type), getCurrentUser());
         return reserve(model);
+    }
+
+    @RequestMapping(value = "/register/{name}/{type}", method = {RequestMethod.GET})
+    public String register(@PathVariable String name, @PathVariable String type, ModelMap model) {
+        model.put("type", SsmCompanyType.valueOf(type));
+        model.put("name", name);
+        return "secure/register";
     }
 
     @RequestMapping(value = "/llp", method = {RequestMethod.GET})
@@ -87,13 +93,6 @@ public class CompanyController extends SecureControllerSupport {
         companyDao.update(n, getCurrentUser());
         sessionFactory.getCurrentSession().flush();
         return "redirect:/secure/company/edit/" + n.getId();
-    }
-
-
-    @RequestMapping(value = "/register", method = {RequestMethod.GET})
-    public String register(ModelMap model) {
-        model.put("name", "TEST NAMA SILA TUKAR");
-        return "secure/register";
     }
 
     @RequestMapping(value = "/confirm", method = {RequestMethod.POST})
