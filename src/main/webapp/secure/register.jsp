@@ -136,11 +136,7 @@
                 </div>
                 <div class="_100">
                     <p>
-<<<<<<< HEAD
-                        <select name="companyType" disabled="true">
-=======
                         <select name="type">
->>>>>>> f49b9199c4128738f1c5e5b591be6a772f441bc0
                             <option selected>LLP</option>
                             <option>ROC</option>
                             <option>ROB</option>

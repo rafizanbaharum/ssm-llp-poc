@@ -17,7 +17,8 @@ TODO ssm-llp-poc
 - DONE uppercase search field
 - DONE destemming filters of symbols . &
 - Destemming plurality in English and Malay
-- Controlled, Gazetted, Offensive data
+- DONE Controlled, Gazetted, Offensive data
+- uniqueness in name reservation
 - cache jquery js
 - if user type name with "LLP", remove LLP automatically
 - non-avatar menu

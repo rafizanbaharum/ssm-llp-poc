@@ -1,5 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix = "fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <html>
@@ -134,19 +134,19 @@
                         </ul>
                     </li>
                     <sec:authorize ifAllGranted="ROLE_ADMINISTRATOR">
-                    <li>
-                        <a href="#">
-                            <img src="/resources/img/icons/25x25/dark/archive.png" width=25 height=25 alt="">
-                            Rules</a>
-                        <ul>
-                            <li>
-                                <a href="/secure/filter/all">Filters</a>
-                            </li>
-                            <li>
-                                <a href="/secure/name/all">Names</a>
-                            </li>
-                        </ul>
-                    </li>
+                        <li>
+                            <a href="#">
+                                <img src="/resources/img/icons/25x25/dark/archive.png" width=25 height=25 alt="">
+                                Rules</a>
+                            <ul>
+                                <li>
+                                    <a href="/secure/filter/all">Filters</a>
+                                </li>
+                                <li>
+                                    <a href="/secure/name/all">Names</a>
+                                </li>
+                            </ul>
+                        </li>
                     </sec:authorize>
                 </ul>
                 <!-- End of the main navigation -->
@@ -193,21 +193,12 @@
                             <tbody>
                             <c:forEach var="reserve" items="${reserves}">
                                 <tr>
-<<<<<<< HEAD
-                                    <td class="wwe-1rank"><span>${member.id}</span></td>
-                                    <td class="wwe-align-left">${member.name}</td>
-                                    <td><fmt:formatDate value="${member.startDate}" pattern="dd/MM/yyyy"/></td>
-                                    <td><fmt:formatDate value="${member.endDate}" pattern="dd/MM/yyyy"/></td>
-                                    <td>${member.companyType}</td>
-                                    <td><a href="/secure/company/register/${member.name}/${member.companyType}">Register</a></td>
-=======
                                     <td class="wwe-1rank"><span>${reserve.id}</span></td>
                                     <td class="wwe-align-left">${reserve.name}</td>
                                     <td><fmt:formatDate value="${reserve.startDate}" pattern="dd/MM/yyyy"/></td>
                                     <td><fmt:formatDate value="${reserve.endDate}" pattern="dd/MM/yyyy"/></td>
                                     <td>${reserve.companyType}</td>
                                     <td><a href="/secure/company/register/${reserve.name}/LLP">Register</a></td>
->>>>>>> f49b9199c4128738f1c5e5b591be6a772f441bc0
                                 </tr>
                             </c:forEach>
                             </tbody>
