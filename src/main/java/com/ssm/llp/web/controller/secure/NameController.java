@@ -2,7 +2,6 @@ package com.ssm.llp.web.controller.secure;
 
 import com.ssm.llp.core.dao.SsmNameDao;
 import com.ssm.llp.core.model.SsmName;
-import com.ssm.llp.core.model.SsmNameType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -16,15 +15,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 @RequestMapping("/secure/name")
-public class NameController  extends SecureControllerSupport {
+public class NameController extends SecureControllerSupport {
 
     @Autowired
     private SsmNameDao nameDao;
 
     @RequestMapping(value = "/all", method = {RequestMethod.GET})
     public String go(ModelMap model) {
-        model.put("offensives", nameDao.find(SsmNameType.OFFENSIVE));
-        model.put("symbols", nameDao.find(SsmNameType.SYMBOL));
+        model.put("names", nameDao.find());
         return "secure/name";
     }
 

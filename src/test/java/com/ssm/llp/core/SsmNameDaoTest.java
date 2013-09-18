@@ -68,12 +68,6 @@ public class SsmNameDaoTest extends AbstractTransactionalJUnit4SpringContextTest
     @Test
     @Rollback(value = false)
     public void createNames() {
-        // country
-        SsmCountryNameImpl countryName = new SsmCountryNameImpl();
-        countryName.setName("MALAYSIA");
-        ssmNameDao.save(countryName, root);
-        sessionFactory.getCurrentSession().flush();
-
         // state
         String[] states = {"JOHOR", "NEGERI SEMBILAN", "MELAKA", "SELANGOR", "KUALA LUMPUR", "WILAYAH PERSEKUTUAN",
                 "PERAK", "KEDAH", "PULAU PINANG", "PERLIS", "PAHANG", "KELANTAN", "TERENGGANU", "SABAH", "SARAWAK"};
@@ -92,6 +86,23 @@ public class SsmNameDaoTest extends AbstractTransactionalJUnit4SpringContextTest
             name1.setName(symbol);
             ssmNameDao.save(name1, root);
             sessionFactory.getCurrentSession().flush();
+        }
+
+        // country
+        try {
+            FileReader reader = new FileReader("C:/Projects/GitHub/ssm-llp-poc/src/test/resources/data/country.txt");
+            LineNumberReader lineReader = new LineNumberReader(reader);
+            String buff;
+            while (null != (buff = lineReader.readLine())) {
+                SsmCountryName country = new SsmCountryNameImpl();
+                country.setName(buff.split("\t")[1].toUpperCase());
+                ssmNameDao.save(country, root);
+            }
+            sessionFactory.getCurrentSession().flush();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
         // controlled

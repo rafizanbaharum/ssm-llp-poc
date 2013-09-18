@@ -213,11 +213,11 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <c:forEach var="offensive" items="${offensives}">
+                        <c:forEach var="name" items="${names}">
                             <tr>
-                                <td class="wwe-1rank"><span>${offensive.id}</span></td>
-                                <td class="wwe-align-left">${offensive.name}</td>
-                                <td>${offensive.nameType}</td>
+                                <td class="wwe-1rank"><span>${name.id}</span></td>
+                                <td class="wwe-align-left">${name.name}</td>
+                                <td>${name.nameType}</td>
                             </tr>
                         </c:forEach>
                         </tbody>

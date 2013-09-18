@@ -81,6 +81,13 @@ public class SsmNameDaoImpl extends DaoSupport<Long, SsmName, SsmNameImpl> imple
     }
 
     @Override
+    public List<SsmName> find() {
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery("select n from SsmName n");
+        return (List<SsmName>) query.list();
+    }
+
+    @Override
     public List<SsmName> find(String filter) {
         Session session = sessionFactory.getCurrentSession();
         Query query = session.createQuery("select n from SsmName n where n.name like :filter");

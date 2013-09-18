@@ -59,7 +59,7 @@ public class SsmFilterDaoTest extends AbstractTransactionalJUnit4SpringContextTe
      */
     @Test
     @Rollback(value = false)
-    public void createFilter() {
+    public void createFilters() {
         try {
             File poisonFolder = new File("C:/Projects/GitHub/ssm-llp-poc/src/test/resources/filters/poison");
             File[] files = poisonFolder.listFiles();

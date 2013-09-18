@@ -18,6 +18,8 @@ public interface SsmNameDao {
 
     SsmName findByName(String name);
 
+    List<SsmName> find();
+
     List<SsmName> find(String filter);
 
     List<SsmName> find(SsmNameType type);
