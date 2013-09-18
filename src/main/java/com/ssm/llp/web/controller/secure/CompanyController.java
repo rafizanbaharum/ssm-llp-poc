@@ -44,7 +44,7 @@ public class CompanyController extends SecureControllerSupport {
     @RequestMapping(value = "/reserve/{name}/{type}", method = {RequestMethod.GET})
     public String makeReservation(@PathVariable String name, @PathVariable String type, ModelMap model) {
         registrationManager.reserveName(name, SsmCompanyType.valueOf(type), getCurrentUser());
-        return reserve(model);
+        return "redirect:/secure/company/reserve";
     }
 
     @RequestMapping(value = "/register/{name}/{type}", method = {RequestMethod.GET})
