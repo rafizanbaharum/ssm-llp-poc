@@ -14,11 +14,12 @@ import java.util.List;
 
 /**
  * Fail fast
+ *
  * @author rafizan.baharum
  * @since 9/7/13
  */
 @Component("searchValidator")
-public class SearchValidator {
+public class SearchValidator extends ValidatorSupport {
 
     private Logger log = LoggerFactory.getLogger(PoisonValidator.class);
 
@@ -40,6 +41,7 @@ public class SearchValidator {
             log.debug(filter.getName() + ":" + result);
             if (result) break;
         }
-        return false;
+        return result;
     }
+
 }

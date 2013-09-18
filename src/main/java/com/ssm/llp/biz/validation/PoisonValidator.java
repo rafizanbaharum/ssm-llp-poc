@@ -19,7 +19,7 @@ import java.util.List;
  * @since 9/7/13
  */
 @Component("poisonValidator")
-public class PoisonValidator {
+public class PoisonValidator extends ValidatorSupport {
 
     private Logger log = LoggerFactory.getLogger(PoisonValidator.class);
 

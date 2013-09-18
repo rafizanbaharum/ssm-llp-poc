@@ -5,6 +5,7 @@ import com.ssm.llp.core.model.SsmPrincipalRole;
 import com.ssm.llp.core.model.SsmRoleType;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * @author rafizan.baharum
@@ -12,7 +13,7 @@ import javax.persistence.*;
  */
 @Table(name = "SSM_PRINCIPAL_ROLE")
 @Entity(name = "SsmPrincipalRole")
-public class SsmPrincipalRoleImpl implements SsmPrincipalRole {
+public class SsmPrincipalRoleImpl implements SsmPrincipalRole, Serializable {
 
     @Id
     @Column(name = "ID", nullable = false)

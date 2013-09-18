@@ -1,0 +1,4 @@
+log.debug("DotToSpaceStemmingSearchFilter");
+if(name.contains("."))
+  name = name.replace("."," ");
+return !nameDao.find(name).isEmpty();

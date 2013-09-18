@@ -2,6 +2,7 @@ package com.ssm.llp.web.controller;
 
 import com.ssm.llp.biz.validation.PoisonValidator;
 import com.ssm.llp.biz.validation.SearchValidator;
+import com.ssm.llp.biz.validation.script.ScriptUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,9 @@ public class ValidateController {
     @Autowired
     private SearchValidator searchValidator;
 
+    @Autowired
+    private ScriptUtil scriptUtil;
+
     /**
      * fail fast validation
      *
@@ -35,6 +39,7 @@ public class ValidateController {
      */
     @RequestMapping(method = RequestMethod.GET)
     public String validate(@RequestParam("name") String name, @RequestParam("type") String type, ModelMap model) {
+        name = scriptUtil.scrubName(name);
         log.debug("validate: " + name);
         boolean poisoned = poisonValidator.isPoisoned(name);
         boolean existed = searchValidator.isExisted(name);
@@ -58,6 +63,7 @@ public class ValidateController {
     @RequestMapping(value = "/json/{name}", method = RequestMethod.GET)
     @ResponseBody
     public String validateJson(@PathVariable("name") String name, ModelMap model) {
+        name = scriptUtil.scrubName(name);
         log.debug("validate: " + name);
         boolean poisoned = poisonValidator.isPoisoned(name);
         boolean existed = searchValidator.isExisted(name);

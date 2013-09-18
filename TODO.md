@@ -14,10 +14,13 @@ TODO ssm-llp-poc
 - DONE logo on gatein, gateout
 - DONE search name in secure/ pages, then register
 - DONE register name from page dashboard > companies > reservations
+- DONE uppercase search field
+- DONE destemming filters of symbols . &
+- Destemming plurality in English and Malay
+- Controlled, Gazetted, Offensive data
 - cache jquery js
 - if user type name with "LLP", remove LLP automatically
 - non-avatar menu
-- uppercase all field
 - port to POSTGRES on amazon cloud
 - sitemesh for templating
 
@@ -31,30 +34,3 @@ NAME REGISTRATION
  - pilih nama
  - kalau valid boleh register terus, tanpa reserve
  - register, kasik name, registrar(nama tukang register, boleh 3rd party), payment info
-
-
-KEY POINTS
-============
-1. Latest Technology Stack
-   - Easier to embrace and take advantage of latest tools and technology
-   - Java, Hibernate, spring, web+mobile
-   - Multi interface, channel, JSON/REST/web/webservice
-   - Workflow ready, custom business processes
-   - Batch job ready, periodical processes
-
-2. Expansion Room in Design
-   - Can handle schema evolution gracefully.
-   - Can handle future expansion ie ROB and ROC registration
-   - Can integrate with external via ESB.
-
-3. Dynamic, Configurable Rules and Filters
-   - Gazetted, Offensive, State, Country - can add record.
-   - Reserved - expiry, time sensitive
-   - Rules are scripted, exposed for admin
-   - Fail-fast design
-   - Dynamic rules can be inserted at runtime
-
-4. Performance + Scalability
-   - Can take advantage of L1, L2, distributed cache.
-   - Cloud ready, deploy on clustered application server
-

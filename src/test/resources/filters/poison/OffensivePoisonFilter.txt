@@ -3,11 +3,11 @@ log.debug("OffensivePoisonFilter");
 boolean result = false;
 
 // check as a whole
-result =  nameDao.hasName(name.toUpperCase(), 0);
+result =  nameDao.hasName(name, 0);
 if(result) return result;
 
 // check word for word
-String[] words = name.toUpperCase().split(" ");
+String[] words = name.split(" ");
 for(int i=0; i < words.length; i++){
     log.debug("words: " + words[i]);
     if(nameDao.hasName(words[i], 0)) return true;

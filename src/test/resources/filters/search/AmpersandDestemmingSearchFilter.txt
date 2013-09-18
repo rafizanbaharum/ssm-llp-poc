@@ -1,0 +1,6 @@
+log.debug("AmpersandStemmingSearchFilter");
+if(name.contains("&"))
+  name = name.replace("&","dan");
+
+log.debug("name after stemming: " + name);
+return !nameDao.find(name).isEmpty();

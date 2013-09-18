@@ -3,11 +3,11 @@ log.debug("CountryPoisonFilter");
 boolean result = false;
 
 // check as a whole
-result =  nameDao.hasName(name.toUpperCase(), 1);
+result =  nameDao.hasName(name, 1);
 if(result) return result;
 
 // check word for word
-String[] words = name.toUpperCase().split(" ");
+String[] words = name.split(" ");
 for(int i=0; i < words.length; i++){
         log.debug("words: " + words[i]);
         if(nameDao.hasName(words[i], 1)) return true;

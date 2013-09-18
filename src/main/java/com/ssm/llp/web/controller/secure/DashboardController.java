@@ -2,6 +2,7 @@ package com.ssm.llp.web.controller.secure;
 
 import com.ssm.llp.biz.validation.PoisonValidator;
 import com.ssm.llp.biz.validation.SearchValidator;
+import com.ssm.llp.biz.validation.script.ScriptUtil;
 import com.ssm.llp.core.dao.SsmCompanyDao;
 import com.ssm.llp.core.model.SsmCompany;
 import org.slf4j.Logger;
@@ -35,8 +36,12 @@ public class DashboardController extends SecureControllerSupport {
     @Autowired
     private SearchValidator searchValidator;
 
+    @Autowired
+    private ScriptUtil scriptUtil;
+
     @RequestMapping(value = "validate", method = RequestMethod.GET)
     public String validateDashboard(@RequestParam("name") String name, @RequestParam("type") String type, ModelMap model) {
+        name = scriptUtil.scrubName(name);
         log.debug("validate: " + name);
         boolean poisoned = poisonValidator.isPoisoned(name);
         boolean existed = searchValidator.isExisted(name);

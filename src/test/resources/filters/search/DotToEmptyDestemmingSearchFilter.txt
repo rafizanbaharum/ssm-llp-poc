@@ -1,0 +1,6 @@
+log.debug("DotToEmptyStemmingSearchFilter");
+if(name.contains("."))
+  name = name.replace(".","");
+
+log.debug("name after destemming: " + name);
+return !nameDao.find(name).isEmpty();

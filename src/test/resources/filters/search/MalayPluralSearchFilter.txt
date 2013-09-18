@@ -1,0 +1,15 @@
+log.debug("MalayPluralSearchFilter");
+
+String[] words = name.split(" ");
+StringBuffer buff = new StringBuffer();
+for(int i=0; i < words.length; i++){
+    if(words[i].contains("KUIH"))
+        buff.append("KUIH-MUIH");
+    else if(words[i].contains("MAKCIK"))
+        buff.append("MAKCIK PAKCIK");
+    else if(words[i].contains("GEGAK"))
+        buff.append("GEGAK GEMPITA");
+    else
+        buff.append(words[i]);
+}
+return !nameDao.find(buff.toString()).isEmpty();

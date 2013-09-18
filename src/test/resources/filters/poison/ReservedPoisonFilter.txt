@@ -1,5 +1,5 @@
 log.debug("ReservedPoisonFilter");
-log.debug("test: " + nameDao.hasName(name.toUpperCase(), 3));
+log.debug("test: " + nameDao.hasName(name, 3));
 
 // check as a whole
-return nameDao.hasName(name.toUpperCase(), 3);
+return nameDao.hasName(name, 3);

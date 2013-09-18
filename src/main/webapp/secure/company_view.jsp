@@ -130,12 +130,12 @@
                     </ul>
                 </li>
                 <sec:authorize ifAllGranted="ROLE_ADMINISTRATOR">
-                    <li class="current">
+                    <li>
                         <a href="#">
                             <img src="/resources/img/icons/25x25/dark/archive.png" width=25 height=25 alt="">
                             Rules</a>
                         <ul>
-                            <li class="current">
+                            <li>
                                 <a href="/secure/filter/all">Filters</a>
                             </li>
                             <li>
@@ -180,6 +180,24 @@
                                         Name
                                     </label>
                                     <input type="text" value="${company.name}" class="required" name="name"
+                                           class="text" readonly="true">
+                                </p>
+                            </div>
+                            <div class="_50">
+                                <p>
+                                    <label for="type">
+                                        Type
+                                    </label>
+                                    <input type="text" value="${company.companyType}" class="required" name="type"
+                                           class="text" readonly="true">
+                                </p>
+                            </div>
+                            <div class="_50">
+                                <p>
+                                    <label for="status">
+                                        Status
+                                    </label>
+                                    <input type="text" value="${company.companyStatus}" class="required" name="status"
                                            class="text" readonly="true">
                                 </p>
                             </div>
