@@ -37,7 +37,8 @@ public class RegisterController {
     public String register(
             @RequestParam("username") String username,
             @RequestParam("password") String password,
-            @RequestParam("name") String name,
+            @RequestParam("passwordAgain") String passwordAgain,
+            @RequestParam("fullName") String name,
             @RequestParam("nricNo") String nricNo,
             @RequestParam("email") String email,
             @RequestParam("phone") String phone,
@@ -47,6 +48,10 @@ public class RegisterController {
             @RequestParam("address3") String address3,
             ModelMap model) {
 
+        if (!passwordAgain.equals(password))
+        {
+            return "register";
+        }
         registrationManager.register(username, password,
                 name, nricNo, email, phone, fax,
                 address1, address2, address3);

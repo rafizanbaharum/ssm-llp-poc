@@ -65,7 +65,7 @@
                         <h3>Registration Form</h3>
                         <span></span>
                     </div>
-                    <form method="post" action="register" class="validate">
+                    <form method="post" name="loginForm" id="loginForm" action="register" class="validate">
                         <div class="content">
                             <fieldset>
                                 <legend>
@@ -73,50 +73,50 @@
                                 </legend>
                                 <div class="_50">
                                     <p>
-                                        <label for="textfield1">
+                                        <label for="nameTxt">
                                             Name
                                         </label>
-                                        <input type="text" value="" class="required" name="name" class="text">
+                                        <input type="text" id="nameTxt" value="" class="required" name="fullName" class="text">
                                     </p>
                                 </div>
                                 <div class="_50">
                                     <p>
-                                        <label for="textfield1">
+                                        <label for="nricNo">
                                             NRIC
                                         </label>
-                                        <input type="text" value="" class="required" name="nricNo" class="text">
+                                        <input type="text" value="" id="nricNo" class="required" name="nricNo" class="text">
                                     </p>
                                 </div>
                                 <div class="_50">
                                     <p>
-                                        <label for="textfield1">
+                                        <label for="username">
                                             Username
                                         </label>
-                                        <input type="text" value="" class="required" name="username" class="text">
+                                        <input type="text" value="" id="username" class="required" name="username" class="text">
                                     </p>
                                 </div>
                                 <div class="_50">
                                     <p>
-                                        <label for="textfield2">
+                                        <label for="emailTxt">
                                             Email
                                         </label>
-                                        <input type="text" value="" name="email" class="text">
+                                        <input type="text" value="" id="emailTxt" class="required email" name="email" class="text">
                                     </p>
                                 </div>
                                 <div class="_50">
                                     <p>
-                                        <label for="textfield1">
+                                        <label for="password">
                                             Password
                                         </label>
-                                        <input type="password" value="" class="required" name="password" class="text">
+                                        <input type="password" value="" id="password" class="required" name="password" class="text">
                                     </p>
                                 </div>
                                 <div class="_50">
                                     <p>
-                                        <label for="textfield2">
+                                        <label for="passwordAgain">
                                             Password Again
                                         </label>
-                                        <input type="password" value="" name="passwordAgain" class="text">
+                                        <input type="password" value="" equalto="#password" id="passwordAgain" class="required" name="passwordAgain" class="text">
                                     </p>
                                 </div>
                             </fieldset>
@@ -126,18 +126,18 @@
                                 </legend>
                                 <div class="_50">
                                     <p>
-                                        <label for="textfield2">
+                                        <label for="phone">
                                             Phone
                                         </label>
-                                        <input type="text" value="" name="phone" class="text">
+                                        <input type="text" value="" id="phone" name="phone" class="text">
                                     </p>
                                 </div>
                                 <div class="_50">
                                     <p>
-                                        <label for="textfield2">
+                                        <label for="fax">
                                             Fax
                                         </label>
-                                        <input type="text" value="" name="fax" class="text">
+                                        <input type="text" value="" id="fax" name="fax" class="text">
                                     </p>
                                 </div>
                             </fieldset>
@@ -146,10 +146,10 @@
                                     Address Information
                                 </legend>
                                 <p class="inline-small-label">
-                                    <label for="field4">
+                                    <label for="address1">
                                         Address
                                     </label>
-                                    <input type="text" name="address1" class="text">
+                                    <input type="text" id="address1" name="address1" class="text">
                                 </p>
 
                                 <p class="inline-small-label">
@@ -215,6 +215,8 @@
 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
 <script>window.jQuery.ui || document.write('<script src="resources/js/libs/jquery-ui-1.8.16.min.js"><\/script>')</script>
 
+<script src="resources/js/libs/jquery-1.7.1.js"></script>
+
 <!-- scripts concatenated and minified via build script -->
 <script defer src="resources/js/plugins.js"></script>
 <!-- REQUIRED: Different own jQuery plugnis -->
@@ -229,5 +231,23 @@
 <script defer src="resources/js/script.js"></script>
 <!-- REQUIRED: Generic scripts -->
 <!-- end scripts -->
+
+ <script type="text/javascript">
+$(document).ready(function() {
+    jQuery.validator.setDefaults({
+  debug: true,
+  success: "valid"
+});
+      $("#loginForm").validate({
+
+        messages: {
+         passwordAgain: {
+             equalTo: "password fields have to match"
+         }
+        }
+      });
+    });
+ </script>
+
 </body>
 </html>
