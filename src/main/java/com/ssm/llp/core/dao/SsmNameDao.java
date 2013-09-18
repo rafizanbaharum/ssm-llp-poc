@@ -34,6 +34,8 @@ public interface SsmNameDao {
 
     boolean hasPlural(String name);
 
+    String findPluralOrOriginal(String name);
+
     // cruds
 
     void save(SsmName name, SsmUser user);
