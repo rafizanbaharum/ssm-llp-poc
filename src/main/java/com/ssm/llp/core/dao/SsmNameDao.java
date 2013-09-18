@@ -42,7 +42,7 @@ public interface SsmNameDao {
 
     String findPluralOrOriginal(String name);
 
-    List<SsmName> findSimilar(String name);
+    String[] findSimilarOrOriginal(String name);
 
     // cruds
 

@@ -1,20 +1,21 @@
 log.debug("SimilarSearchFilter");
 
-String[] words = name.split(" ");
-StringBuffer buff = new StringBuffer();
-for(int i=0; i < words.length; i++){
-       // findSimilarOrOriginal
-       //  buff.append(nameDao.findPluralOrOriginal(words[i]) + " ");
+// NOTE: only works for index of 2!!
+String[] split = name.split(" ");
+if(split.length != 2) return false;
+
+String[] permutate = util.permutate(nameDao.findSimilarOrOriginal(split[0]), nameDao.findSimilarOrOriginal(split[1]));
+
+for (int i = 0; i < permutate.length; i++) {
+    String permutation = permutate[i];
+    log.debug("name: " + permutation);
+
+    // search reserved name
+    if(nameDao.hasName(permutation, 3)) return true;
+
+    // search existing
+    if(companyDao.hasName(permutation)) return true;
 }
 
-name = buff.toString().trim();
+return false;
 
-log.debug("name:" + name);
-
-// search reserved name
-if(nameDao.hasName(name, 3)) return true;
-
-// search existing
-if(companyDao.hasName(name)) return true;
-
-else return false;

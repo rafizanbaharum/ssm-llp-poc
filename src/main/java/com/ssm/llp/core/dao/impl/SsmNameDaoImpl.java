@@ -89,11 +89,16 @@ public class SsmNameDaoImpl extends DaoSupport<Long, SsmName, SsmNameImpl> imple
         else return name;
     }
 
-    public List<SsmName> findSimilar(String name) {
-        Session session = sessionFactory.getCurrentSession();
-        Query query = session.createQuery("select n from SsmSimilarName n where n.name = :name");
-        query.setString("name", name);
-        return (List<SsmName>) query.list();
+    public String[] findSimilarOrOriginal(String name) {
+        if (hasSimilar(name)) {
+            Session session = sessionFactory.getCurrentSession();
+            Query query = session.createQuery("select n.simile from SsmSimilarName n where n.name = :name");
+            query.setString("name", name);
+            List<String> list = (List<String>) query.list();
+            list.add(name);
+            return list.toArray(new String[]{});
+        } else
+            return new String[]{name};
     }
 
     @Override

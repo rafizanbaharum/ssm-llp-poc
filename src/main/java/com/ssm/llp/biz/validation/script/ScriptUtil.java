@@ -74,4 +74,14 @@ public class ScriptUtil {
         }
         return name;
     }
+
+    public String[] permutate(String[] first, String[] second) {
+        List<String> list = new ArrayList<String>();
+        for (int i = 0; i < first.length; i++) {
+            for (int j = 0; j < second.length; j++) {
+                list.add(first[i] + " " + second[j]);
+            }
+        }
+        return list.toArray(new String[]{});
+    }
 }
