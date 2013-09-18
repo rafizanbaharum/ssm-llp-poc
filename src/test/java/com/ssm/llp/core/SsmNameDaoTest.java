@@ -62,6 +62,7 @@ public class SsmNameDaoTest extends AbstractTransactionalJUnit4SpringContextTest
      * delete from SSM_RESERVED_NAME;
      * delete from SSM_SYMBOL_NAME;
      * delete from SSM_PLURAL_NAME;
+     * delete from SSM_SIMILAR_NAME;
      * delete from SSM_NAME;
      */
 

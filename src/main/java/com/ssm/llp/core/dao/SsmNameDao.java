@@ -38,7 +38,11 @@ public interface SsmNameDao {
 
     boolean hasPlural(String name);
 
+    boolean hasSimilar(String name);
+
     String findPluralOrOriginal(String name);
+
+    List<SsmName> findSimilar(String name);
 
     // cruds
 

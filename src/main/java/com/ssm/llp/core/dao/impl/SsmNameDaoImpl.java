@@ -74,10 +74,26 @@ public class SsmNameDaoImpl extends DaoSupport<Long, SsmName, SsmNameImpl> imple
         return 0 < ((Long) query.uniqueResult()).intValue();
     }
 
+    @Override
+    public boolean hasSimilar(String name) {
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery("select count(n) from SsmSimilarName n where " +
+                "n.name = :name");
+        query.setString("name", name);
+        return 0 < ((Long) query.uniqueResult()).intValue();
+    }
+
     public String findPluralOrOriginal(String name) {
         if (hasPlural(name))
             return ((SsmPluralName) findByName(name)).getPlural();
         else return name;
+    }
+
+    public List<SsmName> findSimilar(String name) {
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery("select n from SsmSimilarName n where n.name = :name");
+        query.setString("name", name);
+        return (List<SsmName>) query.list();
     }
 
     @Override
