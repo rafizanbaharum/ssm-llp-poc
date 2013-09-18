@@ -36,11 +36,11 @@
     <!-- Begin of header -->
     <header>
         <!-- Begin of the header toolbar -->
-        <jsp:include page="secure/include/header.jsp"/>
+        <jsp:include page="toolbar.jsp"/>
         <!-- End of the header toolbar -->
 
         <!-- Start of the main header bar -->
-        <jsp:include page="secure/include/nav.jsp"/>
+        <jsp:include page="header.jsp"/>
     </header>
 
     <!-- Start of the content -->

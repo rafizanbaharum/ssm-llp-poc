@@ -37,64 +37,11 @@
     <!-- Begin of header -->
     <header>
         <!-- Begin of the header toolbar -->
-        <div id="header_toolbar">
-            <div class="container_12">
-
-                <h1 class="grid_8">SSM | MyLLP</h1>
-
-                <div class="grid_4">
-                    <div class="toolbar_large">
-                        <div class="toolbutton">
-                            <div class="toolicon">
-                                <img src="/resources/img/icons/16x16/user.png" width="16" height="16" alt="user">
-                            </div>
-                            <div class="toolmenu">
-                                <div class="toolcaption">
-                                    <span>Internal</span>
-                                </div>
-                                <!-- Start of menu -->
-                                <div class="dropdown">
-                                    <ul>
-                                        <li>
-                                            <a href="/gate/in">Login</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <!-- End of menu -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <jsp:include page="toolbar.jsp"/>
         <!-- End of the header toolbar -->
 
         <!-- Start of the main header bar -->
-        <nav id="header_main">
-            <div class="container_12">
-                <ul id="nav_main">
-                    <li>
-                        <a href="#"> <img src="resources/img/icons/25x25/dark/computer-imac.png" width=25 height=25
-                                          alt="">
-                            Home</a>
-                        <ul>
-                            <li>
-                                <a href="/index">Dashboard</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="current">
-                        <a href="#">
-                            <img src="resources/img/icons/25x25/dark/book-large.png" width=25 height=25 alt=""> Register</a>
-                        <ul>
-                            <li class="current">
-                                <a href="/register">Register</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+        <jsp:include page="header.jsp"/>
         <div id="nav_sub"></div>
     </header>
 
