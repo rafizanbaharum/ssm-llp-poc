@@ -303,6 +303,7 @@
 </footer>
 <!-- End of footer-->
 
+<script src="/resources/js/libs/jquery-1.7.1.js"></script>
 <script src="/resources/js/libs/jquery-ui-1.8.16.min.js"></script>
 <script defer src="/resources/js/plugins.js"></script>
 <script defer src="/resources/js/mylibs/jquery.ba-resize.js"></script>
@@ -310,6 +311,7 @@
 <script defer src="/resources/js/mylibs/jquery.ui.touch-punch.js"></script>
 <script defer src="/resources/js/mylibs/jquery.chosen.js"></script>
 <script defer src="/resources/js/mylibs/jquery.validate.js"></script>
+<script defer src="/resources/js/mylibs/jquery.equalheights.js"></script>
 <script defer src="/resources/js/script.js"></script>
 </body>
 </html>
