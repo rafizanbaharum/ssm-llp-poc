@@ -3,6 +3,7 @@ package com.ssm.llp.core.dao.impl;
 import com.ssm.llp.core.dao.SsmNameDao;
 import com.ssm.llp.core.model.SsmName;
 import com.ssm.llp.core.model.SsmNameType;
+import com.ssm.llp.core.model.SsmPluralName;
 import com.ssm.llp.core.model.SsmUser;
 import com.ssm.llp.core.model.impl.SsmNameImpl;
 import org.hibernate.Query;
@@ -71,6 +72,12 @@ public class SsmNameDaoImpl extends DaoSupport<Long, SsmName, SsmNameImpl> imple
                 "n.name = :name");
         query.setString("name", name);
         return 0 < ((Long) query.uniqueResult()).intValue();
+    }
+
+    public String findPluralOrOriginal(String name) {
+        if (hasPlural(name))
+            return ((SsmPluralName) findByName(name)).getPlural();
+        else return name;
     }
 
     @Override
