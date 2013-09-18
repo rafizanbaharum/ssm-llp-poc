@@ -1,0 +1,11 @@
+log.debug("StandaloneStatePoisonFilter");
+
+boolean result = false;
+
+// check as a whole
+// standalone is not allowed
+result =  nameDao.hasName(name, 2);
+if(result) return result;
+
+// with other words is okay
+return false;

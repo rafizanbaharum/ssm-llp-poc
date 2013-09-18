@@ -43,5 +43,4 @@ public class SearchValidator extends ValidatorSupport {
         }
         return result;
     }
-
 }
