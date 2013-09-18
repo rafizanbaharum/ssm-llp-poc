@@ -11,7 +11,8 @@ public enum SsmNameType {
     STATE,     // 2
     RESERVED,  // 3
     GAZETTED,   // 4
-    SYMBOL,     // 5
-    USED,   // 6
-    PLURAL;   // 7
+    CONTROLLED,   // 5
+    SYMBOL,     // 6
+    USED,   // 7
+    PLURAL;   // 8
 }

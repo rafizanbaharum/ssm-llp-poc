@@ -1,0 +1,5 @@
+log.debug("ControlledPoisonFilter");
+log.debug("test: " + nameDao.hasName(name, 5));
+
+// check as a whole
+return nameDao.hasName(name, 5);

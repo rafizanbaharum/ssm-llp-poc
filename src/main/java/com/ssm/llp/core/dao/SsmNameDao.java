@@ -22,6 +22,8 @@ public interface SsmNameDao {
 
     List<SsmName> find(SsmNameType type);
 
+    List<SsmName> find(int type);
+
     List<SsmName> findByOwner(SsmNameType type, SsmUser owner);
 
 

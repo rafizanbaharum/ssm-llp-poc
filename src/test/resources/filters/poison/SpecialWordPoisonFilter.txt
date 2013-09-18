@@ -2,4 +2,4 @@ log.debug("SpecialWordPoisonFilter");
 
 // this is to show that special word can be block
 // in this example DAGANGAN is prohibited
-return name.toUpperCase().contains("DAGANGAN");
+return name.contains("DAGANGAN");

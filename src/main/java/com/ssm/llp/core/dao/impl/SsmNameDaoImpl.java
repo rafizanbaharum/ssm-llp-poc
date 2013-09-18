@@ -96,6 +96,15 @@ public class SsmNameDaoImpl extends DaoSupport<Long, SsmName, SsmNameImpl> imple
         return (List<SsmName>) query.list();
     }
 
+
+    @Override
+    public List<SsmName> find(int type) {
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery("select n from SsmName n where n.nameType = :nameType");
+        query.setInteger("nameType", type);
+        return (List<SsmName>) query.list();
+    }
+
     @Override
     public List<SsmName> findByOwner(SsmNameType nameType, SsmUser owner) {
         Session session = sessionFactory.getCurrentSession();

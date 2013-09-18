@@ -53,48 +53,56 @@ public class SsmNameDaoTest extends AbstractTransactionalJUnit4SpringContextTest
         root = userDao.findByUsername("root");
     }
 
+    /**
+     * delete from SSM_CONTROLLED_NAME;
+     * delete from SSM_GAZETTED_NAME;
+     * delete from SSM_OFFENSIVE_NAME;
+     * delete from SSM_COUNTRY_NAME;
+     * delete from SSM_STATE_NAME;
+     * delete from SSM_RESERVED_NAME;
+     * delete from SSM_SYMBOL_NAME;
+     * delete from SSM_PLURAL_NAME;
+     * delete from SSM_NAME;
+     */
+
     @Test
     @Rollback(value = false)
-    public void createCountry() {
+    public void createNames() {
+        // country
         SsmCountryNameImpl countryName = new SsmCountryNameImpl();
         countryName.setName("MALAYSIA");
         ssmNameDao.save(countryName, root);
-
-        countryName = new SsmCountryNameImpl();
-        countryName.setName("SINGAPORE");
-        ssmNameDao.save(countryName, root);
-
-        countryName = new SsmCountryNameImpl();
-        countryName.setName("SINGAPURA");
-        ssmNameDao.save(countryName, root);
-
-        countryName = new SsmCountryNameImpl();
-        countryName.setName("THAILAND");
-        ssmNameDao.save(countryName, root);
-
-        countryName = new SsmCountryNameImpl();
-        countryName.setName("FILIPINA");
-        ssmNameDao.save(countryName, root);
-
-        countryName = new SsmCountryNameImpl();
-        countryName.setName("PHILLIPINE");
-        ssmNameDao.save(countryName, root);
-
         sessionFactory.getCurrentSession().flush();
-    }
 
-    @Test
-    @Rollback(value = false)
-    public void createOffensive() {
+        // state
+        String[] states = {"JOHOR", "NEGERI SEMBILAN", "MELAKA", "SELANGOR", "KUALA LUMPUR", "WILAYAH PERSEKUTUAN",
+                "PERAK", "KEDAH", "PULAU PINANG", "PERLIS", "PAHANG", "KELANTAN", "TERENGGANU", "SABAH", "SARAWAK"};
+        for (int i = 0; i < states.length; i++) {
+            String state = states[i];
+            SsmStateName stateName = new SsmStateNameImpl();
+            stateName.setName("MALAYSIA");
+            ssmNameDao.save(stateName, root);
+            sessionFactory.getCurrentSession().flush();
+        }
 
+        // symbols
+        String[] symbols = {"\\", "|", "/", "*", "%", "\"", ":", ";"};
+        for (String symbol : symbols) {
+            SsmSymbolNameImpl name1 = new SsmSymbolNameImpl();
+            name1.setName(symbol);
+            ssmNameDao.save(name1, root);
+            sessionFactory.getCurrentSession().flush();
+        }
+
+        // controlled
         try {
-            FileReader reader = new FileReader("C:/Projects/GitHub/ssm-llp-poc/src/test/resources/ControlledWords.txt");
-            LineNumberReader lreader = new LineNumberReader(reader);
+            FileReader reader = new FileReader("C:/Projects/GitHub/ssm-llp-poc/src/test/resources/data/controlled.txt");
+            LineNumberReader lineReader = new LineNumberReader(reader);
             String buff;
-            while (null != (buff = lreader.readLine())) {
-                SsmOffensiveNameImpl offensiveName = new SsmOffensiveNameImpl();
-                offensiveName.setName(buff.split("\t")[1]);
-                ssmNameDao.save(offensiveName, root);
+            while (null != (buff = lineReader.readLine())) {
+                SsmControlledName controlled = new SsmControlledNameImpl();
+                controlled.setName(buff.split("\t")[1]);
+                ssmNameDao.save(controlled, root);
             }
             sessionFactory.getCurrentSession().flush();
         } catch (FileNotFoundException e) {
@@ -102,6 +110,42 @@ public class SsmNameDaoTest extends AbstractTransactionalJUnit4SpringContextTest
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        // gazetted
+        try {
+            FileReader reader = new FileReader("C:/Projects/GitHub/ssm-llp-poc/src/test/resources/data/gazetted.txt");
+            LineNumberReader lineReader = new LineNumberReader(reader);
+            String buff;
+            while (null != (buff = lineReader.readLine())) {
+                SsmGazettedName gazetted = new SsmGazettedNameImpl();
+                gazetted.setName(buff.split("\t")[1]);
+                ssmNameDao.save(gazetted, root);
+            }
+            sessionFactory.getCurrentSession().flush();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        //offensive
+        try {
+            FileReader reader = new FileReader("C:/Projects/GitHub/ssm-llp-poc/src/test/resources/data/offensive.txt");
+            LineNumberReader lineReader = new LineNumberReader(reader);
+            String buff;
+            while (null != (buff = lineReader.readLine())) {
+                SsmOffensiveName offensive = new SsmOffensiveNameImpl();
+                offensive.setName(buff.split("\t")[1]);
+                ssmNameDao.save(offensive, root);
+            }
+            sessionFactory.getCurrentSession().flush();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
     }
 
     @Test
@@ -127,50 +171,20 @@ public class SsmNameDaoTest extends AbstractTransactionalJUnit4SpringContextTest
 
     @Test
     @Rollback(value = false)
-    public void insertOffensive() {
-        SsmOffensiveName name1 = new SsmOffensiveNameImpl();
-        name1.setName("SYARIKAT");
-        ssmNameDao.save(name1, root);
-
-        SsmOffensiveName name2 = new SsmOffensiveNameImpl();
-        name2.setName("CORPORATION");
-        ssmNameDao.save(name2, root);
-        sessionFactory.getCurrentSession().flush();
-
-        SsmOffensiveName name3 = new SsmOffensiveNameImpl();
-        name3.setName("COMPANY");
-        ssmNameDao.save(name3, root);
-        sessionFactory.getCurrentSession().flush();
-    }
-
-    @Test
-    @Rollback(value = false)
     public void insertReserved() {
         SsmReservedName name1 = new SsmReservedNameImpl();
         name1.setName("ALI MAJU");
-        name1.setCompanyType(SsmCompanyType.ROC);
+        name1.setCompanyType(SsmCompanyType.LLP);
         name1.setStartDate(new Date());
         name1.setEndDate(new Date());
         ssmNameDao.save(name1, root);
 
         SsmReservedName name2 = new SsmReservedNameImpl();
-        name2.setName("ALI JAYA");
-        name2.setCompanyType(SsmCompanyType.ROC);
+        name2.setName("AWAL MAJU");
+        name2.setCompanyType(SsmCompanyType.LLP);
         name2.setStartDate(new Date());
         name2.setEndDate(new Date());
         ssmNameDao.save(name2, root);
-    }
-
-    @Test
-    @Rollback(value = false)
-    public void insertSymbols() {
-        String[] symbols = {"\\", "|", "/", "*", "%", "\"", ":", ";"};
-        for (String symbol : symbols) {
-            SsmSymbolNameImpl name1 = new SsmSymbolNameImpl();
-            name1.setName(symbol);
-            ssmNameDao.save(name1, root);
-            sessionFactory.getCurrentSession().flush();
-        }
     }
 }
 
