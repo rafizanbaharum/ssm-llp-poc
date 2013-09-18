@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <html>
 <head>
     <meta charset="utf-8">
@@ -27,9 +29,16 @@
 <div class="content">
     <%--<h1>SSM | MyLLP</h1>--%>
 
+
     <div class="background"></div>
     <div class="wrapper">
         <div class="box">
+            <c:if test="${not empty param.login_error}">
+                <div class="alert error">
+                    Your login attempt was not successful, try again.<br />
+                    Reason: ${sessionScope.SPRING_SECURITY_LAST_EXCEPTION.message}
+                </div>
+            </c:if>
             <div class="header grey">
                 <img src="/resources/img/icons/packs/fugue/16x16/lock.png" width="16" height="16">
 
