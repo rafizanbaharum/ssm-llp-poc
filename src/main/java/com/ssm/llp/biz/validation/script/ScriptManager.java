@@ -1,5 +1,6 @@
 package com.ssm.llp.biz.validation.script;
 
+import com.ssm.llp.core.dao.SsmCompanyDao;
 import com.ssm.llp.core.dao.SsmFilterDao;
 import com.ssm.llp.core.dao.SsmNameDao;
 import com.ssm.llp.core.dao.impl.SsmFilterDaoImpl;
@@ -41,6 +42,9 @@ public class ScriptManager implements InitializingBean {
 
     @Autowired
     private SsmNameDao nameDao;
+
+    @Autowired
+    private SsmCompanyDao companyDao;
 
     @Autowired
     private SsmFilterDao filterDao;
@@ -88,6 +92,7 @@ public class ScriptManager implements InitializingBean {
     private void registerParameters(Map<String, Object> params) {
         try {
             manager.declareBean("nameDao", nameDao, SsmNameDaoImpl.class);
+            manager.declareBean("companyDao", nameDao, SsmNameDaoImpl.class);
             manager.declareBean("filterDao", filterDao, SsmFilterDaoImpl.class);
             manager.declareBean("name", params.get("name"), String.class);
             manager.declareBean("log", scriptLog, ScriptLog.class);

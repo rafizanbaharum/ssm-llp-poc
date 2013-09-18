@@ -21,6 +21,10 @@ public interface SsmCompanyDao {
 
     List<SsmCompany> findByOwner(SsmCompanyType companyType, SsmUser owner);
 
+    // helpers
+
+    boolean hasName(String name);
+
 
     // cruds
 

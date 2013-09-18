@@ -1,7 +1,7 @@
 package com.ssm.llp.core.model.impl;
 
-import com.ssm.llp.core.model.SsmGazettedName;
 import com.ssm.llp.core.model.SsmNameType;
+import com.ssm.llp.core.model.SsmPluralName;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,7 +14,7 @@ import java.io.Serializable;
  */
 @Table(name = "SSM_PLURAL_NAME")
 @Entity(name = "SsmPluralName")
-public class SsmPluralNameImpl extends SsmNameImpl implements SsmGazettedName, Serializable {
+public class SsmPluralNameImpl extends SsmNameImpl implements SsmPluralName, Serializable {
 
     @Column(name = "PLURAL")
     private String plural;

@@ -1,4 +1,6 @@
 log.debug("DotToSpaceStemmingSearchFilter");
-if(name.contains("."))
+if(name.contains(".")) {
   name = name.replace("."," ");
-return !nameDao.find(name).isEmpty();
+  return companyDao.hasName(name);
+}
+else return false;

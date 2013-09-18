@@ -197,5 +197,43 @@ public class SsmNameDaoTest extends AbstractTransactionalJUnit4SpringContextTest
         name2.setEndDate(new Date());
         ssmNameDao.save(name2, root);
     }
+
+    @Test
+    @Rollback(value = false)
+    public void insertPlural() {
+        SsmPluralName name1 = new SsmPluralNameImpl();
+        name1.setName("KUIH");
+        name1.setPlural("KUIH-MUIH");
+        ssmNameDao.save(name1, root);
+    }
+
+    @Test
+    @Rollback(value = false)
+    public void insertSimilar() {
+        SsmSimilarName name1 = new SsmSimilarNameImpl();
+        name1.setName("BUILD");
+        name1.setSimile("BUILDER");
+        ssmNameDao.save(name1, root);
+
+        SsmSimilarName name2 = new SsmSimilarNameImpl();
+        name2.setName("BUILDER");
+        name2.setSimile("BUILD");
+        ssmNameDao.save(name1, root);
+
+        SsmSimilarName name3 = new SsmSimilarNameImpl();
+        name3.setName("TECH");
+        name3.setSimile("TECHNOLOGIES");
+        ssmNameDao.save(name1, root);
+
+        SsmSimilarName name4 = new SsmSimilarNameImpl();
+        name4.setName("TECHNOLOGY");
+        name4.setSimile("TECHNOLOGIES");
+        ssmNameDao.save(name1, root);
+
+        SsmSimilarName name5 = new SsmSimilarNameImpl();
+        name5.setName("TECHNOLOGY");
+        name5.setSimile("TECH");
+        ssmNameDao.save(name1, root);
+    }
 }
 

@@ -30,6 +30,15 @@ public class SsmCompanyDaoImpl extends DaoSupport<Long, SsmCompany, SsmCompanyIm
     }
 
     @Override
+    public boolean hasName(String name) {
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery("select count(c) from SsmCompany c where " +
+                "c.name = :name ");
+        query.setString("name", name);
+        return 0 < ((Long) query.uniqueResult()).intValue();
+    }
+
+    @Override
     public List<SsmCompany> find() {
         Session session = sessionFactory.getCurrentSession();
         Query query = session.createQuery("select n from SsmCompany n");

@@ -14,5 +14,6 @@ public enum SsmNameType {
     CONTROLLED,   // 5
     SYMBOL,     // 6
     USED,   // 7
-    PLURAL;   // 8
+    PLURAL,   // 8
+    SIMILAR;   // 9
 }

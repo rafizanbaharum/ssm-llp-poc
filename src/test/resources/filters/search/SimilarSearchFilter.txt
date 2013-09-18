@@ -1,9 +1,10 @@
-log.debug("MalayPluralSearchFilter");
+log.debug("SimilarSearchFilter");
 
 String[] words = name.split(" ");
 StringBuffer buff = new StringBuffer();
 for(int i=0; i < words.length; i++){
-        buff.append(nameDao.findPluralOrOriginal(words[i]) + " ");
+       // findSimilarOrOriginal
+       //  buff.append(nameDao.findPluralOrOriginal(words[i]) + " ");
 }
 
 name = buff.toString().trim();
