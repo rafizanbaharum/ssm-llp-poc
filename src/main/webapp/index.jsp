@@ -130,6 +130,9 @@
                                 <li>If you want RESERVE the name please login <a href="/gate/in">here </a> and reserve
                                     the name.
                                 </li>
+                                <li>
+                                    Login is required.
+                                </li>
                             </ul>
                         </div>
                     </c:when>
@@ -160,7 +163,8 @@
                                 </label>
 
                                 <div>
-                                    <input class="required" name="name" id="name" value="${name}">
+                                    <input class="required" name="name" id="name" value="${name}"
+                                           style="text-transform: uppercase">
                                 </div>
                             </div>
                             <div class="section _100">

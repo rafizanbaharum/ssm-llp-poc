@@ -251,7 +251,7 @@
                     </label>
 
                     <div>
-                        <input class="required" name="name" id="name" value="${name}">
+                        <input style="text-transform: uppercase" class="required" name="name" id="name" value="${name}">
                     </div>
                 </div>
                 <div class="section _100">
