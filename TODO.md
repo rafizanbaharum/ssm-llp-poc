@@ -48,7 +48,7 @@ KEY POINTS
    - Can integrate with external via ESB.
 
 3. Dynamic, Configurable Rules and Filters
-   - Gazetted, Offensive, state, country - can add record.
+   - Gazetted, Offensive, State, Country - can add record.
    - Reserved - expiry, time sensitive
    - Rules are scripted, exposed for admin
    - Fail-fast design
