@@ -20,10 +20,18 @@ import java.util.List;
 public class SsmNameDaoImpl extends DaoSupport<Long, SsmName, SsmNameImpl> implements SsmNameDao, Serializable {
 
     @Override
-    public SsmNameImpl findById(Long id) {
+    public SsmName findById(Long id) {
         Session session = sessionFactory.getCurrentSession();
         Query query = session.createQuery("select n from SsmName n where n.id = :id");
         query.setLong("id", id);
+        return (SsmNameImpl) query.uniqueResult();
+    }
+
+    @Override
+    public SsmName findByName(String name) {
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery("select n from SsmName n where n.name = :name");
+        query.setString("name", name);
         return (SsmNameImpl) query.uniqueResult();
     }
 
@@ -53,6 +61,15 @@ public class SsmNameDaoImpl extends DaoSupport<Long, SsmName, SsmNameImpl> imple
                 "n.name = :name and n.nameType = :nameType");
         query.setString("name", name);
         query.setInteger("nameType", type);
+        return 0 < ((Long) query.uniqueResult()).intValue();
+    }
+
+    @Override
+    public boolean hasPlural(String name) {
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery("select count(n) from SsmPluralName n where " +
+                "n.name = :name");
+        query.setString("name", name);
         return 0 < ((Long) query.uniqueResult()).intValue();
     }
 

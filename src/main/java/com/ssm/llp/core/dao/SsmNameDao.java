@@ -16,6 +16,8 @@ public interface SsmNameDao {
 
     SsmName findById(Long id);
 
+    SsmName findByName(String name);
+
     List<SsmName> find(String filter);
 
     List<SsmName> find(SsmNameType type);
@@ -29,6 +31,8 @@ public interface SsmNameDao {
     boolean hasName(String name, SsmNameType typeSsm);
 
     boolean hasName(String name, int type);
+
+    boolean hasPlural(String name);
 
     // cruds
 
