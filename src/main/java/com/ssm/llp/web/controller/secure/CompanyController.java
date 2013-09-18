@@ -95,17 +95,6 @@ public class CompanyController extends SecureControllerSupport {
         return "redirect:/secure/company/edit/" + n.getId();
     }
 
-<<<<<<< HEAD
-
-    @RequestMapping(value = "/register/{name}/{type}", method = {RequestMethod.GET})
-    public String register(@PathVariable String name,@PathVariable String type,ModelMap model) {
-        model.put("name", name);
-        model.put("type", type);
-        return "secure/register";
-    }
-
-=======
->>>>>>> f49b9199c4128738f1c5e5b591be6a772f441bc0
     @RequestMapping(value = "/confirm", method = {RequestMethod.POST})
     public String confirm(
             @RequestParam("name") String name,
