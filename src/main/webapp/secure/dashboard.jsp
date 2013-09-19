@@ -225,7 +225,7 @@
             </div>
         </c:when>
         <c:when test="${context.valid eq false}">
-            <div class="alert info">
+            <div class="alert error">
                 <span class="icon"></span><span class="hide">x</span>
                 <strong>Sorry!</strong> Please pick a different name.
                 <p>${context.error}</p>
