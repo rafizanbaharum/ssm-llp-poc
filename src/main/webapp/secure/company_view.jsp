@@ -202,6 +202,46 @@
                                 </p>
                             </div>
                         </fieldset>
+                        <fieldset>
+                            <legend>
+                                Contact Information
+                            </legend>
+                            <div class="_50">
+                                <p>
+                                    <label for="textfield2">
+                                        Phone
+                                    </label>
+                                    <input type="text" value="" name="phone" class="text" readonly="true">
+                                </p>
+                            </div>
+                            <div class="_50">
+                                <p>
+                                    <label for="textfield2">
+                                        Fax
+                                    </label>
+                                    <input type="text" value="" name="fax" class="text" readonly="true">
+                                </p>
+                            </div>
+                        </fieldset>
+                        <fieldset>
+                            <legend>
+                                Address Information
+                            </legend>
+                            <p class="inline-small-label">
+                                <label for="field4">
+                                    Address
+                                </label>
+                                <input type="text" name="address1" class="text" readonly="true">
+                            </p>
+
+                            <p class="inline-small-label">
+                                <input type="text" name="address2" class="text" readonly="true">
+                            </p>
+
+                            <p class="inline-small-label">
+                                <input type="text" name="address3" class="text" readonly="true">
+                            </p>
+                        </fieldset>
                     </div>
                     <div class="actions">
                     </div>

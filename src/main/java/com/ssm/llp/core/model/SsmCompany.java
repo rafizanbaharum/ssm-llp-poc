@@ -20,8 +20,37 @@ public interface SsmCompany extends SsmMetaObject {
 
     void setCompanyType(SsmCompanyType companyType);
 
+    String getAddress1();
+
+    void setAddress1(String address1);
+
+    String getAddress2();
+
+    void setAddress2(String address2);
+
+    String getAddress3();
+
+    void setAddress3(String address3);
+
+    String getEmail();
+
+    void setEmail(String email);
+
+    String getPhone();
+
+    void setPhone(String phone);
+
+    String getFax();
+
+    void setFax(String fax);
+
+
+
     List<SsmCompanyMember> getMembers();
 
     void setMembers(List<SsmCompanyMember> members);
+
+
+
 
 }

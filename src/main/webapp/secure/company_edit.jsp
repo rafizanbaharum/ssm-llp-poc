@@ -35,180 +35,238 @@
 
 <!-- Begin of #height-wrapper -->
 <div id="height-wrapper">
-    <!-- Begin of header -->
-    <header>
-        <!-- Begin of the header toolbar -->
-        <div id="header_toolbar">
-            <div class="container_12">
-                <h1 class="grid_8">SSM | MyLLP</h1>
-                <!-- Start of right part -->
-                <div class="grid_4">
-                    <!-- A small toolbar button -->
-                    <div class="toolbar_small">
-                        <div class="toolbutton">
-                            <span>3</span>
-                            <img src="/resources/img/icons/16x16/mail.png" width="16" height="16" alt="mail">
-                        </div>
+<!-- Begin of header -->
+<header>
+    <!-- Begin of the header toolbar -->
+    <div id="header_toolbar">
+        <div class="container_12">
+            <h1 class="grid_8">SSM | MyLLP</h1>
+            <!-- Start of right part -->
+            <div class="grid_4">
+                <!-- A small toolbar button -->
+                <div class="toolbar_small">
+                    <div class="toolbutton">
+                        <span>3</span>
+                        <img src="/resources/img/icons/16x16/mail.png" width="16" height="16" alt="mail">
                     </div>
-                    <!-- End of small toolbar button -->
-
-                    <!-- A large toolbar button -->
-                    <div class="toolbar_large">
-                        <div class="toolbutton">
-                            <div class="toolicon">
-                                <img src="/resources/img/icons/16x16/user.png" width="16" height="16" alt="user">
-                            </div>
-                            <div class="toolmenu">
-                                <div class="toolcaption">
-                                    <span>${currentUser.realname}</span>
-                                </div>
-                                <!-- Start of menu -->
-                                <div class="dropdown">
-                                    <ul>
-                                        <li>
-                                            <a href="#">Settings</a>
-                                        </li>
-                                        <li>
-                                            <a href="/gate/out">Logout</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <!-- End of menu -->
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End of large toolbar button -->
                 </div>
-                <!-- End of right part -->
-            </div>
-        </div>
-        <!-- End of the header toolbar -->
+                <!-- End of small toolbar button -->
 
-        <!-- Start of the main header bar -->
-        <nav id="header_main">
-            <div class="container_12">
-                <!-- Start of the main navigation -->
-                <ul id="nav_main">
-                    <li>
-                        <a href="#">
-                            <img src="/resources/img/icons/25x25/dark/computer-imac.png" width=25 height=25 alt="">
-                            Dashboard</a>
-                        <ul>
-                            <li>
-                                <a href="/secure/dashboard">Dashboard</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="current">
-                        <a href="#">
-                            <img src="/resources/img/icons/25x25/dark/documents.png" width=25 height=25 alt="">
-                            My Companies</a>
-                        <ul>
-                            <li>
-                                <a href="/secure/company/reserve">Reservations</a>
-                            </li>
-                            <li>
-                                <a href="/secure/company/llp">LLP</a>
-                            </li>
-                            <li>
-                                <a href="/secure/company/roc">ROC</a>
-                            </li>
-                            <li>
-                                <a href="/secure/company/rob">ROB</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="/resources/img/icons/25x25/dark/address-book.png" width=25 height=25 alt="">
-                            Literatures</a>
-                        <ul>
-                            <li>
-                                <a href="/secure/literature/legal">Legal</a>
-                            </li>
-                            <li>
-                                <a href="/secure/literature/about">About</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <sec:authorize ifAllGranted="ROLE_ADMINISTRATOR">
+                <!-- A large toolbar button -->
+                <div class="toolbar_large">
+                    <div class="toolbutton">
+                        <div class="toolicon">
+                            <img src="/resources/img/icons/16x16/user.png" width="16" height="16" alt="user">
+                        </div>
+                        <div class="toolmenu">
+                            <div class="toolcaption">
+                                <span>${currentUser.realname}</span>
+                            </div>
+                            <!-- Start of menu -->
+                            <div class="dropdown">
+                                <ul>
+                                    <li>
+                                        <a href="#">Settings</a>
+                                    </li>
+                                    <li>
+                                        <a href="/gate/out">Logout</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- End of menu -->
+                        </div>
+                    </div>
+                </div>
+                <!-- End of large toolbar button -->
+            </div>
+            <!-- End of right part -->
+        </div>
+    </div>
+    <!-- End of the header toolbar -->
+
+    <!-- Start of the main header bar -->
+    <nav id="header_main">
+        <div class="container_12">
+            <!-- Start of the main navigation -->
+            <ul id="nav_main">
+                <li>
+                    <a href="#">
+                        <img src="/resources/img/icons/25x25/dark/computer-imac.png" width=25 height=25 alt="">
+                        Dashboard</a>
+                    <ul>
                         <li>
-                            <a href="#">
-                                <img src="/resources/img/icons/25x25/dark/archive.png" width=25 height=25 alt="">
-                                Rules</a>
-                            <ul>
-                                <li>
-                                    <a href="/secure/filter/all">Filters</a>
-                                </li>
-                                <li>
-                                    <a href="/secure/name/all">Names</a>
-                                </li>
-                            </ul>
+                            <a href="/secure/dashboard">Dashboard</a>
                         </li>
-                    </sec:authorize>
-                </ul>
-                <!-- End of the main navigation -->
-            </div>
-        </nav>
-        <div id="nav_sub"></div>
-    </header>
-
-    <!-- Start of the content -->
-    <div role="main" class="container_12" id="content-wrapper">
-        <!-- Start of the main content -->
-        <div id="main_content">
-            <h2 class="grid_12">Company: ${company.name}</h2>
-
-            <div class="clean"></div>
-
-            <div class="grid_12">
-                <div class="box">
-                    <div class="header">
-                        <img src="/resources/img/icons/packs/fugue/16x16/task-select-first.png" alt="" width="16"
-                             height="16">
-
-                        <h3>Update Company Form</h3>
-                        <span></span>
-                    </div>
-                    <form method="post" action="/secure/company/update" class="validate">
-                        <div class="content">
-                            <fieldset>
-                                <legend>
-                                    Company Details
-                                </legend>
-                                <div class="_100">
-                                    <p>
-                                        <label for="name">
-                                            Name
-                                        </label>
-                                        <input type="text" value="${company.name}" class="required" name="name"
-                                               class="text">
-                                    </p>
-                                </div>
-                            </fieldset>
-                        </div>
-                        <div class="actions">
-                            <input type="hidden" name="id" value="${company.id}"/>
-
-                            <div class="actions-right">
-                                <input type="submit">
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <!-- End of .box -->
-            </div>
-            <!-- End of .grid_12 -->
-            <!-- End of .grid_12 -->
-
+                    </ul>
+                </li>
+                <li class="current">
+                    <a href="#">
+                        <img src="/resources/img/icons/25x25/dark/documents.png" width=25 height=25 alt="">
+                        My Companies</a>
+                    <ul>
+                        <li>
+                            <a href="/secure/company/reserve">Reservations</a>
+                        </li>
+                        <li>
+                            <a href="/secure/company/llp">LLP</a>
+                        </li>
+                        <li>
+                            <a href="/secure/company/roc">ROC</a>
+                        </li>
+                        <li>
+                            <a href="/secure/company/rob">ROB</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="/resources/img/icons/25x25/dark/address-book.png" width=25 height=25 alt="">
+                        Literatures</a>
+                    <ul>
+                        <li>
+                            <a href="/secure/literature/legal">Legal</a>
+                        </li>
+                        <li>
+                            <a href="/secure/literature/about">About</a>
+                        </li>
+                    </ul>
+                </li>
+                <sec:authorize ifAllGranted="ROLE_ADMINISTRATOR">
+                    <li>
+                        <a href="#">
+                            <img src="/resources/img/icons/25x25/dark/archive.png" width=25 height=25 alt="">
+                            Rules</a>
+                        <ul>
+                            <li>
+                                <a href="/secure/filter/all">Filters</a>
+                            </li>
+                            <li>
+                                <a href="/secure/name/all">Names</a>
+                            </li>
+                        </ul>
+                    </li>
+                </sec:authorize>
+            </ul>
+            <!-- End of the main navigation -->
         </div>
-        <!-- End of #main_content -->
-        <div class="push clear"></div>
+    </nav>
+    <div id="nav_sub"></div>
+</header>
+
+<!-- Start of the content -->
+<div role="main" class="container_12" id="content-wrapper">
+    <!-- Start of the main content -->
+    <div id="main_content">
+        <h2 class="grid_12">Company</h2>
+
+        <div class="clean"></div>
+
+        <div class="grid_12">
+            <div class="box">
+                <div class="header">
+                    <img src="/resources/img/icons/packs/fugue/16x16/task-select-first.png" alt="" width="16"
+                         height="16">
+
+                    <h3>Update Company Form</h3>
+                    <span></span>
+                </div>
+                <form method="post" action="/secure/company/update" class="validate">
+                    <div class="content">
+                        <fieldset>
+                            <legend>
+                                Company Details
+                            </legend>
+                            <div class="_100">
+                                <p>
+                                    <label for="name">
+                                        Name
+                                    </label>
+                                    <input type="text" value="${company.name}" name="name"
+                                           class="text" readonly="true">
+                                </p>
+                            </div>
+                            <div class="_50">
+                                  <p>
+                                      <label for="type">
+                                          Type
+                                      </label>
+                                      <input type="text" value="${company.companyType}" class="required" name="type"
+                                             class="text" readonly="true">
+                                  </p>
+                              </div>
+                              <div class="_50">
+                                  <p>
+                                      <label for="status">
+                                          Status
+                                      </label>
+                                      <input type="text" value="${company.companyStatus}" class="required" name="status"
+                                             class="text" readonly="true">
+                                  </p>
+                              </div>
+                          </fieldset>
+                        <fieldset>
+                            <legend>
+                                Contact Information
+                            </legend>
+                            <div class="_50">
+                                <p>
+                                    <label for="textfield2">
+                                        Phone
+                                    </label>
+                                    <input type="text" name="phone" class="text" value="${company.phone}">
+                                </p>
+                            </div>
+                            <div class="_50">
+                                <p>
+                                    <label for="textfield2">
+                                        Fax
+                                    </label>
+                                    <input type="text" name="fax" class="text" value="${company.fax}">
+                                </p>
+                            </div>
+                        </fieldset>
+                        <fieldset>
+                            <legend>
+                                Address Information
+                            </legend>
+                            <p class="inline-small-label">
+                                <label for="field4">
+                                    Address
+                                </label>
+                                <input type="text" name="address1" class="text" value="${company.address1}">
+                            </p>
+
+                            <p class="inline-small-label">
+                                <input type="text" name="address2" class="text" value="${company.address2}">
+                            </p>
+
+                            <p class="inline-small-label">
+                                <input type="text" name="address3" class="text" value="${company.address3}">
+                            </p>
+                        </fieldset>
+                    </div>
+                    <div class="actions">
+                        <input type="hidden" name="id" value="${company.id}"/>
+
+                        <div class="actions-right">
+                            <input type="submit">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- End of .box -->
+        </div>
+        <!-- End of .grid_12 -->
+        <!-- End of .grid_12 -->
 
     </div>
-    <!-- End of #content-wrapper -->
-    <div class="clear"></div>
-    <div class="push"></div>
+    <!-- End of #main_content -->
+    <div class="push clear"></div>
+
+</div>
+<!-- End of #content-wrapper -->
+<div class="clear"></div>
+<div class="push"></div>
 </div>
 
 <!-- Start of footer-->

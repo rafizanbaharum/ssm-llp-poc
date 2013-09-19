@@ -87,9 +87,20 @@ public class CompanyController extends SecureControllerSupport {
     }
 
     @RequestMapping(value = "/update", method = {RequestMethod.POST})
-    public String update(@RequestParam Long id, @RequestParam String name, ModelMap model) {
+    public String update(@RequestParam Long id,
+                         @RequestParam String name,
+                         @RequestParam String phone,
+                         @RequestParam String fax,
+                         @RequestParam String address1,
+                         @RequestParam String address2,
+                         @RequestParam String address3,
+                         ModelMap model) {
         SsmCompany n = companyDao.findById(id);
-        n.setName(name);
+        n.setPhone(phone);
+        n.setFax(fax);
+        n.setAddress1(address1);
+        n.setAddress2(address2);
+        n.setAddress3(address3);
         companyDao.update(n, getCurrentUser());
         sessionFactory.getCurrentSession().flush();
         return "redirect:/secure/company/edit/" + n.getId();
