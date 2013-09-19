@@ -205,9 +205,9 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <c:forEach var="name" items="${names}">
+                            <c:forEach var="name" varStatus="i" items="${names}">
                                 <tr>
-                                    <td class="wwe-1rank"><span>${name.id}</span></td>
+                                    <td class="wwe-1rank"><span>${i.index + 1}</span></td>
                                     <td class="wwe-align-left">${name.name}</td>
                                     <td>${name.nameType}</td>
                                 </tr>
