@@ -76,7 +76,7 @@ input.error, textarea.error {
 label.error.red {
 	position: relative;
 	top: -1px;
-	padding: 5px;
+	padding: 4px;
 	margin: 0 0 10px 0;
 	display: block;
 	border-radius: 0 0 5px 5px;

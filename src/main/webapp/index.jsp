@@ -115,7 +115,7 @@
         <!-- End of the sidebar-->
 
         <!-- Start of the main content -->
-        <div id="main_content">
+        <div id="main_content" style="min-height: 100%">
             <h2 class="grid_12">Search Your LLP Name</h2>
 
             <div class="clean"></div>
@@ -151,7 +151,8 @@
 
                 <div class="box">
                     <div class="header">
-                        <img src="/resources/img/icons/packs/fugue/16x16/document--plus.png" alt="" width="16"
+                        <img src="/resources/img/icons/packs/fugue/16x16/application-search-result.png" alt=""
+                             width="16"
                              height="16">
 
                         <h3>Search Form</h3>
@@ -186,7 +187,7 @@
                         <!-- End of .content -->
                         <div class="actions">
                             <div class="actions-right">
-                                <input type="submit"/>
+                                <input type="submit" value="Search"/>
                             </div>
                         </div>
                         <!-- End of .actions -->
