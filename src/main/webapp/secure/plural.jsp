@@ -30,9 +30,7 @@
     <link rel="stylesheet" href="/resources/css/external/jquery-ui-1.8.16.custom.css">
     <link rel="stylesheet" href="/resources/css/sidebar.css">
 </head>
-
 <body>
-
 <!-- Begin of #height-wrapper -->
 <div id="height-wrapper">
 <!-- Begin of header -->
@@ -62,95 +60,85 @@
                             <div class="toolcaption">
                                 <span>${currentUser.realname}</span>
                             </div>
-                            <!-- Start of menu -->
-                            <div class="dropdown">
-                                <ul>
-                                    <li>
-                                        <a href="#">Settings</a>
-                                    </li>
-                                    <li>
-                                        <a href="/gate/out">Logout</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <!-- End of menu -->
                         </div>
+                        <!-- End of menu -->
                     </div>
                 </div>
-                <!-- End of large toolbar button -->
             </div>
-            <!-- End of right part -->
+            <!-- End of large toolbar button -->
         </div>
+        <!-- End of right part -->
     </div>
     <!-- End of the header toolbar -->
+</header>
 
-    <!-- Start of the main header bar -->
-    <nav id="header_main">
-        <div class="container_12">
-            <!-- Start of the main navigation -->
-            <ul id="nav_main">
-                <li>
-                    <a href="#">
-                        <img src="/resources/img/icons/25x25/dark/computer-imac.png" width=25 height=25 alt="">
-                        Dashboard</a>
-                    <ul>
-                        <li>
-                            <a href="/secure/dashboard">Dashboard</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">
-                        <img src="/resources/img/icons/25x25/dark/documents.png" width=25 height=25 alt="">
-                        My Companies</a>
-                    <ul>
-                        <li>
-                            <a href="/secure/company/reserve">Reservations</a>
-                        </li>
-                        <li>
-                            <a href="/secure/company/llp">LLP</a>
-                        </li>
-                        <li>
-                            <a href="/secure/company/roc">ROC</a>
-                        </li>
-                        <li>
-                            <a href="/secure/company/rob">ROB</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">
-                        <img src="/resources/img/icons/25x25/dark/address-book.png" width=25 height=25 alt="">
-                        Literatures</a>
-                    <ul>
-                        <li>
-                            <a href="/secure/literature/legal">Legal</a>
-                        </li>
-                        <li>
-                            <a href="/secure/literature/about">About</a>
-                        </li>
-                    </ul>
-                </li>
-                <sec:authorize ifAllGranted="ROLE_ADMINISTRATOR">
-                    <li class="current">
-                        <a href="#">
-                            <img src="/resources/img/icons/25x25/dark/archive.png" width=25 height=25 alt="">
-                            Rules</a>
-                        <ul>
-                            <li class="current">
-                                <a href="/secure/filter/all">Filters</a>
-                            </li>
-                            <li>
-                                <a href="/secure/name/all">Names</a>
-                            </li>
-                        </ul>
+<!-- Start of the main header bar -->
+<nav id="header_main">
+    <div class="container_12">
+        <!-- Start of the main navigation -->
+        <ul id="nav_main">
+            <li>
+                <a href="#">
+                    <img src="/resources/img/icons/25x25/dark/computer-imac.png" width=25 height=25 alt="">
+                    Dashboard</a>
+                <ul>
+                    <li>
+                        <a href="/secure/dashboard">Dashboard</a>
                     </li>
-                </sec:authorize>
-            </ul>
-            <!-- End of the main navigation -->
-        </div>
-    </nav>
-    <div id="nav_sub"></div>
+                </ul>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="/resources/img/icons/25x25/dark/documents.png" width=25 height=25 alt="">
+                    My Companies</a>
+                <ul>
+                    <li>
+                        <a href="/secure/company/reserve">Reservations</a>
+                    </li>
+                    <li>
+                        <a href="/secure/company/llp">LLP</a>
+                    </li>
+                    <li>
+                        <a href="/secure/company/roc">ROC</a>
+                    </li>
+                    <li>
+                        <a href="/secure/company/rob">ROB</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="/resources/img/icons/25x25/dark/address-book.png" width=25 height=25 alt="">
+                    Literatures</a>
+                <ul>
+                    <li>
+                        <a href="/secure/literature/legal">Legal</a>
+                    </li>
+                    <li>
+                        <a href="/secure/literature/about">About</a>
+                    </li>
+                </ul>
+            </li>
+            <sec:authorize ifAllGranted="ROLE_ADMINISTRATOR">
+                <li class="current">
+                    <a href="#">
+                        <img src="/resources/img/icons/25x25/dark/archive.png" width=25 height=25 alt="">
+                        Rules</a>
+                    <ul>
+                        <li>
+                            <a href="/secure/filter/all">Filters</a>
+                        </li>
+                        <li class="current">
+                            <a href="/secure/name/all">Names</a>
+                        </li>
+                    </ul>
+                </li>
+            </sec:authorize>
+        </ul>
+        <!-- End of the main navigation -->
+    </div>
+</nav>
+<div id="nav_sub"></div>
 </header>
 
 <!-- Start of the content -->
@@ -167,28 +155,20 @@
             <div class="divider"></div>
             <nav>
                 <ul class="menu collapsible">
-                    <li class="first-child current">
-                        <a href="#">State: current</a>
+                    <li class="first-child">
+                        <a href="/secure/name/controlled">Controlled</a>
                     </li>
                     <li>
-                        <a href="#">State: normal</a>
-                        <ul class="sub">
-                            <li>
-                                <a href="#">State: normal</a>
-                            </li>
-                            <li>
-                                <a href="#">State: normal</a>
-                            </li>
-                            <li>
-                                <a href="#">State: normal</a>
-                            </li>
-                        </ul>
+                        <a href="/secure/name/gazetted">Gazetted</a>
                     </li>
                     <li>
-                        <a href="#">State: normal</a>
+                        <a href="/secure/name/offensive">Offensive</a>
                     </li>
-                    <li class="last-child">
-                        <a href="#">State: normal</a>
+                    <li>
+                        <a href="/secure/name/similar">Similar</a>
+                    </li>
+                    <li class="last-child current">
+                        <a href="/secure/name/plural">Plural</a>
                     </li>
                 </ul>
             </nav>
@@ -216,30 +196,22 @@
                             <col class="wwe-table-col-width">
                             <col class="wwe-align-left">
                             <col class="wwe-table-col-width">
-                            <col class="wwe-table-col-width">
-                            <col class="wwe-table-col-width">
                         </colgroup>
                         <thead>
                         <tr>
                             <th class="wwe-lang-rank" scope="col">ID</th>
                             <th class="wwe-align-left wwe-lang-club" scope="col">Name</th>
-                            <th class="wwe-lang-matches" scope="col">Description</th>
+                            <th class="wwe-align-left wwe-lang-club" scope="col">Plural</th>
                             <th class="wwe-lang-matches" scope="col">Type</th>
-                            <th class="wwe-lang-matches" scope="col">Action</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <c:forEach var="filter" items="${filters}">
+                        <c:forEach var="name" items="${names}">
                             <tr>
-                                <td class="wwe-1rank"><span>${filter.id}</span></td>
-                                <td class="wwe-align-left">${filter.name}</td>
-                                <td class="wwe-align-left">${filter.description}</td>
-                                <td>${filter.filterType}</td>
-                                <td>
-                                    <a href="/secure/filter/edit/${filter.id}">Edit</a> |
-                                    <a href="/secure/filter/deactivate/${filter.id}">Deactivate</a> |
-                                    <a href="/secure/filter/delete/${filter.id}">Delete</a>
-                                </td>
+                                <td class="wwe-1rank"><span>${name.id}</span></td>
+                                <td class="wwe-align-left">${name.name}</td>
+                                <td class="wwe-align-left">${name.plural}</td>
+                                <td>${name.nameType}</td>
                             </tr>
                         </c:forEach>
                         </tbody>
@@ -273,7 +245,7 @@
                     <span><a href="/secure/dashboard">Dashboard</a></span>
                 </li>
                 <li>
-                    <span><a href="/secure/gate/out">Logout</a></span>
+                    <span><a href="/gate/out">Logout</a></span>
                 </li>
             </ul>
         </div>

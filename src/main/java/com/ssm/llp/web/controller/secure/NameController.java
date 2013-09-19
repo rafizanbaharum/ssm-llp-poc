@@ -2,6 +2,7 @@ package com.ssm.llp.web.controller.secure;
 
 import com.ssm.llp.core.dao.SsmNameDao;
 import com.ssm.llp.core.model.SsmName;
+import com.ssm.llp.core.model.SsmNameType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -24,6 +25,36 @@ public class NameController extends SecureControllerSupport {
     public String go(ModelMap model) {
         model.put("names", nameDao.find());
         return "secure/name";
+    }
+
+    @RequestMapping(value = "/gazetted", method = {RequestMethod.GET})
+    public String gazetted(ModelMap model) {
+        model.put("names", nameDao.find(SsmNameType.GAZETTED));
+        return "secure/gazetted";
+    }
+
+    @RequestMapping(value = "/controlled", method = {RequestMethod.GET})
+    public String controlled(ModelMap model) {
+        model.put("names", nameDao.find(SsmNameType.CONTROLLED));
+        return "secure/controlled";
+    }
+
+    @RequestMapping(value = "/offensive", method = {RequestMethod.GET})
+    public String offensive(ModelMap model) {
+        model.put("names", nameDao.find(SsmNameType.OFFENSIVE));
+        return "secure/offensive";
+    }
+
+    @RequestMapping(value = "/plural", method = {RequestMethod.GET})
+    public String plural(ModelMap model) {
+        model.put("names", nameDao.find(SsmNameType.PLURAL));
+        return "secure/plural";
+    }
+
+    @RequestMapping(value = "/similar", method = {RequestMethod.GET})
+    public String similar(ModelMap model) {
+        model.put("names", nameDao.find(SsmNameType.SIMILAR));
+        return "secure/similar";
     }
 
     @RequestMapping(value = "/edit/{id}", method = {RequestMethod.GET})

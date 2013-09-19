@@ -104,7 +104,7 @@ public class SsmNameDaoImpl extends DaoSupport<Long, SsmName, SsmNameImpl> imple
     @Override
     public List<SsmName> find() {
         Session session = sessionFactory.getCurrentSession();
-        Query query = session.createQuery("select n from SsmName n");
+        Query query = session.createQuery("select n from SsmName n order by n.name");
         return (List<SsmName>) query.list();
     }
 
@@ -119,7 +119,7 @@ public class SsmNameDaoImpl extends DaoSupport<Long, SsmName, SsmNameImpl> imple
     @Override
     public List<SsmName> find(SsmNameType type) {
         Session session = sessionFactory.getCurrentSession();
-        Query query = session.createQuery("select n from SsmName n where n.nameType = :nameType");
+        Query query = session.createQuery("select n from SsmName n where n.nameType = :nameType order by n.name");
         query.setInteger("nameType", type.ordinal());
         return (List<SsmName>) query.list();
     }

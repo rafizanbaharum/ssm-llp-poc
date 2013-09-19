@@ -30,48 +30,36 @@
     <link rel="stylesheet" href="/resources/css/external/jquery-ui-1.8.16.custom.css">
     <link rel="stylesheet" href="/resources/css/sidebar.css">
 </head>
-
 <body>
-
 <!-- Begin of #height-wrapper -->
 <div id="height-wrapper">
-<!-- Begin of header -->
-<header>
-    <!-- Begin of the header toolbar -->
-    <div id="header_toolbar">
-        <div class="container_12">
-            <h1 class="grid_8">SSM | MyLLP</h1>
-            <!-- Start of right part -->
-            <div class="grid_4">
-                <!-- A small toolbar button -->
-                <div class="toolbar_small">
-                    <div class="toolbutton">
-                        <span>3</span>
-                        <img src="/resources/img/icons/16x16/mail.png" width="16" height="16" alt="mail">
-                    </div>
-                </div>
-                <!-- End of small toolbar button -->
-
-                <!-- A large toolbar button -->
-                <div class="toolbar_large">
-                    <div class="toolbutton">
-                        <div class="toolicon">
-                            <img src="/resources/img/icons/16x16/user.png" width="16" height="16" alt="user">
+    <!-- Begin of header -->
+    <header>
+        <!-- Begin of the header toolbar -->
+        <div id="header_toolbar">
+            <div class="container_12">
+                <h1 class="grid_8">SSM | MyLLP</h1>
+                <!-- Start of right part -->
+                <div class="grid_4">
+                    <!-- A small toolbar button -->
+                    <div class="toolbar_small">
+                        <div class="toolbutton">
+                            <span>3</span>
+                            <img src="/resources/img/icons/16x16/mail.png" width="16" height="16" alt="mail">
                         </div>
-                        <div class="toolmenu">
-                            <div class="toolcaption">
-                                <span>${currentUser.realname}</span>
+                    </div>
+                    <!-- End of small toolbar button -->
+
+                    <!-- A large toolbar button -->
+                    <div class="toolbar_large">
+                        <div class="toolbutton">
+                            <div class="toolicon">
+                                <img src="/resources/img/icons/16x16/user.png" width="16" height="16" alt="user">
                             </div>
-                            <!-- Start of menu -->
-                            <div class="dropdown">
-                                <ul>
-                                    <li>
-                                        <a href="#">Settings</a>
-                                    </li>
-                                    <li>
-                                        <a href="/gate/out">Logout</a>
-                                    </li>
-                                </ul>
+                            <div class="toolmenu">
+                                <div class="toolcaption">
+                                    <span>${currentUser.realname}</span>
+                                </div>
                             </div>
                             <!-- End of menu -->
                         </div>
@@ -81,8 +69,8 @@
             </div>
             <!-- End of right part -->
         </div>
-    </div>
-    <!-- End of the header toolbar -->
+        <!-- End of the header toolbar -->
+    </header>
 
     <!-- Start of the main header bar -->
     <nav id="header_main">
@@ -137,10 +125,10 @@
                             <img src="/resources/img/icons/25x25/dark/archive.png" width=25 height=25 alt="">
                             Rules</a>
                         <ul>
-                            <li class="current">
+                            <li>
                                 <a href="/secure/filter/all">Filters</a>
                             </li>
-                            <li>
+                            <li class="current">
                                 <a href="/secure/name/all">Names</a>
                             </li>
                         </ul>
@@ -151,116 +139,98 @@
         </div>
     </nav>
     <div id="nav_sub"></div>
-</header>
+    </header>
 
-<!-- Start of the content -->
-<div role="main" class="container_12" id="content-wrapper">
-    <!-- Start of the sidebar -->
-    <aside>
-        <div id="sidebar_content">
-            <h2>Menu</h2>
+    <!-- Start of the content -->
+    <div role="main" class="container_12" id="content-wrapper">
+        <!-- Start of the sidebar -->
+        <aside>
+            <div id="sidebar_content">
+                <h2>Menu</h2>
 
-            <p>
-                Use actions below:
-            </p>
+                <p>
+                    Use actions below:
+                </p>
 
-            <div class="divider"></div>
-            <nav>
-                <ul class="menu collapsible">
-                    <li class="first-child current">
-                        <a href="#">State: current</a>
-                    </li>
-                    <li>
-                        <a href="#">State: normal</a>
-                        <ul class="sub">
-                            <li>
-                                <a href="#">State: normal</a>
-                            </li>
-                            <li>
-                                <a href="#">State: normal</a>
-                            </li>
-                            <li>
-                                <a href="#">State: normal</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#">State: normal</a>
-                    </li>
-                    <li class="last-child">
-                        <a href="#">State: normal</a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </aside>
-    <!-- End of the sidebar-->
-
-    <!-- Start of the main content -->
-    <div id="main_content">
-        <h2 class="grid_12">LLP Name Rules</h2>
-
-        <div class="clean"></div>
-
-        <div class="grid_12">
-            <div class="box">
-                <div class="header">
-                    <img src="/resources/img/icons/packs/fugue/16x16/shadeless/table.png" width="16" height="16">
-
-                    <h3>Offensive Name</h3><span></span>
-                </div>
-                <div class="content no-padding">
-                    <table class="table">
-                        <colgroup>
-                            <col class="wwe-first-col">
-                            <col class="wwe-table-col-width">
-                            <col class="wwe-align-left">
-                            <col class="wwe-table-col-width">
-                            <col class="wwe-table-col-width">
-                            <col class="wwe-table-col-width">
-                        </colgroup>
-                        <thead>
-                        <tr>
-                            <th class="wwe-lang-rank" scope="col">ID</th>
-                            <th class="wwe-align-left wwe-lang-club" scope="col">Name</th>
-                            <th class="wwe-lang-matches" scope="col">Description</th>
-                            <th class="wwe-lang-matches" scope="col">Type</th>
-                            <th class="wwe-lang-matches" scope="col">Action</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <c:forEach var="filter" items="${filters}">
-                            <tr>
-                                <td class="wwe-1rank"><span>${filter.id}</span></td>
-                                <td class="wwe-align-left">${filter.name}</td>
-                                <td class="wwe-align-left">${filter.description}</td>
-                                <td>${filter.filterType}</td>
-                                <td>
-                                    <a href="/secure/filter/edit/${filter.id}">Edit</a> |
-                                    <a href="/secure/filter/deactivate/${filter.id}">Deactivate</a> |
-                                    <a href="/secure/filter/delete/${filter.id}">Delete</a>
-                                </td>
-                            </tr>
-                        </c:forEach>
-                        </tbody>
-                    </table>
-                </div>
-                <!-- End of .content -->
-                <div class="clear"></div>
+                <div class="divider"></div>
+                <nav>
+                    <ul class="menu collapsible">
+                        <li class="first-child">
+                            <a href="/secure/name/controlled">Controlled</a>
+                        </li>
+                        <li>
+                            <a href="/secure/name/gazetted">Gazetted</a>
+                        </li>
+                        <li class="current">
+                            <a href="/secure/name/offensive">Offensive</a>
+                        </li>
+                        <li>
+                            <a href="/secure/name/similar">Similar</a>
+                        </li>
+                        <li class="last-child">
+                            <a href="/secure/name/plural">Plural</a>
+                        </li>
+                    </ul>
+                </nav>
             </div>
-            <!-- End of .box -->
+        </aside>
+        <!-- End of the sidebar-->
+
+        <!-- Start of the main content -->
+        <div id="main_content">
+            <h2 class="grid_12">LLP Name Rules</h2>
+
+            <div class="clean"></div>
+
+            <div class="grid_12">
+                <div class="box">
+                    <div class="header">
+                        <img src="/resources/img/icons/packs/fugue/16x16/shadeless/table.png" width="16" height="16">
+
+                        <h3>Offensive Name</h3><span></span>
+                    </div>
+                    <div class="content no-padding">
+                        <table class="table">
+                            <colgroup>
+                                <col class="wwe-first-col">
+                                <col class="wwe-table-col-width">
+                                <col class="wwe-align-left">
+                                <col class="wwe-table-col-width">
+                            </colgroup>
+                            <thead>
+                            <tr>
+                                <th class="wwe-lang-rank" scope="col">ID</th>
+                                <th class="wwe-align-left wwe-lang-club" scope="col">Name</th>
+                                <th class="wwe-lang-matches" scope="col">Type</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <c:forEach var="name" items="${names}">
+                                <tr>
+                                    <td class="wwe-1rank"><span>${name.id}</span></td>
+                                    <td class="wwe-align-left">${name.name}</td>
+                                    <td>${name.nameType}</td>
+                                </tr>
+                            </c:forEach>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- End of .content -->
+                    <div class="clear"></div>
+                </div>
+                <!-- End of .box -->
+            </div>
+            <!-- End of .grid_12 -->
+            <!-- End of .grid_12 -->
+
         </div>
-        <!-- End of .grid_12 -->
-        <!-- End of .grid_12 -->
+        <!-- End of #main_content -->
+        <div class="push clear"></div>
 
     </div>
-    <!-- End of #main_content -->
-    <div class="push clear"></div>
-
-</div>
-<!-- End of #content-wrapper -->
-<div class="clear"></div>
-<div class="push"></div>
+    <!-- End of #content-wrapper -->
+    <div class="clear"></div>
+    <div class="push"></div>
 </div>
 
 <!-- Start of footer-->
@@ -273,7 +243,7 @@
                     <span><a href="/secure/dashboard">Dashboard</a></span>
                 </li>
                 <li>
-                    <span><a href="/secure/gate/out">Logout</a></span>
+                    <span><a href="/gate/out">Logout</a></span>
                 </li>
             </ul>
         </div>
