@@ -1,11 +1,19 @@
 package com.ssm.llp.biz.validation.script;
 
+import com.google.common.base.CharMatcher;
+import com.google.common.base.Splitter;
+import com.google.common.base.Strings;
+import com.google.common.collect.Iterables;
+import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * @author rafizan.baharum
@@ -64,21 +72,17 @@ public class ScriptUtil {
         return list.toArray(new String[]{});
     }
 
-
     public String scrubName(String name) {
-        if (null != name) {
-            name = name.trim().toUpperCase();
-            if (name.endsWith("LLP")) {
-                return name.substring(0, name.length() - "LLP".length());
-            } else if (name.endsWith("PLT")) {
-                return name.substring(0, name.length() - "PLT".length());
-            } else return name.trim();
-        }
-        return name;
+        if (name.trim().isEmpty()) return "";
+        Pattern pattern = Pattern.compile("\\b(PLT|LLP|PERKONGSIAN LIABILITI TERHAD|LIMITED LIABILITY PARTNERSHIP)+\\b");
+        String s = name.replaceAll(pattern.toString(), "").trim();
+        s = CharMatcher.WHITESPACE.collapseFrom(s, ' ');
+        return s;
     }
 
     /**
      * FIXME: simple permutation with index of 2 only
+     *
      * @param first
      * @param second
      * @return

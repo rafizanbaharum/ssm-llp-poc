@@ -5,6 +5,7 @@ import com.ssm.llp.core.SsmNameDaoTest;
 import com.ssm.llp.core.dao.SsmFilterDao;
 import com.ssm.llp.core.model.SsmFilter;
 import com.ssm.llp.core.model.SsmFilterType;
+import junit.framework.Assert;
 import org.hibernate.SessionFactory;
 import org.junit.Before;
 import org.junit.Test;
@@ -69,6 +70,38 @@ public class ScriptManagerTest extends AbstractTransactionalJUnit4SpringContextT
             boolean valid = scriptManager.executePoisonFilter(filter.getScript(), map);
             log.debug("Result : " + filter.getName() + " " + valid);
         }
+    }
+
+    @Test
+    @Rollback(value = false)
+    public void testScrubName() {
+        String scrubbedText = scriptUtil.scrubName("CANANG TECHPLT");
+        Assert.assertEquals("CANANG TECHPLT", scrubbedText);
+        log.debug(scrubbedText);
+
+        scrubbedText = scriptUtil.scrubName("CANANG TECH PLT");
+        Assert.assertEquals("CANANG TECH", scrubbedText);
+        log.debug(scrubbedText);
+
+        scrubbedText = scriptUtil.scrubName("CANANG TECHLLP");
+        Assert.assertEquals("CANANG TECHLLP", scrubbedText);
+        log.debug(scrubbedText);
+
+        scrubbedText = scriptUtil.scrubName("CANANG TECH LLP ");
+        Assert.assertEquals("CANANG TECH", scrubbedText);
+        log.debug(scrubbedText);
+
+        scrubbedText = scriptUtil.scrubName("CANANG TECH LLP LLP ");
+        Assert.assertEquals("CANANG TECH", scrubbedText);
+        log.debug(scrubbedText);
+
+        scrubbedText = scriptUtil.scrubName("");
+        Assert.assertEquals("", scrubbedText);
+        log.debug(scrubbedText);
+
+        scrubbedText = scriptUtil.scrubName(" ");
+        Assert.assertEquals("", scrubbedText);
+        log.debug(scrubbedText);
     }
 
     @Test
