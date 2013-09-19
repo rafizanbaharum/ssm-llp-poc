@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
  */
 @Controller
 @RequestMapping("/validate")
+@Transactional
 public class ValidateController {
 
     private Logger log = LoggerFactory.getLogger(ValidateController.class);
@@ -67,7 +69,7 @@ public class ValidateController {
         log.debug("validate: " + name);
         boolean poisoned = poisonValidator.isPoisoned(name);
         boolean existed = searchValidator.isExisted(name);
-        boolean valid = !(poisoned && existed);
+        boolean valid = !(poisoned | existed);
         log.debug("poisoned?: " + poisoned);
         log.debug("existed?: " + existed);
         if (valid) return "Name not valid";
