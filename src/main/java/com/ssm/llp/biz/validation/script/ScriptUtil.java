@@ -68,15 +68,21 @@ public class ScriptUtil {
     public String scrubName(String name) {
         if (null != name) {
             name = name.trim().toUpperCase();
-            if (name.trim().endsWith("LLP")) {
-                return name.trim().substring(0, name.trim().length() - "LLP".length());
-            } else if (name.trim().endsWith("PLT")) {
-                return name.trim().substring(0, name.trim().length() - "PLT".length());
+            if (name.endsWith("LLP")) {
+                return name.substring(0, name.length() - "LLP".length());
+            } else if (name.endsWith("PLT")) {
+                return name.substring(0, name.length() - "PLT".length());
             } else return name.trim();
         }
         return name;
     }
 
+    /**
+     * FIXME: simple permutation with index of 2 only
+     * @param first
+     * @param second
+     * @return
+     */
     public String[] permutate(String[] first, String[] second) {
         List<String> list = new ArrayList<String>();
         for (int i = 0; i < first.length; i++) {
