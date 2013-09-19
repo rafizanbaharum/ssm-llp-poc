@@ -29,12 +29,12 @@ public class Validator {
 
     public ValidatorContext validate(String name) {
         ValidatorContext context = new ValidatorContext();
-        checkPoisoned(name, context);
+        if (checkPoisoned(name, context)) return context;
         checkExisted(name, context);
         return context;
     }
 
-    private void checkPoisoned(String name, ValidatorContext context) {
+    private boolean checkPoisoned(String name, ValidatorContext context) {
         List<SsmFilter> filters = filterDao.find(SsmFilterType.POISON);
         HashMap<String, Object> map = new HashMap<String, Object>();
         map.put("name", name);
@@ -49,9 +49,10 @@ public class Validator {
             }
         }
         context.setPoisoned(result);
+        return result;
     }
 
-    private void checkExisted(String name, ValidatorContext context) {
+    private boolean checkExisted(String name, ValidatorContext context) {
         List<SsmFilter> filters = filterDao.find(SsmFilterType.SEARCH);
         HashMap<String, Object> map = new HashMap<String, Object>();
         map.put("name", name);
@@ -66,5 +67,6 @@ public class Validator {
             }
         }
         context.setExisted(result);
+        return result;
     }
 }
