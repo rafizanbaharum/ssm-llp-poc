@@ -8,12 +8,9 @@ package com.ssm.llp.biz.validation;
 import com.ssm.llp.CoreConfig;
 import com.ssm.llp.core.SsmNameDaoTest;
 import org.junit.Before;
-import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -28,26 +25,7 @@ public class ValidationTest extends AbstractTransactionalJUnit4SpringContextTest
 
     private Logger log = LoggerFactory.getLogger(SsmNameDaoTest.class);
 
-    @Autowired
-    private PoisonValidator poisonValidator;
-
-    @Autowired
-    private SearchValidator searchValidator;
-
     @Before
     public void setUp() {
-    }
-
-    @Test
-    @Rollback(value = true)
-    public void testSearch() {
-        boolean validate = searchValidator.isExisted("MALAYSIA RAYA PLT");
-        log.debug("valid?: " + validate);
-    }
-
-    @Test
-    @Rollback(value = true)
-    public void testPoison() {
-        log.debug("valid?: " + poisonValidator.isPoisoned("* RAYA PLT"));
     }
 }

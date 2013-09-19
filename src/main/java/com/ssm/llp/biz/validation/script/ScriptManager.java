@@ -100,10 +100,5 @@ public class ScriptManager implements InitializingBean {
         } catch (BSFException e) {
             e.printStackTrace();
         }
-//        Set<String> strings = params.keySet();
-//        for (Iterator<String> iterator = strings.iterator(); iterator.hasNext(); ) {
-//            String next = iterator.next();
-//        }
     }
-
 }

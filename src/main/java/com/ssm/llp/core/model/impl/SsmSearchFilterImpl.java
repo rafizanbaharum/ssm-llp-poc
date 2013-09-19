@@ -15,7 +15,9 @@ import java.io.Serializable;
 @Entity(name = "SsmSearchFilter")
 public class SsmSearchFilterImpl extends SsmFilterImpl implements SsmSearchFilter, Serializable {
 
+
     public SsmSearchFilterImpl() {
         setFilterType(SsmFilterType.SEARCH);
     }
+
 }

@@ -16,13 +16,13 @@ TODO ssm-llp-poc
 - DONE register name from page dashboard > companies > reservations
 - DONE uppercase search field
 - DONE destemming filters of symbols . &
-- Destemming plurality in English and Malay
+- DONE Destemming plurality in English and Malay
 - DONE Controlled, Gazetted, Offensive data
+- DONE if user type name with "LLP", remove LLP automatically
+- DONE port to POSTGRES on amazon cloud
 - uniqueness in name reservation
 - cache jquery js
-- if user type name with "LLP", remove LLP automatically
 - non-avatar menu
-- port to POSTGRES on amazon cloud
 - sitemesh for templating
 
 NAME RESERVATION

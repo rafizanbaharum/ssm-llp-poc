@@ -29,6 +29,12 @@ public abstract class SsmFilterImpl implements SsmFilter, Serializable {
     @Column(name = "DESCRIPTION")
     private String description;
 
+    @Column(name = "ERROR")
+    private String error;
+
+    @Column(name = "WAIVED")
+    private boolean waived;
+
     @Lob
     @Column(name = "SCRIPT")
     private String script;
@@ -62,6 +68,22 @@ public abstract class SsmFilterImpl implements SsmFilter, Serializable {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getError() {
+        return error;
+    }
+
+    public void setError(String error) {
+        this.error = error;
+    }
+
+    public boolean isWaived() {
+        return waived;
+    }
+
+    public void setWaived(boolean waived) {
+        this.waived = waived;
     }
 
     public String getScript() {

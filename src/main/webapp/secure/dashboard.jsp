@@ -213,7 +213,7 @@
 <div class="grid_12">
 
     <c:choose>
-        <c:when test="${valid eq true}">
+        <c:when test="${context.valid eq true}">
             <div class="alert success"><span class="icon"></span>
                 Your choice of LLP name ${name} is available.
                 <ul>
@@ -224,10 +224,11 @@
                 </ul>
             </div>
         </c:when>
-        <c:when test="${valid eq false}">
+        <c:when test="${context.valid eq false}">
             <div class="alert info">
                 <span class="icon"></span><span class="hide">x</span>
                 <strong>Sorry!</strong> Please pick a different name.
+                <p>${context.error}</p>
             </div>
         </c:when>
         <c:otherwise>

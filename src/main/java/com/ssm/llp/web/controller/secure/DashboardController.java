@@ -1,7 +1,7 @@
 package com.ssm.llp.web.controller.secure;
 
-import com.ssm.llp.biz.validation.PoisonValidator;
-import com.ssm.llp.biz.validation.SearchValidator;
+import com.ssm.llp.biz.validation.Validator;
+import com.ssm.llp.biz.validation.ValidatorContext;
 import com.ssm.llp.biz.validation.script.ScriptUtil;
 import com.ssm.llp.core.dao.SsmCompanyDao;
 import com.ssm.llp.core.model.SsmCompany;
@@ -32,10 +32,7 @@ public class DashboardController extends SecureControllerSupport {
     private SsmCompanyDao companyDao;
 
     @Autowired
-    private PoisonValidator poisonValidator;
-
-    @Autowired
-    private SearchValidator searchValidator;
+    private Validator validator;
 
     @Autowired
     private ScriptUtil scriptUtil;
@@ -45,18 +42,8 @@ public class DashboardController extends SecureControllerSupport {
     public String validateDashboard(@RequestParam("name") String name, @RequestParam("type") String type, ModelMap model) {
         name = scriptUtil.scrubName(name);
         log.debug("validate: " + name);
-        boolean poisoned = poisonValidator.isPoisoned(name);
-        boolean existed = searchValidator.isExisted(name);
-        boolean valid = !(poisoned | existed);
-
-        // false = !(true | false)
-        // false = !(true | true)
-        // true = !(false | false)
-        log.debug("poisoned?: " + poisoned);
-        log.debug("existed?: " + existed);
-        log.debug("valid?: " + valid);
-
-        model.put("valid", valid);
+        ValidatorContext context = validator.validate(name);
+        model.put("context", context);
         model.put("name", name);
         model.put("type", type);
         return "secure/dashboard";
