@@ -83,7 +83,7 @@ public class SsmNameDaoTest extends AbstractTransactionalJUnit4SpringContextTest
         for (int i = 0; i < states.length; i++) {
             String state = states[i];
             SsmStateName stateName = new SsmStateNameImpl();
-            stateName.setName("MALAYSIA");
+            stateName.setName(state);
             nameDao.save(stateName, root);
             sessionFactory.getCurrentSession().flush();
         }

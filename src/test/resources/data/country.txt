@@ -48,7 +48,7 @@
 48	Colombia
 49	Comoros
 50	Congo
-51	"Congo, The Democratic Republic Of The"
+51	Congo, The Democratic Republic Of The
 52	Cook Islands
 53	Costa Rica
 54	Cote D'Ivoire
@@ -100,7 +100,7 @@
 100	Iceland
 101	India
 102	Indonesia
-103	"Iran, Islamic Republic Of"
+103	Iran, Islamic Republic Of
 104	Iraq
 105	Ireland
 106	Isle Of Man
@@ -113,8 +113,8 @@
 113	Kazakhstan
 114	Kenya
 115	Kiribati
-116	"Korea, Democratic People'S Republic Of"
-117	"Korea, Republic Of"
+116	Korea, Democratic People'S Republic Of
+117	Korea, Republic Of
 118	Kuwait
 119	Kyrgyzstan
 120	Lao People'S Democratic Republic
@@ -127,7 +127,7 @@
 127	Lithuania
 128	Luxembourg
 129	Macao
-130	"Macedonia, The Former Yugoslav Republic Of"
+130	Macedonia, The Former Yugoslav Republic Of
 131	Madagascar
 132	Malawi
 133	Malaysia
@@ -140,8 +140,8 @@
 140	Mauritius
 141	Mayotte
 142	Mexico
-143	"Micronesia, Federated States Of"
-144	"Moldova, Republic Of"
+143	Micronesia, Federated States Of
+144	Moldova, Republic Of
 145	Monaco
 146	Mongolia
 147	Montserrat
@@ -165,7 +165,7 @@
 165	Oman
 166	Pakistan
 167	Palau
-168	"Palestinian Territory, Occupied"
+168	Palestinian Territory, Occupied
 169	Panama
 170	Papua New Guinea
 171	Paraguay
@@ -209,9 +209,9 @@
 209	Sweden
 210	Switzerland
 211	Syrian Arab Republic
-212	"Taiwan, Province Of China"
+212	Taiwan, Province Of China
 213	Tajikistan
-214	"Tanzania, United Republic Of"
+214	Tanzania, United Republic Of
 215	Thailand
 216	Timor-Leste
 217	Togo
@@ -234,8 +234,8 @@
 234	Vanuatu
 235	Venezuela
 236	Viet Nam
-237	"Virgin Islands, British"
-238	"Virgin Islands, U.S."
+237	Virgin Islands, British
+238	Virgin Islands, U.S.
 239	Wallis And Futuna
 240	Western Sahara
 241	Yemen
