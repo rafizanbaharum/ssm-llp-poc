@@ -68,9 +68,11 @@ public class ScriptUtil {
     public String scrubName(String name) {
         if (null != name) {
             name = name.trim().toUpperCase();
-            if (name.trim().endsWith("PLT") || name.trim().endsWith("LLP"))
+            if (name.trim().endsWith("LLP")) {
                 return name.trim().substring(0, name.trim().length() - "LLP".length());
-            else return name.trim();
+            } else if (name.trim().endsWith("PLT")) {
+                return name.trim().substring(0, name.trim().length() - "PLT".length());
+            } else return name.trim();
         }
         return name;
     }
