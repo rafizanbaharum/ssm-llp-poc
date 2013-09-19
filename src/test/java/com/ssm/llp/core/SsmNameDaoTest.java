@@ -23,6 +23,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.LineNumberReader;
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -52,9 +53,12 @@ public class SsmNameDaoTest extends AbstractTransactionalJUnit4SpringContextTest
 
     private SsmUser root;
 
+    private String workingDir;
+
     @Before
     public void setUp() {
         root = userDao.findByUsername("root");
+        workingDir = System.getProperty("user.dir");
     }
 
     /**
@@ -95,7 +99,7 @@ public class SsmNameDaoTest extends AbstractTransactionalJUnit4SpringContextTest
 
         // country
         try {
-            FileReader reader = new FileReader("C:/Projects/GitHub/ssm-llp-poc/src/test/resources/data/country.txt");
+            FileReader reader = new FileReader(workingDir + "/src/test/resources/data/country.txt");
             LineNumberReader lineReader = new LineNumberReader(reader);
             String buff;
             while (null != (buff = lineReader.readLine())) {
@@ -112,7 +116,7 @@ public class SsmNameDaoTest extends AbstractTransactionalJUnit4SpringContextTest
 
         // controlled
         try {
-            FileReader reader = new FileReader("C:/Projects/GitHub/ssm-llp-poc/src/test/resources/data/controlled.txt");
+            FileReader reader = new FileReader(workingDir + "/src/test/resources/data/controlled.txt");
             LineNumberReader lineReader = new LineNumberReader(reader);
             String buff;
             while (null != (buff = lineReader.readLine())) {
@@ -129,7 +133,7 @@ public class SsmNameDaoTest extends AbstractTransactionalJUnit4SpringContextTest
 
         // gazetted
         try {
-            FileReader reader = new FileReader("C:/Projects/GitHub/ssm-llp-poc/src/test/resources/data/gazetted.txt");
+            FileReader reader = new FileReader(workingDir + "/src/test/resources/data/gazetted.txt");
             LineNumberReader lineReader = new LineNumberReader(reader);
             String buff;
             while (null != (buff = lineReader.readLine())) {
@@ -146,7 +150,7 @@ public class SsmNameDaoTest extends AbstractTransactionalJUnit4SpringContextTest
 
         //offensive
         try {
-            FileReader reader = new FileReader("C:/Projects/GitHub/ssm-llp-poc/src/test/resources/data/offensive.txt");
+            FileReader reader = new FileReader(workingDir + "/src/test/resources/data/offensive.txt");
             LineNumberReader lineReader = new LineNumberReader(reader);
             String buff;
             while (null != (buff = lineReader.readLine())) {
@@ -167,21 +171,41 @@ public class SsmNameDaoTest extends AbstractTransactionalJUnit4SpringContextTest
     @Test
     @Rollback(value = false)
     public void createCompanies() {
+
+        Calendar endOfTime = Calendar.getInstance();
+        endOfTime.set(Calendar.YEAR, 2999);
+
+        Calendar nextYear = Calendar.getInstance();
+        endOfTime.add(Calendar.YEAR, 1);
+
+        Calendar nextTwoYear = Calendar.getInstance();
+        endOfTime.add(Calendar.YEAR, 2);
+
         SsmCompanyImpl name1 = new SsmRocCompanyImpl();
         name1.setName("MAJU JAYA");
         name1.setCompanyStatus(SsmCompanyStatus.ACTIVE);
+        name1.setExpiredDate(endOfTime.getTime());
         companyDao.save(name1, root);
 
         SsmCompanyImpl name2 = new SsmRocCompanyImpl();
         name2.setName("JAYA & MAJU RESTORAN");
         name2.setCompanyStatus(SsmCompanyStatus.ACTIVE);
+        name2.setExpiredDate(endOfTime.getTime());
         companyDao.save(name2, root);
         sessionFactory.getCurrentSession().flush();
 
         SsmCompanyImpl name3 = new SsmLlpCompanyImpl();
-        name3.setName("MALAYSIA RAYAS");
-        name3.setCompanyStatus(SsmCompanyStatus.ACTIVE);
+        name3.setName("MALAYSIAN CONSORTIUM");
+        name3.setCompanyStatus(SsmCompanyStatus.WINDING);
+        name3.setExpiredDate(nextYear.getTime());
         companyDao.save(name3, root);
+        sessionFactory.getCurrentSession().flush();
+
+        SsmCompanyImpl name4 = new SsmLlpCompanyImpl();
+        name4.setName("MALAYSIAN INVESTMENT");
+        name4.setCompanyStatus(SsmCompanyStatus.EXPIRED);
+        name4.setExpiredDate(nextTwoYear.getTime());
+        companyDao.save(name4, root);
         sessionFactory.getCurrentSession().flush();
     }
 
@@ -219,16 +243,31 @@ public class SsmNameDaoTest extends AbstractTransactionalJUnit4SpringContextTest
         name1.setName("BUILD");
         name1.setSimile("BUILDER");
         nameDao.save(name1, root);
-//
+
         SsmSimilarName name2 = new SsmSimilarNameImpl();
         name2.setName("BUILDER");
         name2.setSimile("BUILD");
         nameDao.save(name2, root);
 
+        SsmSimilarName name21 = new SsmSimilarNameImpl();
+        name21.setName("BUILD");
+        name21.setSimile("BUILDING");
+        nameDao.save(name21, root);
+
+        SsmSimilarName name22 = new SsmSimilarNameImpl();
+        name22.setName("BUILDING");
+        name22.setSimile("BUILDER");
+        nameDao.save(name22, root);
+
         SsmSimilarName name3 = new SsmSimilarNameImpl();
         name3.setName("TECH");
         name3.setSimile("TECHNOLOGIES");
         nameDao.save(name3, root);
+
+        SsmSimilarName name6 = new SsmSimilarNameImpl();
+        name6.setName("TECH");
+        name6.setSimile("TECHNOLOGY");
+        nameDao.save(name6, root);
 
         SsmSimilarName name4 = new SsmSimilarNameImpl();
         name4.setName("TECHNOLOGY");
@@ -240,18 +279,35 @@ public class SsmNameDaoTest extends AbstractTransactionalJUnit4SpringContextTest
         name5.setSimile("TECH");
         nameDao.save(name5, root);
 
-        SsmSimilarName name6 = new SsmSimilarNameImpl();
-        name6.setName("TECH");
-        name6.setSimile("TECHNOLOGY");
-        nameDao.save(name6, root);
-    }
+        SsmSimilarName name41 = new SsmSimilarNameImpl();
+        name4.setName("TECHNOLOGIES");
+        name4.setSimile("TECHNOLOGY");
+        nameDao.save(name4, root);
 
+        SsmSimilarName name52 = new SsmSimilarNameImpl();
+        name5.setName("TECHNOLOGIES");
+        name5.setSimile("TECH");
+        nameDao.save(name5, root);
 
+        SsmSimilarName name61 = new SsmSimilarNameImpl();
+        name5.setName("RESTAURANT");
+        name5.setSimile("RESTORAN");
+        nameDao.save(name5, root);
 
-    @Test
-    @Rollback(value = false)
-    public void insertSimil() {
-        log.debug("reserved: " + nameDao.hasName("CANANG TECHNOLOGIES", 3));
+        SsmSimilarName name62 = new SsmSimilarNameImpl();
+        name4.setName("RESTAURANT");
+        name4.setSimile("RESTOREN");
+        nameDao.save(name4, root);
+
+        SsmSimilarName name63 = new SsmSimilarNameImpl();
+        name5.setName("RESTORAN");
+        name5.setSimile("RESTAURANT");
+        nameDao.save(name5, root);
+
+        SsmSimilarName name73 = new SsmSimilarNameImpl();
+        name5.setName("RESTORAN");
+        name5.setSimile("RESTOREN");
+        nameDao.save(name5, root);
     }
 }
 

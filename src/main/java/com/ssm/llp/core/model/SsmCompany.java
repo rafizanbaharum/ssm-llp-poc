@@ -1,5 +1,6 @@
 package com.ssm.llp.core.model;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -44,13 +45,11 @@ public interface SsmCompany extends SsmMetaObject {
 
     void setFax(String fax);
 
+    Date getExpiredDate();
 
+    void setExpiredDate(Date expiredDate);
 
     List<SsmCompanyMember> getMembers();
 
     void setMembers(List<SsmCompanyMember> members);
-
-
-
-
 }

@@ -47,9 +47,12 @@ public class SsmFilterDaoTest extends AbstractTransactionalJUnit4SpringContextTe
 
     private SsmUser root;
 
+    private String workingDir;
+
     @Before
     public void setUp() {
         root = userDao.findByUsername("root");
+        workingDir = System.getProperty("user.dir");
     }
 
     /**
@@ -61,7 +64,7 @@ public class SsmFilterDaoTest extends AbstractTransactionalJUnit4SpringContextTe
     @Rollback(value = false)
     public void createFilters() {
         try {
-            File poisonFolder = new File("C:/Projects/GitHub/ssm-llp-poc/src/test/resources/filters/poison");
+            File poisonFolder = new File(workingDir + "/src/test/resources/filters/poison");
             File[] files = poisonFolder.listFiles();
             for (int i = 0; i < files.length; i++) {
                 File file = files[i];
@@ -73,7 +76,7 @@ public class SsmFilterDaoTest extends AbstractTransactionalJUnit4SpringContextTe
             }
             sessionFactory.getCurrentSession().flush();
 
-            File searchFolder = new File("C:/Projects/GitHub/ssm-llp-poc/src/test/resources/filters/search");
+            File searchFolder = new File(workingDir + "/src/test/resources/filters/search");
             File[] searchFiles = searchFolder.listFiles();
             for (int i = 0; i < searchFiles.length; i++) {
                 File file = searchFiles[i];
@@ -98,8 +101,6 @@ public class SsmFilterDaoTest extends AbstractTransactionalJUnit4SpringContextTe
 
 
     }
-
-
 }
 
 

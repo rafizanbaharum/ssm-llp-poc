@@ -6,6 +6,7 @@ import org.hibernate.search.bridge.builtin.EnumBridge;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -55,6 +56,9 @@ public abstract class SsmCompanyImpl implements SsmCompany, Serializable {
 
     @Column(name = "FAX")
     private String fax;
+
+    @Column(name = "EXPIRED_DATE")
+    private Date expiredDate;
 
     @OneToMany(targetEntity = SsmCompanyMemberImpl.class, mappedBy = "company", fetch = FetchType.LAZY)
     private List<SsmCompanyMember> members;
@@ -128,6 +132,14 @@ public abstract class SsmCompanyImpl implements SsmCompany, Serializable {
 
     public void setFax(String fax) {
         this.fax = fax;
+    }
+
+    public Date getExpiredDate() {
+        return expiredDate;
+    }
+
+    public void setExpiredDate(Date expiredDate) {
+        this.expiredDate = expiredDate;
     }
 
     @Override
