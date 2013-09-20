@@ -22,7 +22,7 @@ import java.util.regex.Pattern;
 @Component("scriptUtil")
 public class ScriptUtil {
 
-    private Logger log = LoggerFactory.getLogger(ScriptLog.class);
+    private Logger log = LoggerFactory.getLogger(ScriptUtil.class);
 
     /**
      * AYAM KAMBING IKAN

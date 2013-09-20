@@ -284,6 +284,7 @@
             phone: "Please enter a valid phone number.",
             fax: "Please enter a valid fax number.",
             username: "Please enter a valid username.",
+            fullname: "Please enter a valid fullname.",
             equalTo: "Password fields have to match.",
             accept: "Please enter a value with a valid extension.",
             maxlength: $.validator.format("Please enter no more than {0} characters."),
@@ -784,7 +785,8 @@
             nric: {nric: true},
             phone: {phone: true},
             fax: {fax: true},
-            username: {username: true}
+            username: {username: true},
+            fullname: {fullname: true}
         },
 
         addClassRules: function (className, rules) {
@@ -1077,6 +1079,10 @@
 
             username: function (value, element) {
                 return this.optional(element) || /^[a-z0-9_-]{3,16}$/.test(value);
+            },
+
+            fullname: function (value, element) {
+                return this.optional(element) || /^[a-zA-Z@\. ]+$/.test(value);
             },
 
             phone: function (value, element) {

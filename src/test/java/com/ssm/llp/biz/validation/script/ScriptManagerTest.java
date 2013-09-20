@@ -61,7 +61,7 @@ public class ScriptManagerTest extends AbstractTransactionalJUnit4SpringContextT
         List<SsmFilter> filters = filterDao.find(SsmFilterType.SEARCH);
         for (SsmFilter filter : filters) {
             HashMap<String, Object> map = new HashMap<String, Object>();
-            map.put("name", "MALAYSIA RAYA PLT");
+            map.put("name", scriptUtil.scrubName("MALAYSIA RAYA PLT"));
             boolean valid = scriptManager.executeSearchFilter(filter.getScript(), map);
             log.debug("valid?: " + valid);
         }
@@ -74,7 +74,7 @@ public class ScriptManagerTest extends AbstractTransactionalJUnit4SpringContextT
         List<SsmFilter> filters = filterDao.find(SsmFilterType.POISON);
         for (SsmFilter filter : filters) {
             HashMap<String, Object> map = new HashMap<String, Object>();
-            map.put("name", "MALAYSIA MEMBODOH PLT");
+            map.put("name", scriptUtil.scrubName(" negeri sembilan membodoh RAYA PLT"));
             boolean valid = scriptManager.executePoisonFilter(filter.getScript(), map);
             log.debug("Result : " + filter.getName() + " " + valid);
         }

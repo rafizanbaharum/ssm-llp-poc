@@ -77,7 +77,8 @@
                                         <label for="nameTxt">
                                             Name
                                         </label>
-                                        <input type="text" id="nameTxt" value="" class="required" name="fullName"
+                                        <input type="text" id="nameTxt" value="" class="required fullname"
+                                               name="fullName"
                                                class="text">
                                     </p>
                                 </div>
@@ -95,8 +96,8 @@
                                         <label for="username">
                                             Username
                                         </label>
-                                        <input type="text" value="" id="username" class="required" name="username"
-                                               class="text">
+                                        <input type="text" value="" id="username" class="required username"
+                                               name="username" class="text">
                                     </p>
                                 </div>
                                 <div class="_50">
@@ -136,7 +137,7 @@
                                         <label for="phone">
                                             Phone
                                         </label>
-                                        <input type="text" value="" id="phone" name="phone" class="text">
+                                        <input type="text" value="" id="phone" name="phone" class="required phone text">
                                     </p>
                                 </div>
                                 <div class="_50">
@@ -144,7 +145,7 @@
                                         <label for="fax">
                                             Fax
                                         </label>
-                                        <input type="text" value="" id="fax" name="fax" class="text">
+                                        <input type="text" value="" id="fax" name="fax" class="required fax text">
                                     </p>
                                 </div>
                             </fieldset>
@@ -240,7 +241,7 @@
 <!-- end scripts -->
 
 <script type="text/javascript">
-    $(document).ready(function() {
+    $(document).ready(function () {
         jQuery.validator.setDefaults({
             debug: true,
             success: "valid"
