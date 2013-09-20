@@ -186,9 +186,8 @@ public class ScriptManagerTest extends AbstractTransactionalJUnit4SpringContextT
 
     private boolean validateStartWithMalaysia(String name) {
         String scrubbedName = scriptUtil.scrubName(name);
-        Iterable<String> split = Splitter.on(" ").split(scrubbedName);
-        String firstWord = Iterables.getFirst(split, "");
-        if ("MALAYSIA".equalsIgnoreCase(firstWord)) {
+        String[] split = scrubbedName.split(" ");
+        if ("MALAYSIA".equalsIgnoreCase(split[0])) {
             log.debug("Found Invalid! " + scrubbedName);
             return true;
         }
