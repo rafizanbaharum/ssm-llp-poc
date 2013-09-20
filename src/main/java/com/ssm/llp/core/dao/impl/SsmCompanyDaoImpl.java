@@ -12,6 +12,7 @@ import org.hibernate.search.query.dsl.QueryBuilder;
 import org.springframework.stereotype.Repository;
 
 import java.io.Serializable;
+import java.util.Calendar;
 import java.util.List;
 
 /**
@@ -39,6 +40,20 @@ public class SsmCompanyDaoImpl extends DaoSupport<Long, SsmCompany, SsmCompanyIm
     }
 
     @Override
+    public boolean isValidWinding(String name) {
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery("select count(c) from SsmCompany c where " +
+                "c.name = :name and c.expiredDate  < :current ");
+        query.setString("name", name);
+
+        Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.YEAR,-2);
+        query.setDate("current",cal.getTime());
+
+        return 0 < ((Long) query.uniqueResult()).intValue();
+    }
+
+    @Override
     public List<SsmCompany> find() {
         Session session = sessionFactory.getCurrentSession();
         Query query = session.createQuery("select n from SsmCompany n");
@@ -59,6 +74,8 @@ public class SsmCompanyDaoImpl extends DaoSupport<Long, SsmCompany, SsmCompanyIm
         FullTextQuery fullTextQuery = fullTextSession.createFullTextQuery(termQuery, SsmCompanyImpl.class);
         return (List<SsmCompany>) fullTextQuery.list();
     }
+
+
 
     @Override
     public List<SsmCompany> findByOwner(SsmCompanyType companyType, SsmUser owner) {

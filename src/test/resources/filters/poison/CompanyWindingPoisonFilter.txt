@@ -1,0 +1,5 @@
+log.debug("CompanyWindingPoisonFilter");
+log.debug("test: " + companyDao.isValidWinding(name));
+
+// check as a whole
+return companyDao.isValidWinding(name);

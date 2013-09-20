@@ -25,6 +25,7 @@ public interface SsmCompanyDao {
 
     boolean hasName(String name);
 
+    boolean isValidWinding(String name);
 
     // cruds
 
