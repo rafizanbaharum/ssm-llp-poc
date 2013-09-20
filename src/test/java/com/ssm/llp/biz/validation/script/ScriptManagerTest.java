@@ -2,6 +2,7 @@ package com.ssm.llp.biz.validation.script;
 
 import com.ssm.llp.CoreConfig;
 import com.ssm.llp.core.SsmNameDaoTest;
+import com.ssm.llp.core.dao.SsmCompanyDao;
 import com.ssm.llp.core.dao.SsmFilterDao;
 import com.ssm.llp.core.dao.SsmNameDao;
 import com.ssm.llp.core.model.SsmFilter;
@@ -30,13 +31,16 @@ import java.util.List;
 @ContextConfiguration(classes = {CoreConfig.class})
 public class ScriptManagerTest extends AbstractTransactionalJUnit4SpringContextTests {
 
-    private Logger log = LoggerFactory.getLogger(SsmNameDaoTest.class);
+    private Logger log = LoggerFactory.getLogger(ScriptManagerTest.class);
 
     @Autowired
     private SsmFilterDao filterDao;
 
     @Autowired
     private SsmNameDao nameDao;
+
+    @Autowired
+    private SsmCompanyDao companyDao;
 
     @Autowired
     private ScriptManager scriptManager;
@@ -148,6 +152,14 @@ public class ScriptManagerTest extends AbstractTransactionalJUnit4SpringContextT
         }
     }
 
+     @Test
+    @Rollback(value = false)
+    public void companyFilterTest() {
+
+        log.debug("" + companyDao.isValidWinding("ALAM MEKAR"));
+        log.debug("" + companyDao.isValidWinding("ALIRAN DATA"));
+
+    }
     @Test
     @Rollback(value = false)
     public void testNonStandaloneCountry() {
