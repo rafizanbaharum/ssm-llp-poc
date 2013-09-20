@@ -131,7 +131,8 @@
                         <label for="name">
                             Choosen Name
                         </label>
-                        <input type="text" value="${name}" class="required" id="name" name="name" class="text" disabled="true">
+                        <input type="text" value="${name}" class="required" id="name" name="name" class="text"
+                               disabled="true">
                     </p>
                 </div>
                 <div class="_100">
@@ -143,8 +144,16 @@
                         </select>
                     </p>
                 </div>
-
-            </div>
+                <div class="_100">
+                    <p>
+                        <select name="reason">
+                            <option selected>Local LLP</option>
+                            <option>Foreign LLP</option>
+                            <option>Professional Practice</option>
+                        </select>
+                    </p>
+                </div>
+                <div class="push"></div>
         </div>
         <div class="wiz_page step_2">
             <div class="wiz_sidebar grid_3">
@@ -295,7 +304,7 @@
                     <span><a href="/secure/dashboard">Dashboard</a></span>
                 </li>
                 <li>
-                    <span><a href="/secure/gate/out">Logout</a></span>
+                    <span><a href="/gate/out">Logout</a></span>
                 </li>
             </ul>
         </div>

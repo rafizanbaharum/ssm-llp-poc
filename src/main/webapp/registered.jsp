@@ -106,7 +106,7 @@
                     <span><a href="/secure/dashboard">Dashboard</a></span>
                 </li>
                 <li>
-                    <span><a href="/secure/gate/out">Logout</a></span>
+                    <span><a href="/gate/out">Logout</a></span>
                 </li>
             </ul>
         </div>

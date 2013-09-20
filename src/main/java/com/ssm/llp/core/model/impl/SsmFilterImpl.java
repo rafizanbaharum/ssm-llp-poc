@@ -23,7 +23,7 @@ public abstract class SsmFilterImpl implements SsmFilter, Serializable {
     @SequenceGenerator(name = "SEQ_FILTER", sequenceName = "SEQ_FILTER", allocationSize = 1)
     private Long id;
 
-    @Column(name = "NAME")
+    @Column(name = "NAME", unique = true)
     private String name;
 
     @Column(name = "DESCRIPTION")

@@ -77,7 +77,8 @@
                                         <label for="nameTxt">
                                             Name
                                         </label>
-                                        <input type="text" id="nameTxt" value="" class="required" name="fullName" class="text">
+                                        <input type="text" id="nameTxt" value="" class="required" name="fullName"
+                                               class="text">
                                     </p>
                                 </div>
                                 <div class="_50">
@@ -85,7 +86,8 @@
                                         <label for="nricNo">
                                             NRIC
                                         </label>
-                                        <input type="text" value="" id="nricNo" class="required" name="nricNo" class="text">
+                                        <input type="text" value="" id="nricNo" class="required nric" name="nricNo"
+                                               class="text">
                                     </p>
                                 </div>
                                 <div class="_50">
@@ -93,7 +95,8 @@
                                         <label for="username">
                                             Username
                                         </label>
-                                        <input type="text" value="" id="username" class="required" name="username" class="text">
+                                        <input type="text" value="" id="username" class="required" name="username"
+                                               class="text">
                                     </p>
                                 </div>
                                 <div class="_50">
@@ -101,7 +104,8 @@
                                         <label for="emailTxt">
                                             Email
                                         </label>
-                                        <input type="text" value="" id="emailTxt" class="required email" name="email" class="text">
+                                        <input type="text" value="" id="emailTxt" class="required email" name="email"
+                                               class="text">
                                     </p>
                                 </div>
                                 <div class="_50">
@@ -109,7 +113,8 @@
                                         <label for="password">
                                             Password
                                         </label>
-                                        <input type="password" value="" id="password" class="required" name="password" class="text">
+                                        <input type="password" value="" id="password" class="required"
+                                               name="password" class="text">
                                     </p>
                                 </div>
                                 <div class="_50">
@@ -117,7 +122,8 @@
                                         <label for="passwordAgain">
                                             Password Again
                                         </label>
-                                        <input type="password" value="" equalto="#password" id="passwordAgain" class="required" name="passwordAgain" class="text">
+                                        <input type="password" value="" equalto="#password" id="passwordAgain"
+                                               class="required" name="passwordAgain" class="text">
                                     </p>
                                 </div>
                             </fieldset>
@@ -233,22 +239,22 @@
 <!-- REQUIRED: Generic scripts -->
 <!-- end scripts -->
 
- <script type="text/javascript">
-$(document).ready(function() {
-    jQuery.validator.setDefaults({
-  debug: true,
-  success: "valid"
-});
-      $("#loginForm").validate({
+<script type="text/javascript">
+    $(document).ready(function() {
+        jQuery.validator.setDefaults({
+            debug: true,
+            success: "valid"
+        });
+        $("#loginForm").validate({
 
-        messages: {
-         passwordAgain: {
-             equalTo: "password fields have to match"
-         }
-        }
-      });
+            messages: {
+                passwordAgain: {
+                    equalTo: "password fields have to match"
+                }
+            }
+        });
     });
- </script>
+</script>
 
 </body>
 </html>

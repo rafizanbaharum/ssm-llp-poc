@@ -274,6 +274,7 @@ $.extend($.validator, {
 		number: "Please enter a valid number.",
 		digits: "Please enter only digits.",
 		creditcard: "Please enter a valid credit card number.",
+		nric: "Please enter a valid NRIC number.",
 		equalTo: "Password fields have to match.",
 		accept: "Please enter a value with a valid extension.",
 		maxlength: $.validator.format("Please enter no more than {0} characters."),
@@ -769,7 +770,8 @@ $.extend($.validator, {
 		number: {number: true},
 		numberDE: {numberDE: true},
 		digits: {digits: true},
-		creditcard: {creditcard: true}
+		creditcard: {creditcard: true},
+		nric: {nric: true}
 	},
 
 	addClassRules: function(className, rules) {
@@ -1054,6 +1056,10 @@ $.extend($.validator, {
 		// http://docs.jquery.com/Plugins/Validation/Methods/digits
 		digits: function(value, element) {
 			return this.optional(element) || /^\d+$/.test(value);
+		},
+
+		nric: function(value, element) {
+			return this.optional(element) || /[1-9]{1}[0-9]{11}/.test(value);
 		},
 
 		// http://docs.jquery.com/Plugins/Validation/Methods/creditcard
