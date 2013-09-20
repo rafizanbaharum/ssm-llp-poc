@@ -221,7 +221,7 @@
                         </colgroup>
                         <thead>
                         <tr>
-                            <th class="wwe-lang-rank" scope="col">ID</th>
+                            <th class="wwe-lang-rank" scope="col">No.</th>
                             <th class="wwe-align-left wwe-lang-club" scope="col">Name</th>
                             <th class="wwe-lang-matches" scope="col">Description</th>
                             <th class="wwe-lang-matches" scope="col">Type</th>
@@ -229,9 +229,9 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <c:forEach var="filter" items="${filters}">
+                        <c:forEach var="filter" items="${filters}" varStatus="i">
                             <tr>
-                                <td class="wwe-1rank"><span>${filter.id}</span></td>
+                                <td class="wwe-1rank"><span>${i.index+1}</span></td>
                                 <td class="wwe-align-left">${filter.name}</td>
                                 <td class="wwe-align-left">${filter.description}</td>
                                 <td>${filter.filterType}</td>

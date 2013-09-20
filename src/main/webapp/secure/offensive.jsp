@@ -199,15 +199,15 @@
                             </colgroup>
                             <thead>
                             <tr>
-                                <th class="wwe-lang-rank" scope="col">ID</th>
+                                <th class="wwe-lang-rank" scope="col">No.</th>
                                 <th class="wwe-align-left wwe-lang-club" scope="col">Name</th>
                                 <th class="wwe-lang-matches" scope="col">Type</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <c:forEach var="name" items="${names}">
+                            <c:forEach var="name" items="${names}" varStatus="i">
                                 <tr>
-                                    <td class="wwe-1rank"><span>${name.id}</span></td>
+                                    <td class="wwe-1rank"><span>${i.index + 1}</span></td>
                                     <td class="wwe-align-left">${name.name}</td>
                                     <td>${name.nameType}</td>
                                 </tr>

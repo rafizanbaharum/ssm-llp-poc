@@ -96,7 +96,7 @@
                                         <label for="username">
                                             Username
                                         </label>
-                                        <input type="text" value="" id="username" class="required username"
+                                        <input type="text" value="" id="username" class="required username" maxlength="16"
                                                name="username" class="text">
                                     </p>
                                 </div>

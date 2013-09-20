@@ -399,7 +399,7 @@
         <div class="header">
             <img src="/resources/img/icons/packs/fugue/16x16/shadeless/table.png" width="16" height="16">
 
-            <h3>Reserved Name</h3><span></span>
+            <h3>Registered Name</h3><span></span>
         </div>
         <div class="content no-padding">
             <table class="table">

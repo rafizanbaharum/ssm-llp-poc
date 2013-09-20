@@ -199,7 +199,7 @@
                             </colgroup>
                             <thead>
                             <tr>
-                                <th class="wwe-lang-rank" scope="col">ID</th>
+                                <th class="wwe-lang-rank" scope="col">No.</th>
                                 <th class="wwe-align-left wwe-lang-club" scope="col">Name</th>
                                 <th class="wwe-lang-matches" scope="col">Type</th>
                             </tr>
