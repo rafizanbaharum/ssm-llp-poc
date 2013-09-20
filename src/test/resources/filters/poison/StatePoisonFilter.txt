@@ -1,8 +1,5 @@
 log.debug("StatePoisonFilter");
 
-// check as a whole
-return nameDao.hasName(name, 2);
-
 // check word for word
 String[] words = name.split(" ");
 for(int i=0; i < words.length; i++){

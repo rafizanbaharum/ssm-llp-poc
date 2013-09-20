@@ -1,0 +1,4 @@
+log.debug("GazettedPoisonFilter");
+
+// check as a whole
+return nameDao.hasName(name, 4);

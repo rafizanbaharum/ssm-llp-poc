@@ -1,7 +1,8 @@
 package com.ssm.llp.biz.validation.script;
 
+import com.google.common.base.Splitter;
+import com.google.common.collect.Iterables;
 import com.ssm.llp.CoreConfig;
-import com.ssm.llp.core.SsmNameDaoTest;
 import com.ssm.llp.core.dao.SsmCompanyDao;
 import com.ssm.llp.core.dao.SsmFilterDao;
 import com.ssm.llp.core.dao.SsmNameDao;
@@ -152,7 +153,7 @@ public class ScriptManagerTest extends AbstractTransactionalJUnit4SpringContextT
         }
     }
 
-     @Test
+    @Test
     @Rollback(value = false)
     public void companyFilterTest() {
 
@@ -160,41 +161,41 @@ public class ScriptManagerTest extends AbstractTransactionalJUnit4SpringContextT
         log.debug("" + companyDao.isValidWinding("ALIRAN DATA"));
 
     }
+
     @Test
     @Rollback(value = false)
-    public void testNonStandaloneCountry() {
-        String[] invalidNames = new String[]{"Malaysia trade PLT", "UNITED ARAB EMIRATES invest LLP LLP"};
-        for (String name : invalidNames) Assert.assertTrue(validateCountry(name));
+    public void testStartWithMalaysiaOnly() {
+        String[] invalidNames = new String[]{"Malaysia trade PLT"};
+        for (String name : invalidNames) Assert.assertTrue(validateStartWithMalaysia(name));
 
-        String[] validaNames = new String[]{" Durian Malaysia trade PLT", "Trade UNITED ARAB EMIRATES Company LLP LLP"};
-        for (String name : validaNames) Assert.assertFalse(validateCountry(name));
+        String[] validaNames = new String[]{" Durian Malaysia trade PLT", "Malaysian Trade Company LLP LLP"};
+        for (String name : validaNames) Assert.assertFalse(validateStartWithMalaysia(name));
 
     }
 
     @Test
     @Rollback(value = false)
-    public void testNonStandaloneState() {
+    public void testStartWithMalaysianStateOnly() {
         String[] names = new String[]{"  Negeri Sembilan trade PLT PERKONGSIAN LIABILITI TERHAD ",
                 "Pahang invest LLP LLP"};
-        for (String name : names) Assert.assertTrue(validateState(name));
+        for (String name : names) Assert.assertTrue(validateStartWithMalaysianState(name));
 
         String validName = "  Dodol Sarawak Sedap PLT ";
-        Assert.assertFalse(validateState(validName));
+        Assert.assertFalse(validateStartWithMalaysianState(validName));
     }
 
-    private boolean validateCountry(String name) {
+    private boolean validateStartWithMalaysia(String name) {
         String scrubbedName = scriptUtil.scrubName(name);
-        String[] countries = nameDao.getCountries();
-        for (String country : countries) {
-            if (scrubbedName.toUpperCase().startsWith(country)) {
-                log.debug("Found Invalid! " + country);
-                return true;
-            }
+        Iterable<String> split = Splitter.on(" ").split(scrubbedName);
+        String firstWord = Iterables.getFirst(split, "");
+        if ("MALAYSIA".equalsIgnoreCase(firstWord)) {
+            log.debug("Found Invalid! " + scrubbedName);
+            return true;
         }
         return false;
     }
 
-    private boolean validateState(String name) {
+    private boolean validateStartWithMalaysianState(String name) {
         String scrubbedName = scriptUtil.scrubName(name);
         String[] states = nameDao.getStates();
         for (String state : states) {

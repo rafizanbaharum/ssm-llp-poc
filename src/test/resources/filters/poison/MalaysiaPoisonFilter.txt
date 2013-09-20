@@ -1,0 +1,9 @@
+log.debug("StartWithMalaysiaPoisonFilter");
+
+        Iterable<String> split = Splitter.on(" ").split(scrubbedName);
+        String firstWord = Iterables.getFirst(split, "");
+        if ("MALAYSIA".equalsIgnoreCase(firstWord)) {
+            log.debug("Found Invalid! " + scrubbedName);
+            return true;
+        }
+        return false;

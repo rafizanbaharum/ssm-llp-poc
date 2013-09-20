@@ -234,6 +234,11 @@ public class SsmNameDaoTest extends AbstractTransactionalJUnit4SpringContextTest
         name1.setName("KUIH");
         name1.setPlural("KUIH-MUIH");
         nameDao.save(name1, root);
+
+        name1 = new SsmPluralNameImpl();
+        name1.setName("KUIH");
+        name1.setPlural("KUIH-MUIH");
+        nameDao.save(name1, root);
     }
 
     @Test

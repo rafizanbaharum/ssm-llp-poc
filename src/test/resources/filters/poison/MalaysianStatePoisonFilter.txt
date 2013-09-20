@@ -1,4 +1,4 @@
-log.debug("NonStandaloneStatePoisonFilter");
+log.debug("StartWithMalaysianStatePoisonFilter");
 
       String[] states = nameDao.getStates();
         for (String state : states) {
