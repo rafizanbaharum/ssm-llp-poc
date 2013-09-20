@@ -142,4 +142,22 @@ public class SsmNameDaoImpl extends DaoSupport<Long, SsmName, SsmNameImpl> imple
         query.setLong("creatorId", owner.getId());
         return (List<SsmName>) query.list();
     }
+
+    @Override
+    public String[] getStates() {
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery("select n.name from SsmName n where n.nameType = :nameType");
+        query.setInteger("nameType", SsmNameType.STATE.ordinal());
+        List<String> list = (List<String>) query.list();
+        return list.toArray(new String[]{});
+    }
+
+    @Override
+    public String[] getCountries() {
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery("select n.name from SsmName n where n.nameType = :nameType");
+        query.setInteger("nameType", SsmNameType.COUNTRY.ordinal());
+        List<String> list = (List<String>) query.list();
+        return list.toArray(new String[]{});
+    }
 }

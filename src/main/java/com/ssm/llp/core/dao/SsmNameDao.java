@@ -28,6 +28,10 @@ public interface SsmNameDao {
 
     List<SsmName> findByOwner(SsmNameType type, SsmUser owner);
 
+    String[] getStates();
+
+    String[] getCountries();
+
 
     // helpers
     boolean hasName(String name);

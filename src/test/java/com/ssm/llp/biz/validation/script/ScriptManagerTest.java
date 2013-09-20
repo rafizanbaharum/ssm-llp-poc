@@ -3,6 +3,7 @@ package com.ssm.llp.biz.validation.script;
 import com.ssm.llp.CoreConfig;
 import com.ssm.llp.core.SsmNameDaoTest;
 import com.ssm.llp.core.dao.SsmFilterDao;
+import com.ssm.llp.core.dao.SsmNameDao;
 import com.ssm.llp.core.model.SsmFilter;
 import com.ssm.llp.core.model.SsmFilterType;
 import junit.framework.Assert;
@@ -33,6 +34,9 @@ public class ScriptManagerTest extends AbstractTransactionalJUnit4SpringContextT
 
     @Autowired
     private SsmFilterDao filterDao;
+
+    @Autowired
+    private SsmNameDao nameDao;
 
     @Autowired
     private ScriptManager scriptManager;
@@ -142,5 +146,51 @@ public class ScriptManagerTest extends AbstractTransactionalJUnit4SpringContextT
             String string = strings[i];
             log.debug(string);
         }
+    }
+
+    @Test
+    @Rollback(value = false)
+    public void testNonStandaloneCountry() {
+        String[] invalidNames = new String[]{"Malaysia trade PLT", "UNITED ARAB EMIRATES invest LLP LLP"};
+        for (String name : invalidNames) Assert.assertTrue(validateCountry(name));
+
+        String[] validaNames = new String[]{" Durian Malaysia trade PLT", "Trade UNITED ARAB EMIRATES Company LLP LLP"};
+        for (String name : validaNames) Assert.assertFalse(validateCountry(name));
+
+    }
+
+    @Test
+    @Rollback(value = false)
+    public void testNonStandaloneState() {
+        String[] names = new String[]{"  Negeri Sembilan trade PLT PERKONGSIAN LIABILITI TERHAD ",
+                "Pahang invest LLP LLP"};
+        for (String name : names) Assert.assertTrue(validateState(name));
+
+        String validName = "  Dodol Sarawak Sedap PLT ";
+        Assert.assertFalse(validateState(validName));
+    }
+
+    private boolean validateCountry(String name) {
+        String scrubbedName = scriptUtil.scrubName(name);
+        String[] countries = nameDao.getCountries();
+        for (String country : countries) {
+            if (scrubbedName.toUpperCase().startsWith(country)) {
+                log.debug("Found Invalid! " + country);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private boolean validateState(String name) {
+        String scrubbedName = scriptUtil.scrubName(name);
+        String[] states = nameDao.getStates();
+        for (String state : states) {
+            if (scrubbedName.toUpperCase().startsWith(state)) {
+                log.debug("Found Invalid! " + state);
+                return true;
+            }
+        }
+        return false;
     }
 }

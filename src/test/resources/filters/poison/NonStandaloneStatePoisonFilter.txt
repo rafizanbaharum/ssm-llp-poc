@@ -1,0 +1,10 @@
+log.debug("NonStandaloneStatePoisonFilter");
+
+      String[] states = nameDao.getStates();
+        for (String state : states) {
+            if (name.toUpperCase().startsWith(state)) {
+                log.debug("Found Invalid! " + state);
+                return true;
+            }
+        }
+        return false;

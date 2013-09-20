@@ -74,10 +74,15 @@ public class ScriptUtil {
 
     public String scrubName(String name) {
         if (name.trim().isEmpty()) return "";
-        Pattern pattern = Pattern.compile("\\b(PLT|LLP|PERKONGSIAN LIABILITI TERHAD|LIMITED LIABILITY PARTNERSHIP)+\\b");
-        String s = name.replaceAll(pattern.toString(), "").trim();
-        s = CharMatcher.WHITESPACE.collapseFrom(s, ' ');
-        return s;
+        Pattern pattern = Pattern.compile("\\b(PLT|LLP|PERKONGSIAN LIABILITI TERHAD|LIMITED LIABILITY PARTNERSHIP)+\\b",
+                Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher(name);
+
+        StringBuffer sb = new StringBuffer();
+        while (matcher.find()) matcher.appendReplacement(sb, "");
+        matcher.appendTail(sb);
+
+        return CharMatcher.WHITESPACE.collapseFrom(sb.toString(), ' ').trim();
     }
 
     /**
