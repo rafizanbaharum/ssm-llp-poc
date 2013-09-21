@@ -2,6 +2,9 @@ log.debug("OffensivePoisonFilter");
 
 boolean result = false;
 
+String[] instrName = nameDao.findInstrName(name, 0);
+return instrName.length > 0;
+
 // check as a whole
 result =  nameDao.hasName(name, 0);
 if(result) return result;

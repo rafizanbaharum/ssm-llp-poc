@@ -1,13 +1,12 @@
 package com.ssm.llp.biz.validation.script;
 
-import com.google.common.base.Splitter;
-import com.google.common.collect.Iterables;
 import com.ssm.llp.CoreConfig;
 import com.ssm.llp.core.dao.SsmCompanyDao;
 import com.ssm.llp.core.dao.SsmFilterDao;
 import com.ssm.llp.core.dao.SsmNameDao;
 import com.ssm.llp.core.model.SsmFilter;
 import com.ssm.llp.core.model.SsmFilterType;
+import com.ssm.llp.core.model.SsmNameType;
 import junit.framework.Assert;
 import org.hibernate.SessionFactory;
 import org.junit.Before;
@@ -136,7 +135,7 @@ public class ScriptManagerTest extends AbstractTransactionalJUnit4SpringContextT
     @Test
     @Rollback(value = false)
     public void testPermutates() {
-        String[] strings = scriptUtil.permutatePairs("AL ARABI WAL WAHDI");
+        String[] strings = scriptUtil.permutatePairs("EHRAM BLAH MUKJIZAH DODOL");
         for (int i = 0; i < strings.length; i++) {
             String string = strings[i];
             log.debug(string);
@@ -164,7 +163,43 @@ public class ScriptManagerTest extends AbstractTransactionalJUnit4SpringContextT
 
     @Test
     @Rollback(value = false)
-    public void testStartWithMalaysiaOnly() {
+    public void stringContainsGazettedWords() {
+        String[] invalidNames = new String[]{"canang CHAMBER OF COMMERCE & INDUSTRY PLT  BLAH BLAH"};
+        for (String invalidName : invalidNames) {
+            String scrubbedName = scriptUtil.scrubName(invalidName);
+            String[] instrName = nameDao.findInstrName(scrubbedName, SsmNameType.GAZETTED);
+            Assert.assertTrue("String not found!", instrName.length > 0);
+        }
+    }
+
+    @Test
+    @Rollback(value = false)
+    public void stringContainsControlledWords() {
+        String[] invalidNames = new String[]{"KKKK KKKK FUTURES TRADING ADVISER LLP",
+                "INTERNATIONAL CRIMINAL POLICE ORGANISATION (ICPO-I",
+                " K.LUMPUR 2006 ", "NIRVANA"};
+        for (String invalidName : invalidNames) {
+            String scrubbedName = scriptUtil.scrubName(invalidName);
+            String[] instrName = nameDao.findInstrName(scrubbedName, SsmNameType.CONTROLLED);
+            Assert.assertTrue("String not found!", instrName.length > 0);
+        }
+    }
+
+    @Test
+    @Rollback(value = false)
+    public void stringContainsOffensiveWords() {
+        String[] invalidNames = new String[]{"AL HAMDULILLAH",
+                "kaw ni COMMUNIST ke? ", " INCORPORATION WTH KEPARAT "};
+        for (String invalidName : invalidNames) {
+            String scrubbedName = scriptUtil.scrubName(invalidName);
+            String[] instrName = nameDao.findInstrName(scrubbedName, SsmNameType.OFFENSIVE);
+            Assert.assertTrue("String not found!", instrName.length > 0);
+        }
+    }
+
+    @Test
+    @Rollback(value = false)
+    public void startWithMalaysiaOnly() {
         String[] invalidNames = new String[]{"Malaysia trade PLT"};
         for (String name : invalidNames) Assert.assertTrue(validateStartWithMalaysia(name));
 
@@ -175,7 +210,7 @@ public class ScriptManagerTest extends AbstractTransactionalJUnit4SpringContextT
 
     @Test
     @Rollback(value = false)
-    public void testStartWithMalaysianStateOnly() {
+    public void startWithMalaysianStateOnly() {
         String[] names = new String[]{"  Negeri Sembilan trade PLT PERKONGSIAN LIABILITI TERHAD ",
                 "Pahang invest LLP LLP"};
         for (String name : names) Assert.assertTrue(validateStartWithMalaysianState(name));

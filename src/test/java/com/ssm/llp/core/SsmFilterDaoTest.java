@@ -3,6 +3,7 @@ package com.ssm.llp.core;
 import com.ssm.llp.CoreConfig;
 import com.ssm.llp.core.dao.SsmFilterDao;
 import com.ssm.llp.core.dao.SsmUserDao;
+import com.ssm.llp.core.model.SsmFilter;
 import com.ssm.llp.core.model.SsmUser;
 import com.ssm.llp.core.model.impl.SsmPoisonFilterImpl;
 import com.ssm.llp.core.model.impl.SsmSearchFilterImpl;
@@ -25,6 +26,7 @@ import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.List;
 
 /**
  * @author rafizan.baharum
@@ -63,6 +65,16 @@ public class SsmFilterDaoTest extends AbstractTransactionalJUnit4SpringContextTe
     @Test
     @Rollback(value = false)
     public void createFilters() {
+
+        List<SsmFilter> ssmFilters = filterDao.find();
+        for (SsmFilter ssmFilter : ssmFilters) {
+            log.debug(ssmFilter.getName() + " deleted!");
+            sessionFactory.getCurrentSession().delete(ssmFilter);
+            sessionFactory.getCurrentSession().flush();
+        }
+
+        System.out.println();
+
         try {
             File poisonFolder = new File(workingDir + "/src/test/resources/filters/poison");
             File[] files = poisonFolder.listFiles();
@@ -73,6 +85,7 @@ public class SsmFilterDaoTest extends AbstractTransactionalJUnit4SpringContextTe
                 filter.setDescription(file.getName().substring(0, file.getName().length() - 4));
                 filter.setScript(readFile(file.getAbsolutePath(), Charset.defaultCharset()));
                 filterDao.save(filter, root);
+                log.debug(filter.getName() + " saved!");
             }
             sessionFactory.getCurrentSession().flush();
 
@@ -85,6 +98,7 @@ public class SsmFilterDaoTest extends AbstractTransactionalJUnit4SpringContextTe
                 filter.setDescription(file.getName().substring(0, file.getName().length() - 4));
                 filter.setScript(readFile(file.getAbsolutePath(), Charset.defaultCharset()));
                 filterDao.save(filter, root);
+                log.debug(filter.getName() + " saved!");
             }
             sessionFactory.getCurrentSession().flush();
         } catch (FileNotFoundException e) {

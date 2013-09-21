@@ -6,6 +6,7 @@ import com.ssm.llp.core.dao.SsmNameDao;
 import com.ssm.llp.core.dao.impl.SsmCompanyDaoImpl;
 import com.ssm.llp.core.dao.impl.SsmFilterDaoImpl;
 import com.ssm.llp.core.dao.impl.SsmNameDaoImpl;
+import com.ssm.llp.core.model.SsmNameType;
 import org.apache.bsf.BSFEngine;
 import org.apache.bsf.BSFException;
 import org.apache.bsf.BSFManager;

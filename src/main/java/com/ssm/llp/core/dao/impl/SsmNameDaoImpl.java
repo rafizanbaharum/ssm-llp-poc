@@ -102,6 +102,30 @@ public class SsmNameDaoImpl extends DaoSupport<Long, SsmName, SsmNameImpl> imple
     }
 
     @Override
+    public String[] findInstrName(String name, SsmNameType nameType) {
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery("select n.name from SsmName n where  " +
+                "instr(upper(:filter) , upper(n.name) ) > 0 " + //Postgres use strpos or position
+                "and n.nameType = :type ");
+        query.setString("filter", name);
+        query.setInteger("type", nameType.ordinal());
+        List<String> list = (List<String>) query.list();
+        return list.toArray(new String[]{});
+    }
+
+    @Override
+    public String[] findInstrName(String name, int nameType) {
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery("select n.name from SsmName n where  " +
+                "instr(upper(:filter) , upper(n.name) ) > 0 " + //Postgres use strpos or position
+                "and n.nameType = :type ");
+        query.setString("filter", name);
+        query.setInteger("type", nameType);
+        List<String> list = (List<String>) query.list();
+        return list.toArray(new String[]{});
+    }
+
+    @Override
     public List<SsmName> find() {
         Session session = sessionFactory.getCurrentSession();
         Query query = session.createQuery("select n from SsmName n order by n.name");

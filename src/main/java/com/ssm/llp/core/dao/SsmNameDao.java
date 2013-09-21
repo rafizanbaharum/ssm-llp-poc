@@ -48,6 +48,10 @@ public interface SsmNameDao {
 
     String[] findSimilarOrOriginal(String name);
 
+    String[] findInstrName(String name, SsmNameType nameType);
+
+    String[] findInstrName(String name, int nameType);
+
     // cruds
 
     void save(SsmName name, SsmUser user);

@@ -1,4 +1,4 @@
 log.debug("GazettedPoisonFilter");
 
-// check as a whole
-return nameDao.hasName(name, 4);
+String[] instrName = nameDao.findInstrName(name, 4);
+return instrName.length > 0;
