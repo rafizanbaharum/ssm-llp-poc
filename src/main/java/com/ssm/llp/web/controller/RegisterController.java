@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -31,6 +32,14 @@ public class RegisterController {
     public String go(ModelMap model) {
         model.put("name", "xxx");
         return "register";
+    }
+
+    @RequestMapping(value = "/validate/{username}", method = RequestMethod.GET)
+    public String validateUsername(@PathVariable String username, ModelMap model){
+
+        boolean exists = registrationManager.isExists(username);
+        model.put("status",exists);
+       return "newUsernameStatus";
     }
 
     @RequestMapping(method = {RequestMethod.POST})

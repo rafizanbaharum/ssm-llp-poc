@@ -86,4 +86,10 @@ public class UserRegistrationManagerImpl implements UserRegistrationManager {
         // send email with links
         applicationContext.publishEvent(new EmailEvent(email, "ssm.llp.poc@gmail.com", "Portal Registration", "Thank you for your registration."));
     }
+
+    @Override
+    public boolean isExists(String username) {
+        SsmUser user = userDao.findByUsername(username);
+        return (user != null);
+    }
 }
