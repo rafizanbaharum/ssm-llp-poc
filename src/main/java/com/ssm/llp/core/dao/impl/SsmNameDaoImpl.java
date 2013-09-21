@@ -105,7 +105,8 @@ public class SsmNameDaoImpl extends DaoSupport<Long, SsmName, SsmNameImpl> imple
     public String[] findInstrName(String name, SsmNameType nameType) {
         Session session = sessionFactory.getCurrentSession();
         Query query = session.createQuery("select n.name from SsmName n where  " +
-                "instr(upper(:filter) , upper(n.name) ) > 0 " + //Postgres use strpos or position
+                "instr(upper(:filter) , upper(n.name) ) > 0 " +
+//                "and upper(:filter) like :filterLike " + //Postgres use strpos or position
                 "and n.nameType = :type ");
         query.setString("filter", name);
         query.setInteger("type", nameType.ordinal());

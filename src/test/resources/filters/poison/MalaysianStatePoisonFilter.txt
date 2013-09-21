@@ -1,9 +1,10 @@
-log.debug("StartWithMalaysianStatePoisonFilter");
+log.debug("MalaysianStatePoisonFilter");
 
       String[] states = nameDao.getStates();
         for (String state : states) {
             if (name.toUpperCase().startsWith(state)) {
                 log.debug("Found Invalid! " + state);
+                log.debug("Name = " + name);
                 return true;
             }
         }

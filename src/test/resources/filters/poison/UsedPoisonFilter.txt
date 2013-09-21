@@ -1,5 +1,5 @@
+import com.ssm.llp.core.model.*;
 log.debug("UsedPoisonFilter");
-log.debug("used: " + nameDao.hasName(name, 6));
 
 // check as a whole
-return nameDao.hasName(name, 6);
+return nameDao.hasName(name, SsmNameType.USED);

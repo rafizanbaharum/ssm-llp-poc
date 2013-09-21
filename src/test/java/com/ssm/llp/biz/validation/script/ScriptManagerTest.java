@@ -1,11 +1,15 @@
 package com.ssm.llp.biz.validation.script;
 
+import com.google.common.base.Splitter;
+import com.google.common.base.Strings;
+import com.google.common.collect.Iterables;
 import com.ssm.llp.CoreConfig;
 import com.ssm.llp.core.dao.SsmCompanyDao;
 import com.ssm.llp.core.dao.SsmFilterDao;
 import com.ssm.llp.core.dao.SsmNameDao;
 import com.ssm.llp.core.model.SsmFilter;
 import com.ssm.llp.core.model.SsmFilterType;
+import com.ssm.llp.core.model.SsmName;
 import com.ssm.llp.core.model.SsmNameType;
 import junit.framework.Assert;
 import org.hibernate.SessionFactory;
@@ -61,7 +65,7 @@ public class ScriptManagerTest extends AbstractTransactionalJUnit4SpringContextT
         List<SsmFilter> filters = filterDao.find(SsmFilterType.SEARCH);
         for (SsmFilter filter : filters) {
             HashMap<String, Object> map = new HashMap<String, Object>();
-            map.put("name", scriptUtil.scrubName("MALAYSIA RAYA PLT"));
+            map.put("name", scriptUtil.scrubName("MAJU.JAYA PLT"));
             boolean valid = scriptManager.executeSearchFilter(filter.getScript(), map);
             log.debug("valid?: " + valid);
         }
@@ -74,9 +78,9 @@ public class ScriptManagerTest extends AbstractTransactionalJUnit4SpringContextT
         List<SsmFilter> filters = filterDao.find(SsmFilterType.POISON);
         for (SsmFilter filter : filters) {
             HashMap<String, Object> map = new HashMap<String, Object>();
-            map.put("name", scriptUtil.scrubName(" negeri sembilan membodoh RAYA PLT"));
+            map.put("name", scriptUtil.scrubName(" malaysia negeri sembilan membodoh RAYA PLT\\"));
             boolean valid = scriptManager.executePoisonFilter(filter.getScript(), map);
-            log.debug("Result : " + filter.getName() + " " + valid);
+            log.debug("Result : " + filter.getName() + " " + Strings.padStart(Boolean.toString(valid), 10, '*'));
         }
     }
 
@@ -164,11 +168,20 @@ public class ScriptManagerTest extends AbstractTransactionalJUnit4SpringContextT
     @Test
     @Rollback(value = false)
     public void stringContainsGazettedWords() {
-        String[] invalidNames = new String[]{"canang CHAMBER OF COMMERCE & INDUSTRY PLT  BLAH BLAH"};
-        for (String invalidName : invalidNames) {
-            String scrubbedName = scriptUtil.scrubName(invalidName);
-            String[] instrName = nameDao.findInstrName(scrubbedName, SsmNameType.GAZETTED);
-            Assert.assertTrue("String not found!", instrName.length > 0);
+        String invalidName = "BUATANx diraja  MALAYSIA plt";
+        String scrubbedName = scriptUtil.scrubName(invalidName);
+        String[] permuteWords = scriptUtil.permuteWords(scrubbedName);
+        List<SsmName> gazettedNames = nameDao.find(SsmNameType.GAZETTED);
+        for (String permuteWord : permuteWords) {
+            for (SsmName gazettedName : gazettedNames) {
+                boolean matches = permuteWord.toUpperCase().replaceAll("[()]", "")
+                        .matches(".*\\b" + gazettedName.getName().toUpperCase().replaceAll("[()]", "") + "\\b.*");
+                if (matches) {
+                    log.debug("Found Invalid! " + gazettedName.getName());
+                    log.debug("Name = " + permuteWord);
+                    return;
+                }
+            }
         }
     }
 
@@ -176,12 +189,23 @@ public class ScriptManagerTest extends AbstractTransactionalJUnit4SpringContextT
     @Rollback(value = false)
     public void stringContainsControlledWords() {
         String[] invalidNames = new String[]{"KKKK KKKK FUTURES TRADING ADVISER LLP",
-                "INTERNATIONAL CRIMINAL POLICE ORGANISATION (ICPO-I",
-                " K.LUMPUR 2006 ", "NIRVANA"};
-        for (String invalidName : invalidNames) {
-            String scrubbedName = scriptUtil.scrubName(invalidName);
-            String[] instrName = nameDao.findInstrName(scrubbedName, SsmNameType.CONTROLLED);
-            Assert.assertTrue("String not found!", instrName.length > 0);
+                "INTERNATIONAL CRIMINAL POLICE ORGANISATION (ICPO-I)",
+                " K.LUMPUR 2006 ", "INCarnation NIRVANA", "C.S.L kelantan"};
+        for (String name : invalidNames) {
+            String scrubbedName = scriptUtil.scrubName(name);
+            String[] permuteWords = scriptUtil.permuteWords(scrubbedName);
+            List<SsmName> controlledNames = nameDao.find(SsmNameType.CONTROLLED);
+            for (String permuteWord : permuteWords) {
+                for (SsmName controlledName : controlledNames) {
+                    boolean matches = permuteWord.toUpperCase().replaceAll("[()]", "")
+                            .matches(".*\\b" + controlledName.getName().toUpperCase().replaceAll("[()]", "") + "\\b.*");
+                    if (matches) {
+                        log.debug("Found Invalid! " + controlledName.getName());
+                        log.debug("Name = " + permuteWord);
+                        return;
+                    }
+                }
+            }
         }
     }
 
@@ -189,21 +213,33 @@ public class ScriptManagerTest extends AbstractTransactionalJUnit4SpringContextT
     @Rollback(value = false)
     public void stringContainsOffensiveWords() {
         String[] invalidNames = new String[]{"AL HAMDULILLAH",
-                "kaw ni COMMUNIST ke? ", " INCORPORATION WTH KEPARAT "};
+                "kaw ni COMMUNIST ke companies? ", " INCORPORATION WTH KEPARAT "};
         for (String invalidName : invalidNames) {
             String scrubbedName = scriptUtil.scrubName(invalidName);
-            String[] instrName = nameDao.findInstrName(scrubbedName, SsmNameType.OFFENSIVE);
-            Assert.assertTrue("String not found!", instrName.length > 0);
+            String[] permuteWords = scriptUtil.permuteWords(scrubbedName);
+            List<SsmName> offensiveNames = nameDao.find(SsmNameType.OFFENSIVE);
+            for (String permuteWord : permuteWords) {
+                for (SsmName offensiveName : offensiveNames) {
+                    boolean matches = permuteWord.toUpperCase().replaceAll("[()]", "")
+                            .matches(".*\\b" + offensiveName.getName().toUpperCase().replaceAll("[()]", "") + "\\b.*");
+                    if (matches) {
+                        log.debug("Found Invalid! " + offensiveName.getName());
+                        log.debug("Name = " + permuteWord);
+//                        return;
+                    }
+                }
+            }
         }
     }
 
     @Test
     @Rollback(value = false)
     public void startWithMalaysiaOnly() {
-        String[] invalidNames = new String[]{"Malaysia trade PLT"};
+        String[] invalidNames = new String[]{"Malaysia trade PLT", " Malaysia trade PLT"};
         for (String name : invalidNames) Assert.assertTrue(validateStartWithMalaysia(name));
 
-        String[] validaNames = new String[]{" Durian Malaysia trade PLT", "Malaysian Trade Company LLP LLP"};
+        String[] validaNames = new String[]{" Durian Malaysia trade PLT", "Malaysian Trade Company LLP LLP",
+                " %Malaysia trade PLT"};
         for (String name : validaNames) Assert.assertFalse(validateStartWithMalaysia(name));
 
     }
@@ -219,10 +255,28 @@ public class ScriptManagerTest extends AbstractTransactionalJUnit4SpringContextT
         Assert.assertFalse(validateStartWithMalaysianState(validName));
     }
 
+    @Test
+    @Rollback(value = false)
+    public void nameWithInvalidSymbol() {
+        String[] names = new String[]{"  ABJJ% PERKONGSIAN LIABILITI TERHAD ",
+                "\\Pahang invest LLP LLP", "Pahang invest LLP LLP:"};
+
+        for (String name : names) {
+            for (SsmName symbol : nameDao.find(SsmNameType.SYMBOL)) {
+                if (name.contains(symbol.getName())) {
+                    log.debug("Found Invalid! " + symbol.getName());
+                    log.debug("Name = " + name);
+                    Assert.assertTrue(name.contains(symbol.getName()));
+                }
+            }
+        }
+    }
+
     private boolean validateStartWithMalaysia(String name) {
         String scrubbedName = scriptUtil.scrubName(name);
-        String[] split = scrubbedName.split(" ");
-        if ("MALAYSIA".equalsIgnoreCase(split[0])) {
+        Iterable<String> splits = Splitter.on(" ").split(scrubbedName);
+        String first = Iterables.getFirst(splits, "");
+        if ("MALAYSIA".equalsIgnoreCase(first)) {
             log.debug("Found Invalid! " + scrubbedName);
             return true;
         }

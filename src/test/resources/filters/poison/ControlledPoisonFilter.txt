@@ -1,3 +1,18 @@
+import java.util.*;
+import com.ssm.llp.core.model.*;
+
 log.debug("ControlledPoisonFilter");
-String[] instrName = nameDao.findInstrName(name, 5);
-return instrName.length > 0;
+            String[] permuteWords = util.permuteWords(name);
+            controlledNames = nameDao.find(SsmNameType.CONTROLLED);
+            for (String permuteWord : permuteWords) {
+                for (SsmName controlledName : controlledNames) {
+                    boolean matches = permuteWord.toUpperCase().replaceAll("[()]", "")
+                            .matches(".*\\b" + controlledName.getName().toUpperCase().replaceAll("[()]", "") + "\\b.*");
+                    if (matches) {
+                        log.debug("Found Invalid! " + controlledName.getName());
+                        log.debug("Name = " + permuteWord);
+                        return true;
+                    }
+                }
+            }
+            return false;

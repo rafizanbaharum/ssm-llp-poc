@@ -3,9 +3,11 @@ import com.ssm.llp.core.model.*;
 
 log.debug("SymbolPoisonFilter");
 
-// check contains
-for (SsmName symbol : nameDao.find(6)) {
-    if(name.contains(symbol.getName()))
-        return true;
-}
+            for (SsmName symbol : nameDao.find(SsmNameType.SYMBOL)) {
+                if (name.contains(symbol.getName())) {
+                    log.debug("Found Invalid! " + symbol.getName());
+                    log.debug("Name = " + name);
+                return true;
+                }
+        }
 return false;

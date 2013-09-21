@@ -1,5 +1,6 @@
 package com.ssm.llp.biz.validation;
 
+import com.google.common.base.Strings;
 import com.ssm.llp.biz.validation.script.ScriptManager;
 import com.ssm.llp.core.dao.SsmFilterDao;
 import com.ssm.llp.core.model.SsmFilter;
@@ -41,7 +42,7 @@ public class Validator {
         boolean result = false;
         for (SsmFilter filter : filters) {
             result = scriptManager.executePoisonFilter(filter.getScript(), map);
-            log.debug(filter.getName() + ":" + result);
+            log.debug(filter.getName() + ":" + Strings.padStart(String.valueOf(result), 10, '*'));
             if (result) {
                 context.setWaived(filter.isWaived());
                 context.setError(filter.getError());

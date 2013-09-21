@@ -46,6 +46,19 @@ public class ScriptUtil {
         return list.toArray(new String[]{});
     }
 
+    public String scrubName(String name) {
+        if (name.trim().isEmpty()) return "";
+        Pattern pattern = Pattern.compile("\\b(PLT|LLP|PERKONGSIAN LIABILITI TERHAD|LIMITED LIABILITY PARTNERSHIP)+\\b",
+                Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher(name);
+
+        StringBuffer sb = new StringBuffer();
+        while (matcher.find()) matcher.appendReplacement(sb, "");
+        matcher.appendTail(sb);
+
+        return CharMatcher.WHITESPACE.collapseFrom(sb.toString(), ' ').trim();
+    }
+
     /**
      * AYAM KAMBING IKAN
      * <p/>
@@ -72,19 +85,6 @@ public class ScriptUtil {
         return list.toArray(new String[]{});
     }
 
-    public String scrubName(String name) {
-        if (name.trim().isEmpty()) return "";
-        Pattern pattern = Pattern.compile("\\b(PLT|LLP|PERKONGSIAN LIABILITI TERHAD|LIMITED LIABILITY PARTNERSHIP)+\\b",
-                Pattern.CASE_INSENSITIVE);
-        Matcher matcher = pattern.matcher(name);
-
-        StringBuffer sb = new StringBuffer();
-        while (matcher.find()) matcher.appendReplacement(sb, "");
-        matcher.appendTail(sb);
-
-        return CharMatcher.WHITESPACE.collapseFrom(sb.toString(), ' ').trim();
-    }
-
     /**
      * FIXME: simple permutation with index of 2 only
      *
@@ -101,4 +101,28 @@ public class ScriptUtil {
         }
         return list.toArray(new String[]{});
     }
+
+    public String[] permuteWords(String s) {
+        String[] split = s.split(" ");
+        boolean[] used = new boolean[split.length];
+        String res = "";
+        List<String> list = new ArrayList<String>();
+        permute(split, used, res, 0, list);
+        return list.toArray(new String[]{});
+    }
+
+    public static void permute(String[] splits, boolean[] used, String res, int level, List<String> list) {
+//        log.debug(String.format("res = %s level = %d Used = %s", res, level, Arrays.toString(used)));
+        if (level == splits.length && !res.equals("")) {
+            list.add(res.trim());
+            return;
+        }
+        for (int i = 0; i < splits.length; i++) {
+            if (used[i]) continue;
+            used[i] = true;
+            permute(splits, used, res + " " + splits[i], level + 1, list);
+            used[i] = false;
+        }
+    }
+
 }
