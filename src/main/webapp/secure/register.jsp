@@ -161,7 +161,7 @@
                         <input type="file"/>
                     </p>
                 </div>
-                </div>
+            </div>
         </div>
         <div class="wiz_page step_2">
             <div class="wiz_sidebar grid_3">
@@ -258,14 +258,6 @@
                         <label for="address3">
                         </label>
                         <input type="text" class="required" name="address3" class="text">
-                    </p>
-                </div>
-
-                <div class="_100">
-                    <p>
-                        <label for="address4">
-                        </label>
-                        <input type="text" class="required" name="address4" class="text">
                     </p>
                 </div>
             </div>
