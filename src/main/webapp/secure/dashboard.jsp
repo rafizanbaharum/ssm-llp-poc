@@ -201,7 +201,7 @@
                 Your choice of LLP name ${name} is available.
                 <ul>
                     <li>If you want RESERVE the name please click <a
-                            href="/secure/company/reserve/${name}/${type}">here</a></li>
+                            href="/secure/company/reserve/${name}/${type}/${context.waived}">here</a></li>
                     <li>If you want the name please click <a href="/secure/company/register/${name}/${type}/${context.waived}">here</a>
                     </li>
                 </ul>
