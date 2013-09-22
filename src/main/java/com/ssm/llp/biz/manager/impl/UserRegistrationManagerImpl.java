@@ -6,6 +6,7 @@ import com.ssm.llp.core.dao.SsmActorDao;
 import com.ssm.llp.core.dao.SsmPrincipalRoleDao;
 import com.ssm.llp.core.dao.SsmUserDao;
 import com.ssm.llp.core.model.SsmOfficer;
+import com.ssm.llp.core.model.SsmPrincipalType;
 import com.ssm.llp.core.model.SsmRoleType;
 import com.ssm.llp.core.model.SsmUser;
 import com.ssm.llp.core.model.impl.SsmOfficerImpl;
@@ -51,9 +52,11 @@ public class UserRegistrationManagerImpl implements UserRegistrationManager {
         // add user
         SsmUser user = new SsmUserImpl();
         user.setEmail(email);
+        user.setUsername(username);
         user.setPassword(password);
         user.setRealname(name);
-        user.setLocked(false);
+        user.setLocked(true);//apsal kene true?
+        user.setPrincipalType(SsmPrincipalType.USER);
         userDao.save(user, root);
         sessionFactory.getCurrentSession().flush();
         sessionFactory.getCurrentSession().refresh(user);
