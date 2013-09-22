@@ -7,10 +7,7 @@ import com.ssm.llp.CoreConfig;
 import com.ssm.llp.core.dao.SsmCompanyDao;
 import com.ssm.llp.core.dao.SsmFilterDao;
 import com.ssm.llp.core.dao.SsmNameDao;
-import com.ssm.llp.core.model.SsmFilter;
-import com.ssm.llp.core.model.SsmFilterType;
-import com.ssm.llp.core.model.SsmName;
-import com.ssm.llp.core.model.SsmNameType;
+import com.ssm.llp.core.model.*;
 import junit.framework.Assert;
 import org.hibernate.SessionFactory;
 import org.junit.Before;
@@ -189,7 +186,7 @@ public class ScriptManagerTest extends AbstractTransactionalJUnit4SpringContextT
     @Rollback(value = false)
     public void stringContainsControlledWords() {
         String[] invalidNames = new String[]{"KKKK KKKK FUTURES TRADING ADVISER LLP",
-                "INTERNATIONAL CRIMINAL POLICE ORGANISATION (ICPO-I)",
+                "INTERNATIONAL CRIMINAL POLICE ORGANISATION (ICPO-I",
                 " K.LUMPUR 2006 ", "INCarnation NIRVANA", "C.S.L kelantan"};
         for (String name : invalidNames) {
             String scrubbedName = scriptUtil.scrubName(name);
@@ -202,7 +199,7 @@ public class ScriptManagerTest extends AbstractTransactionalJUnit4SpringContextT
                     if (matches) {
                         log.debug("Found Invalid! " + controlledName.getName());
                         log.debug("Name = " + permuteWord);
-                        return;
+//                        return;
                     }
                 }
             }
@@ -259,9 +256,33 @@ public class ScriptManagerTest extends AbstractTransactionalJUnit4SpringContextT
     @Rollback(value = false)
     public void nameWithInvalidSymbol() {
         String[] names = new String[]{"  ABJJ% PERKONGSIAN LIABILITI TERHAD ",
-                "\\Pahang invest LLP LLP", "Pahang invest LLP LLP:"};
+                "\\Pahang invest LLP\" LLP", "Pahang invest LLP LLP:"};
 
         for (String name : names) {
+            name = scriptUtil.scrubName(name);
+            for (SsmName symbol : nameDao.find(SsmNameType.SYMBOL)) {
+                if (name.contains(symbol.getName())) {
+                    log.debug("Found Invalid! " + symbol.getName());
+                    log.debug("Name = " + name);
+                    Assert.assertTrue(name.contains(symbol.getName()));
+                }
+            }
+        }
+    }
+
+    /*
+    * cth : Perkataan maju jaya = majujaya = maju & jaya = maju dan jaya
+
+    Perkataan jaya maju ≠ maju jaya
+    */
+    @Test
+    @Rollback(value = false)
+    public void workStemming() { // TODO
+        String[] names = new String[]{"  ABJJ% PERKONGSIAN LIABILITI TERHAD ",
+                "\\Pahang invest LLP\" LLP", "Pahang invest LLP LLP:"};
+
+        for (String name : names) {
+            name = scriptUtil.scrubName(name);
             for (SsmName symbol : nameDao.find(SsmNameType.SYMBOL)) {
                 if (name.contains(symbol.getName())) {
                     log.debug("Found Invalid! " + symbol.getName());

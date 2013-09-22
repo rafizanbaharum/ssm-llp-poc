@@ -25,6 +25,7 @@ import java.io.IOException;
 import java.io.LineNumberReader;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author rafizan.baharum
@@ -77,6 +78,14 @@ public class SsmNameDaoTest extends AbstractTransactionalJUnit4SpringContextTest
     @Test
     @Rollback(value = false)
     public void createNames() {
+
+        // delete all
+        List<SsmName> ssmNames = nameDao.find();
+        for (SsmName ssmName : ssmNames) {
+            sessionFactory.getCurrentSession().delete(ssmName);
+            sessionFactory.getCurrentSession().flush();
+        }
+
         // state
         String[] states = {"JOHOR", "NEGERI SEMBILAN", "MELAKA", "SELANGOR", "KUALA LUMPUR", "WILAYAH PERSEKUTUAN",
                 "PERAK", "KEDAH", "PULAU PINANG", "PERLIS", "PAHANG", "KELANTAN", "TERENGGANU", "SABAH", "SARAWAK"};
@@ -89,7 +98,7 @@ public class SsmNameDaoTest extends AbstractTransactionalJUnit4SpringContextTest
         }
 
         // symbols
-        String[] symbols = {"\\", "|", "/", "*", "%", "\"", ":", ";"};
+        String[] symbols = {"\\", "|", "/", "*", "%", "“", "”", "\"", ":", ";"};
         for (String symbol : symbols) {
             SsmSymbolNameImpl name1 = new SsmSymbolNameImpl();
             name1.setName(symbol);

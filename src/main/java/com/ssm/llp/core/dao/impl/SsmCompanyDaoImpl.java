@@ -34,7 +34,7 @@ public class SsmCompanyDaoImpl extends DaoSupport<Long, SsmCompany, SsmCompanyIm
     public boolean hasName(String name) {
         Session session = sessionFactory.getCurrentSession();
         Query query = session.createQuery("select count(c) from SsmCompany c where " +
-                "c.name = :name ");
+                "upper(c.name) = upper(:name) ");
         query.setString("name", name);
         return 0 < ((Long) query.uniqueResult()).intValue();
     }
@@ -43,12 +43,12 @@ public class SsmCompanyDaoImpl extends DaoSupport<Long, SsmCompany, SsmCompanyIm
     public boolean isValidWinding(String name) {
         Session session = sessionFactory.getCurrentSession();
         Query query = session.createQuery("select count(c) from SsmCompany c where " +
-                "c.name = :name and c.expiredDate  < :current ");
+                "upper(c.name) = upper(:name) and c.expiredDate  < :current ");
         query.setString("name", name);
 
         Calendar cal = Calendar.getInstance();
-        cal.add(Calendar.YEAR,-2);
-        query.setDate("current",cal.getTime());
+        cal.add(Calendar.YEAR, -2);
+        query.setDate("current", cal.getTime());
 
         return 0 < ((Long) query.uniqueResult()).intValue();
     }
@@ -62,20 +62,17 @@ public class SsmCompanyDaoImpl extends DaoSupport<Long, SsmCompany, SsmCompanyIm
 
     @Override
     public List<SsmCompany> find(String filter) {
-        Session session = sessionFactory.getCurrentSession();
         FullTextSession fullTextSession = Search.getFullTextSession(sessionFactory.getCurrentSession());
         QueryBuilder builder = fullTextSession
                 .getSearchFactory()
                 .buildQueryBuilder().forEntity(SsmCompanyImpl.class).get();
         org.apache.lucene.search.Query termQuery = builder.keyword()
-                .onField("Company")
+                .onField("name")
                 .matching(filter)
                 .createQuery();
         FullTextQuery fullTextQuery = fullTextSession.createFullTextQuery(termQuery, SsmCompanyImpl.class);
         return (List<SsmCompany>) fullTextQuery.list();
     }
-
-
 
     @Override
     public List<SsmCompany> findByOwner(SsmCompanyType companyType, SsmUser owner) {
