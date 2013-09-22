@@ -1,6 +1,6 @@
 package com.ssm.llp.web.controller;
 
-import com.ssm.llp.biz.validation.Validator;
+import com.ssm.llp.biz.validation.ValidatorHelper;
 import com.ssm.llp.biz.validation.ValidatorContext;
 import com.ssm.llp.biz.validation.script.ScriptUtil;
 import org.slf4j.Logger;
@@ -23,7 +23,7 @@ public class ValidateController {
     private Logger log = LoggerFactory.getLogger(ValidateController.class);
 
     @Autowired
-    private Validator validator;
+    private ValidatorHelper validator;
 
     @Autowired
     private ScriptUtil scriptUtil;

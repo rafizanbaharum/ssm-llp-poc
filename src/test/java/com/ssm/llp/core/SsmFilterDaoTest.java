@@ -88,6 +88,8 @@ public class SsmFilterDaoTest extends AbstractTransactionalJUnit4SpringContextTe
         errorMap.put("SpecialWordPoisonFilter", "YOUR CHOSEN NAME IS INVALID");
         errorMap.put("StandaloneCountryPoisonFilter", "YOUR CHOSEN NAME HAS GAZETTED WORD(S)");
         errorMap.put("StandaloneStatePoisonFilter", "YOUR CHOSEN NAME GAZETTED WORD(S)");
+        errorMap.put("NonStandaloneCountryPoisonFilter", "NO ERROR, FOR FLAGGING PURPOSES");
+        errorMap.put("NonStandaloneStatePoisonFilter", "NO ERROR, FOR FLAGGING PURPOSES");
         errorMap.put("StatePoisonFilter", "YOUR CHOSEN NAME GAZETTED WORD(S)");
         errorMap.put("SymbolPoisonFilter", "YOUR CHOSEN NAME HAS INVALID SYMBOL(S)");
         errorMap.put("UsedPoisonFilter", "YOUR CHOSEN NAME EXISTED");

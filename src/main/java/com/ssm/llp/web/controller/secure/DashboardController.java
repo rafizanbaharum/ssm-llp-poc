@@ -1,6 +1,6 @@
 package com.ssm.llp.web.controller.secure;
 
-import com.ssm.llp.biz.validation.Validator;
+import com.ssm.llp.biz.validation.ValidatorHelper;
 import com.ssm.llp.biz.validation.ValidatorContext;
 import com.ssm.llp.biz.validation.script.ScriptUtil;
 import com.ssm.llp.core.dao.SsmCompanyDao;
@@ -32,7 +32,7 @@ public class DashboardController extends SecureControllerSupport {
     private SsmCompanyDao companyDao;
 
     @Autowired
-    private Validator validator;
+    private ValidatorHelper validator;
 
     @Autowired
     private ScriptUtil scriptUtil;

@@ -28,7 +28,7 @@ import java.util.GregorianCalendar;
 @Transactional
 public class CompanyRegistrationManagerImpl implements CompanyRegistrationManager {
 
-     private static final Logger log = Logger.getLogger(CompanyRegistrationManagerImpl.class);
+    private static final Logger log = Logger.getLogger(CompanyRegistrationManagerImpl.class);
 
     private final int RESERVE_DURATION = 3;
     private final int RESERVE_PERIOD = Calendar.MONTH;
@@ -54,7 +54,7 @@ public class CompanyRegistrationManagerImpl implements CompanyRegistrationManage
     private ApplicationContext applicationContext;
 
     @Override
-    public void register(String name, SsmCompanyType companyType, SsmUser user) {
+    public void register(String name, SsmCompanyType companyType, boolean waived, SsmUser user) {
         // save company
         SsmLlpCompany company = new SsmLlpCompanyImpl();
         company.setCompanyStatus(SsmCompanyStatus.NEW);
@@ -75,18 +75,18 @@ public class CompanyRegistrationManagerImpl implements CompanyRegistrationManage
     }
 
     @Override
-    public void reserveName(String name, SsmCompanyType companyType, SsmUser user) {
+    public void reserveName(String name, SsmCompanyType companyType, boolean waived, SsmUser user) {
 
         SsmReservedName ssmName = new SsmReservedNameImpl();
         ssmName.setName(name);
         ssmName.setStartDate(new Date());
 
         Calendar cal = new GregorianCalendar();
-        cal.add(RESERVE_PERIOD,RESERVE_DURATION);
+        cal.add(RESERVE_PERIOD, RESERVE_DURATION);
         ssmName.setEndDate(cal.getTime());
         ssmName.setCompanyType(companyType);
+        ssmName.setWaived(waived);
 
-        nameDao.save(ssmName,user);
-
+        nameDao.save(ssmName, user);
     }
 }

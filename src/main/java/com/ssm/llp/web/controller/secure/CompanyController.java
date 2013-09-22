@@ -41,14 +41,14 @@ public class CompanyController extends SecureControllerSupport {
         return "secure/reserve";
     }
 
-    @RequestMapping(value = "/reserve/{name}/{type}", method = {RequestMethod.GET})
-    public String makeReservation(@PathVariable String name, @PathVariable String type, ModelMap model) {
-        registrationManager.reserveName(name, SsmCompanyType.valueOf(type), getCurrentUser());
+    @RequestMapping(value = "/reserve/{name}/{type}/{waived}", method = {RequestMethod.GET})
+    public String makeReservation(@PathVariable String name, @PathVariable String type, @PathVariable boolean waived, ModelMap model) {
+        registrationManager.reserveName(name, SsmCompanyType.valueOf(type), waived, getCurrentUser());
         return "redirect:/secure/company/reserve";
     }
 
-    @RequestMapping(value = "/register/{name}/{type}", method = {RequestMethod.GET})
-    public String register(@PathVariable String name, @PathVariable String type, ModelMap model) {
+    @RequestMapping(value = "/register/{name}/{type}/{waived}", method = {RequestMethod.GET})
+    public String register(@PathVariable String name, @PathVariable String type, @PathVariable boolean waived, ModelMap model) {
         model.put("type", SsmCompanyType.valueOf(type));
         model.put("name", name);
         return "secure/register";
@@ -112,8 +112,9 @@ public class CompanyController extends SecureControllerSupport {
             @RequestParam("companyType") String companyType,
             @RequestParam("registrar") String registrar,
             @RequestParam("paymentMethod") String paymentMethod,
+            @RequestParam("waived") boolean waived,
             ModelMap model) {
-        registrationManager.register(name, SsmCompanyType.LLP, getCurrentUser());
+        registrationManager.register(name, SsmCompanyType.LLP, waived, getCurrentUser());
         return "confirm";
     }
 }

@@ -12,6 +12,7 @@ import java.util.Date;
 
 /**
  * BOOKED NAME
+ *
  * @author rafizan.baharum
  * @since 9/6/13
  */
@@ -24,6 +25,9 @@ public class SsmReservedNameImpl extends SsmNameImpl implements SsmReservedName,
 
     @Column(name = "END_DATE")
     private Date endDate;
+
+    @Column(name = "WAIVED")
+    private boolean waived;
 
     @Column(name = "COMPANY_TYPE")
     private SsmCompanyType companyType;
@@ -46,6 +50,14 @@ public class SsmReservedNameImpl extends SsmNameImpl implements SsmReservedName,
 
     public void setEndDate(Date endDate) {
         this.endDate = endDate;
+    }
+
+    public boolean isWaived() {
+        return waived;
+    }
+
+    public void setWaived(boolean waived) {
+        this.waived = waived;
     }
 
     public SsmCompanyType getCompanyType() {

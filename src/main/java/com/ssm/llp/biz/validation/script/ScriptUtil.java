@@ -1,16 +1,11 @@
 package com.ssm.llp.biz.validation.script;
 
 import com.google.common.base.CharMatcher;
-import com.google.common.base.Splitter;
-import com.google.common.base.Strings;
-import com.google.common.collect.Iterables;
-import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -48,6 +43,7 @@ public class ScriptUtil {
 
     public String scrubName(String name) {
         if (name.trim().isEmpty()) return "";
+        name = name.toUpperCase();
         Pattern pattern = Pattern.compile("\\b(PLT|LLP|PERKONGSIAN LIABILITI TERHAD|LIMITED LIABILITY PARTNERSHIP)+\\b",
                 Pattern.CASE_INSENSITIVE);
         Matcher matcher = pattern.matcher(name);

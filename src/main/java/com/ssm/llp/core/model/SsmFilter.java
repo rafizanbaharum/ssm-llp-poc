@@ -18,10 +18,6 @@ public interface SsmFilter extends SsmMetaObject {
 
     void setError(String error);
 
-    boolean isWaived();
-
-    void setWaived(boolean waived);
-
     String getScript();
 
     void setScript(String script);

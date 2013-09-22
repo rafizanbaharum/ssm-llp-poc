@@ -1,12 +1,12 @@
 package com.ssm.llp.biz.validation.script;
 
+import com.ssm.llp.biz.validation.ValidatorContext;
 import com.ssm.llp.core.dao.SsmCompanyDao;
 import com.ssm.llp.core.dao.SsmFilterDao;
 import com.ssm.llp.core.dao.SsmNameDao;
 import com.ssm.llp.core.dao.impl.SsmCompanyDaoImpl;
 import com.ssm.llp.core.dao.impl.SsmFilterDaoImpl;
 import com.ssm.llp.core.dao.impl.SsmNameDaoImpl;
-import com.ssm.llp.core.model.SsmNameType;
 import org.apache.bsf.BSFEngine;
 import org.apache.bsf.BSFException;
 import org.apache.bsf.BSFManager;
@@ -18,7 +18,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
-import java.util.*;
+import java.util.Map;
 
 /**
  * @author rafizan.baharum
@@ -97,6 +97,7 @@ public class ScriptManager implements InitializingBean {
             manager.declareBean("companyDao", companyDao, SsmCompanyDaoImpl.class);
             manager.declareBean("filterDao", filterDao, SsmFilterDaoImpl.class);
             manager.declareBean("name", params.get("name"), String.class);
+            manager.declareBean("context", params.get("context"), ValidatorContext.class);
             manager.declareBean("log", scriptLog, ScriptLog.class);
             manager.declareBean("util", scriptUtil, ScriptUtil.class);
         } catch (BSFException e) {

@@ -16,6 +16,11 @@ public interface SsmReservedName extends SsmName {
 
     void setEndDate(Date endDate);
 
+    // is waiver needed
+    boolean isWaived();
+
+    void setWaived(boolean waived);
+
     SsmCompanyType getCompanyType();
 
     void setCompanyType(SsmCompanyType companyType);

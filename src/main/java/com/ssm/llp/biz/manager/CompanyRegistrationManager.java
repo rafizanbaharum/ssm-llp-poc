@@ -9,7 +9,7 @@ import com.ssm.llp.core.model.SsmUser;
  */
 public interface CompanyRegistrationManager {
 
-    void register(String name, SsmCompanyType companyType, SsmUser user);
+    void register(String name, SsmCompanyType companyType, boolean waived, SsmUser user);
 
-    void reserveName(String name, SsmCompanyType companyType, SsmUser user);
+    void reserveName(String name, SsmCompanyType companyType, boolean waived, SsmUser user);
 }
