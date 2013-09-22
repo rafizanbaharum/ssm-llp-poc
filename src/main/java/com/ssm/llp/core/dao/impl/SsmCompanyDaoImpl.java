@@ -34,8 +34,9 @@ public class SsmCompanyDaoImpl extends DaoSupport<Long, SsmCompany, SsmCompanyIm
     public boolean hasName(String name) {
         Session session = sessionFactory.getCurrentSession();
         Query query = session.createQuery("select count(c) from SsmCompany c where " +
-                "upper(c.name) = upper(:name) ");
+                "upper(c.name) = upper(:name) and c.companyStatus <> :companyStatus  ");
         query.setString("name", name);
+        query.setInteger("companyStatus", SsmCompanyStatus.WINDING.ordinal());
         return 0 < ((Long) query.uniqueResult()).intValue();
     }
 
@@ -43,12 +44,13 @@ public class SsmCompanyDaoImpl extends DaoSupport<Long, SsmCompany, SsmCompanyIm
     public boolean isValidWinding(String name) {
         Session session = sessionFactory.getCurrentSession();
         Query query = session.createQuery("select count(c) from SsmCompany c where " +
-                "upper(c.name) = upper(:name) and c.expiredDate  < :current ");
+                "upper(c.name) = upper(:name) and c.expiredDate  < :current and c.companyStatus = :companyStatus ");
         query.setString("name", name);
 
         Calendar cal = Calendar.getInstance();
         cal.add(Calendar.YEAR, -2);
         query.setDate("current", cal.getTime());
+        query.setInteger("companyStatus", SsmCompanyStatus.WINDING.ordinal());
 
         return 0 < ((Long) query.uniqueResult()).intValue();
     }
