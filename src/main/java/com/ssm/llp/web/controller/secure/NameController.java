@@ -45,6 +45,18 @@ public class NameController extends SecureControllerSupport {
         return "secure/offensive";
     }
 
+    @RequestMapping(value = "/reserved", method = {RequestMethod.GET})
+    public String reserved(ModelMap model) {
+        model.put("names", nameDao.find(SsmNameType.RESERVED));
+        return "secure/reserved";
+    }
+
+    @RequestMapping(value = "/symbol", method = {RequestMethod.GET})
+    public String symbol(ModelMap model) {
+        model.put("names", nameDao.find(SsmNameType.SYMBOL));
+        return "secure/symbol";
+    }
+
     @RequestMapping(value = "/plural", method = {RequestMethod.GET})
     public String plural(ModelMap model) {
         model.put("names", nameDao.find(SsmNameType.PLURAL));

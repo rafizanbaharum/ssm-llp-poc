@@ -164,6 +164,12 @@
                         <li>
                             <a href="/secure/name/offensive">Offensive</a>
                         </li>
+                        <li>
+                            <a href="/secure/name/reserved">Reserved</a>
+                        </li>
+                        <li>
+                            <a href="/secure/name/symbol">Symbol</a>
+                        </li>
                         <li class="current">
                             <a href="/secure/name/similar">Similar</a>
                         </li>

@@ -1,6 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <html>
 <head>
@@ -11,7 +10,6 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-
     <!-- CSS -->
     <link rel="stylesheet" href="/resources/css/960gs/fluid.css">
     <link rel="stylesheet" href="/resources/css/h5bp/normalize.css">
@@ -32,9 +30,7 @@
     <link rel="stylesheet" href="/resources/css/external/jquery-ui-1.8.16.custom.css">
     <link rel="stylesheet" href="/resources/css/sidebar.css">
 </head>
-
 <body>
-
 <!-- Begin of #height-wrapper -->
 <div id="height-wrapper">
     <!-- Begin of header -->
@@ -64,102 +60,131 @@
                                 <div class="toolcaption">
                                     <span>${currentUser.realname}</span>
                                 </div>
-                                <!-- Start of menu -->
-                                <div class="dropdown">
-                                    <ul>
-                                        <li>
-                                            <a href="#">Settings</a>
-                                        </li>
-                                        <li>
-                                            <a href="/gate/out">Logout</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <!-- End of menu -->
                             </div>
+                            <!-- End of menu -->
                         </div>
                     </div>
-                    <!-- End of large toolbar button -->
                 </div>
-                <!-- End of right part -->
+                <!-- End of large toolbar button -->
             </div>
+            <!-- End of right part -->
         </div>
         <!-- End of the header toolbar -->
+    </header>
 
-        <!-- Start of the main header bar -->
-        <nav id="header_main">
-            <div class="container_12">
-                <!-- Start of the main navigation -->
-                <ul id="nav_main">
-                    <li>
-                        <a href="#">
-                            <img src="/resources/img/icons/25x25/dark/computer-imac.png" width=25 height=25 alt="">
-                            Dashboard</a>
-                        <ul>
-                            <li>
-                                <a href="/secure/dashboard">Dashboard</a>
-                            </li>
-                        </ul>
-                    </li>
+    <!-- Start of the main header bar -->
+    <nav id="header_main">
+        <div class="container_12">
+            <!-- Start of the main navigation -->
+            <ul id="nav_main">
+                <li>
+                    <a href="#">
+                        <img src="/resources/img/icons/25x25/dark/computer-imac.png" width=25 height=25 alt="">
+                        Dashboard</a>
+                    <ul>
+                        <li>
+                            <a href="/secure/dashboard">Dashboard</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="/resources/img/icons/25x25/dark/documents.png" width=25 height=25 alt="">
+                        My Companies</a>
+                    <ul>
+                        <li>
+                            <a href="/secure/company/reserve">Reservations</a>
+                        </li>
+                        <li>
+                            <a href="/secure/company/llp">LLP</a>
+                        </li>
+                        <li>
+                            <a href="/secure/company/roc">ROC</a>
+                        </li>
+                        <li>
+                            <a href="/secure/company/rob">ROB</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="/resources/img/icons/25x25/dark/address-book.png" width=25 height=25 alt="">
+                        Literatures</a>
+                    <ul>
+                        <li>
+                            <a href="/secure/literature/legal">Legal</a>
+                        </li>
+                        <li>
+                            <a href="/secure/literature/about">About</a>
+                        </li>
+                    </ul>
+                </li>
+                <sec:authorize ifAllGranted="ROLE_ADMINISTRATOR">
                     <li class="current">
                         <a href="#">
-                            <img src="/resources/img/icons/25x25/dark/documents.png" width=25 height=25 alt="">
-                            My Companies</a>
+                            <img src="/resources/img/icons/25x25/dark/archive.png" width=25 height=25 alt="">
+                            Rules</a>
                         <ul>
+                            <li>
+                                <a href="/secure/filter/all">Filters</a>
+                            </li>
                             <li class="current">
-                                <a href="/secure/company/reserve">Reservations</a>
-                            </li>
-                            <li>
-                                <a href="/secure/company/llp">LLP</a>
-                            </li>
-                            <li>
-                                <a href="/secure/company/roc">ROC</a>
-                            </li>
-                            <li>
-                                <a href="/secure/company/rob">ROB</a>
+                                <a href="/secure/name/all">Names</a>
                             </li>
                         </ul>
                     </li>
-                    <li>
-                        <a href="#">
-                            <img src="/resources/img/icons/25x25/dark/address-book.png" width=25 height=25 alt="">
-                            Literatures</a>
-                        <ul>
-                            <li>
-                                <a href="/secure/literature/legal">Legal</a>
-                            </li>
-                            <li>
-                                <a href="/secure/literature/about">About</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <sec:authorize ifAllGranted="ROLE_ADMINISTRATOR">
-                        <li>
-                            <a href="#">
-                                <img src="/resources/img/icons/25x25/dark/archive.png" width=25 height=25 alt="">
-                                Rules</a>
-                            <ul>
-                                <li>
-                                    <a href="/secure/filter/all">Filters</a>
-                                </li>
-                                <li>
-                                    <a href="/secure/name/all">Names</a>
-                                </li>
-                            </ul>
-                        </li>
-                    </sec:authorize>
-                </ul>
-                <!-- End of the main navigation -->
-            </div>
-        </nav>
-        <div id="nav_sub"></div>
+                </sec:authorize>
+            </ul>
+            <!-- End of the main navigation -->
+        </div>
+    </nav>
+    <div id="nav_sub"></div>
     </header>
 
     <!-- Start of the content -->
     <div role="main" class="container_12" id="content-wrapper">
+        <!-- Start of the sidebar -->
+        <aside>
+            <div id="sidebar_content">
+                <h2>Menu</h2>
+
+                <p>
+                    Use actions below:
+                </p>
+
+                <div class="divider"></div>
+                <nav>
+                    <ul class="menu collapsible">
+                        <li class="first-child">
+                            <a href="/secure/name/controlled">Controlled</a>
+                        </li>
+                        <li>
+                            <a href="/secure/name/gazetted">Gazetted</a>
+                        </li>
+                        <li>
+                            <a href="/secure/name/offensive">Offensive</a>
+                        </li>
+                        <li>
+                            <a href="/secure/name/reserved">Reserved</a>
+                        </li>
+                        <li class="current">
+                            <a href="/secure/name/symbol">Symbol</a>
+                        </li>
+                        <li>
+                            <a href="/secure/name/similar">Similar</a>
+                        </li>
+                        <li class="last-child">
+                            <a href="/secure/name/plural">Plural</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+        <!-- End of the sidebar-->
+
         <!-- Start of the main content -->
         <div id="main_content">
-            <h2 class="grid_12">Reserved Companies Names</h2>
+            <h2 class="grid_12">LLP Name Rules</h2>
 
             <div class="clean"></div>
 
@@ -168,37 +193,29 @@
                     <div class="header">
                         <img src="/resources/img/icons/packs/fugue/16x16/shadeless/table.png" width="16" height="16">
 
-                        <h3>Reserved Name</h3><span></span>
+                        <h3>Offensive Name</h3><span></span>
                     </div>
                     <div class="content no-padding">
                         <table class="table">
                             <colgroup>
                                 <col class="wwe-first-col">
-                                 <col class="wwe-table-col-width">
                                 <col class="wwe-table-col-width">
+                                <col class="wwe-align-left">
                                 <col class="wwe-table-col-width">
-                                <col class="wwe-table-col-width">
-                                <col class="wwe-align-center">
                             </colgroup>
                             <thead>
                             <tr>
-                                <th class="wwe-lang-rank" scope="col">ID</th>
+                                <th class="wwe-lang-rank" scope="col">No.</th>
                                 <th class="wwe-align-left wwe-lang-club" scope="col">Name</th>
-                                <th class="wwe-lang-matches" scope="col">Start</th>
-                                <th class="wwe-lang-matches" scope="col">End</th>
                                 <th class="wwe-lang-matches" scope="col">Type</th>
-                                <th class="wwe-lang-matches" scope="col">Action</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <c:forEach var="reserve" items="${reserves}">
+                            <c:forEach var="name" items="${names}" varStatus="i">
                                 <tr>
-                                    <td class="wwe-1rank"><span>${reserve.id}</span></td>
-                                    <td class="wwe-align-left">${reserve.name}</td>
-                                    <td><fmt:formatDate value="${reserve.startDate}" pattern="dd/MM/yyyy"/></td>
-                                    <td><fmt:formatDate value="${reserve.endDate}" pattern="dd/MM/yyyy"/></td>
-                                    <td>${reserve.companyType}</td>
-                                    <td><a href="/secure/company/register/${reserve.name}/LLP">Register</a></td>
+                                    <td class="wwe-1rank"><span>${i.index + 1}</span></td>
+                                    <td class="wwe-align-left">${name.name}</td>
+                                    <td>${name.nameType}</td>
                                 </tr>
                             </c:forEach>
                             </tbody>
@@ -209,6 +226,9 @@
                 </div>
                 <!-- End of .box -->
             </div>
+            <!-- End of .grid_12 -->
+            <!-- End of .grid_12 -->
+
         </div>
         <!-- End of #main_content -->
         <div class="push clear"></div>
@@ -244,6 +264,7 @@
 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
 <script>window.jQuery.ui || document.write('<script src="/resources/js/libs/jquery-ui-1.8.16.min.js"><\/script>')</script>
 
+<!-- scripts concatenated and minified via build script -->
 <script defer src="/resources/js/plugins.js"></script>
 <script defer src="/resources/js/mylibs/jquery.ba-resize.js"></script>
 <script defer src="/resources/js/mylibs/jquery.easing.1.3.js"></script>
@@ -251,6 +272,5 @@
 <script defer src="/resources/js/mylibs/jquery.chosen.js"></script>
 <script defer src="/resources/js/mylibs/jquery.validate.js"></script>
 <script defer src="/resources/js/script.js"></script>
-
 </body>
 </html>

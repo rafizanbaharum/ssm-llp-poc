@@ -164,7 +164,7 @@
                     <li>
                         <a href="/secure/name/offensive">Offensive</a>
                     </li>
-                    <li>
+                    <li class="current">
                         <a href="/secure/name/reserved">Reserved</a>
                     </li>
                     <li>
@@ -173,7 +173,7 @@
                     <li>
                         <a href="/secure/name/similar">Similar</a>
                     </li>
-                    <li class="last-child current">
+                    <li class="last-child">
                         <a href="/secure/name/plural">Plural</a>
                     </li>
                 </ul>
@@ -193,7 +193,7 @@
                 <div class="header">
                     <img src="/resources/img/icons/packs/fugue/16x16/shadeless/table.png" width="16" height="16">
 
-                    <h3>Plural Name</h3><span></span>
+                    <h3>Gazetted Name</h3><span></span>
                 </div>
                 <div class="content no-padding">
                     <table class="table">
@@ -202,12 +202,15 @@
                             <col class="wwe-table-col-width">
                             <col class="wwe-align-left">
                             <col class="wwe-table-col-width">
+                            <col class="wwe-table-col-width">
+                            <col class="wwe-table-col-width">
                         </colgroup>
                         <thead>
                         <tr>
                             <th class="wwe-lang-rank" scope="col">No.</th>
                             <th class="wwe-align-left wwe-lang-club" scope="col">Name</th>
-                            <th class="wwe-align-left wwe-lang-club" scope="col">Plural</th>
+                            <th class="wwe-lang-matches" scope="col">Start</th>
+                            <th class="wwe-lang-matches" scope="col">End</th>
                             <th class="wwe-lang-matches" scope="col">Type</th>
                         </tr>
                         </thead>
@@ -216,7 +219,8 @@
                             <tr>
                                 <td class="wwe-1rank"><span>${i.index + 1}</span></td>
                                 <td class="wwe-align-left">${name.name}</td>
-                                <td class="wwe-align-left">${name.plural}</td>
+                                <td>${name.startDate}</td>
+                                <td>${name.endDate}</td>
                                 <td>${name.nameType}</td>
                             </tr>
                         </c:forEach>
