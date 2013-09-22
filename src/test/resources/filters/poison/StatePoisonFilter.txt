@@ -1,9 +1,14 @@
-log.debug("StatePoisonFilter");
+             log.debug("StatePoisonFilter");
 
-// check word for word
-String[] words = name.split(" ");
-for(int i=0; i < words.length; i++){
-      log.debug("words: " + words[i]);
-      if(nameDao.hasName(words[i], 2)) return true;
-}
-return false;
+             // check word for word
+             // should not check on every word or it'll be just like NonStandAloneFilter
+             /*
+             String[] words = name.split(" ");
+             for(int i=0; i < words.length; i++){
+                   log.debug("words: " + words[i]);
+                   if(nameDao.hasName(words[i], 2)) return true;
+             }
+             return false;
+             */
+
+             return nameDao.hasName(words[i], 2);

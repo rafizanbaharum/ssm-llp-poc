@@ -10,6 +10,7 @@ log.debug("NonStandaloneStatePoisonFilter");
                     // flag context.waived
                     context.setWaived(true);
                 return true; // it's okay, we're just flagging
+                return false; // not ok, can't proceed with registration
                 }
         }
 return false;
