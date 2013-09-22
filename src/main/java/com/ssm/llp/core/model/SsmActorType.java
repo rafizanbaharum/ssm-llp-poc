@@ -8,5 +8,5 @@ public enum SsmActorType {
     STAFF,
     DIRECTOR,
     OFFICER,
-    PROFESSIONAL_BODY;
+    PROFESSIONAL;
 }

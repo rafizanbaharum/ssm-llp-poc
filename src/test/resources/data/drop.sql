@@ -9,6 +9,7 @@ drop table SSM_DOCUMENT:
 
 drop table SSM_STAFF;
 drop table SSM_OFFICER;
+drop table SSM_PROFESSIONAL;
 drop table SSM_ACTOR;
 
 drop table SSM_POISON_FILTER;
