@@ -5,10 +5,10 @@ package com.ssm.llp.biz.validation;
  * @since 9/19/13
  */
 public class ValidatorContext {
-    private boolean poisoned;
-    private boolean existed;
-    private String error;
-    private boolean waived;
+    private boolean poisoned = false;
+    private boolean existed = false;
+    private String error = "ERROR";
+    private boolean waived = false;
 
     public boolean isValid() {
         return !(poisoned | existed);
