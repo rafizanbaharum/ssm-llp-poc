@@ -153,6 +153,14 @@
                         </select>
                     </p>
                 </div>
+                <div class="_100">
+                    <p>
+                        <label for="name">
+                            Supporting Document
+                        </label>
+                        <input type="file"/>
+                    </p>
+                </div>
                 <div class="push"></div>
         </div>
         <div class="wiz_page step_2">
