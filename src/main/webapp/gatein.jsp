@@ -67,6 +67,9 @@
                     </div>
                 </div>
                 <div class="actions">
+                    <div class="actions-left">
+                        <input type="button" value="Register New Account" onclick="parent.location='<%=request.getContextPath() %>/register'"/>
+                    </div>
                     <div class="actions-right">
                         <input type="submit" value="Login"/>
                     </div>
