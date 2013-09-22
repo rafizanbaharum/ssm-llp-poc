@@ -164,37 +164,20 @@
         <h2>Menu</h2>
 
         <p>
-            Lorem ipsum dolor sit amet,
-            consectetur adipisicing elit, sed do
-            eiusmod tempor incididunt ut labore
-            et dolore magna aliqua.
+            You can use this menu to jump to features on this application.
         </p>
 
         <div class="divider"></div>
         <nav>
-            <ul class="menu collapsible">
+            <ul class="menu">
                 <li class="first-child current">
-                    <a href="#">State: current</a>
+                    <a href="/secure/dashboard">Dashboard</a>
                 </li>
                 <li>
-                    <a href="#">State: normal</a>
-                    <ul class="sub">
-                        <li>
-                            <a href="#">State: normal</a>
-                        </li>
-                        <li>
-                            <a href="#">State: normal</a>
-                        </li>
-                        <li>
-                            <a href="#">State: normal</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">State: normal</a>
+                    <a href="/secure/company/reserve">My Companies</a>
                 </li>
                 <li class="last-child">
-                    <a href="#">State: normal</a>
+                    <a href="/secure/literature/legal">Literatures</a>
                 </li>
             </ul>
         </nav>
