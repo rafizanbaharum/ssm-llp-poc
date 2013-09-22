@@ -1,7 +1,40 @@
+import java.util.*;
+import com.ssm.llp.core.model.*;
+import com.google.common.*;
+
 log.debug("AmpersandStemmingSearchFilter");
-if(name.contains("&")) {
-  temp = name.replace("&","");
-  log.debug("name after stemming: " + temp);
-  return companyDao.hasName(temp);
-}
-else return false;
+
+            String[] stems = new String[]{"", " ", " DAN ", " & "};
+            String first = null, last = null;
+
+            if (name.contains("&") 
+                    || name.contains("DAN") 
+                    ||name.contains("dan")) {
+                String[] splits = name.split("DAN|dan|&");
+                log.debug("split.toString() = " + Arrays.toString(splits));
+                String first = null, last = null;
+
+                if (splits[0].split(" ").length > 0) {
+                    splitRights = com.google.common.base.Splitter.on(" ").omitEmptyStrings().trimResults().split(splits[0]);
+                    last = com.google.common.collect.Iterables.getLast(splitRights, "");
+                    log.debug("last = " + last);
+                }
+                if (splits[1].split(" ").length > 0) {
+                    splitRights = com.google.common.base.Splitter.on(" ").omitEmptyStrings().trimResults().split(splits[1]);
+                    first = com.google.common.collect.Iterables.getFirst(splitRights, "");
+                    log.debug("first = " + first);
+                }
+                for (String stem : stems) {
+                    String join = last + stem + first;
+                    ssmCompanies = companyDao.find();
+                    for (SsmCompany ssmCompany : ssmCompanies) {
+                        boolean match = ssmCompany.getName().matches(".*\\b" + join.toUpperCase().replaceAll("[()]", "") + "\\b.*");
+                        if (match) {
+                            log.debug("found! = " + ssmCompany.getName() + " >> " + ssmCompany.getId());
+                            return true;
+                        }
+                    }
+                }
+            }
+
+            return false;
