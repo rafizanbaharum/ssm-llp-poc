@@ -198,7 +198,7 @@
                                     <td><fmt:formatDate value="${reserve.startDate}" pattern="dd/MM/yyyy"/></td>
                                     <td><fmt:formatDate value="${reserve.endDate}" pattern="dd/MM/yyyy"/></td>
                                     <td>${reserve.companyType}</td>
-                                    <td><a href="/secure/company/register/${reserve.name}/LLP">Register</a></td>
+                                    <td><a href="/secure/company/register/${reserve.name}/LLP/${reserve.waived}">Register</a></td>
                                 </tr>
                             </c:forEach>
                             </tbody>
