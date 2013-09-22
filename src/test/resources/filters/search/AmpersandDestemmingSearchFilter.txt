@@ -1,40 +1,19 @@
-import java.util.*;
-import com.ssm.llp.core.model.*;
-import com.google.common.*;
-
 log.debug("AmpersandStemmingSearchFilter");
+        String[] stems = new String[]{"", " ", " DAN ", " & "};
 
-            String[] stems = new String[]{"", " ", " DAN ", " & "};
-            String first = null, last = null;
+            for (String stem : stems) {
+                String replace = name.replace("&", stem);
+                String s = com.google.common.base.CharMatcher.WHITESPACE.collapseFrom(replace, ' ');
+                log.debug("replace = " + s);
+                boolean match = companyDao.hasName(s);
 
-            if (name.contains("&") 
-                    || name.contains("DAN") 
-                    ||name.contains("dan")) {
-                String[] splits = name.split("DAN|dan|&");
-                log.debug("split.toString() = " + Arrays.toString(splits));
-                String first = null, last = null;
+                String replace2 = name.replace("DAN", stem);
+                s = com.google.common.base.CharMatcher.WHITESPACE.collapseFrom(replace2, ' ');
+                log.debug("replace2 = " + s);
+                boolean match2 = companyDao.hasName(s);
 
-                if (splits[0].split(" ").length > 0) {
-                    splitRights = com.google.common.base.Splitter.on(" ").omitEmptyStrings().trimResults().split(splits[0]);
-                    last = com.google.common.collect.Iterables.getLast(splitRights, "");
-                    log.debug("last = " + last);
-                }
-                if (splits[1].split(" ").length > 0) {
-                    splitRights = com.google.common.base.Splitter.on(" ").omitEmptyStrings().trimResults().split(splits[1]);
-                    first = com.google.common.collect.Iterables.getFirst(splitRights, "");
-                    log.debug("first = " + first);
-                }
-                for (String stem : stems) {
-                    String join = last + stem + first;
-                    ssmCompanies = companyDao.find();
-                    for (SsmCompany ssmCompany : ssmCompanies) {
-                        boolean match = ssmCompany.getName().matches(".*\\b" + join.toUpperCase().replaceAll("[()]", "") + "\\b.*");
-                        if (match) {
-                            log.debug("found! = " + ssmCompany.getName() + " >> " + ssmCompany.getId());
-                            return true;
-                        }
-                    }
+                if (match || match2) {
+                    return true;
                 }
             }
-
             return false;

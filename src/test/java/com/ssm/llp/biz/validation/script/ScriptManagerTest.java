@@ -1,5 +1,6 @@
 package com.ssm.llp.biz.validation.script;
 
+import com.google.common.base.CharMatcher;
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
 import com.google.common.base.Strings;
@@ -315,6 +316,31 @@ public class ScriptManagerTest extends AbstractTransactionalJUnit4SpringContextT
                             log.debug("found! = " + ssmCompany.getName() + " >> " + ssmCompany.getId());
                         }
                     }
+                }
+            }
+        }
+    }
+
+    @Test
+    @Rollback(value = false)
+    public void ampersandStemming2() {
+        String[] testStrings = new String[]{"majujaya plt ", "maju&jaya & kucing llp llp", "maju & jaya plt pltx", "maju dan jaya pltc"};
+        String[] stems = new String[]{"", " ", " DAN ", " & "};
+        for (String testString : testStrings) {
+            String scrubbedName = scriptUtil.scrubName(testString);
+            for (String stem : stems) {
+                String replace = scrubbedName.replace("&", stem);
+                String s = CharMatcher.WHITESPACE.collapseFrom(replace, ' ');
+                log.debug("replace = " + s);
+                boolean match = companyDao.hasName(s);
+
+                String replace2 = scrubbedName.replace("DAN", stem);
+                s = CharMatcher.WHITESPACE.collapseFrom(replace2, ' ');
+                log.debug("replace2 = " + s);
+                boolean match2 = companyDao.hasName(s);
+
+                if (match || match2) {
+//                    return true;
                 }
             }
         }
