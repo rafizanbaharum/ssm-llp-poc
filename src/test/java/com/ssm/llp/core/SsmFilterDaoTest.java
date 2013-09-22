@@ -26,7 +26,9 @@ import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author rafizan.baharum
@@ -66,6 +68,30 @@ public class SsmFilterDaoTest extends AbstractTransactionalJUnit4SpringContextTe
     @Rollback(value = false)
     public void createFilters() {
 
+        // error map
+        Map<String, String> errorMap = new HashMap<String, String>();
+        errorMap.put("AmpersandDestemmingSearchFilter", "YOUR CHOSEN NAME EXISTED");
+        errorMap.put("CompanyWindingPoisonFilter", "YOUR CHOSEN NAME EXISTED");
+        errorMap.put("ControlledPoisonFilter", "YOUR CHOSEN NAME HAS A CONTROLLED WORD(S)");
+        errorMap.put("DotToEmptyDestemmingSearchFilter", "YOUR CHOSEN NAME EXISTED");
+        errorMap.put("DotToSpaceDestemmingSearchFilter", "YOUR CHOSEN NAME EXISTED");
+        errorMap.put("EmptyOrNullPoisonFilter", "YOUR CHOSEN NAME IS INVALID");
+        errorMap.put("EnglishPluralSearchFilter", "YOUR CHOSEN NAME EXISTED");
+        errorMap.put("ExistingSearchFilter", "YOUR CHOSEN NAME EXISTED");
+        errorMap.put("GazettedPoisonFilter", "YOUR CHOSEN NAME HAS GAZETTED WORD(S)");
+        errorMap.put("MalayPluralSearchFilter ", "YOUR CHOSEN NAME EXISTED");
+        errorMap.put("MalaysianStatePoisonFilter", "YOUR CHOSEN NAME EXISTED");
+        errorMap.put("MalaysiaPoisonFilter", "YOUR CHOSEN NAME HAS GAZETTED WORD(S)");
+        errorMap.put("OffensivePoisonFilter", "YOUR CHOSEN NAME HAS OFFENSIVE WORD(S)");
+        errorMap.put("ReservedPoisonFilter", "YOUR CHOSEN NAME IS ALREADY RESERVED");
+        errorMap.put("SimilarSearchFilter", "YOUR CHOSEN NAME EXISTED");
+        errorMap.put("SpecialWordPoisonFilter", "YOUR CHOSEN NAME IS INVALID");
+        errorMap.put("StandaloneCountryPoisonFilter", "YOUR CHOSEN NAME HAS GAZETTED WORD(S)");
+        errorMap.put("StandaloneStatePoisonFilter", "YOUR CHOSEN NAME GAZETTED WORD(S)");
+        errorMap.put("StatePoisonFilter", "YOUR CHOSEN NAME GAZETTED WORD(S)");
+        errorMap.put("SymbolPoisonFilter", "YOUR CHOSEN NAME HAS INVALID SYMBOL(S)");
+        errorMap.put("UsedPoisonFilter", "YOUR CHOSEN NAME EXISTED");
+
         List<SsmFilter> ssmFilters = filterDao.find();
         for (SsmFilter ssmFilter : ssmFilters) {
             log.debug(ssmFilter.getName() + " deleted!");
@@ -81,8 +107,10 @@ public class SsmFilterDaoTest extends AbstractTransactionalJUnit4SpringContextTe
             for (int i = 0; i < files.length; i++) {
                 File file = files[i];
                 SsmPoisonFilterImpl filter = new SsmPoisonFilterImpl();
-                filter.setName(file.getName().substring(0, file.getName().length() - 4));
+                String name = file.getName().substring(0, file.getName().length() - 4);
+                filter.setName(name);
                 filter.setDescription(file.getName().substring(0, file.getName().length() - 4));
+                filter.setError(errorMap.get(name));
                 filter.setScript(readFile(file.getAbsolutePath(), Charset.defaultCharset()));
                 filterDao.save(filter, root);
                 log.debug(filter.getName() + " saved!");
@@ -94,13 +122,17 @@ public class SsmFilterDaoTest extends AbstractTransactionalJUnit4SpringContextTe
             for (int i = 0; i < searchFiles.length; i++) {
                 File file = searchFiles[i];
                 SsmSearchFilterImpl filter = new SsmSearchFilterImpl();
-                filter.setName(file.getName().substring(0, file.getName().length() - 4));
-                filter.setDescription(file.getName().substring(0, file.getName().length() - 4));
+                String name = file.getName().substring(0, file.getName().length() - 4);
+                filter.setName(name);
+                filter.setDescription(name);
+                filter.setError(errorMap.get(name));
                 filter.setScript(readFile(file.getAbsolutePath(), Charset.defaultCharset()));
                 filterDao.save(filter, root);
                 log.debug(filter.getName() + " saved!");
             }
             sessionFactory.getCurrentSession().flush();
+
+
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
