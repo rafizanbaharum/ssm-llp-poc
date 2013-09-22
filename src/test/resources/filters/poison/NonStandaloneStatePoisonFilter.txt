@@ -2,14 +2,14 @@ import java.util.*;
 import com.ssm.llp.core.model.*;
 
 log.debug("NonStandaloneStatePoisonFilter");
-            for (SsmName symbol : nameDao.find(SsmNameType.STATE)) {
-                if (name.contains(symbol.getName())) {
-                    log.debug("Found! " + symbol.getName());
+            for (SsmName state : nameDao.find(SsmNameType.STATE)) {
+            boolean match = name.matches(".*\\b" + state.getName().toUpperCase().replaceAll("[()]", "") + "\\b.*");
+                if (match) {
+                    log.debug("Found! " + state.getName());
                     log.debug("Name = " + name);
 
                     // flag context.waived
                     context.setWaived(true);
-                return true; // it's okay, we're just flagging
                 return false; // not ok, can't proceed with registration
                 }
         }

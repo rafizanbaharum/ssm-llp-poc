@@ -1,8 +1,6 @@
 package com.ssm.llp.biz.validation.script;
 
-import com.google.common.base.Splitter;
 import com.google.common.base.Strings;
-import com.google.common.collect.Iterables;
 import com.ssm.llp.CoreConfig;
 import com.ssm.llp.biz.validation.ValidatorContext;
 import com.ssm.llp.core.dao.SsmCompanyDao;
@@ -283,8 +281,10 @@ public class ScriptManagerTest extends AbstractTransactionalJUnit4SpringContextT
     public void wordStemming() { // TODO
         String[] strToStem = new String[]{"&", "dan"};
         String[] names = new String[]{"majujaya", "maju&jaya", "maju & jaya", "maju dan jaya"};
+        String[] strInDB = new String[]{"Maju Jaya PLT", "Semoga Maju Jaya PLT", "Semoga Maju Dan Jaya PLT"};
 
         for (String name : names) {
+
 
         }
         for (String name : names) {
@@ -317,15 +317,12 @@ public class ScriptManagerTest extends AbstractTransactionalJUnit4SpringContextT
 
     private boolean validateStartWithMalaysianState(String name) {
         String scrubbedName = scriptUtil.scrubName(name);
-        log.debug("scrubbedName = " + scrubbedName);
-        for (SsmName symbol : nameDao.find(SsmNameType.STATE)) {
-            if (scrubbedName.contains(symbol.getName())) {
-                log.debug("Found! " + symbol.getName());
-                log.debug("Name = " + name);
-
-                // flag context.waived
-//                context.setWaived(true);
-                return true; // it's okay, we're just flagging
+        for (SsmName state : nameDao.find(SsmNameType.STATE)) {
+            boolean match = scrubbedName.matches(".*\\b" + state.getName().toUpperCase().replaceAll("[()]", "") + "\\b.*");
+            if (match) {
+                log.debug("Found Invalid! = " + state.getName());
+                log.debug("Name = " + scrubbedName);
+                return true;
             }
         }
         return false;

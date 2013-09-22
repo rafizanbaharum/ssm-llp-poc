@@ -1,14 +1,11 @@
-             log.debug("StatePoisonFilter");
+log.debug("StatePoisonFilter");
 
-             // check word for word
-             // should not check on every word or it'll be just like NonStandAloneFilter
-             /*
-             String[] words = name.split(" ");
-             for(int i=0; i < words.length; i++){
-                   log.debug("words: " + words[i]);
-                   if(nameDao.hasName(words[i], 2)) return true;
-             }
-             return false;
-             */
-
-             return nameDao.hasName(words[i], 2);
+        for (SsmName state : nameDao.find(SsmNameType.STATE)) {
+            boolean match = name.matches(".*\\b" + state.getName().toUpperCase().replaceAll("[()]", "") + "\\b.*");
+            if (match) {
+                log.debug("Found Invalid! = " + state.getName());
+                log.debug("Name = " + name);
+                return true;
+            }
+        }
+        return false;
