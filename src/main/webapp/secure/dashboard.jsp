@@ -214,7 +214,7 @@
 
     <c:choose>
         <c:when test="${context.valid eq true}">
-            <div class="alert success"><span class="icon"></span>
+            <div class="alert success">
                 Your choice of LLP name ${name} is available.
                 <ul>
                     <li>If you want RESERVE the name please click <a
@@ -226,7 +226,6 @@
         </c:when>
         <c:when test="${context.valid eq false}">
             <div class="alert error">
-                <span class="icon"></span><span class="hide">x</span>
                 <strong>Sorry!</strong> Please pick a different name.
                 <p>${context.error}</p>
             </div>

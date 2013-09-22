@@ -236,6 +236,15 @@
                             </div>
                             <div class="_100">
                                 <p>
+                                    <label for="error">
+                                        Error Message
+                                    </label>
+                                    <input type="text" value="${filter.error}" class="required" name="error"
+                                           class="text">
+                                </p>
+                            </div>
+                            <div class="_100">
+                                <p>
                                     <label for="script">
                                         Script
                                     </label>
