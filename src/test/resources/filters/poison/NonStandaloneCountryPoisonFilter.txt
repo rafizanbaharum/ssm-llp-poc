@@ -1,7 +1,7 @@
 import java.util.*;
 import com.ssm.llp.core.model.*;
 
-log.debug("NonStandaloneStatePoisonFilter");
+log.debug("NonStandaloneCountryPoisonFilter");
             for (SsmName symbol : nameDao.find(SsmNameType.COUNTRY)) {
                 if (name.contains(symbol.getName())) {
                     log.debug("Found! " + symbol.getName());
@@ -9,7 +9,7 @@ log.debug("NonStandaloneStatePoisonFilter");
                     
                     // flag context.waived
                     context.setWaived(true);
-                return false; // it's okay, we're just flagging
+                return true; // it's okay, we're just flagging
                 }
         }
 return false;

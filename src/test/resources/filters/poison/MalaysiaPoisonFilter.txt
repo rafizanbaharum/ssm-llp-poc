@@ -1,9 +1,0 @@
-log.debug("MalaysiaPoisonFilter");
-
-        splits = com.google.common.base.Splitter.on(" ").split(name);
-        String first = com.google.common.collect.Iterables.getFirst(splits, "");
-        if ("MALAYSIA".equalsIgnoreCase(first)) {
-            log.debug("Found Invalid! " + first);
-            return true;
-        }
-        return false;

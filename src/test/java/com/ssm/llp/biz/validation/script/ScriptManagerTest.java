@@ -4,6 +4,7 @@ import com.google.common.base.Splitter;
 import com.google.common.base.Strings;
 import com.google.common.collect.Iterables;
 import com.ssm.llp.CoreConfig;
+import com.ssm.llp.biz.validation.ValidatorContext;
 import com.ssm.llp.core.dao.SsmCompanyDao;
 import com.ssm.llp.core.dao.SsmFilterDao;
 import com.ssm.llp.core.dao.SsmNameDao;
@@ -63,6 +64,7 @@ public class ScriptManagerTest extends AbstractTransactionalJUnit4SpringContextT
         for (SsmFilter filter : filters) {
             HashMap<String, Object> map = new HashMap<String, Object>();
             map.put("name", scriptUtil.scrubName("MAJU.JAYA PLT"));
+            map.put("context", new ValidatorContext());
             boolean valid = scriptManager.executeSearchFilter(filter.getScript(), map);
             log.debug("valid?: " + valid);
         }
@@ -76,6 +78,7 @@ public class ScriptManagerTest extends AbstractTransactionalJUnit4SpringContextT
         for (SsmFilter filter : filters) {
             HashMap<String, Object> map = new HashMap<String, Object>();
             map.put("name", scriptUtil.scrubName(" malaysia negeri sembilan membodoh RAYA PLT\\"));
+            map.put("context", new ValidatorContext());
             boolean valid = scriptManager.executePoisonFilter(filter.getScript(), map);
             log.debug("Result : " + filter.getName() + " " + Strings.padStart(Boolean.toString(valid), 10, '*'));
         }
@@ -237,7 +240,7 @@ public class ScriptManagerTest extends AbstractTransactionalJUnit4SpringContextT
 
         String[] validaNames = new String[]{" Durian Malaysia trade PLT", "Malaysian Trade Company LLP LLP",
                 " %Malaysia trade PLT"};
-        for (String name : validaNames) Assert.assertFalse(validateStartWithMalaysia(name));
+        for (String name : validaNames) Assert.assertTrue(validateStartWithMalaysia(name));
 
     }
 
@@ -249,7 +252,7 @@ public class ScriptManagerTest extends AbstractTransactionalJUnit4SpringContextT
         for (String name : names) Assert.assertTrue(validateStartWithMalaysianState(name));
 
         String validName = "  Dodol Sarawak Sedap PLT ";
-        Assert.assertFalse(validateStartWithMalaysianState(validName));
+        Assert.assertTrue(validateStartWithMalaysianState(validName));
     }
 
     @Test
@@ -277,17 +280,20 @@ public class ScriptManagerTest extends AbstractTransactionalJUnit4SpringContextT
     */
     @Test
     @Rollback(value = false)
-    public void workStemming() { // TODO
-        String[] names = new String[]{"  ABJJ% PERKONGSIAN LIABILITI TERHAD ",
-                "\\Pahang invest LLP\" LLP", "Pahang invest LLP LLP:"};
+    public void wordStemming() { // TODO
+        String[] strToStem = new String[]{"&", "dan"};
+        String[] names = new String[]{"majujaya", "maju&jaya", "maju & jaya", "maju dan jaya"};
 
         for (String name : names) {
+
+        }
+        for (String name : names) {
             name = scriptUtil.scrubName(name);
-            for (SsmName symbol : nameDao.find(SsmNameType.SYMBOL)) {
-                if (name.contains(symbol.getName())) {
-                    log.debug("Found Invalid! " + symbol.getName());
+            for (SsmCompany company : companyDao.find()) {
+                if (name.contains(company.getName())) {
+                    log.debug("Found Invalid! " + company.getName());
                     log.debug("Name = " + name);
-                    Assert.assertTrue(name.contains(symbol.getName()));
+                    Assert.assertTrue(name.contains(company.getName()));
                 }
             }
         }
@@ -295,22 +301,31 @@ public class ScriptManagerTest extends AbstractTransactionalJUnit4SpringContextT
 
     private boolean validateStartWithMalaysia(String name) {
         String scrubbedName = scriptUtil.scrubName(name);
-        Iterable<String> splits = Splitter.on(" ").split(scrubbedName);
-        String first = Iterables.getFirst(splits, "");
-        if ("MALAYSIA".equalsIgnoreCase(first)) {
-            log.debug("Found Invalid! " + scrubbedName);
-            return true;
+        log.debug("scrubbedName = " + scrubbedName);
+        for (SsmName symbol : nameDao.find(SsmNameType.COUNTRY)) {
+            if (scrubbedName.contains(symbol.getName())) {
+                log.debug("Found! " + symbol.getName());
+                log.debug("Name = " + name);
+
+                // flag context.waived
+//                context.setWaived(true);
+                return true; // it's okay, we're just flagging
+            }
         }
         return false;
     }
 
     private boolean validateStartWithMalaysianState(String name) {
         String scrubbedName = scriptUtil.scrubName(name);
-        String[] states = nameDao.getStates();
-        for (String state : states) {
-            if (scrubbedName.toUpperCase().startsWith(state)) {
-                log.debug("Found Invalid! " + state);
-                return true;
+        log.debug("scrubbedName = " + scrubbedName);
+        for (SsmName symbol : nameDao.find(SsmNameType.STATE)) {
+            if (scrubbedName.contains(symbol.getName())) {
+                log.debug("Found! " + symbol.getName());
+                log.debug("Name = " + name);
+
+                // flag context.waived
+//                context.setWaived(true);
+                return true; // it's okay, we're just flagging
             }
         }
         return false;

@@ -9,7 +9,7 @@ log.debug("NonStandaloneStatePoisonFilter");
 
                     // flag context.waived
                     context.setWaived(true);
-                return false; // it's okay, we're just flagging
+                return true; // it's okay, we're just flagging
                 }
         }
 return false;
