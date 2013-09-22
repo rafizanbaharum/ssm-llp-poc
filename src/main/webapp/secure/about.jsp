@@ -35,182 +35,247 @@
 
 <!-- Begin of #height-wrapper -->
 <div id="height-wrapper">
-    <!-- Begin of header -->
-    <header>
-        <!-- Begin of the header toolbar -->
-        <div id="header_toolbar">
-            <div class="container_12">
-                <h1 class="grid_8">SSM | MyLLP</h1>
-                <!-- Start of right part -->
-                <div class="grid_4">
-                    <!-- A small toolbar button -->
-                    <div class="toolbar_small">
-                        <div class="toolbutton">
-                            <span>3</span>
-                            <img src="/resources/img/icons/16x16/mail.png" width="16" height="16" alt="mail">
-                        </div>
+<!-- Begin of header -->
+<header>
+    <!-- Begin of the header toolbar -->
+    <div id="header_toolbar">
+        <div class="container_12">
+            <h1 class="grid_8">SSM | MyLLP</h1>
+            <!-- Start of right part -->
+            <div class="grid_4">
+                <!-- A small toolbar button -->
+                <div class="toolbar_small">
+                    <div class="toolbutton">
+                        <span>3</span>
+                        <img src="/resources/img/icons/16x16/mail.png" width="16" height="16" alt="mail">
                     </div>
-                    <!-- End of small toolbar button -->
-
-                    <!-- A large toolbar button -->
-                    <div class="toolbar_large">
-                        <div class="toolbutton">
-                            <div class="toolicon">
-                                <img src="/resources/img/icons/16x16/user.png" width="16" height="16" alt="user">
-                            </div>
-                            <div class="toolmenu">
-                                <div class="toolcaption">
-                                    <span>${currentUser.realname}</span>
-                                </div>
-                                <!-- Start of menu -->
-                                <div class="dropdown">
-                                    <ul>
-                                        <sec:authorize ifAllGranted="ROLE_ADMINISTRATOR">
-                                            <li>
-                                                <a href="/secure/settings">Settings</a>
-                                            </li>
-                                        </sec:authorize>
-                                        <li>
-                                            <a href="/gate/out">Logout</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <!-- End of menu -->
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End of large toolbar button -->
                 </div>
-                <!-- End of right part -->
+                <!-- End of small toolbar button -->
+
+                <!-- A large toolbar button -->
+                <div class="toolbar_large">
+                    <div class="toolbutton">
+                        <div class="toolicon">
+                            <img src="/resources/img/icons/16x16/user.png" width="16" height="16" alt="user">
+                        </div>
+                        <div class="toolmenu">
+                            <div class="toolcaption">
+                                <span>${currentUser.realname}</span>
+                            </div>
+                            <!-- Start of menu -->
+                            <div class="dropdown">
+                                <ul>
+                                    <sec:authorize ifAllGranted="ROLE_ADMINISTRATOR">
+                                        <li>
+                                            <a href="/secure/settings">Settings</a>
+                                        </li>
+                                    </sec:authorize>
+                                    <li>
+                                        <a href="/gate/out">Logout</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- End of menu -->
+                        </div>
+                    </div>
+                </div>
+                <!-- End of large toolbar button -->
             </div>
+            <!-- End of right part -->
         </div>
-        <!-- End of the header toolbar -->
+    </div>
+    <!-- End of the header toolbar -->
 
-        <!-- Start of the main header bar -->
-        <nav id="header_main">
-            <div class="container_12">
-                <!-- Start of the main navigation -->
-                <ul id="nav_main">
-                    <li>
-                        <a href="#">
-                            <img src="/resources/img/icons/25x25/dark/computer-imac.png" width=25 height=25 alt="">
-                            Dashboard</a>
-                        <ul>
-                            <li>
-                                <a href="/secure/dashboard">Dashboard</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="/resources/img/icons/25x25/dark/documents.png" width=25 height=25 alt="">
-                            My Companies</a>
-                        <ul>
-                            <li>
-                                <a href="/secure/company/reserve">Reservations</a>
-                            </li>
-                            <li>
-                                <a href="/secure/company/llp">LLP</a>
-                            </li>
-                            <li>
-                                <a href="/secure/company/roc">ROC</a>
-                            </li>
-                            <li>
-                                <a href="/secure/company/rob">ROB</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="current">
-                        <a href="#">
-                            <img src="/resources/img/icons/25x25/dark/address-book.png" width=25 height=25 alt="">
-                            Literatures</a>
-                        <ul>
-                            <li>
-                                <a href="/secure/literature/legal">Legal</a>
-                            </li>
-                            <li class="current">
-                                <a href="/secure/literature/about">About</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <sec:authorize ifAllGranted="ROLE_ADMINISTRATOR">
+    <!-- Start of the main header bar -->
+    <nav id="header_main">
+        <div class="container_12">
+            <!-- Start of the main navigation -->
+            <ul id="nav_main">
+                <li>
+                    <a href="#">
+                        <img src="/resources/img/icons/25x25/dark/computer-imac.png" width=25 height=25 alt="">
+                        Dashboard</a>
+                    <ul>
                         <li>
-                            <a href="#">
-                                <img src="/resources/img/icons/25x25/dark/archive.png" width=25 height=25 alt="">
-                                Rules</a>
-                            <ul>
-                                <li>
-                                    <a href="/secure/filter/all">Filters</a>
-                                </li>
-                                <li>
-                                    <a href="/secure/name/all">Names</a>
-                                </li>
-                            </ul>
-                        </li>
-                    </sec:authorize>
-                </ul>
-                <!-- End of the main navigation -->
-            </div>
-        </nav>
-        <div id="nav_sub"></div>
-    </header>
-
-    <!-- Start of the content -->
-    <div role="main" class="container_12" id="content-wrapper">
-        <!-- Start of the sidebar -->
-        <aside>
-            <div id="sidebar_content">
-                <h2>About</h2>
-
-                <p></p>
-
-                <div class="divider"></div>
-                <nav>
-                    <ul class="menu collapsible">
-                        <li class="first-child current">
-                            <a href="#">State: current</a>
-                        </li>
-                        <li>
-                            <a href="#">State: normal</a>
-                            <ul class="sub">
-                                <li>
-                                    <a href="#">State: normal</a>
-                                </li>
-                                <li>
-                                    <a href="#">State: normal</a>
-                                </li>
-                                <li>
-                                    <a href="#">State: normal</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#">State: normal</a>
-                        </li>
-                        <li class="last-child">
-                            <a href="#">State: normal</a>
+                            <a href="/secure/dashboard">Dashboard</a>
                         </li>
                     </ul>
-                </nav>
-            </div>
-        </aside>
-        <!-- End of the sidebar-->
-
-        <!-- Start of the main content -->
-        <div id="main_content">
-
-            <h2 class="grid_12">About</h2>
-
-            <div class="clear"></div>
-
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="/resources/img/icons/25x25/dark/documents.png" width=25 height=25 alt="">
+                        My Companies</a>
+                    <ul>
+                        <li>
+                            <a href="/secure/company/reserve">Reservations</a>
+                        </li>
+                        <li>
+                            <a href="/secure/company/llp">LLP</a>
+                        </li>
+                        <li>
+                            <a href="/secure/company/roc">ROC</a>
+                        </li>
+                        <li>
+                            <a href="/secure/company/rob">ROB</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="current">
+                    <a href="#">
+                        <img src="/resources/img/icons/25x25/dark/address-book.png" width=25 height=25 alt="">
+                        Literatures</a>
+                    <ul>
+                        <li class="current">
+                            <a href="/secure/literature/about">About</a>
+                        </li>
+                        <li>
+                            <a href="/secure/literature/faq">FAQ</a>
+                        </li>
+                    </ul>
+                </li>
+                <sec:authorize ifAllGranted="ROLE_ADMINISTRATOR">
+                    <li>
+                        <a href="#">
+                            <img src="/resources/img/icons/25x25/dark/archive.png" width=25 height=25 alt="">
+                            Rules</a>
+                        <ul>
+                            <li>
+                                <a href="/secure/filter/all">Filters</a>
+                            </li>
+                            <li>
+                                <a href="/secure/name/all">Names</a>
+                            </li>
+                        </ul>
+                    </li>
+                </sec:authorize>
+            </ul>
+            <!-- End of the main navigation -->
         </div>
-        <!-- End of #main_content -->
-        <div class="push clear"></div>
+    </nav>
+    <div id="nav_sub"></div>
+</header>
 
+<!-- Start of the content -->
+<div role="main" class="container_12" id="content-wrapper">
+    <!-- Start of the sidebar -->
+    <aside>
+        <div id="sidebar_content">
+            <h2>Starting a LLP</h2>
+
+            <p></p>
+
+            <div class="divider"></div>
+            <nav>
+                <ul class="menu">
+                    <li class="first-child current">
+                        <a href="#what">What is it?</a>
+                    </li>
+                    <li>
+                        <a href="#who">Who is it for?</a>
+                    </li>
+                    <li>
+                        <a href="#feature">Salient features</a>
+                    </li>
+                    <li class="last-child">
+                        <a href="#portal">Accessing MyLLP Portal</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </aside>
+    <!-- End of the sidebar-->
+
+    <!-- Start of the main content -->
+    <div id="main_content">
+
+        <a name="what"/>
+        <h2 class="grid_12">What is it?</h2>
+        <div class="clear"></div>
+
+        <p>Limited Liability Partnership (LLP) is an alternative business vehicle regulated under the Limited
+            Liability Partnerships Act 2012 which combines the characteristics of a company and a conventional
+            partnership.
+        </p>
+        <div class="clear"></div>
+
+        <a name="who"/>
+        <h2 class="grid_12">Who is it for?</h2>
+        <div class="clear"></div>
+
+        <p>The LLP business structure is designed for all lawful business purposes with a view to make profit. LLP
+            may also be formed by professionals such as Lawyers, Chartered Accountants and Company Secretaries for
+            the purpose of carrying on their professional practice. The LLP concept will also support start ups,
+            small and medium enterprises (SMEs) to grow their businesses without having to worry too much on their
+            personal liabilities, personal assets and strict compliance requirements.
+        </p>
+        <div class="clear"></div>
+
+        <a name="feature"/>
+        <h2 class="grid_12">Salient features</h2>
+        <div class="clear"></div>
+
+        <p>Amongst others, LLP is featured with the protection of limited liability to its partners similar to the
+            limited liability enjoyed by shareholders of a company coupled with flexibility of internal business
+            regulation through partnership arrangement similar to a conventional partnership.
+        </p>
+
+        <p>
+            Any debts and obligations of the LLP will be borne by the assets of the LLP and not that of its partners’.
+            An LLP has the legal status of a body corporate which is capable of suing and being sued in its own name,
+            holding assets and doing such other acts and things in its name as bodies corporate may lawfully do and
+            suffer.
+        </p>
+
+        <p>
+            LLP also offers flexibility in terms of its formation, maintenance and termination while simultaneously
+            has the necessary dynamics and appeal to be able to compete domestically and internationally. With the
+            introduction of LLP, entrepreneurs will have more options to choose the most preferred form of business
+            vehicle.
+        </p>
+
+        <p>
+            For more information click the following:-
+        <p>
+        <ul>
+            <li>LLP Act 2012</li>
+            <li>LLP Regulations 2012</li>
+            <li>General Guidelines For Registration of Limited Liability Partnership And Related Matters</li>
+            <li>LLP Brochure</li>
+            <li>LLP Booklet</li>
+            <li>FAQs on LLP</li>
+        </ul>
+
+        <div class="clear"></div>
+
+        <a name="portal"/>
+        <h2 class="grid_12">Accessing the MyLLP Portal</h2>
+        <div class="clear"></div>
+
+        <ul>
+            <li> Application For Registration Of Foreign LLP</li>
+            <li> Application For Conversion from Conventional Partnership to LLP</li>
+            <li> Application For Conversion from Conversion Private Company to LLP</li>
+            <li> Application For Change Of Name</li>
+            <li> Change Of Address Of Registered Office</li>
+            <li> Change Of Address Of Place Of Business</li>
+            <li> Change Of Nature Of Business/Principal Activities</li>
+            <li> Change Of Particulars Of Partner - Individual</li>
+            <li> Change Of Particulars Of Partner – Body Corporate</li>
+            <li> Change Of Particulars Of Partner – Goverment Agency</li>
+            <li> Change Of Particulars Of Compliance Officer</li>
+        </ul>
+        <p>
+        Click here to download forms.
+        </p>
+        <div class="clear"></div>
     </div>
-    <!-- End of #content-wrapper -->
-    <div class="clear"></div>
-    <div class="push"></div>
+    <!-- End of #main_content -->
+    <div class="push clear"></div>
+
+</div>
+<!-- End of #content-wrapper -->
+<div class="clear"></div>
+<div class="push"></div>
 </div>
 
 <!-- Start of footer-->

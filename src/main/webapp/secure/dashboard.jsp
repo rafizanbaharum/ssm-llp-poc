@@ -127,10 +127,10 @@
                         Literatures</a>
                     <ul>
                         <li>
-                            <a href="/secure/literature/legal">Legal</a>
+                            <a href="/secure/literature/about">About</a>
                         </li>
                         <li>
-                            <a href="/secure/literature/about">About</a>
+                            <a href="/secure/literature/faq">FAQ</a>
                         </li>
                     </ul>
                 </li>
@@ -177,7 +177,7 @@
                     <a href="/secure/company/reserve">My Companies</a>
                 </li>
                 <li class="last-child">
-                    <a href="/secure/literature/legal">Literatures</a>
+                    <a href="/secure/literature/about">Literatures</a>
                 </li>
             </ul>
         </nav>

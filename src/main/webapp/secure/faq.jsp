@@ -1,6 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+
 <html>
 <head>
     <meta charset="utf-8">
@@ -25,7 +26,6 @@
     <link rel="stylesheet" href="/resources/css/ie.fixes.css">
     <link rel="stylesheet" href="/resources/css/sprite.forms.css">
     <link rel="stylesheet" href="/resources/css/sprite.lists.css">
-    <link rel="stylesheet" href="/resources/css/sprite.tables.css">
     <link rel="stylesheet" href="/resources/css/icons.css">
     <link rel="stylesheet" href="/resources/css/external/jquery-ui-1.8.16.custom.css">
     <link rel="stylesheet" href="/resources/css/sidebar.css">
@@ -65,9 +65,11 @@
                                 <!-- Start of menu -->
                                 <div class="dropdown">
                                     <ul>
-                                        <li>
-                                            <a href="#">Settings</a>
-                                        </li>
+                                        <sec:authorize ifAllGranted="ROLE_ADMINISTRATOR">
+                                            <li>
+                                                <a href="/secure/settings">Settings</a>
+                                            </li>
+                                        </sec:authorize>
                                         <li>
                                             <a href="/gate/out">Logout</a>
                                         </li>
@@ -99,7 +101,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="current">
+                    <li>
                         <a href="#">
                             <img src="/resources/img/icons/25x25/dark/documents.png" width=25 height=25 alt="">
                             My Companies</a>
@@ -110,7 +112,7 @@
                             <li>
                                 <a href="/secure/company/llp">LLP</a>
                             </li>
-                            <li class="current">
+                            <li>
                                 <a href="/secure/company/roc">ROC</a>
                             </li>
                             <li>
@@ -118,7 +120,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li>
+                    <li class="current">
                         <a href="#">
                             <img src="/resources/img/icons/25x25/dark/address-book.png" width=25 height=25 alt="">
                             Literatures</a>
@@ -126,7 +128,7 @@
                             <li>
                                 <a href="/secure/literature/about">About</a>
                             </li>
-                            <li>
+                            <li class="current">
                                 <a href="/secure/literature/faq">FAQ</a>
                             </li>
                         </ul>
@@ -157,53 +159,21 @@
     <div role="main" class="container_12" id="content-wrapper">
         <!-- Start of the main content -->
         <div id="main_content">
-            <h2 class="grid_12">Registered LLP Companies</h2>
 
-            <div class="clean"></div>
+            <h2 class="grid_12">FAQ</h2>
+            <div class="clear"></div>
+            <ul>
+                <li>Fundamentals of LLP</li>
+                <li>Formation and registration of LLP</li>
+                <li>Management of LLP</li>
+                <li>Conversion to LLP</li>
+                <li>LLP for Professional Practice</li>
+                <li>Foreign LLP</li>
+                <li>Closing an LLP</li>
+                <li>General matters</li>
+            </ul>
 
-            <div class="grid_12">
-                <div class="box">
-                    <div class="header">
-                        <img src="/resources/img/icons/packs/fugue/16x16/shadeless/table.png" width="16" height="16">
 
-                        <h3>Registered ROCs</h3><span></span>
-                    </div>
-                    <div class="content no-padding">
-                        <table class="table">
-                            <colgroup>
-                                <col class="wwe-first-col">
-                                <col class="wwe-table-col-width">
-                                <col class="wwe-table-col-width">
-                                <col class="wwe-table-col-width">
-                                <col class="wwe-align-center">
-                            </colgroup>
-                            <thead>
-                            <tr>
-                                <th class="wwe-lang-rank" scope="col">ID</th>
-                                <th class="wwe-align-left wwe-lang-club" scope="col">Name</th>
-                                <th class="wwe-lang-matches" scope="col">Status</th>
-                                <th class="wwe-lang-matches" scope="col">Type</th>
-                                <th class="wwe-lang-matches" scope="col">Action</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <c:forEach var="roc" items="${rocs}">
-                                <tr>
-                                    <td class="wwe-1rank"><span>${roc.id}</span></td>
-                                    <td class="wwe-align-left">${roc.name}</td>
-                                    <td>${roc.companyStatus}</td>
-                                    <td>${roc.companyType}</td>
-                                    <td><a href="/secure/edit/${roc.id}">Edit</a></td>
-                                </tr>
-                            </c:forEach>
-                            </tbody>
-                        </table>
-                    </div>
-                    <!-- End of .content -->
-                    <div class="clear"></div>
-                </div>
-                <!-- End of .box -->
-            </div>
         </div>
         <!-- End of #main_content -->
         <div class="push clear"></div>
@@ -232,6 +202,7 @@
 </footer>
 <!-- End of footer-->
 
+
 <!-- JavaScript at the bottom for fast page loading -->
 <!-- Grab Google CDN's jQuery + jQueryUI, with a protocol relative URL; fall back to local -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"></script>
@@ -241,11 +212,23 @@
 
 <!-- scripts concatenated and minified via build script -->
 <script defer src="/resources/js/plugins.js"></script>
+<!-- REQUIRED: Different own jQuery plugnis -->
 <script defer src="/resources/js/mylibs/jquery.ba-resize.js"></script>
+<!-- RECOMMENDED when using sidebar: page resizing -->
 <script defer src="/resources/js/mylibs/jquery.easing.1.3.js"></script>
+<!-- RECOMMENDED: box animations -->
 <script defer src="/resources/js/mylibs/jquery.ui.touch-punch.js"></script>
+<!-- RECOMMENDED: touch compatibility -->
 <script defer src="/resources/js/mylibs/jquery.chosen.js"></script>
 <script defer src="/resources/js/mylibs/jquery.validate.js"></script>
 <script defer src="/resources/js/script.js"></script>
+<!-- REQUIRED: Generic scripts -->
+<!-- end scripts -->
+<script>
+    $(window).load(function() {
+        $('#accordion').accordion();
+        $(window).resize();
+    });
+</script>
 </body>
 </html>

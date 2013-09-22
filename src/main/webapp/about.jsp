@@ -43,16 +43,6 @@
             <h1 class="grid_8">SSM | MyLLP</h1>
             <!-- Start of right part -->
             <div class="grid_4">
-                <!-- A small toolbar button -->
-                <div class="toolbar_small">
-                    <div class="toolbutton">
-                        <span>3</span>
-                        <img src="/resources/img/icons/16x16/mail.png" width="16" height="16" alt="mail">
-                    </div>
-                </div>
-                <!-- End of small toolbar button -->
-
-                <!-- A large toolbar button -->
                 <div class="toolbar_large">
                     <div class="toolbutton">
                         <div class="toolicon">
@@ -60,18 +50,13 @@
                         </div>
                         <div class="toolmenu">
                             <div class="toolcaption">
-                                <span>${currentUser.realname}</span>
+                                <span>Internal</span>
                             </div>
                             <!-- Start of menu -->
                             <div class="dropdown">
                                 <ul>
-                                    <sec:authorize ifAllGranted="ROLE_ADMINISTRATOR">
-                                        <li>
-                                            <a href="/secure/settings">Settings</a>
-                                        </li>
-                                    </sec:authorize>
                                     <li>
-                                        <a href="/gate/out">Logout</a>
+                                        <a href="/gate/in">Login</a>
                                     </li>
                                 </ul>
                             </div>
@@ -79,7 +64,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- End of large toolbar button -->
             </div>
             <!-- End of right part -->
         </div>
@@ -92,31 +76,12 @@
             <!-- Start of the main navigation -->
             <ul id="nav_main">
                 <li>
-                    <a href="#">
-                        <img src="/resources/img/icons/25x25/dark/computer-imac.png" width=25 height=25 alt="">
-                        Dashboard</a>
+                    <a href="#"> <img src="/resources/img/icons/25x25/dark/computer-imac.png" width=25 height=25
+                                      alt="">
+                        Home</a>
                     <ul>
                         <li>
-                            <a href="/secure/dashboard">Dashboard</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">
-                        <img src="/resources/img/icons/25x25/dark/documents.png" width=25 height=25 alt="">
-                        My Companies</a>
-                    <ul>
-                        <li>
-                            <a href="/secure/company/reserve">Reservations</a>
-                        </li>
-                        <li>
-                            <a href="/secure/company/llp">LLP</a>
-                        </li>
-                        <li>
-                            <a href="/secure/company/roc">ROC</a>
-                        </li>
-                        <li>
-                            <a href="/secure/company/rob">ROB</a>
+                            <a href="/index">Dashboard</a>
                         </li>
                     </ul>
                 </li>
@@ -126,28 +91,22 @@
                         Literatures</a>
                     <ul>
                         <li class="current">
-                            <a href="/secure/literature/legal">Legal</a>
+                            <a href="/literature/about">About</a>
                         </li>
                         <li>
-                            <a href="/secure/literature/about">About</a>
+                            <a href="/literature/faq">FAQ</a>
                         </li>
                     </ul>
                 </li>
-                <sec:authorize ifAllGranted="ROLE_ADMINISTRATOR">
-                    <li>
-                        <a href="#">
-                            <img src="/resources/img/icons/25x25/dark/archive.png" width=25 height=25 alt="">
-                            Rules</a>
-                        <ul>
-                            <li>
-                                <a href="/secure/filter/all">Filters</a>
-                            </li>
-                            <li>
-                                <a href="/secure/name/all">Names</a>
-                            </li>
-                        </ul>
-                    </li>
-                </sec:authorize>
+                <li>
+                    <a href="#">
+                        <img src="/resources/img/icons/25x25/dark/book-large.png" width=25 height=25 alt=""> Register</a>
+                    <ul>
+                        <li>
+                            <a href="/register">Register</a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
             <!-- End of the main navigation -->
         </div>
@@ -168,16 +127,16 @@
             <nav>
                 <ul class="menu">
                     <li class="first-child current">
-                        <a href="#">What is it?</a>
+                        <a href="#what">What is it?</a>
                     </li>
                     <li>
-                        <a href="#">Who is it for?</a>
+                        <a href="#who">Who is it for?</a>
                     </li>
                     <li>
-                        <a href="#">Accessing MyLLP Portal</a>
+                        <a href="#feature">Salient features</a>
                     </li>
                     <li class="last-child">
-                        <a href="#">Salient features</a>
+                        <a href="#portal">Accessing MyLLP Portal</a>
                     </li>
                 </ul>
             </nav>
@@ -188,14 +147,19 @@
     <!-- Start of the main content -->
     <div id="main_content">
 
+        <a name="what"/>
         <h2 class="grid_12">What is it?</h2>
+        <div class="clear"></div>
 
         <p>Limited Liability Partnership (LLP) is an alternative business vehicle regulated under the Limited
             Liability Partnerships Act 2012 which combines the characteristics of a company and a conventional
             partnership.
         </p>
+        <div class="clear"></div>
 
+        <a name="who"/>
         <h2 class="grid_12">Who is it for?</h2>
+        <div class="clear"></div>
 
         <p>The LLP business structure is designed for all lawful business purposes with a view to make profit. LLP
             may also be formed by professionals such as Lawyers, Chartered Accountants and Company Secretaries for
@@ -203,8 +167,11 @@
             small and medium enterprises (SMEs) to grow their businesses without having to worry too much on their
             personal liabilities, personal assets and strict compliance requirements.
         </p>
+        <div class="clear"></div>
 
+        <a name="feature"/>
         <h2 class="grid_12">Salient features</h2>
+        <div class="clear"></div>
 
         <p>Amongst others, LLP is featured with the protection of limited liability to its partners similar to the
             limited liability enjoyed by shareholders of a company coupled with flexibility of internal business
@@ -227,6 +194,7 @@
 
         <p>
             For more information click the following:-
+        <p>
         <ul>
             <li>LLP Act 2012</li>
             <li>LLP Regulations 2012</li>
@@ -235,11 +203,13 @@
             <li>LLP Booklet</li>
             <li>FAQs on LLP</li>
         </ul>
-        <p>
 
+        <div class="clear"></div>
+
+        <a name="portal"/>
         <h2 class="grid_12">Accessing the MyLLP Portal</h2>
+        <div class="clear"></div>
 
-        <p>
         <ul>
             <li> Application For Registration Of Foreign LLP</li>
             <li> Application For Conversion from Conventional Partnership to LLP</li>
@@ -253,12 +223,10 @@
             <li> Change Of Particulars Of Partner – Goverment Agency</li>
             <li> Change Of Particulars Of Compliance Officer</li>
         </ul>
+        <p>
         Click here to download forms.
         </p>
-
         <div class="clear"></div>
-
-
     </div>
     <!-- End of #main_content -->
     <div class="push clear"></div>
@@ -279,7 +247,7 @@
                     <span><a href="/secure/dashboard">Dashboard</a></span>
                 </li>
                 <li>
-                    <span><a href="/gate/out">Logout</a></span>
+                    <span><a href="/gate/in">Login</a></span>
                 </li>
             </ul>
         </div>
@@ -309,11 +277,5 @@
 <script defer src="/resources/js/script.js"></script>
 <!-- REQUIRED: Generic scripts -->
 <!-- end scripts -->
-<script>
-    $(window).load(function() {
-        $('#accordion').accordion();
-        $(window).resize();
-    });
-</script>
 </body>
 </html>

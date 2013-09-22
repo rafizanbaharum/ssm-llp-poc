@@ -30,8 +30,7 @@
     <link rel="stylesheet" href="resources/css/external/jquery-ui-1.8.16.custom.css">
     <link rel="stylesheet" href="resources/css/sidebar.css">
 
- <script>
-
+    <script>
 
 
     </script>
@@ -102,9 +101,11 @@
                                         <label for="username">
                                             Username
                                         </label>
-                                        <input type="text" value="" id="username" class="required username" maxlength="16"
+                                        <input type="text" value="" id="username" class="required username"
+                                               maxlength="16"
                                                name="username" class="text">
-                                        <div id="username_status"></div>
+
+                                    <div id="username_status"></div>
                                     </p>
                                 </div>
                                 <div class="_50">
@@ -164,15 +165,15 @@
                                     <label for="address1">
                                         Address
                                     </label>
-                                    <input type="text" id="address1" name="address1" class="text">
+                                    <input type="text" id="address1" name="address1" class="required text">
                                 </p>
 
                                 <p class="inline-small-label">
-                                    <input type="text" name="address2" class="text">
+                                    <input type="text" name="address2" class="required text">
                                 </p>
 
                                 <p class="inline-small-label">
-                                    <input type="text" name="address3" class="text">
+                                    <input type="text" name="address3" class="required text">
                                 </p>
                             </fieldset>
                         </div>
@@ -265,7 +266,7 @@
 
         $('#username').blur(function() {
 
-            var username =  document.getElementById("username").value;
+            var username = document.getElementById("username").value;
             var url = '<%=request.getContextPath() %>/register/validate/' + username;
 
             $('#username_status').html('<p><img src=<%=request.getContextPath() %>/resources/img/ajax-loader.gif/></p>');
@@ -274,7 +275,7 @@
                 success : function(data) {
                     $('#username_status').html(data);
                 },
-                error: function(data){
+                error: function(data) {
                 }
             });
         });

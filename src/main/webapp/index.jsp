@@ -35,178 +35,205 @@
 
 <!-- Begin of #height-wrapper -->
 <div id="height-wrapper">
-    <!-- Begin of header -->
-    <header>
-        <!-- Begin of the header toolbar -->
-        <div id="header_toolbar">
-            <div class="container_12">
-                <h1 class="grid_8">SSM | MyLLP</h1>
+<!-- Begin of header -->
+<header>
+    <!-- Begin of the header toolbar -->
+    <div id="header_toolbar">
+        <div class="container_12">
+            <h1 class="grid_8">SSM | MyLLP</h1>
 
-                <div class="grid_4">
-                    <div class="toolbar_large">
-                        <div class="toolbutton">
-                            <div class="toolicon">
-                                <img src="/resources/img/icons/16x16/user.png" width="16" height="16" alt="user">
+            <div class="grid_4">
+                <div class="toolbar_large">
+                    <div class="toolbutton">
+                        <div class="toolicon">
+                            <img src="/resources/img/icons/16x16/user.png" width="16" height="16" alt="user">
+                        </div>
+                        <div class="toolmenu">
+                            <div class="toolcaption">
+                                <span>Internal</span>
                             </div>
-                            <div class="toolmenu">
-                                <div class="toolcaption">
-                                    <span>Internal</span>
-                                </div>
-                                <!-- Start of menu -->
-                                <div class="dropdown">
-                                    <ul>
-                                        <li>
-                                            <a href="/gate/in">Login</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <!-- End of menu -->
+                            <!-- Start of menu -->
+                            <div class="dropdown">
+                                <ul>
+                                    <li>
+                                        <a href="/gate/in">Login</a>
+                                    </li>
+                                </ul>
                             </div>
+                            <!-- End of menu -->
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- End of the header toolbar -->
+    </div>
+    <!-- End of the header toolbar -->
 
-        <!-- Start of the main header bar -->
-        <nav id="header_main">
-            <div class="container_12">
-                <ul id="nav_main">
-                    <li class="current">
-                        <a href="#"> <img src="resources/img/icons/25x25/dark/computer-imac.png" width=25 height=25
-                                          alt="">
-                            Home</a>
-                        <ul>
-                            <li class="current">
-                                <a href="index">Dashboard</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="resources/img/icons/25x25/dark/book-large.png" width=25 height=25 alt=""> Register</a>
-                        <ul>
-                            <li>
-                                <a href="register">Register</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
+    <!-- Start of the main header bar -->
+    <nav id="header_main">
+        <div class="container_12">
+            <ul id="nav_main">
+                <li class="current">
+                    <a href="#"> <img src="resources/img/icons/25x25/dark/computer-imac.png" width=25 height=25
+                                      alt="">
+                        Home</a>
+                    <ul>
+                        <li class="current">
+                            <a href="/index">Dashboard</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="resources/img/icons/25x25/dark/address-book.png" width=25 height=25 alt="">
+                        Literatures</a>
+                    <ul>
+                        <li>
+                            <a href="/literature/about">About</a>
+                        </li>
+                        <li>
+                            <a href="/literature/faq">FAQ</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="resources/img/icons/25x25/dark/book-large.png" width=25 height=25 alt=""> Register</a>
+                    <ul>
+                        <li>
+                            <a href="/register">Register</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div id="nav_sub"></div>
+</header>
+
+<!-- Start of the content -->
+<div role="main" class="container_12" id="content-wrapper">
+    <!-- Start of the sidebar -->
+    <aside>
+        <div id="sidebar_content">
+            <h2>What is LLP</h2>
+
+            <p>Limited Liability Partnership (LLP) is an alternative business vehicle regulated under the Limited
+                Liability
+                Partnerships Act 2012 which combines the characteristics of a company and a conventional
+                partnership.
+            </p>
+        </div>
+        <div class="divider"></div>
+        <nav>
+            <ul class="menu">
+                <li class="first-child current">
+                    <a href="/index">Home</a>
+                </li>
+                <li>
+                    <a href="/literature/about">About LLP</a>
+                </li>
+                <li class="last-child">
+                    <a href="/register">Register</a>
+                </li>
+            </ul>
         </nav>
-        <div id="nav_sub"></div>
-    </header>
 
-    <!-- Start of the content -->
-    <div role="main" class="container_12" id="content-wrapper">
-        <!-- Start of the sidebar -->
-        <aside>
-            <div id="sidebar_content">
-                <h2>What is LLP</h2>
+    </aside>
+    <!-- End of the sidebar-->
 
-                <p>Limited Liability Partnership (LLP) is an alternative business vehicle regulated under the Limited
-                    Liability
-                    Partnerships Act 2012 which combines the characteristics of a company and a conventional
-                    partnership.
-                </p>
-            </div>
-        </aside>
-        <!-- End of the sidebar-->
+    <!-- Start of the main content -->
+    <div id="main_content" style="min-height: 100%">
+        <h2 class="grid_12">Search Your LLP Name</h2>
 
-        <!-- Start of the main content -->
-        <div id="main_content" style="min-height: 100%">
-            <h2 class="grid_12">Search Your LLP Name</h2>
-
-            <div class="clean"></div>
+        <div class="clean"></div>
 
 
-            <div class="grid_12">
+        <div class="grid_12">
 
-                <c:choose>
-                    <c:when test="${context.valid eq true}">
-                        <div class="alert success"><span class="icon"></span>
-                            Your choice of LLP name ${name} is available.
-                            <ul>
-                                <li>If you want RESERVE the name please login <a href="/gate/in">here </a> and reserve
-                                    the name.
-                                </li>
-                                <li>
-                                    Login is required.
-                                </li>
-                            </ul>
-                        </div>
-                    </c:when>
-                    <c:when test="${context.valid eq false}">
-                        <div class="alert error">
-                            <span class="icon"></span><span class="hide">x</span>
-                            <strong>Sorry!</strong> Please pick a different name.
-                            <p>${context.error}</p>
-                        </div>
-                    </c:when>
-                    <c:otherwise>
-                    </c:otherwise>
-                </c:choose>
-
-
-                <div class="box">
-                    <div class="header">
-                        <img src="/resources/img/icons/packs/fugue/16x16/application-search-result.png" alt=""
-                             width="16"
-                             height="16">
-
-                        <h3>Search Form</h3>
-                        <span></span>
+            <c:choose>
+                <c:when test="${context.valid eq true}">
+                    <div class="alert success">
+                        Your choice of LLP name ${name} is available.
+                        <ul>
+                            <li>If you want RESERVE the name please login <a href="/gate/in">here </a> and reserve
+                                the name.
+                            </li>
+                            <li>
+                                Login is required.
+                            </li>
+                        </ul>
                     </div>
-                    <form action="/validate" class="validate">
-                        <div class="content no-padding">
-                            <div class="section _100">
-                                <label for="name">
-                                    Name
-                                </label>
+                </c:when>
+                <c:when test="${context.valid eq false}">
+                    <div class="alert error">
+                        <strong>Sorry!</strong> Please pick a different name.
+                        <p>${context.error}</p>
+                    </div>
+                </c:when>
+                <c:otherwise>
+                </c:otherwise>
+            </c:choose>
 
-                                <div>
-                                    <input class="required" name="name" id="name" value="${name}"
-                                           style="text-transform: uppercase">
-                                </div>
-                            </div>
-                            <div class="section _100">
-                                <label for="type">
-                                    Type
-                                </label>
 
-                                <div>
-                                    <select name="type" id="type" class="required">
-                                        <option selected>LLP</option>
-                                        <option>ROB</option>
-                                        <option>ROC</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End of .content -->
-                        <div class="actions">
-                            <div class="actions-right">
-                                <input type="submit" value="Search"/>
-                            </div>
-                        </div>
-                        <!-- End of .actions -->
-                    </form>
+            <div class="box">
+                <div class="header">
+                    <img src="/resources/img/icons/packs/fugue/16x16/application-search-result.png" alt=""
+                         width="16"
+                         height="16">
+
+                    <h3>Search Form</h3>
+                    <span></span>
                 </div>
-                <!-- End of .box -->
+                <form action="/validate" class="validate">
+                    <div class="content no-padding">
+                        <div class="section _100">
+                            <label for="name">
+                                Name
+                            </label>
+
+                            <div>
+                                <input class="required" name="name" id="name" value="${name}"
+                                       style="text-transform: uppercase">
+                            </div>
+                        </div>
+                        <div class="section _100">
+                            <label for="type">
+                                Type
+                            </label>
+
+                            <div>
+                                <select name="type" id="type" class="required">
+                                    <option selected>LLP</option>
+                                    <option>ROB</option>
+                                    <option>ROC</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End of .content -->
+                    <div class="actions">
+                        <div class="actions-right">
+                            <input type="submit" value="Search"/>
+                        </div>
+                    </div>
+                    <!-- End of .actions -->
+                </form>
             </div>
-
-            <div class="clear"></div>
-
+            <!-- End of .box -->
         </div>
-        <!-- End of #main_content -->
-        <div class="push clear"></div>
+
+        <div class="clear"></div>
 
     </div>
-    <!-- End of #content-wrapper -->
-    <div class="clear"></div>
-    <div class="push"></div>
-    <!-- BUGFIX if problems with sidebar in Chrome -->
+    <!-- End of #main_content -->
+    <div class="push clear"></div>
+
+</div>
+<!-- End of #content-wrapper -->
+<div class="clear"></div>
+<div class="push"></div>
+<!-- BUGFIX if problems with sidebar in Chrome -->
 
 </div>
 <!-- End of #height-wrapper -->
@@ -218,7 +245,7 @@
         <div id="button_bar">
             <ul>
                 <li>
-                    <span><a href="secure/dashboard.jsp">Dashboard</a></span>
+                    <span><a href="/secure/dashboard.jsp">Dashboard</a></span>
                 </li>
                 <li>
                     <span><a href="/gate/in">Login</a></span>
