@@ -161,7 +161,7 @@
                         <input type="file"/>
                     </p>
                 </div>
-                <div class="push"></div>
+                </div>
         </div>
         <div class="wiz_page step_2">
             <div class="wiz_sidebar grid_3">
