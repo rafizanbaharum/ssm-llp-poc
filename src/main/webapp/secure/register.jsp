@@ -154,6 +154,14 @@
                     </p>
                 </div>
                 <!-- c:if kat sini -->
+                <c:choose>
+                    <c:when test="${waived}">
+                        <label>
+                        YOU NEED APPROVAL FROM SSM TO USE THIS NAME
+                            </label>
+                    </c:when>
+                    <c:otherwise></c:otherwise>
+                </c:choose>
                 <div class="_100">
                     <p>
                         <label for="name">
