@@ -11,6 +11,19 @@
                             </li>
                         </ul>
                     </li>
+                    <li>
+                        <a href="#">
+                            <img src="resources/img/icons/25x25/dark/address-book.png" width=25 height=25 alt="">
+                            Literatures</a>
+                        <ul>
+                            <li>
+                                <a href="/literature/about">About</a>
+                            </li>
+                            <li>
+                                <a href="/literature/faq">FAQ</a>
+                            </li>
+                        </ul>
+                    </li>
                     <li class="current">
                         <a href="#">
                             <img src="resources/img/icons/25x25/dark/book-large.png" width=25 height=25 alt=""> Register</a>
