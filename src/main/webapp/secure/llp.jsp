@@ -1,5 +1,5 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix = "fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <html>
 <head>
@@ -182,6 +182,7 @@
                                 <th class="wwe-lang-rank" scope="col">ID</th>
                                 <th class="wwe-align-left wwe-lang-club" scope="col">Name</th>
                                 <th class="wwe-lang-matches" scope="col">Status</th>
+                                <th class="wwe-lang-matches" scope="col">Exired Date</th>
                                 <th class="wwe-lang-matches" scope="col">Type</th>
                                 <th class="wwe-lang-matches" scope="col">Action</th>
                             </tr>
@@ -192,6 +193,7 @@
                                     <td class="wwe-1rank"><span>${llp.id}</span></td>
                                     <td class="wwe-align-left">${llp.name}</td>
                                     <td>${llp.companyStatus}</td>
+                                    <td><fmt:formatDate value="${llp.expiredDate}" pattern="dd/MM/yyyy"/></td>
                                     <td>${llp.companyType}</td>
                                     <td><a href="/secure/company/edit/${llp.id}">Edit</a></td>
                                 </tr>
