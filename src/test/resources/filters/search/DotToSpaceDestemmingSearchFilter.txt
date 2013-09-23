@@ -1,6 +1,12 @@
 log.debug("DotToSpaceStemmingSearchFilter");
 if(name.contains(".")) {
-  name = name.replace("."," ");
-  return companyDao.hasName(name);
+        name = name.replace("."," ");
+        log.debug("name after destemming: " + name);
+
+        // search reserved name
+        if(nameDao.hasName(name, 3)) return true;
+
+        // search existing
+        if(companyDao.hasName(name)) return true;
 }
 else return false;
