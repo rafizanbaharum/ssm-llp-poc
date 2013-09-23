@@ -248,7 +248,7 @@
                                     <label for="script">
                                         Script
                                     </label>
-                                    <textarea value="${filter.script}" class="required" name="script"
+                                    <textarea class="required" name="script"
                                               class="text" rows="20">${filter.script}</textarea>
                                 </p>
                             </div>

@@ -45,10 +45,16 @@ public class FilterController extends SecureControllerSupport {
     }
 
     @RequestMapping(value = "/update", method = {RequestMethod.POST})
-    public String update(@RequestParam Long id, @RequestParam String name, @RequestParam String description, @RequestParam String script, ModelMap model) {
+    public String update(@RequestParam Long id,
+                         @RequestParam String name,
+                         @RequestParam String description,
+                         @RequestParam String error,
+                         @RequestParam String script,
+                         ModelMap model) {
         SsmFilter n = filterDao.findById(id);
         n.setName(name);
         n.setDescription(description);
+        n.setError(error);
         n.setScript(script);
         filterDao.update(n, getCurrentUser());
         sessionFactory.getCurrentSession().flush();
