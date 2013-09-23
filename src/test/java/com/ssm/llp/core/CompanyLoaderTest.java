@@ -47,13 +47,13 @@ public class CompanyLoaderTest extends AbstractTransactionalJUnit4SpringContextT
             SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 
             SsmCompany company = new SsmLlpCompanyImpl();
-            company.setName("Alam Mekar LLP");
+            company.setName("ALAM MEKAR");
             company.setCompanyStatus(SsmCompanyStatus.WINDING);
             company.setExpiredDate(dateFormat.parse("31/12/2011"));
             companyDao.save(company, root);
 
             company = new SsmLlpCompanyImpl();
-            company.setName("Aliran Data LLP");
+            company.setName("ALIRAN DATA");
             company.setCompanyStatus(SsmCompanyStatus.WINDING);
             company.setExpiredDate(dateFormat.parse("31/12/2008"));
             companyDao.save(company, root);

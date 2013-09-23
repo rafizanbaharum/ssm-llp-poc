@@ -204,7 +204,7 @@ public class SsmNameDaoTest extends AbstractTransactionalJUnit4SpringContextTest
         sessionFactory.getCurrentSession().flush();
 
         SsmCompanyImpl name3 = new SsmLlpCompanyImpl();
-        name3.setName("MALAYSIAN CONSORTIUM");
+        name3.setName("FATIMAH KUIH-MUIH");
         name3.setCompanyStatus(SsmCompanyStatus.WINDING);
         name3.setExpiredDate(nextYear.getTime());
         companyDao.save(name3, root);
