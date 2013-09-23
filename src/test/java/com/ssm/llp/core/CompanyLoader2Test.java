@@ -47,7 +47,7 @@ public class CompanyLoader2Test extends AbstractTransactionalJUnit4SpringContext
             SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
             SsmCompany company = new SsmLlpCompanyImpl();
             company.setName("FATIMAH KUIH-MUIH");
-            company.setCompanyStatus(SsmCompanyStatus.WINDING);
+            company.setCompanyStatus(SsmCompanyStatus.ACTIVE);
             company.setExpiredDate(dateFormat.parse("01/01/2999"));
             companyDao.save(company, root);
         } catch (ParseException e) {
